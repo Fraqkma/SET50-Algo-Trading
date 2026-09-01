@@ -1,0 +1,13 @@
+numpy
+pandas
+scipy
+statsmodels
+scikit-learn
+numba
+matplotlib
+plotly
+pyyaml
+python-dotenv
+pydantic
+pytest
+jupyter

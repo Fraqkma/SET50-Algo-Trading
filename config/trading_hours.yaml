@@ -1,0 +1,12 @@
+# TODO: Confirm official competition trading session and API specification before
+# filling in exact times. Do not use these placeholders as trading assumptions.
+market:
+  open: "TODO"
+  close: "TODO"
+  timezone: "TODO"
+sessions:
+  pre_open: "TODO"
+  continuous_trading: "TODO"
+  close: "TODO"
+api:
+  submission_cutoff: "TODO"
