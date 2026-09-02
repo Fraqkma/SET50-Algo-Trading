@@ -29,7 +29,7 @@ src/
 ## Setup
 
 1. Create a Python 3.13+ environment.
-2. Install dependencies from `requirements.txt`.
+2. Install dependencies from `requirements.txt`.  pip install -r requirements.txt
 3. Review `config/config.yaml` and `config/trading_hours.yaml`.
 4. Run `python main.py` to confirm the skeleton initializes.
 
