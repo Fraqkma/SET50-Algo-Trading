@@ -1,0 +1,10 @@
+data_source: yfinance
+
+default_start_date: "2020-01-01"
+default_end_date: null
+interval: "1d"
+price_source: "raw"
+storage_format: "parquet"
+auto_discover_symbols: true
+skip_existing: true
+retry_count: 3

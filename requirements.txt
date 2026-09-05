@@ -6,6 +6,8 @@ scikit-learn
 numba
 matplotlib
 plotly
+pyarrow
+yfinance
 pyyaml
 python-dotenv
 pydantic

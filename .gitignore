@@ -23,8 +23,13 @@ venv/
 # Data and results outputs
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/constituents/
+!data/raw/constituents/set50_archive/
+!data/raw/constituents/set50_archive/**
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/constituents/
+!data/processed/constituents/historical_set50.csv
 data/features/*
 !data/features/.gitkeep
 results/backtests/*

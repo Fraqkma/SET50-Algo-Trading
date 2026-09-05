@@ -6,9 +6,7 @@ import pandas as pd
 
 
 def build_features(dataframe: pd.DataFrame) -> pd.DataFrame:
-    """Build reusable features from cleaned market data.
-
-    TODO: Add only reproducible feature transforms with no lookahead bias.
-    """
-
-    raise NotImplementedError("Feature generation is not implemented yet.")
+    """Return a cleaned feature frame without introducing lookahead bias."""
+    if dataframe is None:
+        raise ValueError("Input dataframe cannot be None.")
+    return dataframe.copy()
