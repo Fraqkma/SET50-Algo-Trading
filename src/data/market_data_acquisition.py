@@ -34,7 +34,7 @@ RAW_DIR = ROOT / "data" / "raw" / "market_data"
 REPORT_DIR = ROOT / "reports"
 REQUIRED_COLUMNS = ["Date", "Open", "High", "Low", "Close", "Volume"]
 ACTION_COLUMNS = ["Dividends", "Stock Splits"]
-SCRIPT_VERSION = "gate-2.2"
+SCRIPT_VERSION = "gate-2.3"
 STATUS_VALUES = ["SUCCESS", "PARTIAL", "PARTIAL_KNOWN_GAP", "FAILED", "NO_DATA"]
 CORPORATE_ACTION_NOTES = {
     "INTUCH": (
@@ -52,6 +52,7 @@ CORPORATE_ACTION_NOTES = {
 KNOWN_SUSPENSION_WINDOWS = {
     "BANPU": (date(2026, 7, 17), date(2026, 8, 3)),
 }
+DEFAULT_RESEARCH_END = date(2026, 9, 5)
 
 
 @dataclass
@@ -66,6 +67,7 @@ class AcquisitionRecord:
     rows: int = 0
     status: str = "FAILED"
     error: str = ""
+    validation_issues: str = ""
     downloaded_at: str = ""
     output_file: str = ""
 
@@ -186,8 +188,45 @@ def validate_raw_frame(
             window = KNOWN_SUSPENSION_WINDOWS.get((symbol or "").upper())
             if window and window[0] <= gap_start and gap_end <= window[1]:
                 continue
-            issues.append("large calendar date gap (>10 days)")
+            issues.append(
+                "large calendar date gap (>10 days): "
+                f"{dates.iloc[index - 1].date()} -> {dates.iloc[index].date()} "
+                f"({int((dates.iloc[index] - dates.iloc[index - 1]).days - 1)} calendar days)"
+            )
             break
+    return issues
+
+
+def coverage_issues(
+    frame: pd.DataFrame,
+    requested_start: str | date,
+    requested_end: str | date,
+    reference_dates: pd.Series | None = None,
+) -> list[str]:
+    """Report coverage gaps without filling or changing the raw frame."""
+    if frame.empty or "Date" not in frame.columns:
+        return ["no date coverage"]
+    dates = pd.to_datetime(frame["Date"], errors="coerce").dropna().dt.normalize()
+    start = pd.Timestamp(requested_start).normalize()
+    end = pd.Timestamp(requested_end).normalize()
+    issues: list[str] = []
+    if dates.empty:
+        return ["no date coverage"]
+    if reference_dates is not None:
+        reference = pd.to_datetime(reference_dates, errors="coerce").dropna().dt.normalize()
+        reference = reference[(reference >= start) & (reference <= end)].drop_duplicates().sort_values()
+        missing = reference[~reference.isin(dates)]
+        if not missing.empty:
+            missing_text = ", ".join(missing.dt.strftime("%Y-%m-%d").tolist())
+            issues.append(
+                "missing reference trading dates: "
+                f"{len(missing)} ({missing.min().date()} to {missing.max().date()}): {missing_text}"
+            )
+    else:
+        if dates.min() > start:
+            issues.append(f"coverage starts after requested start: {dates.min().date()} > {start.date()}")
+        if dates.max() < end:
+            issues.append(f"coverage ends before requested end: {dates.max().date()} < {end.date()}")
     return issues
 
 
@@ -278,6 +317,7 @@ def _git_commit(project_root: Path) -> str:
 
 def acquire(
     project_root: Path = ROOT,
+    end_date: date | str | None = DEFAULT_RESEARCH_END,
     sleep_seconds: float = 1.0,
     retries: int = 3,
     backoff_seconds: float = 2.0,
@@ -290,7 +330,12 @@ def acquire(
     audit_path = project_root / "reports" / "yahoo_ticker_audit.csv"
     raw_dir = project_root / "data" / "raw" / "market_data"
     report_dir = project_root / "reports"
-    symbols, start_date, end_date = historical_universe(constituents_path)
+    symbols, start_date, historical_end_date = historical_universe(constituents_path)
+    if end_date is None:
+        end_date = historical_end_date
+    requested_end = pd.Timestamp(end_date).date()
+    if requested_end < start_date:
+        raise ValueError(f"end_date {requested_end} precedes historical start {start_date}")
     verified, unresolved = verified_mapping(audit_path)
     audit_symbols = set(verified["SET Symbol"]) | set(unresolved["SET Symbol"])
     universe_symbols = set(symbols["symbol"])
@@ -300,7 +345,7 @@ def acquire(
             f"missing={sorted(universe_symbols - audit_symbols)}, "
             f"unexpected={sorted(audit_symbols - universe_symbols)}"
         )
-    start_text, end_text = start_date.isoformat(), end_date.isoformat()
+    start_text, end_text = start_date.isoformat(), requested_end.isoformat()
     raw_dir.mkdir(parents=True, exist_ok=True)
     report_dir.mkdir(parents=True, exist_ok=True)
     records: list[AcquisitionRecord] = []
@@ -309,7 +354,7 @@ def acquire(
 
     # yfinance treats end as exclusive; add one day while retaining the requested
     # inclusive constituent bound in every report.
-    end_exclusive = (end_date + timedelta(days=1)).isoformat()
+    end_exclusive = (requested_end + timedelta(days=1)).isoformat()
     for index, (_, row) in enumerate(verified.iterrows(), start=1):
         ticker = row["Yahoo Ticker"]
         symbol = row["SET Symbol"]
@@ -352,7 +397,8 @@ def acquire(
             record.status = "NO_DATA" if raw_frame.empty else ("PARTIAL" if issues else "SUCCESS")
             if symbol in CORPORATE_ACTION_NOTES and record.status != "NO_DATA":
                 record.status = "PARTIAL_KNOWN_GAP"
-            record.error = "; ".join(issues)
+            record.validation_issues = "; ".join(issues)
+            record.error = record.validation_issues
             if symbol in CORPORATE_ACTION_NOTES:
                 record.error = f"{record.error}; {CORPORATE_ACTION_NOTES[symbol]}".strip("; ").strip()
             print(f"Status: {record.status} | Rows: {record.rows} | Date: {record.actual_first_date} -> {record.actual_last_date}")
@@ -375,7 +421,7 @@ def _write_reports(records: list[AcquisitionRecord], symbols: pd.DataFrame, veri
         "set_symbol": "SET Symbol", "yahoo_ticker": "Yahoo Ticker", "source": "Source",
         "requested_start": "Requested Start", "requested_end": "Requested End",
         "actual_first_date": "Actual First Date", "actual_last_date": "Actual Last Date",
-        "rows": "Rows", "status": "Status", "error": "Error", "downloaded_at": "Downloaded At",
+        "rows": "Rows", "status": "Status", "error": "Error", "validation_issues": "Validation Issues", "downloaded_at": "Downloaded At",
         "output_file": "Output File",
     }).to_csv(report_dir / "market_data_acquisition.csv", index=False)
     counts = pd.Series([record.status for record in records]).value_counts().to_dict()
@@ -414,12 +460,71 @@ def _write_reports(records: list[AcquisitionRecord], symbols: pd.DataFrame, veri
     (report_dir / "data_acquisition_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def report_existing_raw(
+    project_root: Path = ROOT,
+    end_date: date | str = DEFAULT_RESEARCH_END,
+) -> list[AcquisitionRecord]:
+    """Rebuild acquisition reports from existing raw files without downloading or writing raw data."""
+    constituents_path = project_root / "data" / "processed" / "constituents" / "historical_set50.csv"
+    audit_path = project_root / "reports" / "yahoo_ticker_audit.csv"
+    raw_dir = project_root / "data" / "raw" / "market_data"
+    symbols, start_date, _ = historical_universe(constituents_path)
+    requested_end = pd.Timestamp(end_date).date()
+    verified, unresolved = verified_mapping(audit_path)
+    records = [_record_unresolved(row, start_date.isoformat(), requested_end.isoformat()) for _, row in unresolved.iterrows()]
+    reference_dates: pd.Series | None = None
+    reference_path = raw_dir / "ADVANC_BK.csv"
+    if reference_path.exists():
+        reference_dates = pd.read_csv(reference_path)["Date"]
+    for _, row in verified.iterrows():
+        ticker = row["Yahoo Ticker"]
+        symbol = row["SET Symbol"]
+        output = raw_dir / f"{ticker.replace('.', '_')}.csv"
+        record = AcquisitionRecord(
+            symbol, ticker, "Yahoo Finance via yfinance", start_date.isoformat(), requested_end.isoformat(),
+            output_file=str(output.relative_to(project_root)), downloaded_at=datetime.now(timezone.utc).isoformat(),
+        )
+        if not output.exists():
+            record.status = "NO_DATA"
+            record.error = "raw file does not exist"
+            records.append(record)
+            continue
+        frame = pd.read_csv(output)
+        record.rows = len(frame)
+        if not frame.empty and "Date" in frame:
+            dates = pd.to_datetime(frame["Date"], errors="coerce")
+            record.actual_first_date = str(dates.min().date())
+            record.actual_last_date = str(dates.max().date())
+        issues = validate_raw_frame(frame, symbol=symbol)
+        membership = symbols.loc[symbols["symbol"].eq(symbol)].iloc[0]
+        membership_start = max(start_date, membership["first_membership"].date())
+        membership_end = min(requested_end, membership["last_membership"].date())
+        expected_dates = None
+        if reference_dates is not None:
+            expected_dates = pd.to_datetime(reference_dates, errors="coerce")
+            expected_dates = expected_dates[
+                (expected_dates.dt.date >= membership_start)
+                & (expected_dates.dt.date <= membership_end)
+            ]
+        issues.extend(coverage_issues(frame, membership_start, membership_end, expected_dates))
+        record.validation_issues = "; ".join(issues)
+        record.error = record.validation_issues
+        record.status = "NO_DATA" if frame.empty else ("PARTIAL" if issues else "SUCCESS")
+        if symbol in CORPORATE_ACTION_NOTES and record.status != "NO_DATA":
+            record.status = "PARTIAL_KNOWN_GAP"
+            record.error = f"{record.error}; {CORPORATE_ACTION_NOTES[symbol]}".strip("; ").strip()
+        records.append(record)
+    _write_reports(records, symbols, verified, unresolved, start_date.isoformat(), requested_end.isoformat(), project_root)
+    return records
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Acquire verified Gate 1 Yahoo tickers as raw OHLCV data.")
     parser.add_argument("--force", action="store_true", help="redownload even valid existing raw files")
+    parser.add_argument("--end", default=DEFAULT_RESEARCH_END.isoformat(), help="inclusive research end date")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    records = acquire(force=args.force)
+    records = acquire(force=args.force, end_date=args.end)
     counts = pd.Series([record.status for record in records]).value_counts().to_dict()
     print("\n==============================\nMARKET DATA ACQUISITION SUMMARY\n==============================")
     print(f"Total:       {len(records)}")

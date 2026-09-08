@@ -63,3 +63,21 @@ The pipeline expects this file to be supplied locally. If no historical constitu
 ## Results
 
 The project keeps raw downloaded data, cleaned/processed data, and validation reports under the repository's `data/` and `results/` directories. No trading strategy or backtest claims are made at this stage.
+
+## Data Exploration UI
+
+The repository includes a read-only Streamlit UI for inspecting the historical
+SET50 universe, Yahoo ticker audit, acquisition reports, raw OHLCV, and data
+quality warnings. It discovers the current Gate 2 raw directory from
+`reports/data_acquisition_metadata.json` and falls back to the legacy parquet
+layout when present. It never fills, cleans, or overwrites source data.
+
+Install dependencies and start it from the repository root:
+
+```powershell
+python -m pip install -r requirements.txt
+python -m streamlit run ui/app.py
+```
+
+The research-result sections are placeholders only. No strategy, feature,
+backtest, optimization, or paper-trading logic is implemented by the UI.

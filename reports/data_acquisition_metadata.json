@@ -1,13 +1,13 @@
 {
-  "acquisition_timestamp": "2026-09-07T16:05:10.679782+00:00",
-  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "acquisition_timestamp": "2026-09-08T17:26:21.073955+00:00",
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
   "platform": "Windows-11-10.0.26200-SP0",
   "yfinance_version": "1.7.0",
   "pandas_version": "3.0.5",
   "requested_date_range": {
     "start_inclusive": "2023-01-01",
-    "end_inclusive": "2026-12-31",
-    "yfinance_end_exclusive": "2027-01-01"
+    "end_inclusive": "2026-09-05",
+    "yfinance_end_exclusive": "2026-09-06"
   },
   "historical_symbols": 63,
   "verified_tickers": 62,
@@ -30,7 +30,7 @@
   "retries": 3,
   "backoff_seconds": 2.0,
   "script": "src/data/market_data_acquisition.py",
-  "script_version": "gate-2.2",
-  "git_commit": "4b838e8ade46d84ba290bcaa47ecde696f5f16d4",
+  "script_version": "gate-2.3",
+  "git_commit": "0e817abddd2e816572f5c3f5df1e2fb29e03fac8",
   "strategy_or_backtest": false
 }

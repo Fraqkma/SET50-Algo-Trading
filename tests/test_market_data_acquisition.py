@@ -12,6 +12,7 @@ from src.data.market_data_acquisition import (
     validate_raw_frame,
     verified_mapping,
     valid_existing_file,
+    coverage_issues,
 )
 
 
@@ -29,6 +30,19 @@ def test_historical_universe_and_date_range():
     assert symbols["symbol"].tolist() == ["AAA", "BBB"]
     assert start.isoformat() == "2023-01-01"
     assert end.isoformat() == "2024-06-30"
+
+
+def test_acquire_uses_explicit_research_end_date(tmp_path):
+    _write_gate2_inputs(tmp_path)
+
+    def downloader(**kwargs):
+        assert kwargs["start"] == "2024-01-01"
+        assert kwargs["end"] == "2024-01-11"
+        return _download_frame()
+
+    records = acquire(tmp_path, end_date="2024-01-10", sleep_seconds=0, retries=0, downloader=downloader)
+
+    assert all(record.requested_end == "2024-01-10" for record in records)
 
 
 def test_verified_mapping_filters_unresolved():
@@ -94,6 +108,18 @@ def test_banpu_known_suspension_gap_is_whitelisted():
         }
     )
     assert validate_raw_frame(frame, symbol="BANPU") == []
+
+
+def test_coverage_reports_trailing_missing_dates_without_mutating_frame():
+    frame = pd.DataFrame(
+        {
+            "Date": ["2026-08-10", "2026-08-11"], "Open": [10, 10],
+            "High": [10, 10], "Low": [10, 10], "Close": [10, 10], "Volume": [1, 1],
+        }
+    )
+    issues = coverage_issues(frame, "2026-08-01", "2026-09-05", pd.Series(["2026-08-10", "2026-08-11", "2026-08-12"]))
+    assert any(issue.startswith("missing reference trading dates") for issue in issues)
+    assert frame["Date"].tolist() == ["2026-08-10", "2026-08-11"]
 
 
 def test_resume_validation_rejects_malformed_file():
