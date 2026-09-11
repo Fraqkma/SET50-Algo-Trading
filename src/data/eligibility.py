@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import csv
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from .market_data_remediation import APPROVED_STATUSES
@@ -81,6 +81,7 @@ class MarketDataEligibilityGate:
             ),
             "set_symbol",
         )
+        self._raw_date_cache: dict[Path, set[date]] = {}
 
     def assess(self, symbol: str, requested_date: str | date | datetime) -> EligibilityDecision:
         """Return the deterministic eligibility decision for ``(symbol, date)``."""
@@ -160,6 +161,48 @@ class MarketDataEligibilityGate:
             validation_issues=acquisition.get("Validation Issues") or None,
         )
 
+    def approved_manifest_record(self, symbol: str) -> dict[str, str] | None:
+        """Return the explicit manifest record used to locate approved data."""
+        return self._manifest.get(str(symbol).strip().upper())
+
+    def approved_raw_file(self, symbol: str) -> Path | None:
+        """Resolve the manifest's explicit raw path without assuming its first date is a member date."""
+        record = self.approved_manifest_record(symbol)
+        if record is None or record.get("approval_status") not in APPROVED_STATUSES:
+            return None
+        reported = record.get("raw_file", "")
+        if not reported:
+            return None
+        candidate = (self.project_root / Path(reported)).resolve()
+        try:
+            candidate.relative_to(self.project_root)
+        except ValueError as exc:
+            raise ValueError(f"Approved raw path escapes project root: {reported}") from exc
+        return candidate
+
+    def membership_end(self, symbol: str, requested_date: str | date | datetime) -> date | None:
+        """Return the active historical SET50 membership end for a date."""
+        normalized_symbol = str(symbol).strip().upper()
+        target_date = self._parse_date(requested_date)
+        periods = sorted(
+            (
+                date.fromisoformat(row["effective_from"]),
+                date.fromisoformat(row["effective_to"]),
+            )
+            for row in self._constituents
+            if row["symbol"].strip().upper() == normalized_symbol
+        )
+        for index, (start, end) in enumerate(periods):
+            if not start <= target_date <= end:
+                continue
+            contiguous_end = end
+            for next_start, next_end in periods[index + 1:]:
+                if next_start > contiguous_end + timedelta(days=1):
+                    break
+                contiguous_end = max(contiguous_end, next_end)
+            return contiguous_end
+        return None
+
     @staticmethod
     def _read_csv(path: Path, required_columns: set[str]) -> list[dict[str, str]]:
         if not path.is_file():
@@ -212,19 +255,21 @@ class MarketDataEligibilityGate:
             raise ValueError(f"Reported raw path escapes project root: {reported_path}") from exc
         return candidate
 
-    @staticmethod
-    def _contains_date(raw_file: Path, target_date: date) -> bool:
+    def _contains_date(self, raw_file: Path, target_date: date) -> bool:
+        if raw_file in self._raw_date_cache:
+            return target_date in self._raw_date_cache[raw_file]
+        dates: set[date] = set()
         with raw_file.open("r", encoding="utf-8-sig", newline="") as handle:
             reader = csv.DictReader(handle)
             if "Date" not in (reader.fieldnames or []):
                 return False
             for row in reader:
                 try:
-                    if date.fromisoformat((row.get("Date") or "").strip()) == target_date:
-                        return True
+                    dates.add(date.fromisoformat((row.get("Date") or "").strip()))
                 except ValueError:
                     continue
-        return False
+        self._raw_date_cache[raw_file] = dates
+        return target_date in dates
 
     @staticmethod
     def _exclude(symbol: str, target_date: date, reason: str, **details: object) -> EligibilityDecision:
