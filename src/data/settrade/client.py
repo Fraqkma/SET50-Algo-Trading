@@ -3,15 +3,46 @@
 from __future__ import annotations
 
 import os
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, TypeVar
+from typing import Any, Callable, Iterator, TypeVar
 
 from dotenv import load_dotenv
 
 from .rate_limiter import RateLimiter
 
 T = TypeVar("T")
+
+
+@contextmanager
+def _sdk_import_environment() -> Iterator[None]:
+    """Give the SDK a writable local home only while it is imported.
+
+    ``settrade-v2`` creates its log handler at import time from the Windows
+    home-directory environment variables.  The managed runtime can read the
+    user's normal SDK directory but cannot write there.  Keeping the override
+    scoped to import preserves the caller's environment, credentials, and SDK
+    configuration behavior while making only the SDK's local log/config path
+    writable.
+    """
+    runtime_home = Path(__file__).resolve().parents[3] / ".settrade-runtime"
+    # The Windows SDK appends ``AppData`` to USERPROFILE before creating its
+    # config and log paths.
+    (runtime_home / "AppData").mkdir(parents=True, exist_ok=True)
+    names = ("HOMEDRIVE", "HOMEPATH", "USERPROFILE")
+    previous = {name: os.environ.get(name) for name in names}
+    os.environ["HOMEDRIVE"] = ""
+    os.environ["HOMEPATH"] = ""
+    os.environ["USERPROFILE"] = str(runtime_home)
+    try:
+        yield
+    finally:
+        for name, value in previous.items():
+            if value is None:
+                os.environ.pop(name, None)
+            else:
+                os.environ[name] = value
 
 
 def redact_error(error: BaseException, secrets: tuple[str, ...] = ()) -> str:
@@ -67,8 +98,9 @@ class SettradeClient:
 
     def authenticate(self) -> Any:
         """Perform the real SDK login and return the SDK ``Investor`` instance."""
-        from settrade_v2 import Investor
-        from settrade_v2.config import config as sdk_config
+        with _sdk_import_environment():
+            from settrade_v2 import Investor
+            from settrade_v2.config import config as sdk_config
 
         # The official SDK's SANDBOX alias is a UAT environment.  Set this in
         # memory so a collector never edits the user's SDK config file.

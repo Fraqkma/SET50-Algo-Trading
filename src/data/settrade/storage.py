@@ -53,7 +53,10 @@ class PilotStorage:
             if key in existing:
                 duplicates += 1
                 previous = existing[key]
-                if any(str(row.get(field, "")) != str(previous.get(field, "")) for field in fieldnames if field not in key_fields):
+                # Retrieval/session metadata and unresolved turnover encodings may
+                # legitimately vary between reads. Core OHLCV is the conflict key.
+                core_fields = {"open", "high", "low", "close", "volume"}
+                if any(str(row.get(field, "")) != str(previous.get(field, "")) for field in core_fields if field in fieldnames):
                     conflicts += 1
                 continue
             existing[key] = {field: str(row.get(field, "")) for field in fieldnames}

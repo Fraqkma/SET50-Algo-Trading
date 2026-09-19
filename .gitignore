@@ -16,6 +16,9 @@ venv/
 
 # Environment files
 .env
+.settrade-runtime/
+logs/settrade/
+reports/runtime/
 
 # Notebook checkpoints
 .ipynb_checkpoints/
