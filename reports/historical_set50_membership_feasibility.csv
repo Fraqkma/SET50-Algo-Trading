@@ -1,0 +1,5 @@
+target,periods_required,membership_publicly_listed,official_files_verified_in_repo,access_status,price_feasibility,identity_risk,research_readiness
+2016-2026,22,true,false,SET member login or licensed extract required,Partial pilot evidence; full symbol coverage untested,Medium,NOT_READY
+2010-2026,34,true,false,SET member login or licensed extract required,Partial pilot evidence; predecessor and delisted coverage untested,Medium-high,NOT_READY
+2006-2026,42,true,false,SET member login or licensed extract required,Unknown for broad historical constituent set,High,NOT_READY
+2023-2026,8,true,true,Audited repository PDFs,Existing approved current path only,Known boundary cases,APPROVED_CURRENT_PATH_ONLY

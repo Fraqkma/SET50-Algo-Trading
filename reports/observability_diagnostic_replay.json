@@ -1,0 +1,11 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "symbols": 20,
+  "qualification_rows": 13500,
+  "candidate_rows": 1624,
+  "production_mutated": false,
+  "limitations": [
+    "persistence is diagnostic only; production strategy unchanged",
+    "future returns are labels and never used in ranking"
+  ]
+}

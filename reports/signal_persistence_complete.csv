@@ -1,0 +1,6 @@
+metric,value
+qualification_rows,13500
+enter_count,657
+exit_count,651
+one_row_qualification_streaks,657
+two_row_persistence_proxy,requires signal replay; state is now available

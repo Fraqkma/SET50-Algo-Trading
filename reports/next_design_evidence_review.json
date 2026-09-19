@@ -1,0 +1,13 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "D1_lower_churn_longer_horizon_trend_momentum": {
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "evidence": ["momentum horizons did not show improving future-return quality", "trend confirmation was near zero", "persistence-2 impact on orders was not replayed"]
+  },
+  "D2_risk_liquidity_aware": {
+    "classification": "PARTIALLY_SUPPORTED",
+    "evidence": ["volatility had a weak positive rank relationship with future returns", "volume relationship was weak", "cash/non-fill and concentration effects remain observable in execution reports"]
+  },
+  "D0_if_approved": "A minimal lower-turnover diagnostic that changes only rebalance/holding persistence after a separately approved protocol; do not implement or backtest yet.",
+  "human_approval_required": true
+}

@@ -1,0 +1,21 @@
+timestamp,symbol,last,bid,ask,bid_size,ask_size,market_status,source,retrieved_at,timezone
+,BDMS,,,,,,Close,settrade,2026-09-18 02:13:57.124441+00:00,UTC
+,BGRIM,,,,,,Close,settrade,2026-09-18 02:13:57.266089+00:00,UTC
+,CENTEL,,,,,,Close,settrade,2026-09-18 02:13:57.606017+00:00,UTC
+,COM7,,,,,,Close,settrade,2026-09-18 02:13:57.883064+00:00,UTC
+,GLOBAL,,,,,,Close,settrade,2026-09-18 02:13:58.234179+00:00,UTC
+,GULF,,,,,,Close,settrade,2026-09-18 02:13:58.546998+00:00,UTC
+,HMPRO,,,,,,Close,settrade,2026-09-18 02:13:58.854300+00:00,UTC
+,IVL,,,,,,Close,settrade,2026-09-18 02:13:59.206643+00:00,UTC
+,KKP,,,,,,Close,settrade,2026-09-18 02:13:59.555261+00:00,UTC
+,KTB,,,,,,Close,settrade,2026-09-18 02:13:59.872751+00:00,UTC
+,LH,,,,,,Close,settrade,2026-09-18 02:14:00.218140+00:00,UTC
+,MRDIYT,,,,,,Close,settrade,2026-09-18 02:14:00.562914+00:00,UTC
+,MTC,,,,,,Close,settrade,2026-09-18 02:14:00.863424+00:00,UTC
+,OSP,,,,,,Close,settrade,2026-09-18 02:14:01.187028+00:00,UTC
+,PTTGC,,,,,,Close,settrade,2026-09-18 02:14:01.580017+00:00,UTC
+,RATCH,,,,,,Close,settrade,2026-09-18 02:14:01.898366+00:00,UTC
+,SCGP,,,,,,Close,settrade,2026-09-18 02:14:02.190352+00:00,UTC
+,THAI,,,,,,Close,settrade,2026-09-18 02:14:02.530919+00:00,UTC
+,TIDLOR,,,,,,Close,settrade,2026-09-18 02:14:02.864509+00:00,UTC
+,TOP,,,,,,Close,settrade,2026-09-18 02:14:03.202890+00:00,UTC

@@ -1,0 +1,12 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "candidate_rows": 1624,
+  "qualification_rows": 13500,
+  "one_row_entries": 657,
+  "enter_count": 657,
+  "exit_count": 651,
+  "limitations": [
+    "persistence-2 turnover simulation is not a production change and requires a separate signal-to-order replay",
+    "candidate forward returns overlap and are descriptive"
+  ]
+}

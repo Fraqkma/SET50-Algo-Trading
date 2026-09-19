@@ -1,0 +1,1543 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "rows": [
+    {
+      "symbol": "BDMS",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.00805299679261435,
+      "return_correlation": 0.20194394684770578,
+      "forward_5d_mean": -0.001852350394097576,
+      "positive_forward_5d_rate": 0.38496583143507973,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.026007376725216233,
+      "return_correlation": 0.1251333688068306,
+      "forward_5d_mean": -0.0019362116292345017,
+      "positive_forward_5d_rate": 0.37828162291169454,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.06153974741553405,
+      "return_correlation": 0.09253053018111028,
+      "forward_5d_mean": -0.0015955521095638839,
+      "positive_forward_5d_rate": 0.38431876606683807,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.4057971014492754,
+      "return_correlation": 0.26000913412729887,
+      "forward_5d_mean": -0.0018274904783048384,
+      "positive_forward_5d_rate": 0.3835005574136009,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.3779264214046823,
+      "return_correlation": 0.15868729046287036,
+      "forward_5d_mean": -0.0018274904783048384,
+      "positive_forward_5d_rate": 0.3835005574136009,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.3734671125975474,
+      "return_correlation": -0.028728595305299844,
+      "forward_5d_mean": -0.0018274904783048384,
+      "positive_forward_5d_rate": 0.3835005574136009,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.013075442343315612,
+      "return_correlation": 0.008411647674864622,
+      "forward_5d_mean": -0.001852350394097576,
+      "positive_forward_5d_rate": 0.38496583143507973,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 45707982.81911263,
+      "return_correlation": 0.01925898216514494,
+      "forward_5d_mean": -0.001859765706385031,
+      "positive_forward_5d_rate": 0.3845278725824801,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BDMS",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0284950720649966,
+      "return_correlation": 0.03608363622481229,
+      "forward_5d_mean": -0.001859765706385031,
+      "positive_forward_5d_rate": 0.3845278725824801,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "momentum_20",
+      "observations": 585,
+      "mean": -0.041715817569204054,
+      "return_correlation": 0.223888759402889,
+      "forward_5d_mean": -0.0098577724736672,
+      "positive_forward_5d_rate": 0.40683760683760684,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "momentum_60",
+      "observations": 545,
+      "mean": -0.12206923473218038,
+      "return_correlation": 0.11944764346303427,
+      "forward_5d_mean": -0.010529530267171072,
+      "positive_forward_5d_rate": 0.4036697247706422,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "momentum_120",
+      "observations": 485,
+      "mean": -0.23293178079829002,
+      "return_correlation": 0.033773548387622365,
+      "forward_5d_mean": -0.010462861140845782,
+      "positive_forward_5d_rate": 0.4041237113402062,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "close_gt_sma20",
+      "observations": 604,
+      "mean": 0.34271523178807944,
+      "return_correlation": 0.2721911798129469,
+      "forward_5d_mean": -0.009810981998157503,
+      "positive_forward_5d_rate": 0.40397350993377484,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "close_gt_sma50",
+      "observations": 604,
+      "mean": 0.2682119205298013,
+      "return_correlation": 0.1448016268938306,
+      "forward_5d_mean": -0.009810981998157503,
+      "positive_forward_5d_rate": 0.40397350993377484,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "sma20_gt_sma50",
+      "observations": 604,
+      "mean": 0.2814569536423841,
+      "return_correlation": -0.01725954254148992,
+      "forward_5d_mean": -0.009810981998157503,
+      "positive_forward_5d_rate": 0.40397350993377484,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "volatility_20",
+      "observations": 585,
+      "mean": 0.021880790781427167,
+      "return_correlation": 0.0811694861955163,
+      "forward_5d_mean": -0.0098577724736672,
+      "positive_forward_5d_rate": 0.40683760683760684,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "volume_sma_20",
+      "observations": 586,
+      "mean": 13220852.482935153,
+      "return_correlation": 0.07405571324703945,
+      "forward_5d_mean": -0.00986218656622276,
+      "positive_forward_5d_rate": 0.4061433447098976,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "BGRIM",
+      "feature": "volume_ratio_20",
+      "observations": 586,
+      "mean": 1.0189215567104508,
+      "return_correlation": -0.06408089595669633,
+      "forward_5d_mean": -0.00986218656622276,
+      "positive_forward_5d_rate": 0.4061433447098976,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "momentum_20",
+      "observations": 588,
+      "mean": -0.009470869721868143,
+      "return_correlation": 0.1869026995703156,
+      "forward_5d_mean": -0.0019374772284943317,
+      "positive_forward_5d_rate": 0.45918367346938777,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "momentum_60",
+      "observations": 548,
+      "mean": -0.04759571556721756,
+      "return_correlation": 0.15650176949858172,
+      "forward_5d_mean": -0.002738219658248584,
+      "positive_forward_5d_rate": 0.45072992700729925,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "momentum_120",
+      "observations": 488,
+      "mean": -0.0991262350056894,
+      "return_correlation": 0.13093358573790853,
+      "forward_5d_mean": -0.0016484942988849514,
+      "positive_forward_5d_rate": 0.4713114754098361,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "close_gt_sma20",
+      "observations": 607,
+      "mean": 0.46622734761120266,
+      "return_correlation": 0.2515255147139354,
+      "forward_5d_mean": -0.0016694933726745789,
+      "positive_forward_5d_rate": 0.4645799011532125,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "close_gt_sma50",
+      "observations": 607,
+      "mean": 0.33278418451400327,
+      "return_correlation": 0.16481615693675342,
+      "forward_5d_mean": -0.0016694933726745789,
+      "positive_forward_5d_rate": 0.4645799011532125,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "sma20_gt_sma50",
+      "observations": 607,
+      "mean": 0.31960461285008235,
+      "return_correlation": -0.08365384270336192,
+      "forward_5d_mean": -0.0016694933726745789,
+      "positive_forward_5d_rate": 0.4645799011532125,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "volatility_20",
+      "observations": 588,
+      "mean": 0.019199044903133112,
+      "return_correlation": -0.009372261238893924,
+      "forward_5d_mean": -0.0019374772284943317,
+      "positive_forward_5d_rate": 0.45918367346938777,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "volume_sma_20",
+      "observations": 589,
+      "mean": 3412255.5517826825,
+      "return_correlation": 0.03842932800365188,
+      "forward_5d_mean": -0.001868300831764823,
+      "positive_forward_5d_rate": 0.4601018675721562,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "CENTEL",
+      "feature": "volume_ratio_20",
+      "observations": 589,
+      "mean": 1.0224631650337572,
+      "return_correlation": -0.08342313536560363,
+      "forward_5d_mean": -0.001868300831764823,
+      "positive_forward_5d_rate": 0.4601018675721562,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "momentum_20",
+      "observations": 754,
+      "mean": 0.003680512174582835,
+      "return_correlation": 0.21426728437772735,
+      "forward_5d_mean": 0.0010464849368101632,
+      "positive_forward_5d_rate": 0.46021220159151194,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "momentum_60",
+      "observations": 714,
+      "mean": 0.00952004069898355,
+      "return_correlation": 0.1125842351971937,
+      "forward_5d_mean": 0.0014857320818339808,
+      "positive_forward_5d_rate": 0.46078431372549017,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "momentum_120",
+      "observations": 654,
+      "mean": 4.3435798969108436e-05,
+      "return_correlation": 0.0738345539717781,
+      "forward_5d_mean": 0.0023553769874948985,
+      "positive_forward_5d_rate": 0.463302752293578,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "close_gt_sma20",
+      "observations": 773,
+      "mean": 0.46054333764553684,
+      "return_correlation": 0.2620629879787927,
+      "forward_5d_mean": 0.0005339696696836918,
+      "positive_forward_5d_rate": 0.4553686934023286,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "close_gt_sma50",
+      "observations": 773,
+      "mean": 0.45278137128072443,
+      "return_correlation": 0.1459118298415014,
+      "forward_5d_mean": 0.0005339696696836918,
+      "positive_forward_5d_rate": 0.4553686934023286,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "sma20_gt_sma50",
+      "observations": 773,
+      "mean": 0.4346701164294955,
+      "return_correlation": -0.019883245464836902,
+      "forward_5d_mean": 0.0005339696696836918,
+      "positive_forward_5d_rate": 0.4553686934023286,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "volatility_20",
+      "observations": 754,
+      "mean": 0.02310419978812069,
+      "return_correlation": 0.08781668373862127,
+      "forward_5d_mean": 0.0010464849368101632,
+      "positive_forward_5d_rate": 0.46021220159151194,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "volume_sma_20",
+      "observations": 755,
+      "mean": 12845599.278145695,
+      "return_correlation": 0.03139178349502896,
+      "forward_5d_mean": 0.001098853064421298,
+      "positive_forward_5d_rate": 0.4609271523178808,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "COM7",
+      "feature": "volume_ratio_20",
+      "observations": 755,
+      "mean": 1.0118192734394444,
+      "return_correlation": -0.08627983801631409,
+      "forward_5d_mean": 0.001098853064421298,
+      "positive_forward_5d_rate": 0.4609271523178808,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "momentum_20",
+      "observations": 585,
+      "mean": -0.038892926643449885,
+      "return_correlation": 0.2154806057250142,
+      "forward_5d_mean": -0.009894700482243878,
+      "positive_forward_5d_rate": 0.40854700854700854,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "momentum_60",
+      "observations": 545,
+      "mean": -0.09772759890764844,
+      "return_correlation": 0.13436006334168546,
+      "forward_5d_mean": -0.009959872668998537,
+      "positive_forward_5d_rate": 0.4036697247706422,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "momentum_120",
+      "observations": 485,
+      "mean": -0.15300932111787713,
+      "return_correlation": 0.10656011140718265,
+      "forward_5d_mean": -0.00964648932886326,
+      "positive_forward_5d_rate": 0.41237113402061853,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "close_gt_sma20",
+      "observations": 604,
+      "mean": 0.3890728476821192,
+      "return_correlation": 0.24135214216202072,
+      "forward_5d_mean": -0.010066821315934848,
+      "positive_forward_5d_rate": 0.4105960264900662,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "close_gt_sma50",
+      "observations": 604,
+      "mean": 0.32781456953642385,
+      "return_correlation": 0.15934789974145486,
+      "forward_5d_mean": -0.010066821315934848,
+      "positive_forward_5d_rate": 0.4105960264900662,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "sma20_gt_sma50",
+      "observations": 604,
+      "mean": 0.28807947019867547,
+      "return_correlation": 0.008587712363443195,
+      "forward_5d_mean": -0.010066821315934848,
+      "positive_forward_5d_rate": 0.4105960264900662,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "volatility_20",
+      "observations": 585,
+      "mean": 0.020613519118613626,
+      "return_correlation": -0.03113586689107926,
+      "forward_5d_mean": -0.009894700482243878,
+      "positive_forward_5d_rate": 0.40854700854700854,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "volume_sma_20",
+      "observations": 586,
+      "mean": 11170921.352474403,
+      "return_correlation": -0.02766282360739896,
+      "forward_5d_mean": -0.009861040340311185,
+      "positive_forward_5d_rate": 0.40955631399317405,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "GLOBAL",
+      "feature": "volume_ratio_20",
+      "observations": 586,
+      "mean": 1.0152705154070518,
+      "return_correlation": -0.0740839866471925,
+      "forward_5d_mean": -0.009861040340311185,
+      "positive_forward_5d_rate": 0.40955631399317405,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.015874963943398556,
+      "return_correlation": 0.20438380133387193,
+      "forward_5d_mean": -0.0038706093509595046,
+      "positive_forward_5d_rate": 0.37471526195899774,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.05109628647666947,
+      "return_correlation": 0.09105535835056028,
+      "forward_5d_mean": -0.003977567213698322,
+      "positive_forward_5d_rate": 0.36754176610978523,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.11443457790266884,
+      "return_correlation": 0.09673883020240538,
+      "forward_5d_mean": -0.004157755696060311,
+      "positive_forward_5d_rate": 0.3676092544987147,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.399108138238573,
+      "return_correlation": 0.26915755250232815,
+      "forward_5d_mean": -0.004200206475728368,
+      "positive_forward_5d_rate": 0.3712374581939799,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.2753623188405797,
+      "return_correlation": 0.16902881178515053,
+      "forward_5d_mean": -0.004200206475728368,
+      "positive_forward_5d_rate": 0.3712374581939799,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.2709030100334448,
+      "return_correlation": -0.024474201234161466,
+      "forward_5d_mean": -0.004200206475728368,
+      "positive_forward_5d_rate": 0.3712374581939799,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.017350226975026223,
+      "return_correlation": 0.08144453797641646,
+      "forward_5d_mean": -0.0038706093509595046,
+      "positive_forward_5d_rate": 0.37471526195899774,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 31248652.44937429,
+      "return_correlation": 0.057941957495803005,
+      "forward_5d_mean": -0.0038583440362588194,
+      "positive_forward_5d_rate": 0.37542662116040953,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "HMPRO",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0148143807077574,
+      "return_correlation": 0.021865989583179913,
+      "forward_5d_mean": -0.0038583440362588194,
+      "positive_forward_5d_rate": 0.37542662116040953,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.007651308175668129,
+      "return_correlation": 0.21343716172716407,
+      "forward_5d_mean": -0.0012717697709993077,
+      "positive_forward_5d_rate": 0.43394077448747154,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.019427599872924216,
+      "return_correlation": 0.1148730988134841,
+      "forward_5d_mean": -0.0004131186527979112,
+      "positive_forward_5d_rate": 0.44630071599045346,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.04309988766801423,
+      "return_correlation": 0.043804645582148034,
+      "forward_5d_mean": -0.00038253090668486614,
+      "positive_forward_5d_rate": 0.4473007712082262,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.42920847268673357,
+      "return_correlation": 0.2651244177293474,
+      "forward_5d_mean": -0.0010320217808084007,
+      "positive_forward_5d_rate": 0.4358974358974359,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.38684503901895206,
+      "return_correlation": 0.1926830201398018,
+      "forward_5d_mean": -0.0010320217808084007,
+      "positive_forward_5d_rate": 0.4358974358974359,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.4180602006688963,
+      "return_correlation": 0.0257921165389884,
+      "forward_5d_mean": -0.0010320217808084007,
+      "positive_forward_5d_rate": 0.4358974358974359,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.023506381853913832,
+      "return_correlation": 0.1234418276797689,
+      "forward_5d_mean": -0.0012717697709993077,
+      "positive_forward_5d_rate": 0.43394077448747154,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 20527844.080773607,
+      "return_correlation": 0.10207343805423373,
+      "forward_5d_mean": -0.0012772489887219699,
+      "positive_forward_5d_rate": 0.4334470989761092,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "IVL",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0175590365956104,
+      "return_correlation": 0.026266668751722844,
+      "forward_5d_mean": -0.0012772489887219699,
+      "positive_forward_5d_rate": 0.4334470989761092,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "momentum_20",
+      "observations": 273,
+      "mean": 0.06473357156305103,
+      "return_correlation": 0.18624300645900285,
+      "forward_5d_mean": 0.014488284139821544,
+      "positive_forward_5d_rate": 0.6117216117216118,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "momentum_60",
+      "observations": 233,
+      "mean": 0.19268893578397775,
+      "return_correlation": 0.12227627329359807,
+      "forward_5d_mean": 0.01567951958374413,
+      "positive_forward_5d_rate": 0.6394849785407726,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "momentum_120",
+      "observations": 173,
+      "mean": 0.3733067280362463,
+      "return_correlation": 0.113473702521584,
+      "forward_5d_mean": 0.01699535013533799,
+      "positive_forward_5d_rate": 0.6473988439306358,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "close_gt_sma20",
+      "observations": 292,
+      "mean": 0.7294520547945206,
+      "return_correlation": 0.1618384325304565,
+      "forward_5d_mean": 0.016365110733736046,
+      "positive_forward_5d_rate": 0.6301369863013698,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "close_gt_sma50",
+      "observations": 292,
+      "mean": 0.8253424657534246,
+      "return_correlation": -0.019698769123536818,
+      "forward_5d_mean": 0.016365110733736046,
+      "positive_forward_5d_rate": 0.6301369863013698,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "sma20_gt_sma50",
+      "observations": 292,
+      "mean": 0.8356164383561644,
+      "return_correlation": -0.04892789953066931,
+      "forward_5d_mean": 0.016365110733736046,
+      "positive_forward_5d_rate": 0.6301369863013698,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "volatility_20",
+      "observations": 273,
+      "mean": 0.014701815556544762,
+      "return_correlation": -0.008818226958737135,
+      "forward_5d_mean": 0.014488284139821544,
+      "positive_forward_5d_rate": 0.6117216117216118,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "volume_sma_20",
+      "observations": 274,
+      "mean": 5075194.270072993,
+      "return_correlation": -0.002283160653518618,
+      "forward_5d_mean": 0.014553247657218618,
+      "positive_forward_5d_rate": 0.6131386861313869,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KKP",
+      "feature": "volume_ratio_20",
+      "observations": 274,
+      "mean": 1.0511446866571799,
+      "return_correlation": 0.37896019434720907,
+      "forward_5d_mean": 0.014553247657218618,
+      "positive_forward_5d_rate": 0.6131386861313869,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": 0.022635674030254686,
+      "return_correlation": 0.22639657914414577,
+      "forward_5d_mean": 0.005668635337122696,
+      "positive_forward_5d_rate": 0.5261958997722096,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": 0.06992255799481326,
+      "return_correlation": 0.1254387055019954,
+      "forward_5d_mean": 0.006243837700294565,
+      "positive_forward_5d_rate": 0.5369928400954654,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": 0.13382200099723213,
+      "return_correlation": 0.11579333468653795,
+      "forward_5d_mean": 0.005732059772713228,
+      "positive_forward_5d_rate": 0.5282776349614395,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.6053511705685619,
+      "return_correlation": 0.27091182258041663,
+      "forward_5d_mean": 0.005390407349187438,
+      "positive_forward_5d_rate": 0.5217391304347826,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.6309921962095875,
+      "return_correlation": 0.18367344957786708,
+      "forward_5d_mean": 0.005390407349187438,
+      "positive_forward_5d_rate": 0.5217391304347826,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.6421404682274248,
+      "return_correlation": 0.04176957137907384,
+      "forward_5d_mean": 0.005390407349187438,
+      "positive_forward_5d_rate": 0.5217391304347826,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.013900311307495758,
+      "return_correlation": 0.01004598358653625,
+      "forward_5d_mean": 0.005668635337122696,
+      "positive_forward_5d_rate": 0.5261958997722096,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 49691278.69510808,
+      "return_correlation": 0.028683155097512025,
+      "forward_5d_mean": 0.005636437940118366,
+      "positive_forward_5d_rate": 0.5255972696245734,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "KTB",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0123543032439313,
+      "return_correlation": 0.09660146088615672,
+      "forward_5d_mean": 0.005636437940118366,
+      "positive_forward_5d_rate": 0.5255972696245734,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.019647766344530082,
+      "return_correlation": 0.22204950759009273,
+      "forward_5d_mean": -0.005128801969904476,
+      "positive_forward_5d_rate": 0.38496583143507973,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.0610893773053703,
+      "return_correlation": 0.07638531146378234,
+      "forward_5d_mean": -0.005307935753887156,
+      "positive_forward_5d_rate": 0.3854415274463007,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.12736362971682122,
+      "return_correlation": 0.11713678221447846,
+      "forward_5d_mean": -0.004778261738051215,
+      "positive_forward_5d_rate": 0.39331619537275064,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.37681159420289856,
+      "return_correlation": 0.2413940790709375,
+      "forward_5d_mean": -0.0049601472091804445,
+      "positive_forward_5d_rate": 0.38684503901895206,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.2887402452619844,
+      "return_correlation": 0.16789935634066028,
+      "forward_5d_mean": -0.0049601472091804445,
+      "positive_forward_5d_rate": 0.38684503901895206,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.2831661092530658,
+      "return_correlation": 0.011582049203025016,
+      "forward_5d_mean": -0.0049601472091804445,
+      "positive_forward_5d_rate": 0.38684503901895206,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.01416782618349938,
+      "return_correlation": 0.02223240855942368,
+      "forward_5d_mean": -0.005128801969904476,
+      "positive_forward_5d_rate": 0.38496583143507973,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 33409290.870307166,
+      "return_correlation": 0.0011429093879311407,
+      "forward_5d_mean": -0.005134432853166527,
+      "positive_forward_5d_rate": 0.3845278725824801,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "LH",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.005926152611965,
+      "return_correlation": -0.1809456896452852,
+      "forward_5d_mean": -0.005134432853166527,
+      "positive_forward_5d_rate": 0.3845278725824801,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": 0.00030375949001774406,
+      "return_correlation": 0.20761075052460673,
+      "forward_5d_mean": -0.00021844341084092264,
+      "positive_forward_5d_rate": 0.44646924829157175,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": 0.00042498115140865726,
+      "return_correlation": 0.08848066848322678,
+      "forward_5d_mean": 0.0004116520634296358,
+      "positive_forward_5d_rate": 0.4522673031026253,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.017380312312910474,
+      "return_correlation": 0.10658041648302582,
+      "forward_5d_mean": -0.0005037881007334146,
+      "positive_forward_5d_rate": 0.44473007712082263,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.4659977703455964,
+      "return_correlation": 0.27627232329710866,
+      "forward_5d_mean": -0.00015558254583355886,
+      "positive_forward_5d_rate": 0.4459308807134894,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.43255295429208473,
+      "return_correlation": 0.16385013894915543,
+      "forward_5d_mean": -0.00015558254583355886,
+      "positive_forward_5d_rate": 0.4459308807134894,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.4414715719063545,
+      "return_correlation": -0.04541762956542646,
+      "forward_5d_mean": -0.00015558254583355886,
+      "positive_forward_5d_rate": 0.4459308807134894,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.021916903013276992,
+      "return_correlation": 0.07858194636293418,
+      "forward_5d_mean": -0.00021844341084092264,
+      "positive_forward_5d_rate": 0.44646924829157175,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 8963423.725824801,
+      "return_correlation": 0.04826437624065572,
+      "forward_5d_mean": -0.00020323707350033106,
+      "positive_forward_5d_rate": 0.447098976109215,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "MTC",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0107398741237164,
+      "return_correlation": 0.037837205684793235,
+      "forward_5d_mean": -0.00020323707350033106,
+      "positive_forward_5d_rate": 0.447098976109215,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.008166338650809577,
+      "return_correlation": 0.19979388445763646,
+      "forward_5d_mean": -0.0021488059426767445,
+      "positive_forward_5d_rate": 0.4498861047835991,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.029631211254457824,
+      "return_correlation": 0.11671544251804397,
+      "forward_5d_mean": -0.002800397615714935,
+      "positive_forward_5d_rate": 0.4498806682577566,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.07787654246087145,
+      "return_correlation": 0.06761263049406253,
+      "forward_5d_mean": -0.0027096438214842164,
+      "positive_forward_5d_rate": 0.455012853470437,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.4916387959866221,
+      "return_correlation": 0.2728905172921994,
+      "forward_5d_mean": -0.0022471936812972935,
+      "positive_forward_5d_rate": 0.44481605351170567,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.4136008918617614,
+      "return_correlation": 0.16597511964296757,
+      "forward_5d_mean": -0.0022471936812972935,
+      "positive_forward_5d_rate": 0.44481605351170567,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.43032329988851725,
+      "return_correlation": -0.004192120585488147,
+      "forward_5d_mean": -0.0022471936812972935,
+      "positive_forward_5d_rate": 0.44481605351170567,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.018202198957805428,
+      "return_correlation": 0.016865507551210055,
+      "forward_5d_mean": -0.0021488059426767445,
+      "positive_forward_5d_rate": 0.4498861047835991,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 10364363.98748578,
+      "return_correlation": -0.007580461443378274,
+      "forward_5d_mean": -0.002175937822565578,
+      "positive_forward_5d_rate": 0.44937428896473264,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "OSP",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.024442648792557,
+      "return_correlation": 0.02425222220813451,
+      "forward_5d_mean": -0.002175937822565578,
+      "positive_forward_5d_rate": 0.44937428896473264,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": 0.0024142147770704826,
+      "return_correlation": 0.23592934259196974,
+      "forward_5d_mean": 0.001008215617484959,
+      "positive_forward_5d_rate": 0.46697038724373574,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": 0.0045151934328382486,
+      "return_correlation": 0.13922815328015864,
+      "forward_5d_mean": 0.0014883809407433138,
+      "positive_forward_5d_rate": 0.4701670644391408,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": 0.016960820759233813,
+      "return_correlation": 0.06258974678752918,
+      "forward_5d_mean": 0.002699007716788921,
+      "positive_forward_5d_rate": 0.4845758354755784,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.4882943143812709,
+      "return_correlation": 0.2533508368660358,
+      "forward_5d_mean": 0.0012462712696733563,
+      "positive_forward_5d_rate": 0.46711259754738016,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.41471571906354515,
+      "return_correlation": 0.17340892331467392,
+      "forward_5d_mean": 0.0012462712696733563,
+      "positive_forward_5d_rate": 0.46711259754738016,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.4214046822742475,
+      "return_correlation": 0.0572007869037315,
+      "forward_5d_mean": 0.0012462712696733563,
+      "positive_forward_5d_rate": 0.46711259754738016,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.023937281077890487,
+      "return_correlation": 0.08796484170389327,
+      "forward_5d_mean": 0.001008215617484959,
+      "positive_forward_5d_rate": 0.46697038724373574,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 20641051.78384528,
+      "return_correlation": 0.09390667401931435,
+      "forward_5d_mean": 0.000995620405107973,
+      "positive_forward_5d_rate": 0.4664391353811149,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "PTTGC",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0207345972551218,
+      "return_correlation": 0.04228928986234906,
+      "forward_5d_mean": 0.000995620405107973,
+      "positive_forward_5d_rate": 0.4664391353811149,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.0015074702877870452,
+      "return_correlation": 0.21994460684390818,
+      "forward_5d_mean": -0.00023902755393838513,
+      "positive_forward_5d_rate": 0.417995444191344,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.0048159423340456585,
+      "return_correlation": 0.1355260786500692,
+      "forward_5d_mean": 0.0003386008091167884,
+      "positive_forward_5d_rate": 0.42840095465393796,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.018638193104829535,
+      "return_correlation": 0.10672524240668727,
+      "forward_5d_mean": 0.0008017387882645253,
+      "positive_forward_5d_rate": 0.43573264781491,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.45484949832775917,
+      "return_correlation": 0.2776494545454442,
+      "forward_5d_mean": -0.00036133942732483884,
+      "positive_forward_5d_rate": 0.4124860646599777,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.40468227424749165,
+      "return_correlation": 0.15024772188103902,
+      "forward_5d_mean": -0.00036133942732483884,
+      "positive_forward_5d_rate": 0.4124860646599777,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.3979933110367893,
+      "return_correlation": 0.026830054299724893,
+      "forward_5d_mean": -0.00036133942732483884,
+      "positive_forward_5d_rate": 0.4124860646599777,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.014214000729444972,
+      "return_correlation": 0.0870990823031841,
+      "forward_5d_mean": -0.00023902755393838513,
+      "positive_forward_5d_rate": 0.417995444191344,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 3215921.9738339023,
+      "return_correlation": 0.0006593672376865535,
+      "forward_5d_mean": -0.00025198140529728724,
+      "positive_forward_5d_rate": 0.41751990898748575,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "RATCH",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0165617537748373,
+      "return_correlation": 0.047053140164147196,
+      "forward_5d_mean": -0.00025198140529728724,
+      "positive_forward_5d_rate": 0.41751990898748575,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": -0.007497782454701924,
+      "return_correlation": 0.223505654409719,
+      "forward_5d_mean": -0.0017758811448054439,
+      "positive_forward_5d_rate": 0.43507972665148065,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": -0.020775669383175793,
+      "return_correlation": 0.13001085797727518,
+      "forward_5d_mean": -0.0010898375651162797,
+      "positive_forward_5d_rate": 0.4379474940334129,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": -0.046328605386622534,
+      "return_correlation": 0.09714115227635321,
+      "forward_5d_mean": 0.00031245590789338173,
+      "positive_forward_5d_rate": 0.45115681233933164,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.43924191750278707,
+      "return_correlation": 0.2469651371657258,
+      "forward_5d_mean": -0.00228284374464032,
+      "positive_forward_5d_rate": 0.43032329988851725,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.43924191750278707,
+      "return_correlation": 0.17994668114670834,
+      "forward_5d_mean": -0.00228284374464032,
+      "positive_forward_5d_rate": 0.43032329988851725,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.44704570791527315,
+      "return_correlation": 0.037625020141968765,
+      "forward_5d_mean": -0.00228284374464032,
+      "positive_forward_5d_rate": 0.43032329988851725,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.0230847891699152,
+      "return_correlation": 0.09033432844653563,
+      "forward_5d_mean": -0.0017758811448054439,
+      "positive_forward_5d_rate": 0.43507972665148065,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 11755451.205915814,
+      "return_correlation": 0.02490492315734301,
+      "forward_5d_mean": -0.0017575814987831574,
+      "positive_forward_5d_rate": 0.43572241183162685,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "SCGP",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0114229785999482,
+      "return_correlation": 0.07308174208798002,
+      "forward_5d_mean": -0.0017575814987831574,
+      "positive_forward_5d_rate": 0.43572241183162685,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "momentum_20",
+      "observations": 28,
+      "mean": -0.026206537658799888,
+      "return_correlation": 0.17932352392003906,
+      "forward_5d_mean": 0.0025556946730714847,
+      "positive_forward_5d_rate": 0.39285714285714285,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "momentum_60",
+      "observations": 0,
+      "mean": null,
+      "return_correlation": null,
+      "forward_5d_mean": null,
+      "positive_forward_5d_rate": null,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "momentum_120",
+      "observations": 0,
+      "mean": null,
+      "return_correlation": null,
+      "forward_5d_mean": null,
+      "positive_forward_5d_rate": null,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "close_gt_sma20",
+      "observations": 47,
+      "mean": 0.2765957446808511,
+      "return_correlation": 0.29938671241910914,
+      "forward_5d_mean": -0.009556571199736913,
+      "positive_forward_5d_rate": 0.2978723404255319,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "close_gt_sma50",
+      "observations": 47,
+      "mean": 0.0,
+      "return_correlation": NaN,
+      "forward_5d_mean": -0.009556571199736913,
+      "positive_forward_5d_rate": 0.2978723404255319,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "sma20_gt_sma50",
+      "observations": 47,
+      "mean": 0.0,
+      "return_correlation": NaN,
+      "forward_5d_mean": -0.009556571199736913,
+      "positive_forward_5d_rate": 0.2978723404255319,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "volatility_20",
+      "observations": 28,
+      "mean": 0.01762389038248533,
+      "return_correlation": -0.042746895597860005,
+      "forward_5d_mean": 0.0025556946730714847,
+      "positive_forward_5d_rate": 0.39285714285714285,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "volume_sma_20",
+      "observations": 29,
+      "mean": 130145471.72413793,
+      "return_correlation": 0.1422589616641433,
+      "forward_5d_mean": -0.0007287606757959234,
+      "positive_forward_5d_rate": 0.3793103448275862,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "THAI",
+      "feature": "volume_ratio_20",
+      "observations": 29,
+      "mean": 1.2666061995445017,
+      "return_correlation": -0.16944879846047659,
+      "forward_5d_mean": -0.0007287606757959234,
+      "positive_forward_5d_rate": 0.3793103448275862,
+      "classification": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "momentum_20",
+      "observations": 878,
+      "mean": 0.008887286491253898,
+      "return_correlation": 0.22953407526092795,
+      "forward_5d_mean": 0.0019735363845390344,
+      "positive_forward_5d_rate": 0.49316628701594534,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "momentum_60",
+      "observations": 838,
+      "mean": 0.024839717573858503,
+      "return_correlation": 0.14554353117600757,
+      "forward_5d_mean": 0.002509954282922597,
+      "positive_forward_5d_rate": 0.4988066825775656,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "momentum_120",
+      "observations": 778,
+      "mean": 0.0496617467865739,
+      "return_correlation": 0.11018720756193642,
+      "forward_5d_mean": 0.003756452864609929,
+      "positive_forward_5d_rate": 0.5141388174807198,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "close_gt_sma20",
+      "observations": 897,
+      "mean": 0.4816053511705686,
+      "return_correlation": 0.2757571491199748,
+      "forward_5d_mean": 0.00227296000345116,
+      "positive_forward_5d_rate": 0.4972129319955407,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "close_gt_sma50",
+      "observations": 897,
+      "mean": 0.49052396878483834,
+      "return_correlation": 0.1808850263550501,
+      "forward_5d_mean": 0.00227296000345116,
+      "positive_forward_5d_rate": 0.4972129319955407,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "sma20_gt_sma50",
+      "observations": 897,
+      "mean": 0.4916387959866221,
+      "return_correlation": 0.03322955798158313,
+      "forward_5d_mean": 0.00227296000345116,
+      "positive_forward_5d_rate": 0.4972129319955407,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "volatility_20",
+      "observations": 878,
+      "mean": 0.021434602423055598,
+      "return_correlation": 0.004568159818014289,
+      "forward_5d_mean": 0.0019735363845390344,
+      "positive_forward_5d_rate": 0.49316628701594534,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "volume_sma_20",
+      "observations": 879,
+      "mean": 13235461.718998862,
+      "return_correlation": 0.03678180043817216,
+      "forward_5d_mean": 0.001923405331256838,
+      "positive_forward_5d_rate": 0.4926052332195677,
+      "classification": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "symbol": "TOP",
+      "feature": "volume_ratio_20",
+      "observations": 879,
+      "mean": 1.0240120379499094,
+      "return_correlation": -0.08668156232689207,
+      "forward_5d_mean": 0.001923405331256838,
+      "positive_forward_5d_rate": 0.4926052332195677,
+      "classification": "DIAGNOSTIC_ONLY"
+    }
+  ],
+  "parameters": {
+    "momentum_window": 20,
+    "short_window": 20,
+    "long_window": 50,
+    "volatility_window": 20,
+    "volume_window": 20
+  },
+  "production_mutated": false
+}

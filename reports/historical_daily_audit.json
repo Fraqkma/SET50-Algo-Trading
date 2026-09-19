@@ -1,0 +1,575 @@
+{
+  "status": "UNAPPROVED_AUDIT",
+  "records": [
+    {
+      "artifact": "data\\pilot\\historical_acquisition\\ADVANC_ADVANC_BK_2010_2022.csv",
+      "status": "UNAPPROVED",
+      "rows": 3167,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2022-12-30"
+    },
+    {
+      "artifact": "data\\pilot\\historical_acquisition\\BANPU_BANPU_BK_2010_2022.csv",
+      "status": "UNAPPROVED",
+      "rows": 1500,
+      "issues": [],
+      "first_date": "2016-10-28",
+      "last_date": "2022-12-30"
+    },
+    {
+      "artifact": "data\\pilot\\historical_acquisition\\PTT_PTT_BK_2010_2022.csv",
+      "status": "UNAPPROVED",
+      "rows": 3167,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2022-12-30"
+    },
+    {
+      "artifact": "data\\pilot\\historical_acquisition\\TRUE_TRUE_BK_2010_2022.csv",
+      "status": "UNAPPROVED",
+      "rows": 3167,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2022-12-30"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\ADVANC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\AOT_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\AWC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1677,
+      "issues": [],
+      "first_date": "2019-10-10",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BANPU_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2380,
+      "issues": [],
+      "first_date": "2016-10-28",
+      "last_date": "2026-08-11"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BANPUU_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 0,
+      "issues": [
+        "missing Date column"
+      ]
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BBL_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BCP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BDMS_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BEM_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BGRIM_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2222,
+      "issues": [],
+      "first_date": "2017-07-20",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BH_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BJC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\BTS_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CBG_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2868,
+      "issues": [],
+      "first_date": "2014-11-21",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CCET_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CENTEL_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\COM7_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2697,
+      "issues": [],
+      "first_date": "2015-08-10",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CPALL_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CPF_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CPN_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\CRC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1589,
+      "issues": [],
+      "first_date": "2020-02-20",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\DELTA_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\DTAC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 0,
+      "issues": [
+        "missing Date column"
+      ]
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\EA_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3312,
+      "issues": [],
+      "first_date": "2013-01-30",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\EGCO_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\GLOBAL_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\GPSC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2754,
+      "issues": [],
+      "first_date": "2015-05-18",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\GULF_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 348,
+      "issues": [],
+      "first_date": "2025-04-03",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\GULFI_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 0,
+      "issues": [
+        "missing Date column"
+      ]
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\HMPRO_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\INTUCH_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 0,
+      "issues": [
+        "missing Date column"
+      ]
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\ITC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 913,
+      "issues": [],
+      "first_date": "2022-12-09",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\IVL_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4041,
+      "issues": [],
+      "first_date": "2010-02-05",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\JMART_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\JMT_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3354,
+      "issues": [],
+      "first_date": "2012-11-27",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\KBANK_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\KCE_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\KKP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\KTB_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\KTC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\LH_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\MINT_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\MRDIYT_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 208,
+      "issues": [],
+      "first_date": "2025-11-05",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\MTC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2865,
+      "issues": [],
+      "first_date": "2014-11-26",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\OR_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1352,
+      "issues": [],
+      "first_date": "2021-02-11",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\OSP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1917,
+      "issues": [],
+      "first_date": "2018-10-17",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\PTT_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\PTTEP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\PTTGC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3625,
+      "issues": [],
+      "first_date": "2011-10-21",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\RATCH_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\SAWAD_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3003,
+      "issues": [],
+      "first_date": "2014-05-08",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\SCB_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1064,
+      "issues": [],
+      "first_date": "2022-04-20",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\SCC_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\SCGP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1426,
+      "issues": [],
+      "first_date": "2020-10-22",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TCAP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TFG_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 2655,
+      "issues": [],
+      "first_date": "2015-10-08",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\THAI_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TIDLOR_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 323,
+      "issues": [],
+      "first_date": "2025-05-16",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TISCO_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TLI_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 1005,
+      "issues": [],
+      "first_date": "2022-07-25",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TOP_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TRUE_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TRUEE_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 0,
+      "issues": [
+        "missing Date column"
+      ]
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TTB_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\TU_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 4065,
+      "issues": [],
+      "first_date": "2010-01-04",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\VGI_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3386,
+      "issues": [],
+      "first_date": "2012-10-11",
+      "last_date": "2026-09-04"
+    },
+    {
+      "artifact": "data\\pilot\\historical_daily\\WHA_2010_2026.csv",
+      "status": "UNAPPROVED",
+      "rows": 3367,
+      "issues": [],
+      "first_date": "2012-11-08",
+      "last_date": "2026-09-04"
+    }
+  ],
+  "production_mutated": false,
+  "approved_manifest_mutated": false
+}

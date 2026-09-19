@@ -1,0 +1,7 @@
+{
+  "authenticated_at": "2026-09-18T18:09:12.124013+00:00",
+  "dispatcher_token": true,
+  "events": 0,
+  "note": "Subscriber is prepared only; no synthetic events are written.",
+  "symbols_requested": 4
+}

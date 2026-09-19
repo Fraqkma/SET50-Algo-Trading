@@ -1,0 +1,19 @@
+symbols,frequency,retention,estimated_observed_rows,estimated_compressed_storage_mb,assumption
+20,1m,1_month,163800,16.38,100 bytes/observed bar; no synthetic gap bars
+20,1m,3_months,491400,49.14,100 bytes/observed bar; no synthetic gap bars
+20,1m,1_year,1965600,196.56,100 bytes/observed bar; no synthetic gap bars
+20,5m,1_month,32760,3.28,100 bytes/observed bar; no synthetic gap bars
+20,5m,3_months,98280,9.83,100 bytes/observed bar; no synthetic gap bars
+20,5m,1_year,393120,39.31,100 bytes/observed bar; no synthetic gap bars
+20,15m,1_month,10920,1.09,100 bytes/observed bar; no synthetic gap bars
+20,15m,3_months,32760,3.28,100 bytes/observed bar; no synthetic gap bars
+20,15m,1_year,131040,13.1,100 bytes/observed bar; no synthetic gap bars
+50,1m,1_month,409500,40.95,100 bytes/observed bar; no synthetic gap bars
+50,1m,3_months,1228500,122.85,100 bytes/observed bar; no synthetic gap bars
+50,1m,1_year,4914000,491.4,100 bytes/observed bar; no synthetic gap bars
+50,5m,1_month,81900,8.19,100 bytes/observed bar; no synthetic gap bars
+50,5m,3_months,245700,24.57,100 bytes/observed bar; no synthetic gap bars
+50,5m,1_year,982800,98.28,100 bytes/observed bar; no synthetic gap bars
+50,15m,1_month,27300,2.73,100 bytes/observed bar; no synthetic gap bars
+50,15m,3_months,81900,8.19,100 bytes/observed bar; no synthetic gap bars
+50,15m,1_year,327600,32.76,100 bytes/observed bar; no synthetic gap bars

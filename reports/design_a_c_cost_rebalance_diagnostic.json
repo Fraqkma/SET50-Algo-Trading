@@ -1,0 +1,616 @@
+{
+  "research_period": {
+    "start": "2023-01-03",
+    "end": "2026-09-04"
+  },
+  "starting_capital": "10000000",
+  "cost_sensitivity": {
+    "official": {
+      "assumptions": {
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "slippage_ticks": 1
+      },
+      "Design A": {
+        "final_equity": "2881303.363244797241866051837",
+        "gross_return": "-0.5894018801035329474163400004",
+        "net_return": "-0.7118696636755202758133948163",
+        "maximum_drawdown": "-0.7575565538426281729301119431",
+        "volatility": "0.08539205721260267",
+        "turnover": "72.90182961604103125010704",
+        "commission": "1144558.724971844190626680528",
+        "vat": "80119.11074802909334386763696",
+        "total_fees": "1224677.835719873283970548159",
+        "slippage": "4765765.1700000000000000",
+        "fills": 1363,
+        "non_fills": 641,
+        "trade_count": 1363,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.449664429530201,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 504,
+          "INSUFFICIENT_CASH": 136,
+          "DATA_UNAVAILABLE": 1
+        }
+      },
+      "Design C": {
+        "final_equity": "2794643.518950851306832598751",
+        "gross_return": "-0.5977316531342689045509400006",
+        "net_return": "-0.7205356481049148693167401249",
+        "maximum_drawdown": "-0.7564510732109275061942207070",
+        "volatility": "0.08605493410484825",
+        "turnover": "73.1019673615369752757903",
+        "commission": "1147700.887576130511829907710",
+        "vat": "80339.06213032913582809353970",
+        "total_fees": "1228039.949706459647658001243",
+        "slippage": "4781310.9400000000000000",
+        "fills": 1299,
+        "non_fills": 607,
+        "trade_count": 1299,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.093959731543624,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 473,
+          "INSUFFICIENT_CASH": 133,
+          "DATA_UNAVAILABLE": 1
+        }
+      }
+    },
+    "zero_transaction_cost": {
+      "assumptions": {
+        "commission_rate": "0",
+        "vat_rate": "0",
+        "slippage_ticks": 0
+      },
+      "Design A": {
+        "final_equity": "4832604.2234132280941691",
+        "gross_return": "-0.51673957765867719058309",
+        "net_return": "-0.51673957765867719058309",
+        "maximum_drawdown": "-0.6185319475682735729285",
+        "volatility": "0.10815911017813758",
+        "turnover": "125.24715097928917450078797",
+        "commission": "0E-16",
+        "vat": "0E-16",
+        "total_fees": "0E-16",
+        "slippage": "0E-16",
+        "fills": 1858,
+        "non_fills": 138,
+        "trade_count": 1858,
+        "unique_symbols_traded": 19,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.449664429530201,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "INSUFFICIENT_CASH": 137,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "1951300.860168430852303048163",
+        "net_return_difference_vs_official": "0.1951300860168430852303048163"
+      },
+      "Design C": {
+        "final_equity": "4880299.3862302294462509",
+        "gross_return": "-0.51197006137697705537491",
+        "net_return": "-0.51197006137697705537491",
+        "maximum_drawdown": "-0.612476431890535386304",
+        "volatility": "0.11017245920205095",
+        "turnover": "126.18346248125836892561351",
+        "commission": "0E-16",
+        "vat": "0E-16",
+        "total_fees": "0E-16",
+        "slippage": "0E-16",
+        "fills": 1764,
+        "non_fills": 133,
+        "trade_count": 1764,
+        "unique_symbols_traded": 19,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.093959731543624,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "INSUFFICIENT_CASH": 132,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "2085655.867279378139418301249",
+        "net_return_difference_vs_official": "0.2085655867279378139418301249"
+      }
+    },
+    "fee_only": {
+      "assumptions": {
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "slippage_ticks": 0
+      },
+      "Design A": {
+        "final_equity": "3446053.294282493803706539898",
+        "gross_return": "-0.4777852937152625342397199994",
+        "net_return": "-0.6553946705717506196293460102",
+        "maximum_drawdown": "-0.7076954581110901748567425072",
+        "volatility": "0.09263626199954464",
+        "turnover": "105.72616040031435525306626",
+        "commission": "1659900.718284935377473140282",
+        "vat": "116193.0502799454764231198197",
+        "total_fees": "1776093.768564880853896260108",
+        "slippage": "0E-16",
+        "fills": 1854,
+        "non_fills": 138,
+        "trade_count": 1854,
+        "unique_symbols_traded": 19,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.449664429530201,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "INSUFFICIENT_CASH": 137,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "564749.931037696561840488061",
+        "net_return_difference_vs_official": "0.0564749931037696561840488061"
+      },
+      "Design C": {
+        "final_equity": "3453783.830398731071244114690",
+        "gross_return": "-0.4759054423049451111464100002",
+        "net_return": "-0.654621616960126892875588531",
+        "maximum_drawdown": "-0.7062424781095159755416320285",
+        "volatility": "0.09392316375475432",
+        "turnover": "106.38500783093147314076941",
+        "commission": "1670244.622945624128310079737",
+        "vat": "116917.1236061936889817055815",
+        "total_fees": "1787161.746551817817291785308",
+        "slippage": "0E-16",
+        "fills": 1757,
+        "non_fills": 138,
+        "trade_count": 1757,
+        "unique_symbols_traded": 19,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.093959731543624,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "INSUFFICIENT_CASH": 137,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "659140.311447879764411515939",
+        "net_return_difference_vs_official": "0.0659140311447879764411515939"
+      }
+    },
+    "slippage_only": {
+      "assumptions": {
+        "commission_rate": "0",
+        "vat_rate": "0",
+        "slippage_ticks": 1
+      },
+      "Design A": {
+        "final_equity": "3654505.2149652654066790",
+        "gross_return": "-0.6345494785034734593321",
+        "net_return": "-0.6345494785034734593321",
+        "maximum_drawdown": "-0.7122625104159112661117126598",
+        "volatility": "0.09238305051962535",
+        "turnover": "79.90016286671297116288064",
+        "commission": "0E-16",
+        "vat": "0E-16",
+        "total_fees": "0E-16",
+        "slippage": "5215262.5800000000000000",
+        "fills": 1360,
+        "non_fills": 643,
+        "trade_count": 1360,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.449664429530201,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 503,
+          "INSUFFICIENT_CASH": 139,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "773201.851720468164812948163",
+        "net_return_difference_vs_official": "0.0773201851720468164812948163"
+      },
+      "Design C": {
+        "final_equity": "3558674.5986476882568926",
+        "gross_return": "-0.64413254013523117431074",
+        "net_return": "-0.64413254013523117431074",
+        "maximum_drawdown": "-0.7096475904000572450295113149",
+        "volatility": "0.09326893893174588",
+        "turnover": "80.17818184572551769851928",
+        "commission": "0E-16",
+        "vat": "0E-16",
+        "total_fees": "0E-16",
+        "slippage": "5236296.6500000000000000",
+        "fills": 1297,
+        "non_fills": 610,
+        "trade_count": 1297,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.093959731543624,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 473,
+          "INSUFFICIENT_CASH": 136,
+          "DATA_UNAVAILABLE": 1
+        },
+        "final_equity_difference_vs_official": "764031.079696836950060001249",
+        "net_return_difference_vs_official": "0.0764031079696836950060001249"
+      }
+    }
+  },
+  "frequency_sensitivity": {
+    "every_1_observed_row": {
+      "every_n_observed_rows": 1,
+      "Design A": {
+        "final_equity": "1492458.326455284723910562197",
+        "gross_return": "-0.6743203861308393350964299995",
+        "net_return": "-0.8507541673544715276089437803",
+        "maximum_drawdown": "-0.8700082078128434960242095836",
+        "volatility": "0.06668386758093836",
+        "turnover": "105.02635944022393744420131",
+        "commission": "1648913.843211515817873960567",
+        "vat": "115423.9690248061072511772395",
+        "total_fees": "1764337.812236321925125137808",
+        "slippage": "6754907.0600000000000000",
+        "fills": 3791,
+        "non_fills": 1679,
+        "trade_count": 3791,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 896,
+        "average_qualifying_candidates": 5.40625,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.40625,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 1287,
+          "INSUFFICIENT_CASH": 389,
+          "DATA_UNAVAILABLE": 3
+        },
+        "final_equity_difference_vs_every_3": "-1388845.036789512517955489640",
+        "net_return_difference_vs_every_3": "-0.1388845036789512517955489640",
+        "turnover_difference_vs_every_3": "32.12452982418290619409427",
+        "total_fees_difference_vs_every_3": "539659.976516448641154589649",
+        "slippage_difference_vs_every_3": "1989141.8900000000000000",
+        "fills_difference_vs_every_3": 2428,
+        "non_fills_difference_vs_every_3": 1038,
+        "trade_count_difference_vs_every_3": 2428
+      },
+      "Design C": {
+        "final_equity": "1602448.326071630202555232330",
+        "gross_return": "-0.6624921004584150277467800024",
+        "net_return": "-0.839755167392836979744476767",
+        "maximum_drawdown": "-0.8653713177472950035095186062",
+        "volatility": "0.0673018454901238",
+        "turnover": "105.5200112711601595319345",
+        "commission": "1656664.176957214504651371650",
+        "vat": "115966.4923870050153255960156",
+        "total_fees": "1772630.669344219519976967646",
+        "slippage": "6790022.0800000000000000",
+        "fills": 3601,
+        "non_fills": 1549,
+        "trade_count": 3601,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 896,
+        "average_qualifying_candidates": 5.40625,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.041294642857143,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 1182,
+          "INSUFFICIENT_CASH": 364,
+          "DATA_UNAVAILABLE": 3
+        },
+        "final_equity_difference_vs_every_3": "-1192195.192879221104277366421",
+        "net_return_difference_vs_every_3": "-0.1192195192879221104277366421",
+        "turnover_difference_vs_every_3": "32.4180439096231842561442",
+        "total_fees_difference_vs_every_3": "544590.719637759872318966403",
+        "slippage_difference_vs_every_3": "2008711.1400000000000000",
+        "fills_difference_vs_every_3": 2302,
+        "non_fills_difference_vs_every_3": 942,
+        "trade_count_difference_vs_every_3": 2302
+      }
+    },
+    "every_3_observed_rows": {
+      "every_n_observed_rows": 3,
+      "Design A": {
+        "final_equity": "2881303.363244797241866051837",
+        "gross_return": "-0.5894018801035329474163400004",
+        "net_return": "-0.7118696636755202758133948163",
+        "maximum_drawdown": "-0.7575565538426281729301119431",
+        "volatility": "0.08539205721260267",
+        "turnover": "72.90182961604103125010704",
+        "commission": "1144558.724971844190626680528",
+        "vat": "80119.11074802909334386763696",
+        "total_fees": "1224677.835719873283970548159",
+        "slippage": "4765765.1700000000000000",
+        "fills": 1363,
+        "non_fills": 641,
+        "trade_count": 1363,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.449664429530201,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 504,
+          "INSUFFICIENT_CASH": 136,
+          "DATA_UNAVAILABLE": 1
+        }
+      },
+      "Design C": {
+        "final_equity": "2794643.518950851306832598751",
+        "gross_return": "-0.5977316531342689045509400006",
+        "net_return": "-0.7205356481049148693167401249",
+        "maximum_drawdown": "-0.7564510732109275061942207070",
+        "volatility": "0.08605493410484825",
+        "turnover": "73.1019673615369752757903",
+        "commission": "1147700.887576130511829907710",
+        "vat": "80339.06213032913582809353970",
+        "total_fees": "1228039.949706459647658001243",
+        "slippage": "4781310.9400000000000000",
+        "fills": 1299,
+        "non_fills": 607,
+        "trade_count": 1299,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 298,
+        "average_qualifying_candidates": 5.449664429530201,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.093959731543624,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 473,
+          "INSUFFICIENT_CASH": 133,
+          "DATA_UNAVAILABLE": 1
+        }
+      }
+    },
+    "every_5_observed_rows_weekly_style": {
+      "every_n_observed_rows": 5,
+      "Design A": {
+        "final_equity": "5494505.404382897326493090738",
+        "gross_return": "-0.3446083197207298139857900006",
+        "net_return": "-0.4505494595617102673506909262",
+        "maximum_drawdown": "-0.5973970501854036124986530605",
+        "volatility": "0.10372303531825305",
+        "turnover": "63.06395609320819891951957",
+        "commission": "990104.110663368723036457249",
+        "vat": "69307.28774643581061255200743",
+        "total_fees": "1059411.398409804533649009256",
+        "slippage": "3980474.5900000000000000",
+        "fills": 884,
+        "non_fills": 356,
+        "trade_count": 884,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 179,
+        "average_qualifying_candidates": 5.363128491620111,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.363128491620111,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 272,
+          "INSUFFICIENT_CASH": 84
+        },
+        "final_equity_difference_vs_every_3": "2613202.041138100084627038901",
+        "net_return_difference_vs_every_3": "0.2613202041138100084627038901",
+        "turnover_difference_vs_every_3": "-9.83787352283283233058747",
+        "total_fees_difference_vs_every_3": "-165266.437310068750321538903",
+        "slippage_difference_vs_every_3": "-785290.5800000000000000",
+        "fills_difference_vs_every_3": -479,
+        "non_fills_difference_vs_every_3": -285,
+        "trade_count_difference_vs_every_3": -479
+      },
+      "Design C": {
+        "final_equity": "5385962.613224693116561270846",
+        "gross_return": "-0.3555643021500329929157600005",
+        "net_return": "-0.4614037386775306883438729154",
+        "maximum_drawdown": "-0.5932122267476949601464505293",
+        "volatility": "0.1051442648270986",
+        "turnover": "63.0034148029630903197291",
+        "commission": "989153.612406520518019746870",
+        "vat": "69240.75286845643626138228090",
+        "total_fees": "1058394.365274976954281129149",
+        "slippage": "3991659.4800000000000000",
+        "fills": 835,
+        "non_fills": 336,
+        "trade_count": 835,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 179,
+        "average_qualifying_candidates": 5.363128491620111,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 4.977653631284916,
+        "valuation_complete": true,
+        "boundary_exits": 2,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 257,
+          "INSUFFICIENT_CASH": 79
+        },
+        "final_equity_difference_vs_every_3": "2591319.094273841809728672095",
+        "net_return_difference_vs_every_3": "0.2591319094273841809728672095",
+        "turnover_difference_vs_every_3": "-10.0985525585738849560612",
+        "total_fees_difference_vs_every_3": "-169645.584431482693376872094",
+        "slippage_difference_vs_every_3": "-789651.4600000000000000",
+        "fills_difference_vs_every_3": -464,
+        "non_fills_difference_vs_every_3": -271,
+        "trade_count_difference_vs_every_3": -464
+      }
+    },
+    "every_10_observed_rows": {
+      "every_n_observed_rows": 10,
+      "Design A": {
+        "final_equity": "6717146.402022133196207183635",
+        "gross_return": "-0.2551929448815383114457999996",
+        "net_return": "-0.3282853597977866803792816365",
+        "maximum_drawdown": "-0.4779981025054038004340834685",
+        "volatility": "0.11808375441291138",
+        "turnover": "43.5099797108449127528315",
+        "commission": "683106.681460265130219454550",
+        "vat": "47817.46770221855911536181850",
+        "total_fees": "730924.1491624836893348163686",
+        "slippage": "2762298.0400000000000000",
+        "fills": 448,
+        "non_fills": 226,
+        "trade_count": 448,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 89,
+        "average_qualifying_candidates": 5.438202247191011,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.438202247191011,
+        "valuation_complete": true,
+        "boundary_exits": 1,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 182,
+          "INSUFFICIENT_CASH": 44
+        },
+        "final_equity_difference_vs_every_3": "3835843.038777335954341131798",
+        "net_return_difference_vs_every_3": "0.3835843038777335954341131798",
+        "turnover_difference_vs_every_3": "-29.39184990519611849727554",
+        "total_fees_difference_vs_every_3": "-493753.6865573895946357317904",
+        "slippage_difference_vs_every_3": "-2003467.1300000000000000",
+        "fills_difference_vs_every_3": -915,
+        "non_fills_difference_vs_every_3": -415,
+        "trade_count_difference_vs_every_3": -915
+      },
+      "Design C": {
+        "final_equity": "6812744.645766662037503649394",
+        "gross_return": "-0.2438188569225749346924499999",
+        "net_return": "-0.3187255354233337962496350606",
+        "maximum_drawdown": "-0.4701010233252297863720682298",
+        "volatility": "0.12057142934295395",
+        "turnover": "44.58996279585621855895295",
+        "commission": "700062.415894942631375561315",
+        "vat": "49004.36911264598419628929205",
+        "total_fees": "749066.7850075886155718506070",
+        "slippage": "2846310.9600000000000000",
+        "fills": 427,
+        "non_fills": 213,
+        "trade_count": 427,
+        "unique_symbols_traded": 18,
+        "rebalance_events": 89,
+        "average_qualifying_candidates": 5.438202247191011,
+        "median_qualifying_candidates": 5.0,
+        "average_selected_candidates": 5.033707865168539,
+        "valuation_complete": true,
+        "boundary_exits": 1,
+        "non_fill_reasons": {
+          "IOC_LIMIT_NOT_FILLED": 173,
+          "INSUFFICIENT_CASH": 40
+        },
+        "final_equity_difference_vs_every_3": "4018101.126815810730671050643",
+        "net_return_difference_vs_every_3": "0.4018101126815810730671050643",
+        "turnover_difference_vs_every_3": "-28.51200456568075671683735",
+        "total_fees_difference_vs_every_3": "-478973.1646988710320861506360",
+        "slippage_difference_vs_every_3": "-1934999.9800000000000000",
+        "fills_difference_vs_every_3": -872,
+        "non_fills_difference_vs_every_3": -394,
+        "trade_count_difference_vs_every_3": -872
+      }
+    }
+  },
+  "interpretation": {
+    "counterfactuals_are_diagnostic_only": true,
+    "no_parameter_search": true
+  },
+  "diagnostic_answers": {
+    "Design A": {
+      "net_return_improvement_zero_cost_vs_official": "0.1951300860168430852303048163",
+      "net_return_improvement_fee_only_vs_official": "0.0564749931037696561840488061",
+      "net_return_improvement_slippage_only_vs_official": "0.0773201851720468164812948163",
+      "net_return_zero_cost_minus_fee_only": "0.1386550929130734290462560102",
+      "net_return_zero_cost_minus_slippage_only": "0.11780990084479626874901"
+    },
+    "Design C": {
+      "net_return_improvement_zero_cost_vs_official": "0.2085655867279378139418301249",
+      "net_return_improvement_fee_only_vs_official": "0.0659140311447879764411515939",
+      "net_return_improvement_slippage_only_vs_official": "0.0764031079696836950060001249",
+      "net_return_zero_cost_minus_fee_only": "0.142651555583149837500678531",
+      "net_return_zero_cost_minus_slippage_only": "0.13216247875825411893583"
+    },
+    "slippage_vs_fees_by_starting_capital": {
+      "Design A": {
+        "slippage_fraction": "0.4765765170000000",
+        "fees_fraction": "0.1224677835719873283970548159"
+      },
+      "Design C": {
+        "slippage_fraction": "0.4781310940000000",
+        "fees_fraction": "0.1228039949706459647658001243"
+      }
+    },
+    "frequency_tradeoff": {
+      "every_1_observed_row": {
+        "Design A": {
+          "turnover": "105.02635944022393744420131",
+          "total_fees": "1764337.812236321925125137808",
+          "slippage": "6754907.0600000000000000"
+        },
+        "Design C": {
+          "turnover": "105.5200112711601595319345",
+          "total_fees": "1772630.669344219519976967646",
+          "slippage": "6790022.0800000000000000"
+        }
+      },
+      "every_3_observed_rows": {
+        "Design A": {
+          "turnover": "72.90182961604103125010704",
+          "total_fees": "1224677.835719873283970548159",
+          "slippage": "4765765.1700000000000000"
+        },
+        "Design C": {
+          "turnover": "73.1019673615369752757903",
+          "total_fees": "1228039.949706459647658001243",
+          "slippage": "4781310.9400000000000000"
+        }
+      },
+      "every_5_observed_rows_weekly_style": {
+        "Design A": {
+          "turnover": "63.06395609320819891951957",
+          "total_fees": "1059411.398409804533649009256",
+          "slippage": "3980474.5900000000000000"
+        },
+        "Design C": {
+          "turnover": "63.0034148029630903197291",
+          "total_fees": "1058394.365274976954281129149",
+          "slippage": "3991659.4800000000000000"
+        }
+      },
+      "every_10_observed_rows": {
+        "Design A": {
+          "turnover": "43.5099797108449127528315",
+          "total_fees": "730924.1491624836893348163686",
+          "slippage": "2762298.0400000000000000"
+        },
+        "Design C": {
+          "turnover": "44.58996279585621855895295",
+          "total_fees": "749066.7850075886155718506070",
+          "slippage": "2846310.9600000000000000"
+        }
+      }
+    },
+    "conclusion": "The official 3-row run is highly cost-sensitive. Lower frequencies reduce turnover and costs in this sample, but these are diagnostics and do not establish an optimal frequency."
+  }
+}

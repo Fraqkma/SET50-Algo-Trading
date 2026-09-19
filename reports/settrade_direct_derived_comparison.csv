@@ -1,0 +1,11 @@
+symbol,interval,direct_rows,derived_rows_available,classification,note
+ADVANC,5m,20,38,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+ADVANC,15m,20,32,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+BDMS,5m,20,86,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+BDMS,15m,20,80,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+PTT,5m,20,68,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+PTT,15m,20,68,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+SCB,5m,20,36,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+SCB,15m,20,30,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+TRUE,5m,20,38,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.
+TRUE,15m,20,31,PENDING_ALIGNMENT,Bounded diagnostic; exact bucket alignment requires exchange-session calendar.

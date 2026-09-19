@@ -1,0 +1,840 @@
+{
+  "method": {
+    "fold_rule": "expanding observed rows with equal-sized OOS blocks",
+    "initial_research_observations": 250,
+    "oos_block_observations": 80,
+    "capital_reset_per_block": true,
+    "usable_block_count": 8,
+    "terminal_remainder_blocks": [
+      {
+        "fold": 9,
+        "research_start": "2023-01-03",
+        "research_end": "2026-08-25",
+        "oos_start": "2026-08-26",
+        "oos_end": "2026-09-04",
+        "research_observations": 890,
+        "oos_observations": 8
+      }
+    ],
+    "terminal_remainder_policy": "do not evaluate a shorter terminal block",
+    "aggregate_return_method": "compound independent-block returns descriptively only",
+    "causal_truncation": "truncate approved raw rows at each OOS end before feature construction",
+    "statistical_test_run": false
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "research_start": "2023-01-03",
+      "research_end": "2024-01-11",
+      "oos_start": "2024-01-12",
+      "oos_end": "2024-05-13",
+      "research_observations": 250,
+      "oos_observations": 80
+    },
+    {
+      "fold": 2,
+      "research_start": "2023-01-03",
+      "research_end": "2024-05-13",
+      "oos_start": "2024-05-14",
+      "oos_end": "2024-09-09",
+      "research_observations": 330,
+      "oos_observations": 80
+    },
+    {
+      "fold": 3,
+      "research_start": "2023-01-03",
+      "research_end": "2024-09-09",
+      "oos_start": "2024-09-10",
+      "oos_end": "2025-01-07",
+      "research_observations": 410,
+      "oos_observations": 80
+    },
+    {
+      "fold": 4,
+      "research_start": "2023-01-03",
+      "research_end": "2025-01-07",
+      "oos_start": "2025-01-08",
+      "oos_end": "2025-05-07",
+      "research_observations": 490,
+      "oos_observations": 80
+    },
+    {
+      "fold": 5,
+      "research_start": "2023-01-03",
+      "research_end": "2025-05-07",
+      "oos_start": "2025-05-08",
+      "oos_end": "2025-09-05",
+      "research_observations": 570,
+      "oos_observations": 80
+    },
+    {
+      "fold": 6,
+      "research_start": "2023-01-03",
+      "research_end": "2025-09-05",
+      "oos_start": "2025-09-08",
+      "oos_end": "2026-01-06",
+      "research_observations": 650,
+      "oos_observations": 80
+    },
+    {
+      "fold": 7,
+      "research_start": "2023-01-03",
+      "research_end": "2026-01-06",
+      "oos_start": "2026-01-07",
+      "oos_end": "2026-05-05",
+      "research_observations": 730,
+      "oos_observations": 80
+    },
+    {
+      "fold": 8,
+      "research_start": "2023-01-03",
+      "research_end": "2026-05-05",
+      "oos_start": "2026-05-06",
+      "oos_end": "2026-08-25",
+      "research_observations": 810,
+      "oos_observations": 80
+    }
+  ],
+  "fold_results": [
+    {
+      "fold": 1,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-01-11"
+      },
+      "oos_period": {
+        "start": "2024-01-12",
+        "end": "2024-05-13"
+      },
+      "research_observations": 250,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8802475.703622623675284610227",
+      "gross_return": "-0.0982611795087051293582999999",
+      "net_return": "-0.1197524296377376324715389773",
+      "volatility": "0.1271680382005125",
+      "maximum_drawdown": "-0.1197524296377376324715389773",
+      "turnover": "12.793172289441337647026",
+      "commission": "200852.80494422900105830820",
+      "vat": "14059.6963460960300740815740",
+      "total_fees": "214912.5012903250311323897740",
+      "slippage": "880088.700000000000000",
+      "fills": 104,
+      "trade_count": 104,
+      "non_fills": 62,
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {}
+    },
+    {
+      "fold": 1,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-01-11"
+      },
+      "oos_period": {
+        "start": "2024-01-12",
+        "end": "2024-05-13"
+      },
+      "research_observations": 250,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8802475.703622623675284610227",
+      "gross_return": "-0.0982611795087051293582999999",
+      "net_return": "-0.1197524296377376324715389773",
+      "volatility": "0.1271680382005125",
+      "maximum_drawdown": "-0.1197524296377376324715389773",
+      "turnover": "12.793172289441337647026",
+      "commission": "200852.80494422900105830820",
+      "vat": "14059.6963460960300740815740",
+      "total_fees": "214912.5012903250311323897740",
+      "slippage": "880088.700000000000000",
+      "fills": 104,
+      "trade_count": 104,
+      "non_fills": 62,
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {}
+    },
+    {
+      "fold": 2,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-05-13"
+      },
+      "oos_period": {
+        "start": "2024-05-14",
+        "end": "2024-09-09"
+      },
+      "research_observations": 330,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8513421.061620615893405947191",
+      "gross_return": "-0.1294494525002098331153000000",
+      "net_return": "-0.1486578938379384106594052809",
+      "volatility": "0.14644310770756686",
+      "maximum_drawdown": "-0.2073242719907938236743690494",
+      "turnover": "11.434276646067371595991",
+      "commission": "179518.14334325773405705870",
+      "vat": "12566.2700340280413839941090",
+      "total_fees": "192084.4133772857754410528090",
+      "slippage": "679258.100000000000000",
+      "fills": 78,
+      "trade_count": 78,
+      "non_fills": 76,
+      "unique_symbols_traded": 14,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 16
+      }
+    },
+    {
+      "fold": 2,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-05-13"
+      },
+      "oos_period": {
+        "start": "2024-05-14",
+        "end": "2024-09-09"
+      },
+      "research_observations": 330,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8513421.061620615893405947191",
+      "gross_return": "-0.1294494525002098331153000000",
+      "net_return": "-0.1486578938379384106594052809",
+      "volatility": "0.14644310770756686",
+      "maximum_drawdown": "-0.2073242719907938236743690494",
+      "turnover": "11.434276646067371595991",
+      "commission": "179518.14334325773405705870",
+      "vat": "12566.2700340280413839941090",
+      "total_fees": "192084.4133772857754410528090",
+      "slippage": "679258.100000000000000",
+      "fills": 78,
+      "trade_count": 78,
+      "non_fills": 74,
+      "unique_symbols_traded": 14,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 16
+      }
+    },
+    {
+      "fold": 3,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-09-09"
+      },
+      "oos_period": {
+        "start": "2024-09-10",
+        "end": "2025-01-07"
+      },
+      "research_observations": 410,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8596890.837291947407388186379",
+      "gross_return": "-0.1220976290616036017307999998",
+      "net_return": "-0.1403109162708052592611813621",
+      "volatility": "0.12378709647404738",
+      "maximum_drawdown": "-0.1757423775885001270120984689",
+      "turnover": "10.8418877368900872256571",
+      "commission": "170217.63746917436944281647",
+      "vat": "11915.2346228422058609971529",
+      "total_fees": "182132.8720920165753038136229",
+      "slippage": "737592.750000000000000",
+      "fills": 90,
+      "trade_count": 90,
+      "non_fills": 62,
+      "unique_symbols_traded": 13,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 26
+      }
+    },
+    {
+      "fold": 3,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-09-09"
+      },
+      "oos_period": {
+        "start": "2024-09-10",
+        "end": "2025-01-07"
+      },
+      "research_observations": 410,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8600945.281858702977373271462",
+      "gross_return": "-0.1212775220351601129274000002",
+      "net_return": "-0.1399054718141297022626728538",
+      "volatility": "0.13041472429056147",
+      "maximum_drawdown": "-0.1827139575417198129252456676",
+      "turnover": "11.0887253878026009496237",
+      "commission": "174092.98858850083490909209",
+      "vat": "12186.5092011950584436364463",
+      "total_fees": "186279.4977896958933527285363",
+      "slippage": "759906.900000000000000",
+      "fills": 84,
+      "trade_count": 84,
+      "non_fills": 54,
+      "unique_symbols_traded": 13,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 26
+      }
+    },
+    {
+      "fold": 4,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-01-07"
+      },
+      "oos_period": {
+        "start": "2025-01-08",
+        "end": "2025-05-07"
+      },
+      "research_observations": 490,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8509930.522631987347228231880",
+      "gross_return": "-0.1292529896067617855341000001",
+      "net_return": "-0.149006947736801265277176812",
+      "volatility": "0.20278506740615362",
+      "maximum_drawdown": "-0.2157818804797558800662237756",
+      "turnover": "11.7590083517111016983611",
+      "commission": "184616.43112186429666426927",
+      "vat": "12923.1501785305007664988489",
+      "total_fees": "197539.5813003947974307681189",
+      "slippage": "586971.250000000000000",
+      "fills": 50,
+      "trade_count": 50,
+      "non_fills": 26,
+      "unique_symbols_traded": 10,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "GULF_PRE_MERGER_CONTINUITY_BOUNDARY": 19
+      }
+    },
+    {
+      "fold": 4,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-01-07"
+      },
+      "oos_period": {
+        "start": "2025-01-08",
+        "end": "2025-05-07"
+      },
+      "research_observations": 490,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8509930.522631987347228231880",
+      "gross_return": "-0.1292529896067617855341000001",
+      "net_return": "-0.149006947736801265277176812",
+      "volatility": "0.20278506740615362",
+      "maximum_drawdown": "-0.2157818804797558800662237756",
+      "turnover": "11.7590083517111016983611",
+      "commission": "184616.43112186429666426927",
+      "vat": "12923.1501785305007664988489",
+      "total_fees": "197539.5813003947974307681189",
+      "slippage": "586971.250000000000000",
+      "fills": 50,
+      "trade_count": 50,
+      "non_fills": 26,
+      "unique_symbols_traded": 10,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "GULF_PRE_MERGER_CONTINUITY_BOUNDARY": 19
+      }
+    },
+    {
+      "fold": 5,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-05-07"
+      },
+      "oos_period": {
+        "start": "2025-05-08",
+        "end": "2025-09-05"
+      },
+      "research_observations": 570,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "9542801.403710237932993358915",
+      "gross_return": "-0.02637915530719953483505999967",
+      "net_return": "-0.0457198596289762067006641085",
+      "volatility": "0.18768314203878622",
+      "maximum_drawdown": "-0.1714050919373542836331825517",
+      "turnover": "11.51300929923011599833568",
+      "commission": "180754.245997912821173870176",
+      "vat": "12652.79721985389748217091232",
+      "total_fees": "193407.0432177667186560410883",
+      "slippage": "738227.0200000000000000",
+      "fills": 157,
+      "trade_count": 157,
+      "non_fills": 62,
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 1,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 52
+      }
+    },
+    {
+      "fold": 5,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-05-07"
+      },
+      "oos_period": {
+        "start": "2025-05-08",
+        "end": "2025-09-05"
+      },
+      "research_observations": 570,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "9442279.301387330293347318086",
+      "gross_return": "-0.03633514568597607744938999987",
+      "net_return": "-0.0557720698612669706652681914",
+      "volatility": "0.18896299213313042",
+      "maximum_drawdown": "-0.1714050919373542836331825517",
+      "turnover": "11.57028643091308602647669",
+      "commission": "181653.496965335450615684033",
+      "vat": "12715.74478757348154309788231",
+      "total_fees": "194369.2417529089321587819153",
+      "slippage": "746267.1800000000000000",
+      "fills": 151,
+      "trade_count": 151,
+      "non_fills": 55,
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 1,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 52
+      }
+    },
+    {
+      "fold": 6,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-09-05"
+      },
+      "oos_period": {
+        "start": "2025-09-08",
+        "end": "2026-01-06"
+      },
+      "research_observations": 650,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8870838.931972589790457964895",
+      "gross_return": "-0.09556866723666854277120000027",
+      "net_return": "-0.1129161068027410209542035105",
+      "volatility": "0.1378889407989337",
+      "maximum_drawdown": "-0.1260027163368369761729362268",
+      "turnover": "10.3264715554928734942577",
+      "commission": "162125.60342123811385984589",
+      "vat": "11348.7922394866679701892123",
+      "total_fees": "173474.3956607247818300351023",
+      "slippage": "690421.070000000000000",
+      "fills": 121,
+      "trade_count": 121,
+      "non_fills": 57,
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 25
+      }
+    },
+    {
+      "fold": 6,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-09-05"
+      },
+      "oos_period": {
+        "start": "2025-09-08",
+        "end": "2026-01-06"
+      },
+      "research_observations": 650,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "8885220.540120938804431632218",
+      "gross_return": "-0.09471420846295638548529999972",
+      "net_return": "-0.1114779459879061195568367782",
+      "volatility": "0.1415799763561036",
+      "maximum_drawdown": "-0.1255717711819572500797363939",
+      "turnover": "9.9790091820642502955752",
+      "commission": "156670.44415840872964053064",
+      "vat": "10966.9310910886110748371448",
+      "total_fees": "167637.3752494973407153677848",
+      "slippage": "670260.030000000000000",
+      "fills": 114,
+      "trade_count": 114,
+      "non_fills": 55,
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 25
+      }
+    },
+    {
+      "fold": 7,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-01-06"
+      },
+      "oos_period": {
+        "start": "2026-01-07",
+        "end": "2026-05-05"
+      },
+      "research_observations": 730,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "11901830.87833898443900977634",
+      "gross_return": "0.2101614372714185453381600006",
+      "net_return": "0.190183087833898443900977634",
+      "volatility": "0.2725368461421625",
+      "maximum_drawdown": "-0.1252788114625794228947748655",
+      "turnover": "11.89258255700940617726196",
+      "commission": "186713.546145047676983012772",
+      "vat": "13069.94823015333738881089404",
+      "total_fees": "199783.4943752010143718236660",
+      "slippage": "803224.3500000000000000",
+      "fills": 206,
+      "trade_count": 206,
+      "non_fills": 58,
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {}
+    },
+    {
+      "fold": 7,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-01-06"
+      },
+      "oos_period": {
+        "start": "2026-01-07",
+        "end": "2026-05-05"
+      },
+      "research_observations": 730,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "11697366.64204954431174338426",
+      "gross_return": "0.1908550178101681687174499999",
+      "net_return": "0.169736664204954431174338426",
+      "volatility": "0.28378710313290995",
+      "maximum_drawdown": "-0.1342363946173016551137861836",
+      "turnover": "12.57119686005937111918065",
+      "commission": "197367.790702932126571136205",
+      "vat": "13815.74534920524885997953435",
+      "total_fees": "211183.5360521373754311157394",
+      "slippage": "840954.1000000000000000",
+      "fills": 171,
+      "trade_count": 171,
+      "non_fills": 52,
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 0,
+      "eligibility_exclusions": {}
+    },
+    {
+      "fold": 8,
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-05-05"
+      },
+      "oos_period": {
+        "start": "2026-05-06",
+        "end": "2026-08-25"
+      },
+      "research_observations": 810,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "10750957.37774836342276657823",
+      "gross_return": "0.0933745411487807546793499998",
+      "net_return": "0.075095737774836342276657823",
+      "volatility": "0.154888515104908",
+      "maximum_drawdown": "-0.06264812776528504832539937368",
+      "turnover": "10.88088777542973534299195",
+      "commission": "170829.938074246844884973615",
+      "vat": "11958.09566519727914194815305",
+      "total_fees": "182788.0337394441240269217680",
+      "slippage": "658797.0100000000000000",
+      "fills": 212,
+      "trade_count": 212,
+      "non_fills": 71,
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 1,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 39
+      }
+    },
+    {
+      "fold": 8,
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-05-05"
+      },
+      "oos_period": {
+        "start": "2026-05-06",
+        "end": "2026-08-25"
+      },
+      "research_observations": 810,
+      "oos_observations": 80,
+      "starting_capital": "10000000",
+      "final_equity": "10584438.79490703921991873470",
+      "gross_return": "0.07672588605088608080589999905",
+      "net_return": "0.05844387949070392199187347",
+      "volatility": "0.16015216663283274",
+      "maximum_drawdown": "-0.07788799614161875805942681352",
+      "turnover": "10.8827945474029161343095",
+      "commission": "170859.874394225783308659150",
+      "vat": "11960.19120759580483160614050",
+      "total_fees": "182820.0656018215881402652905",
+      "slippage": "673702.0600000000000000",
+      "fills": 193,
+      "trade_count": 193,
+      "non_fills": 63,
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 80,
+      "incomplete_valuation_snapshots": 0,
+      "rebalances": 26,
+      "boundary_exits": 1,
+      "eligibility_exclusions": {
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 39
+      }
+    }
+  ],
+  "a_vs_c": [
+    {
+      "fold": 1,
+      "oos_period": {
+        "start": "2024-01-12",
+        "end": "2024-05-13"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.1197524296377376324715389773",
+      "c_net_return": "-0.1197524296377376324715389773",
+      "c_minus_a_net_return": "0.0000000000000000000000000000",
+      "status": "tied"
+    },
+    {
+      "fold": 2,
+      "oos_period": {
+        "start": "2024-05-14",
+        "end": "2024-09-09"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.1486578938379384106594052809",
+      "c_net_return": "-0.1486578938379384106594052809",
+      "c_minus_a_net_return": "0.0000000000000000000000000000",
+      "status": "tied"
+    },
+    {
+      "fold": 3,
+      "oos_period": {
+        "start": "2024-09-10",
+        "end": "2025-01-07"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.1403109162708052592611813621",
+      "c_net_return": "-0.1399054718141297022626728538",
+      "c_minus_a_net_return": "0.0004054444566755569985085083",
+      "status": "positive"
+    },
+    {
+      "fold": 4,
+      "oos_period": {
+        "start": "2025-01-08",
+        "end": "2025-05-07"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.149006947736801265277176812",
+      "c_net_return": "-0.149006947736801265277176812",
+      "c_minus_a_net_return": "0.000000000000000000000000000",
+      "status": "tied"
+    },
+    {
+      "fold": 5,
+      "oos_period": {
+        "start": "2025-05-08",
+        "end": "2025-09-05"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.0457198596289762067006641085",
+      "c_net_return": "-0.0557720698612669706652681914",
+      "c_minus_a_net_return": "-0.0100522102322907639646040829",
+      "status": "negative"
+    },
+    {
+      "fold": 6,
+      "oos_period": {
+        "start": "2025-09-08",
+        "end": "2026-01-06"
+      },
+      "oos_observations": 80,
+      "a_net_return": "-0.1129161068027410209542035105",
+      "c_net_return": "-0.1114779459879061195568367782",
+      "c_minus_a_net_return": "0.0014381608148349013973667323",
+      "status": "positive"
+    },
+    {
+      "fold": 7,
+      "oos_period": {
+        "start": "2026-01-07",
+        "end": "2026-05-05"
+      },
+      "oos_observations": 80,
+      "a_net_return": "0.190183087833898443900977634",
+      "c_net_return": "0.169736664204954431174338426",
+      "c_minus_a_net_return": "-0.020446423628944012726639208",
+      "status": "negative"
+    },
+    {
+      "fold": 8,
+      "oos_period": {
+        "start": "2026-05-06",
+        "end": "2026-08-25"
+      },
+      "oos_observations": 80,
+      "a_net_return": "0.075095737774836342276657823",
+      "c_net_return": "0.05844387949070392199187347",
+      "c_minus_a_net_return": "-0.016651858284132420284784353",
+      "status": "negative"
+    }
+  ],
+  "paired_summary": {
+    "mean_c_minus_a_net_return": "-0.005663360859232092322519050412",
+    "median_c_minus_a_net_return": "0E-28",
+    "positive_blocks": 2,
+    "negative_blocks": 3,
+    "tied_blocks": 3,
+    "sign_pattern": [
+      "0",
+      "0",
+      "+",
+      "0",
+      "-",
+      "+",
+      "-",
+      "-"
+    ],
+    "final_block_materially_shorter": false,
+    "design_a_compounded_independent_block_return": "-0.4061484839569069204270222797",
+    "design_c_compounded_independent_block_return": "-0.4302528770544862708656961880"
+  },
+  "strategies": {
+    "A": {
+      "fold_count": 8,
+      "mean_oos_net_return": -0.05638566603828312,
+      "median_oos_net_return": -0.11633426822023932,
+      "std_oos_net_return_population": 0.11701742407457001,
+      "positive_fold_fraction": 0.25,
+      "compounded_independent_fold_net_return": "-0.4061484839569069204270222797",
+      "mean_final_equity": "9436143.339617168738566831759",
+      "total_commission": "1435628.350516970858124155093",
+      "total_vat": "100493.9845361879600686908565",
+      "total_fees": "1536122.335053158818192845949",
+      "total_slippage": "5774580.2500000000000000",
+      "mean_turnover": "11.43016202640900364748531125",
+      "worst_fold_drawdown": "-0.2157818804797558800662237756",
+      "all_valuation_complete": true,
+      "mean_fills": 127.25,
+      "mean_non_fills": 59.25
+    },
+    "C": {
+      "fold_count": 8,
+      "mean_oos_net_return": -0.062049026897515215,
+      "median_oos_net_return": -0.11561518781282187,
+      "std_oos_net_return_population": 0.10907557578008616,
+      "positive_fold_fraction": 0.25,
+      "compounded_independent_fold_net_return": "-0.4302528770544862708656961880",
+      "mean_final_equity": "9379509.731024847815341641254",
+      "total_commission": "1445631.974218753956824738288",
+      "total_vat": "101194.2381953127769777316802",
+      "total_fees": "1546826.212414066733802469968",
+      "total_slippage": "5837408.3200000000000000",
+      "mean_turnover": "11.50980871193275443331798",
+      "worst_fold_drawdown": "-0.2157818804797558800662237756",
+      "all_valuation_complete": true,
+      "mean_fills": 118.125,
+      "mean_non_fills": 55.125
+    }
+  }
+}

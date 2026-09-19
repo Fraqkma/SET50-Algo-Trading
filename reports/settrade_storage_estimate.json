@@ -1,0 +1,1219 @@
+{
+  "status": "ESTIMATED",
+  "scenarios": [
+    "LOW",
+    "BASE",
+    "HIGH"
+  ],
+  "assumptions": {
+    "sessions_per_month": 21,
+    "sessions_per_year": 252,
+    "minutes_per_session": 390,
+    "normalized_bar_bytes": 100,
+    "raw_bbo_bytes": 1200,
+    "bbo_events_per_minute": 5,
+    "event_rate_measurement": "NOT_MEASURED_THIS_RUN"
+  },
+  "rows": [
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 1965600,
+      "estimated_bytes": 196560000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 1965600,
+      "estimated_bytes": 196560000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 1965600,
+      "estimated_bytes": 196560000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 98280,
+      "estimated_bytes": 9828000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 196560,
+      "estimated_bytes": 19656000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 393120,
+      "estimated_bytes": 39312000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 98280,
+      "estimated_bytes": 9828000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 196560,
+      "estimated_bytes": 19656000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 393120,
+      "estimated_bytes": 39312000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 98280,
+      "estimated_bytes": 9828000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 196560,
+      "estimated_bytes": 19656000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 393120,
+      "estimated_bytes": 39312000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 10920,
+      "estimated_bytes": 1092000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 65520,
+      "estimated_bytes": 6552000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 131040,
+      "estimated_bytes": 13104000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 10920,
+      "estimated_bytes": 1092000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 65520,
+      "estimated_bytes": 6552000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 131040,
+      "estimated_bytes": 13104000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 10920,
+      "estimated_bytes": 1092000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 32760,
+      "estimated_bytes": 3276000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 65520,
+      "estimated_bytes": 6552000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 131040,
+      "estimated_bytes": 13104000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 409500,
+      "estimated_bytes": 491400000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 1228500,
+      "estimated_bytes": 1474200000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 2457000,
+      "estimated_bytes": 2948400000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 4914000,
+      "estimated_bytes": 5896800000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 819000,
+      "estimated_bytes": 982800000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 2457000,
+      "estimated_bytes": 2948400000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 4914000,
+      "estimated_bytes": 5896800000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 9828000,
+      "estimated_bytes": 11793600000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 1638000,
+      "estimated_bytes": 1965600000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 4914000,
+      "estimated_bytes": 5896800000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 9828000,
+      "estimated_bytes": 11793600000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 19656000,
+      "estimated_bytes": 23587200000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 409500,
+      "estimated_bytes": 204750000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 1228500,
+      "estimated_bytes": 614250000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 2457000,
+      "estimated_bytes": 1228500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 4914000,
+      "estimated_bytes": 2457000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 819000,
+      "estimated_bytes": 409500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 2457000,
+      "estimated_bytes": 1228500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 4914000,
+      "estimated_bytes": 2457000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 9828000,
+      "estimated_bytes": 4914000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 1638000,
+      "estimated_bytes": 819000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 4914000,
+      "estimated_bytes": 2457000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 9828000,
+      "estimated_bytes": 4914000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 20,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 19656000,
+      "estimated_bytes": 9828000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 409500,
+      "estimated_bytes": 40950000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 1228500,
+      "estimated_bytes": 122850000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 2457000,
+      "estimated_bytes": 245700000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 4914000,
+      "estimated_bytes": 491400000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 409500,
+      "estimated_bytes": 40950000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 1228500,
+      "estimated_bytes": 122850000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 2457000,
+      "estimated_bytes": 245700000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 4914000,
+      "estimated_bytes": 491400000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 409500,
+      "estimated_bytes": 40950000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 1228500,
+      "estimated_bytes": 122850000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 2457000,
+      "estimated_bytes": 245700000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "1m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 4914000,
+      "estimated_bytes": 491400000,
+      "basis": "ESTIMATED: 100 compressed-columnar bytes per normalized bar",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 245700,
+      "estimated_bytes": 24570000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 245700,
+      "estimated_bytes": 24570000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 245700,
+      "estimated_bytes": 24570000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 491400,
+      "estimated_bytes": 49140000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "5m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 982800,
+      "estimated_bytes": 98280000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 27300,
+      "estimated_bytes": 2730000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 327600,
+      "estimated_bytes": 32760000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 27300,
+      "estimated_bytes": 2730000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 327600,
+      "estimated_bytes": 32760000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 27300,
+      "estimated_bytes": 2730000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 81900,
+      "estimated_bytes": 8190000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 163800,
+      "estimated_bytes": 16380000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "15m",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 327600,
+      "estimated_bytes": 32760000,
+      "basis": "ESTIMATED: derived bar, same normalized row budget",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 1023750,
+      "estimated_bytes": 1228500000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 3071250,
+      "estimated_bytes": 3685500000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 6142500,
+      "estimated_bytes": 7371000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 12285000,
+      "estimated_bytes": 14742000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 2047500,
+      "estimated_bytes": 2457000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 6142500,
+      "estimated_bytes": 7371000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 12285000,
+      "estimated_bytes": 14742000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 24570000,
+      "estimated_bytes": 29484000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 4095000,
+      "estimated_bytes": 4914000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 12285000,
+      "estimated_bytes": 14742000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 24570000,
+      "estimated_bytes": 29484000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "raw_BBO",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 49140000,
+      "estimated_bytes": 58968000000,
+      "basis": "ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "1_month",
+      "events": 1023750,
+      "estimated_bytes": 511875000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "3_months",
+      "events": 3071250,
+      "estimated_bytes": 1535625000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "6_months",
+      "events": 6142500,
+      "estimated_bytes": 3071250000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "LOW",
+      "duration": "12_months",
+      "events": 12285000,
+      "estimated_bytes": 6142500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "1_month",
+      "events": 2047500,
+      "estimated_bytes": 1023750000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "3_months",
+      "events": 6142500,
+      "estimated_bytes": 3071250000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "6_months",
+      "events": 12285000,
+      "estimated_bytes": 6142500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "BASE",
+      "duration": "12_months",
+      "events": 24570000,
+      "estimated_bytes": 12285000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "1_month",
+      "events": 4095000,
+      "estimated_bytes": 2047500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "3_months",
+      "events": 12285000,
+      "estimated_bytes": 6142500000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "6_months",
+      "events": 24570000,
+      "estimated_bytes": 12285000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    },
+    {
+      "symbols": 50,
+      "frequency": "normalized_BBO",
+      "scenario": "HIGH",
+      "duration": "12_months",
+      "events": 49140000,
+      "estimated_bytes": 24570000000,
+      "basis": "ESTIMATED: normalized 20-row depth snapshot",
+      "status": "ESTIMATED"
+    }
+  ]
+}

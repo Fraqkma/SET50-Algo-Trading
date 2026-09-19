@@ -1,0 +1,2 @@
+bid_offer_topic_method,depth,dispatcher,host_count,orders_placed,quote_topic_method,status,token_received
+subscribe_bid_offer,False,realtime/v3,1,0,subscribe_price_info,SUCCESS,True

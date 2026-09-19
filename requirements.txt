@@ -14,3 +14,4 @@ pydantic
 pytest
 jupyter
 streamlit
+settrade-v2==2.2.1

@@ -1,0 +1,26 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "holding_duration_rows": 10,
+  "lot_count": 2077,
+  "feature_rows": 680,
+  "cost_break_even": {
+    "A": {
+      "round_trip_cost_drag_fraction": 0.5990443005719873,
+      "median_completed_trade_cost": 5862.274458579365,
+      "total_fees": "1224677.835719873283970548159",
+      "slippage": "4765765.1700000000000000"
+    },
+    "C": {
+      "round_trip_cost_drag_fraction": 0.600935088970646,
+      "median_completed_trade_cost": 6401.282887452053,
+      "total_fees": "1228039.949706459647658001243",
+      "slippage": "4781310.9400000000000000"
+    }
+  },
+  "limitations": [
+    "qualified-but-not-selected candidate sets are absent from existing logs",
+    "holding rows use calendar-day deltas, not engine observed-row indices",
+    "no overlapping-return inferential claims"
+  ],
+  "production_mutated": false
+}

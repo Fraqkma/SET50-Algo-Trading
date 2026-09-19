@@ -1,0 +1,25 @@
+{
+  "status": "EXECUTED_DIAGNOSTIC",
+  "design": "D0",
+  "rules": {
+    "entry_persistence_rows": 2,
+    "exit_persistence_rows": 2,
+    "max_positions": 10,
+    "ranking_replacement": false
+  },
+  "observations": 13500,
+  "symbols": 20,
+  "execution": {
+    "final_equity": "4952810.043749119451925836214",
+    "gross_return": "-0.4260629291219535338816993622",
+    "net_return": "-0.5047189956250880548074163786",
+    "turnover": "46.8218742205693915862355",
+    "commission": "735103.42526293944790389735",
+    "vat": "51457.2397684057613532728145",
+    "total_fees": "786560.6650313452092571701645",
+    "slippage": "3036487.770000000000000",
+    "fills": 473,
+    "non_fills": 1276
+  },
+  "production_mutated": false
+}

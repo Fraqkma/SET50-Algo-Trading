@@ -31,18 +31,22 @@ class ExecutionPolicy:
     tick_size: TickSizeFn
     order_type: OrderType = OrderType.LIMIT
     validity: Validity = Validity.IOC
+    slippage_ticks: int = 1
 
     def __post_init__(self) -> None:
         if self.order_type not in {OrderType.LIMIT, OrderType.MARKET_TO_LIMIT}:
             raise ValueError("Only LIMIT and MARKET_TO_LIMIT orders are allowed.")
         if self.validity is not Validity.IOC:
             raise ValueError("Only IOC validity is allowed.")
+        if self.slippage_ticks < 0:
+            raise ValueError("slippage_ticks must be non-negative.")
 
     def requested_price(self, side: OrderSide, open_price: Decimal) -> Decimal:
         tick = self.tick_size(open_price)
         if tick <= 0:
             raise ValueError("tick_size must return a positive Decimal.")
-        return open_price + tick if side is OrderSide.BUY else open_price - tick
+        impact = tick * self.slippage_ticks
+        return open_price + impact if side is OrderSide.BUY else open_price - impact
 
     def fill_price(self, side: OrderSide, requested: Decimal, low: Decimal, high: Decimal) -> Decimal | None:
         return requested if low <= requested <= high else None
@@ -136,6 +140,8 @@ class BacktestEngine:
         execution_policy: ExecutionPolicy,
         design: str = "A",
         gate: object | None = None,
+        commission_rate: Decimal = Decimal("0.00157"),
+        vat_rate: Decimal = Decimal("0.07"),
     ) -> None:
         if initial_cash <= 0:
             raise ValueError("initial_cash must be positive.")
@@ -149,6 +155,10 @@ class BacktestEngine:
         self.execution_policy = execution_policy
         self.design = design
         self.gate = gate or MarketDataEligibilityGate()
+        if commission_rate < 0 or vat_rate < 0:
+            raise ValueError("Transaction-cost rates must be non-negative.")
+        self.commission_rate = commission_rate
+        self.vat_rate = vat_rate
 
     def run(self, market_data: Mapping[str, pd.DataFrame]) -> BacktestResult:
         dates = _union_dates(market_data)
@@ -242,8 +252,9 @@ class BacktestEngine:
             if symbol in target and symbol in prices and prices[symbol] is not None:
                 desired = _target_quantity(
                     slot_value,
-                    _buy_budget_price(
-                        self.execution_policy.requested_price(OrderSide.BUY, prices[symbol]["open"])
+                        _buy_budget_price(
+                        self.execution_policy.requested_price(OrderSide.BUY, prices[symbol]["open"]),
+                        self.commission_rate, self.vat_rate,
                     ),
                 )
             if current_quantity > desired:
@@ -260,7 +271,8 @@ class BacktestEngine:
             desired = _target_quantity(
                 slot_value,
                 _buy_budget_price(
-                    self.execution_policy.requested_price(OrderSide.BUY, prices[symbol]["open"])
+                    self.execution_policy.requested_price(OrderSide.BUY, prices[symbol]["open"]),
+                    self.commission_rate, self.vat_rate,
                 ),
             )
             quantity = max(0, desired - positions.get(symbol, 0))
@@ -298,7 +310,7 @@ class BacktestEngine:
         if executed is None:
             reason = f"{event_reason}_IOC_LIMIT_NOT_FILLED" if event_reason else "IOC_LIMIT_NOT_FILLED"
             return cash, _non_fill(signal_date, execution_date, symbol, side.value, reason, requested, membership_end_date, quantity)
-        costs = calculate_transaction_costs(executed * quantity)
+        costs = calculate_transaction_costs(executed * quantity, self.commission_rate, self.vat_rate)
         if side is OrderSide.BUY and cash < executed * quantity + costs.total_fees:
             reason = f"{event_reason}_INSUFFICIENT_CASH" if event_reason else "INSUFFICIENT_CASH"
             return cash, _non_fill(signal_date, execution_date, symbol, side.value, reason, requested, membership_end_date, quantity)
@@ -348,9 +360,9 @@ def _target_quantity(value: Decimal, price: Decimal) -> int:
     return 0 if price <= 0 else int((value / price).to_integral_value(rounding=ROUND_DOWN))
 
 
-def _buy_budget_price(price: Decimal) -> Decimal:
+def _buy_budget_price(price: Decimal, commission_rate: Decimal = Decimal("0.00157"), vat_rate: Decimal = Decimal("0.07")) -> Decimal:
     """Reserve commission and VAT while preserving equal-weight allocation."""
-    costs = calculate_transaction_costs(price)
+    costs = calculate_transaction_costs(price, commission_rate, vat_rate)
     return price + costs.total_fees
 
 

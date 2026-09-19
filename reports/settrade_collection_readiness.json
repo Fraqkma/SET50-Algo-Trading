@@ -1,0 +1,14 @@
+{
+  "status": "READY_FOR_HUMAN_DECISION",
+  "universe_size": 50,
+  "capability_rows": 50,
+  "supported_all_matrix": true,
+  "realtime_depth": "DEPTH_10_LEVELS_OBSERVED",
+  "orderbook_quality_rows": 2,
+  "orders_placed": 0,
+  "blocked_production_actions": [
+    "continuous licensed retention",
+    "account trading",
+    "order submission"
+  ]
+}

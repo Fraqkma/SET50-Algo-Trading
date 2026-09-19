@@ -1,0 +1,305 @@
+{
+  "method": {
+    "fold_rule": "expanding observed rows",
+    "initial_research_observations": 400,
+    "oos_observations": 120,
+    "capital_reset_per_fold": true,
+    "aggregate_return_method": "compound independent fold net returns"
+  },
+  "fold_results": [
+    {
+      "fold": 1,
+      "design": "D0",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2024-08-26"
+      },
+      "oos_period": {
+        "start": "2024-08-27",
+        "end": "2025-02-19"
+      },
+      "research_observations": 400,
+      "oos_observations": 120,
+      "starting_capital": "10000000",
+      "final_equity": "9698295.932644577392353427389",
+      "gross_return": "-0.02000023914228437923419999996",
+      "net_return": "-0.0301704067355422607646572611",
+      "volatility": "0.08670722723054261",
+      "maximum_drawdown": "-0.10133218034972913",
+      "turnover": "6.0540315454835892198686",
+      "buy_turnover": "3.1945823798129367995514",
+      "sell_turnover": "2.8594491656706524203172",
+      "commission": "95048.29526409235075193702",
+      "vat": "6653.3806684864645526355914",
+      "total_fees": "101701.6759325788153045726114",
+      "slippage": "407794.350000000000000",
+      "total_transaction_cost": "509496.0259325788153045726114",
+      "fills": 61,
+      "non_fills": 0,
+      "average_positions": "3.85",
+      "average_cash_percentage": "0.6106823887974594",
+      "unique_symbols_traded": 15,
+      "valuation_complete": true,
+      "duplicate_exit_symbols": 0
+    },
+    {
+      "fold": 2,
+      "design": "D0",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-02-19"
+      },
+      "oos_period": {
+        "start": "2025-02-20",
+        "end": "2025-08-22"
+      },
+      "research_observations": 520,
+      "oos_observations": 120,
+      "starting_capital": "10000000",
+      "final_equity": "8894272.370389388249763459089",
+      "gross_return": "-0.09813256614810933586185003163",
+      "net_return": "-0.1105727629610611750236540911",
+      "volatility": "0.1324201570772062",
+      "maximum_drawdown": "-0.11057276296106111",
+      "turnover": "7.4053198481765814404453",
+      "buy_turnover": "4.1929048882788534685494",
+      "sell_turnover": "3.2124149598977279718959",
+      "commission": "116263.52161637232861499121",
+      "vat": "8138.4465131460630030493847",
+      "total_fees": "124401.9681295183916180405947",
+      "slippage": "470944.670000000000000",
+      "total_transaction_cost": "595346.6381295183916180405947",
+      "fills": 75,
+      "non_fills": 0,
+      "average_positions": "3.5294117647058822",
+      "average_cash_percentage": "0.6201891683783138",
+      "unique_symbols_traded": 17,
+      "valuation_complete": false,
+      "duplicate_exit_symbols": 0
+    },
+    {
+      "fold": 3,
+      "design": "D0",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2025-08-22"
+      },
+      "oos_period": {
+        "start": "2025-08-25",
+        "end": "2026-02-17"
+      },
+      "research_observations": 640,
+      "oos_observations": 120,
+      "starting_capital": "10000000",
+      "final_equity": "11182124.78625964438240383883",
+      "gross_return": "0.13067601678164494114375",
+      "net_return": "0.118212478625964438240383883",
+      "volatility": "0.13729852853584065",
+      "maximum_drawdown": "-0.10709293964710165",
+      "turnover": "7.41921433161527644703025",
+      "buy_turnover": "4.1928913061081838587232",
+      "sell_turnover": "3.22632302550709258830705",
+      "commission": "116481.665006359840218374925",
+      "vat": "8153.71655044518881528624475",
+      "total_fees": "124635.3815568050290336611698",
+      "slippage": "478411.2000000000000000",
+      "total_transaction_cost": "603046.5815568050290336611698",
+      "fills": 75,
+      "non_fills": 0,
+      "average_positions": "6.325",
+      "average_cash_percentage": "0.32540379817218296",
+      "unique_symbols_traded": 16,
+      "valuation_complete": true,
+      "duplicate_exit_symbols": 0
+    },
+    {
+      "fold": 4,
+      "design": "D0",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-02-17"
+      },
+      "oos_period": {
+        "start": "2026-02-18",
+        "end": "2026-08-11"
+      },
+      "research_observations": 760,
+      "oos_observations": 120,
+      "starting_capital": "10000000",
+      "final_equity": "9652621.612166841074768643535",
+      "gross_return": "-0.02130518412650099068653509226",
+      "net_return": "-0.0347378387833158925231356465",
+      "volatility": "0.17287415814308538",
+      "maximum_drawdown": "-0.11154045360303544",
+      "turnover": "7.9961037304690171061376",
+      "buy_turnover": "4.3925531084729576527483",
+      "sell_turnover": "3.6035506219960594533893",
+      "commission": "125538.828568363568566360320",
+      "vat": "8787.71799978544979964522240",
+      "total_fees": "134326.5465681490183660055424",
+      "slippage": "474355.0000000000000000",
+      "total_transaction_cost": "608681.5465681490183660055424",
+      "fills": 81,
+      "non_fills": 0,
+      "average_positions": "6.188888888888889",
+      "average_cash_percentage": "0.2984353279406772",
+      "unique_symbols_traded": 16,
+      "valuation_complete": false,
+      "duplicate_exit_symbols": 0
+    },
+    {
+      "fold": 5,
+      "design": "D0",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-08-11"
+      },
+      "oos_period": {
+        "start": "2026-08-12",
+        "end": "2026-09-04"
+      },
+      "research_observations": 880,
+      "oos_observations": 18,
+      "starting_capital": "10000000",
+      "final_equity": "9829805.684862901941390362559",
+      "gross_return": "-0.01337401540392874077219999999",
+      "net_return": "-0.0170194315137098058609637441",
+      "volatility": "0.05322169767950602",
+      "maximum_drawdown": "-0.024563931785335225",
+      "turnover": "2.1700197093761920880789",
+      "buy_turnover": "1.2977975389427375778135",
+      "sell_turnover": "0.8722221704334545102654",
+      "commission": "34069.30943720621578283873",
+      "vat": "2384.8516606044351047987111",
+      "total_fees": "36454.1610978106508876374411",
+      "slippage": "124659.650000000000000",
+      "total_transaction_cost": "161113.8110978106508876374411",
+      "fills": 22,
+      "non_fills": 0,
+      "average_positions": "3.3333333333333335",
+      "average_cash_percentage": "0.6627962579207805",
+      "unique_symbols_traded": 10,
+      "valuation_complete": true,
+      "duplicate_exit_symbols": 0
+    }
+  ],
+  "strategies": {
+    "A": {
+      "fold_count": 5,
+      "mean_oos_net_return": -0.03557828419555555,
+      "median_oos_net_return": -0.029052245152569076,
+      "std_oos_net_return_population": 0.1246203538656566,
+      "positive_fold_fraction": 0.4,
+      "compounded_independent_fold_net_return": "-0.2007343851556555832930378587",
+      "mean_final_equity": "9644217.158044444502383334796",
+      "total_commission": "1112193.580296501228486566364",
+      "total_vat": "77853.55062075508599405964548",
+      "total_fees": "1190047.130917256314480626010",
+      "total_slippage": "4494884.0000000000000000",
+      "mean_turnover": "14.168071086579633483905304",
+      "worst_fold_drawdown": "-0.2924342546088797425131477089",
+      "all_valuation_complete": true,
+      "mean_fills": 167.8,
+      "mean_non_fills": 72.0
+    },
+    "D0": {
+      "fold_count": 5,
+      "mean_fold_net_return": -0.014857592273532939,
+      "median_fold_net_return": -0.03017040673554226,
+      "compounded_independent_fold_net_return": "-0.0847907393058789396856467053",
+      "positive_fold_count": 1,
+      "total_fees": "521519.7332848619052099173594",
+      "total_transaction_cost": "2477684.603284861905209917359"
+    }
+  },
+  "full_period": {
+    "A": {
+      "final_equity": "2881303.363244797241866051837",
+      "gross_return": "-0.5894018801035329474163400004",
+      "net_return": "-0.7118696636755202758133948163",
+      "turnover": "72.90182961604103125010704",
+      "commission": "1144558.724971844190626680528",
+      "vat": "80119.11074802909334386763696",
+      "total_fees": "1224677.835719873283970548159",
+      "slippage": "4765765.1700000000000000",
+      "fills": 1363,
+      "non_fills": 641
+    },
+    "D0": {
+      "final_equity": "4952810.043749119451925836214",
+      "gross_return": "-0.4260629291219535338816993622",
+      "net_return": "-0.5047189956250880548074163786",
+      "turnover": "46.8218742205693915862355",
+      "commission": "735103.42526293944790389735",
+      "vat": "51457.2397684057613532728145",
+      "total_fees": "786560.6650313452092571701645",
+      "slippage": "3036487.770000000000000",
+      "fills": 473,
+      "non_fills": 1276
+    }
+  },
+  "d0_vs_a": [
+    {
+      "fold": 1,
+      "oos_period": {
+        "start": "2024-08-27",
+        "end": "2025-02-19"
+      },
+      "d0_minus_a_net_return": "0.0815771556862753233682513074",
+      "turnover_reduction": "11.1006162697601034486882",
+      "transaction_cost_reduction": "916464.0527156999778345130716",
+      "gross_difference": "0.06292923041470532558480000022",
+      "net_difference": "0.0815771556862753233682513074"
+    },
+    {
+      "fold": 2,
+      "oos_period": {
+        "start": "2025-02-20",
+        "end": "2025-08-22"
+      },
+      "d0_minus_a_net_return": "0.1125169562183606044960058583",
+      "turnover_reduction": "11.78974842307786860706345",
+      "transaction_cost_reduction": "883537.3737592851147300588963",
+      "gross_difference": "0.09271135784243209302299996867",
+      "net_difference": "0.1125169562183606044960058583"
+    },
+    {
+      "fold": 3,
+      "oos_period": {
+        "start": "2025-08-25",
+        "end": "2026-02-17"
+      },
+      "d0_minus_a_net_return": "0.067533712741902353913620582",
+      "turnover_reduction": "7.63283002137470435733114",
+      "transaction_cost_reduction": "658458.4315290736584988058212",
+      "gross_difference": "0.05471132158899498806373999994",
+      "net_difference": "0.067533712741902353913620582"
+    },
+    {
+      "fold": 4,
+      "oos_period": {
+        "start": "2026-02-18",
+        "end": "2026-08-11"
+      },
+      "d0_minus_a_net_return": "-0.1700571786752844984459687595",
+      "turnover_reduction": "7.51611454023053172113598",
+      "transaction_cost_reduction": "618084.6281613327023833633276",
+      "gross_difference": "-0.1826834994914177686843050923",
+      "net_difference": "-0.1700571786752844984459687595"
+    },
+    {
+      "fold": 5,
+      "oos_period": {
+        "start": "2026-08-12",
+        "end": "2026-09-04"
+      },
+      "d0_minus_a_net_return": "0.0120328136388592695443967534",
+      "turnover_reduction": "1.7563570133343029837471",
+      "transaction_cost_reduction": "130702.0414670029558239675329",
+      "gross_difference": "0.00908230949215897396200000011",
+      "net_difference": "0.0120328136388592695443967534"
+    }
+  ],
+  "classification": "MIXED",
+  "classification_reason": "D0 materially reduces turnover and transaction cost, but remains loss-making and lacks stable positive OOS evidence."
+}

@@ -1,0 +1,36 @@
+{
+  "status": "preregistered",
+  "primary_comparison": "Design C minus Design A",
+  "primary_metric": "fold_level_net_return_difference",
+  "unit_of_comparison": "paired_walk_forward_fold",
+  "fold_count": 5,
+  "secondary_metrics": [
+    "gross_return",
+    "volatility",
+    "maximum_drawdown",
+    "turnover",
+    "commission",
+    "vat",
+    "total_fees",
+    "slippage",
+    "fills",
+    "non_fills",
+    "positive_fold_frequency"
+  ],
+  "formal_inferential_test": null,
+  "reason_no_test": "Five folds are insufficient for defensible inference; daily observations are serially dependent and folds are related by expanding history.",
+  "future_test_if_approved": {
+    "test": "exact_two_sided_paired_sign_or_permutation_test",
+    "alpha": 0.05,
+    "requires_new_larger_pre_specified_evaluation": true
+  },
+  "effect_size": [
+    "mean_fold_net_return_difference",
+    "median_fold_net_return_difference",
+    "per_fold_difference",
+    "compounded_independent_fold_return_difference"
+  ],
+  "interpretation": "insufficient evidence to establish superiority",
+  "no_optimization": true,
+  "no_parameter_search": true
+}

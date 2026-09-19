@@ -1,0 +1,11 @@
+category,request
+membership_coverage,Confirm all 22 canonical SET50 half-year periods from 2016 H1 through 2026 H2.
+between_review_changes,"Provide all between-period additions, removals, replacements, corrections and superseded versions."
+security_master,"Provide authoritative identifiers, exchange codes, issuer/security names and date-effective mappings."
+corporate_actions,"Document ticker/name changes, mergers, amalgamations, successors, delistings, relistings, splits and rights events."
+price_semantics,"State whether prices are raw or adjusted, and whether splits, rights, dividends or other actions are reflected."
+execution_suitability,Confirm whether OHLCV is suitable for historical OHLC execution backtesting and whether raw execution fields are available.
+price_corporate_actions,Provide the associated corporate-action record or explain how every adjustment is represented.
+provenance,"Provide source URL/product, retrieval/extraction date, schema version, file version and correction history."
+licensing,"State one-time and recurring cost, internal research rights, retention rights, derived-report rights and redistribution restrictions."
+delivery,"Specify file/API format, date convention, timezone, missing-value convention, encoding, checksums and delivery schedule."

@@ -1,0 +1,41 @@
+# DESIGN_C Backtest Report
+
+Deterministic fixed-parameter research run; no optimization or OOS tuning was performed.
+
+- `design`: `C`
+## research_period
+- `start`: `2023-01-03`
+- `end`: `2026-09-04`
+- `observations`: `898`
+- `approved_symbols_loaded`: `20`
+- `starting_capital`: `10000000`
+- `final_equity`: `2794643.518950851306832598751`
+- `gross_return`: `-0.5977316531342689045509400006`
+- `net_return`: `-0.7205356481049148693167401249`
+- `volatility`: `0.08605493410484825`
+- `maximum_drawdown`: `-0.7564510732109275061942207070`
+- `turnover`: `73.1019673615369752757903`
+- `commission`: `1147700.887576130511829907710`
+- `vat`: `80339.06213032913582809353970`
+- `total_fees`: `1228039.949706459647658001243`
+- `slippage`: `4781310.9400000000000000`
+- `fills`: `1299`
+- `non_fills`: `607`
+- `trade_count`: `1299`
+- `unique_symbols_traded`: `18`
+- `rebalance_count`: `298`
+- `valuation_complete`: `True`
+- `complete_valuation_snapshots`: `898`
+- `incomplete_valuation_snapshots`: `0`
+## unvalued_positions
+- `valuation_gaps`: `[]`
+## eligibility_exclusions
+- `GULF_PRE_MERGER_CONTINUITY_BOUNDARY`: `182`
+- `OUTSIDE_SET50_MEMBERSHIP_PERIOD`: `1178`
+- `OUTSIDE_APPROVED_DATA_RANGE`: `122`
+- `eligibility_exclusion_count`: `1482`
+## data_exclusions
+- `boundary_exit_events`: `2`
+- `boundary_exit_fills`: `2`
+- `boundary_exit_non_fills`: `0`
+- `boundary_exit_symbols`: `['BGRIM', 'CENTEL']`

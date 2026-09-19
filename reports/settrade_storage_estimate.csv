@@ -1,0 +1,121 @@
+symbols,frequency,scenario,duration,events,estimated_bytes,basis,status
+20,1m,LOW,1_month,163800,16380000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,LOW,3_months,491400,49140000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,LOW,6_months,982800,98280000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,LOW,12_months,1965600,196560000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,BASE,1_month,163800,16380000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,BASE,3_months,491400,49140000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,BASE,6_months,982800,98280000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,BASE,12_months,1965600,196560000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,HIGH,1_month,163800,16380000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,HIGH,3_months,491400,49140000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,HIGH,6_months,982800,98280000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,1m,HIGH,12_months,1965600,196560000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+20,5m,LOW,1_month,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,LOW,3_months,98280,9828000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,LOW,6_months,196560,19656000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,LOW,12_months,393120,39312000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,BASE,1_month,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,BASE,3_months,98280,9828000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,BASE,6_months,196560,19656000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,BASE,12_months,393120,39312000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,HIGH,1_month,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,HIGH,3_months,98280,9828000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,HIGH,6_months,196560,19656000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,5m,HIGH,12_months,393120,39312000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,LOW,1_month,10920,1092000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,LOW,3_months,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,LOW,6_months,65520,6552000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,LOW,12_months,131040,13104000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,BASE,1_month,10920,1092000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,BASE,3_months,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,BASE,6_months,65520,6552000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,BASE,12_months,131040,13104000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,HIGH,1_month,10920,1092000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,HIGH,3_months,32760,3276000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,HIGH,6_months,65520,6552000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,15m,HIGH,12_months,131040,13104000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+20,raw_BBO,LOW,1_month,409500,491400000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,LOW,3_months,1228500,1474200000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,LOW,6_months,2457000,2948400000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,LOW,12_months,4914000,5896800000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,BASE,1_month,819000,982800000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,BASE,3_months,2457000,2948400000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,BASE,6_months,4914000,5896800000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,BASE,12_months,9828000,11793600000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,HIGH,1_month,1638000,1965600000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,HIGH,3_months,4914000,5896800000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,HIGH,6_months,9828000,11793600000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,raw_BBO,HIGH,12_months,19656000,23587200000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+20,normalized_BBO,LOW,1_month,409500,204750000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,LOW,3_months,1228500,614250000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,LOW,6_months,2457000,1228500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,LOW,12_months,4914000,2457000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,BASE,1_month,819000,409500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,BASE,3_months,2457000,1228500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,BASE,6_months,4914000,2457000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,BASE,12_months,9828000,4914000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,HIGH,1_month,1638000,819000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,HIGH,3_months,4914000,2457000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,HIGH,6_months,9828000,4914000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+20,normalized_BBO,HIGH,12_months,19656000,9828000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,1m,LOW,1_month,409500,40950000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,LOW,3_months,1228500,122850000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,LOW,6_months,2457000,245700000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,LOW,12_months,4914000,491400000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,BASE,1_month,409500,40950000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,BASE,3_months,1228500,122850000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,BASE,6_months,2457000,245700000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,BASE,12_months,4914000,491400000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,HIGH,1_month,409500,40950000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,HIGH,3_months,1228500,122850000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,HIGH,6_months,2457000,245700000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,1m,HIGH,12_months,4914000,491400000,ESTIMATED: 100 compressed-columnar bytes per normalized bar,ESTIMATED
+50,5m,LOW,1_month,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,LOW,3_months,245700,24570000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,LOW,6_months,491400,49140000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,LOW,12_months,982800,98280000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,BASE,1_month,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,BASE,3_months,245700,24570000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,BASE,6_months,491400,49140000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,BASE,12_months,982800,98280000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,HIGH,1_month,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,HIGH,3_months,245700,24570000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,HIGH,6_months,491400,49140000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,5m,HIGH,12_months,982800,98280000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,LOW,1_month,27300,2730000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,LOW,3_months,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,LOW,6_months,163800,16380000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,LOW,12_months,327600,32760000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,BASE,1_month,27300,2730000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,BASE,3_months,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,BASE,6_months,163800,16380000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,BASE,12_months,327600,32760000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,HIGH,1_month,27300,2730000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,HIGH,3_months,81900,8190000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,HIGH,6_months,163800,16380000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,15m,HIGH,12_months,327600,32760000,"ESTIMATED: derived bar, same normalized row budget",ESTIMATED
+50,raw_BBO,LOW,1_month,1023750,1228500000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,LOW,3_months,3071250,3685500000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,LOW,6_months,6142500,7371000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,LOW,12_months,12285000,14742000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,BASE,1_month,2047500,2457000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,BASE,3_months,6142500,7371000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,BASE,6_months,12285000,14742000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,BASE,12_months,24570000,29484000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,HIGH,1_month,4095000,4914000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,HIGH,3_months,12285000,14742000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,HIGH,6_months,24570000,29484000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,raw_BBO,HIGH,12_months,49140000,58968000000,"ESTIMATED: 5 BBO events/minute; 10 levels observed, raw JSON-like payload",ESTIMATED
+50,normalized_BBO,LOW,1_month,1023750,511875000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,LOW,3_months,3071250,1535625000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,LOW,6_months,6142500,3071250000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,LOW,12_months,12285000,6142500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,BASE,1_month,2047500,1023750000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,BASE,3_months,6142500,3071250000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,BASE,6_months,12285000,6142500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,BASE,12_months,24570000,12285000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,HIGH,1_month,4095000,2047500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,HIGH,3_months,12285000,6142500000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,HIGH,6_months,24570000,12285000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED
+50,normalized_BBO,HIGH,12_months,49140000,24570000000,ESTIMATED: normalized 20-row depth snapshot,ESTIMATED

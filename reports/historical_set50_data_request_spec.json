@@ -1,0 +1,164 @@
+{
+  "status": "PRE_ACQUISITION_REQUEST_SPECIFICATION",
+  "canonical_periods": [
+    "2016 H1",
+    "2016 H2",
+    "2017 H1",
+    "2017 H2",
+    "2018 H1",
+    "2018 H2",
+    "2019 H1",
+    "2019 H2",
+    "2020 H1",
+    "2020 H2",
+    "2021 H1",
+    "2021 H2",
+    "2022 H1",
+    "2022 H2",
+    "2023 H1",
+    "2023 H2",
+    "2024 H1",
+    "2024 H2",
+    "2025 H1",
+    "2025 H2",
+    "2026 H1",
+    "2026 H2"
+  ],
+  "period_count": 22,
+  "requested_fields": [
+    {
+      "field": "index_name",
+      "priority": "REQUIRED",
+      "purpose": "SET50 identifier for every row"
+    },
+    {
+      "field": "effective_start_date",
+      "priority": "REQUIRED",
+      "purpose": "Start of membership validity"
+    },
+    {
+      "field": "effective_end_date",
+      "priority": "REQUIRED",
+      "purpose": "End of membership validity"
+    },
+    {
+      "field": "historical_symbol",
+      "priority": "REQUIRED",
+      "purpose": "Published symbol at the effective date"
+    },
+    {
+      "field": "security_identifier",
+      "priority": "REQUIRED",
+      "purpose": "Authoritative exchange/security identifier"
+    },
+    {
+      "field": "issuer_security_name",
+      "priority": "REQUIRED",
+      "purpose": "Issuer and instrument name"
+    },
+    {
+      "field": "membership_status",
+      "priority": "REQUIRED",
+      "purpose": "Member, replacement, removal, or boundary status"
+    },
+    {
+      "field": "revision_boundary_date",
+      "priority": "REQUIRED",
+      "purpose": "Between-review change or correction date"
+    },
+    {
+      "field": "source_provenance",
+      "priority": "REQUIRED",
+      "purpose": "Product, version, extraction date, checksum or equivalent"
+    },
+    {
+      "field": "isin_exchange_code",
+      "priority": "HIGHLY_DESIRABLE",
+      "purpose": "Independent identity key"
+    },
+    {
+      "field": "listing_delisting_dates",
+      "priority": "HIGHLY_DESIRABLE",
+      "purpose": "Tradability boundaries"
+    },
+    {
+      "field": "ticker_name_change_history",
+      "priority": "HIGHLY_DESIRABLE",
+      "purpose": "Date-effective historical names and tickers"
+    },
+    {
+      "field": "corporate_action_reference",
+      "priority": "HIGHLY_DESIRABLE",
+      "purpose": "Merger, amalgamation, split, rights and successor references"
+    },
+    {
+      "field": "corporate_action_factors",
+      "priority": "OPTIONAL",
+      "purpose": "Only if supplied with documented semantics"
+    }
+  ],
+  "request_checklist": [
+    {
+      "category": "membership_coverage",
+      "request": "Confirm all 22 canonical SET50 half-year periods from 2016 H1 through 2026 H2."
+    },
+    {
+      "category": "between_review_changes",
+      "request": "Provide all between-period additions, removals, replacements, corrections and superseded versions."
+    },
+    {
+      "category": "security_master",
+      "request": "Provide authoritative identifiers, exchange codes, issuer/security names and date-effective mappings."
+    },
+    {
+      "category": "corporate_actions",
+      "request": "Document ticker/name changes, mergers, amalgamations, successors, delistings, relistings, splits and rights events."
+    },
+    {
+      "category": "price_semantics",
+      "request": "State whether prices are raw or adjusted, and whether splits, rights, dividends or other actions are reflected."
+    },
+    {
+      "category": "execution_suitability",
+      "request": "Confirm whether OHLCV is suitable for historical OHLC execution backtesting and whether raw execution fields are available."
+    },
+    {
+      "category": "price_corporate_actions",
+      "request": "Provide the associated corporate-action record or explain how every adjustment is represented."
+    },
+    {
+      "category": "provenance",
+      "request": "Provide source URL/product, retrieval/extraction date, schema version, file version and correction history."
+    },
+    {
+      "category": "licensing",
+      "request": "State one-time and recurring cost, internal research rights, retention rights, derived-report rights and redistribution restrictions."
+    },
+    {
+      "category": "delivery",
+      "request": "Specify file/API format, date convention, timezone, missing-value convention, encoding, checksums and delivery schedule."
+    }
+  ],
+  "acceptance_criteria": [
+    "All 22 canonical periods are present and labelled SET50.",
+    "Every membership row has explicit effective dates and an authoritative identity or resolvable official mapping.",
+    "Between-review revisions, corrections and superseded records are documented.",
+    "The seven audited identity cases reconcile without ticker-only inference or synthetic continuity.",
+    "Price semantics are explicit; raw execution OHLC is separated from adjusted analytical fields.",
+    "Corporate-action records and listing/delisting boundaries are preserved.",
+    "Provenance, versioning, checksums and licensing terms are retained with the immutable delivery."
+  ],
+  "rejection_criteria": [
+    "Any missing canonical period, implicit boundary, or unexplained replacement.",
+    "Ticker-only identity or current-constituent substitution for historical members.",
+    "Unclear raw/adjusted price semantics or adjusted values presented as execution OHLC.",
+    "Missing corporate-action, listing/delisting, revision or correction information needed to explain a boundary.",
+    "Unverifiable provenance, missing checksums/versioning, or licensing that does not permit the intended internal research use."
+  ],
+  "licensing_cost_status": "UNRESOLVED_UNTIL_SET_QUOTE",
+  "permitted_research_usage_status": "UNRESOLVED_UNTIL_SET_LICENSE_TERMS",
+  "price_acquisition_requested_now": false,
+  "data_downloaded": false,
+  "production_data_modified": false,
+  "ready_for_import": false
+}

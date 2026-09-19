@@ -1,0 +1,10 @@
+duration_seconds,empty,first_timestamp,interval,last_timestamp,limit,requested_end,requested_start,response_fields,rows,status,symbol
+0.326,False,1767546000,1d,1767891600,10,2026-01-10T23:59:59,2026-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",5,SUCCESS,PTT
+0.3503,False,1735750800,1d,1736442000,10,2025-01-10T23:59:59,2025-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",7,SUCCESS,PTT
+0.3181,False,1704128400,1d,1704819600,10,2024-01-10T23:59:59,2024-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",7,SUCCESS,PTT
+0.34,True,,1d,,10,2023-01-10T23:59:59,2023-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT
+0.312,True,,1d,,10,2022-01-10T23:59:59,2022-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT
+0.3338,True,,1d,,10,2020-01-10T23:59:59,2020-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT
+0.3439,True,,1d,,10,2018-01-10T23:59:59,2018-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT
+0.3406,True,,1d,,10,2016-01-10T23:59:59,2016-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT
+0.3905,True,,1d,,10,2010-01-10T23:59:59,2010-01-01T00:00:00,"['close', 'high', 'lastSequence', 'low', 'open', 'time', 'value', 'volume']",0,SUCCESS,PTT

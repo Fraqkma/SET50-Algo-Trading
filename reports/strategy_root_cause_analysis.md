@@ -1,0 +1,178 @@
+# Strategy root-cause diagnostics
+
+Descriptive-only analysis of existing approved Design A/C reports.
+
+```json
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "design_a": {
+    "design": "A",
+    "fills": 1363,
+    "orders": 2004,
+    "non_fills": 641,
+    "turnover_value": 729018296.1604103,
+    "commission": 1144558.7249718443,
+    "vat": 80119.11074802908,
+    "slippage": 4765765.17,
+    "non_fill_reasons": {
+      "IOC_LIMIT_NOT_FILLED": 504,
+      "INSUFFICIENT_CASH": 136,
+      "DATA_UNAVAILABLE": 1
+    },
+    "snapshot_count": 898,
+    "valuation_complete": true,
+    "turnover_decomposition": {
+      "buy_value": 368793669.85572284,
+      "sell_value": 360224626.3046875,
+      "ioc_non_fill_count": 641
+    },
+    "holding_duration_note": "Existing order report does not contain position lot identifiers; duration is not inferable without replaying the engine."
+  },
+  "design_c": {
+    "design": "C",
+    "fills": 1299,
+    "orders": 1906,
+    "non_fills": 607,
+    "turnover_value": 731019673.6153698,
+    "commission": 1147700.8875761305,
+    "vat": 80339.06213032913,
+    "slippage": 4781310.94,
+    "non_fill_reasons": {
+      "IOC_LIMIT_NOT_FILLED": 473,
+      "INSUFFICIENT_CASH": 133,
+      "DATA_UNAVAILABLE": 1
+    },
+    "snapshot_count": 898,
+    "valuation_complete": true,
+    "turnover_decomposition": {
+      "buy_value": 369795765.9483562,
+      "sell_value": 361223907.6670135,
+      "ioc_non_fill_count": 607
+    },
+    "holding_duration_note": "Existing order report does not contain position lot identifiers; duration is not inferable without replaying the engine."
+  },
+  "approved_report_metrics": {
+    "A": {
+      "design": "A",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-09-04"
+      },
+      "observations": 898,
+      "approved_symbols_loaded": 20,
+      "starting_capital": "10000000",
+      "final_equity": "2881303.363244797241866051837",
+      "gross_return": "-0.5894018801035329474163400004",
+      "net_return": "-0.7118696636755202758133948163",
+      "volatility": "0.08539205721260267",
+      "maximum_drawdown": "-0.7575565538426281729301119431",
+      "turnover": "72.90182961604103125010704",
+      "commission": "1144558.724971844190626680528",
+      "vat": "80119.11074802909334386763696",
+      "total_fees": "1224677.835719873283970548159",
+      "slippage": "4765765.1700000000000000",
+      "trade_count": 1363,
+      "unique_symbols_traded": 18,
+      "rebalance_count": 298,
+      "fills": 1363,
+      "non_fills": 641,
+      "valuation_gaps": [],
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 898,
+      "incomplete_valuation_snapshots": 0,
+      "unvalued_positions": {},
+      "boundary_exit_events": 2,
+      "boundary_exit_fills": 2,
+      "boundary_exit_non_fills": 0,
+      "boundary_exit_symbols": [
+        "BGRIM",
+        "CENTEL"
+      ],
+      "data_exclusions": {},
+      "eligibility_exclusions": {
+        "GULF_PRE_MERGER_CONTINUITY_BOUNDARY": 182,
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 1178,
+        "OUTSIDE_APPROVED_DATA_RANGE": 122
+      },
+      "execution_assumptions": {
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "buy_request": "next_session_open_plus_one_tick",
+        "sell_request": "next_session_open_minus_one_tick",
+        "fill_rule": "requested_price_inside_low_high",
+        "tick_mapping": "scripts/run_design_a_backtest.py:set_tick_size"
+      },
+      "benchmark": "Design A is the reference; no separate benchmark series was run."
+    },
+    "C": {
+      "design": "C",
+      "research_period": {
+        "start": "2023-01-03",
+        "end": "2026-09-04"
+      },
+      "observations": 898,
+      "approved_symbols_loaded": 20,
+      "starting_capital": "10000000",
+      "final_equity": "2794643.518950851306832598751",
+      "gross_return": "-0.5977316531342689045509400006",
+      "net_return": "-0.7205356481049148693167401249",
+      "volatility": "0.08605493410484825",
+      "maximum_drawdown": "-0.7564510732109275061942207070",
+      "turnover": "73.1019673615369752757903",
+      "commission": "1147700.887576130511829907710",
+      "vat": "80339.06213032913582809353970",
+      "total_fees": "1228039.949706459647658001243",
+      "slippage": "4781310.9400000000000000",
+      "fills": 1299,
+      "non_fills": 607,
+      "trade_count": 1299,
+      "unique_symbols_traded": 18,
+      "rebalance_count": 298,
+      "valuation_complete": true,
+      "complete_valuation_snapshots": 898,
+      "incomplete_valuation_snapshots": 0,
+      "unvalued_positions": {},
+      "valuation_gaps": [],
+      "eligibility_exclusions": {
+        "GULF_PRE_MERGER_CONTINUITY_BOUNDARY": 182,
+        "OUTSIDE_SET50_MEMBERSHIP_PERIOD": 1178,
+        "OUTSIDE_APPROVED_DATA_RANGE": 122
+      },
+      "eligibility_exclusion_count": 1482,
+      "data_exclusions": {},
+      "boundary_exit_events": 2,
+      "boundary_exit_fills": 2,
+      "boundary_exit_non_fills": 0,
+      "boundary_exit_symbols": [
+        "BGRIM",
+        "CENTEL"
+      ]
+    }
+  },
+  "signal_diagnostics": {
+    "forward_return_mean": {
+      "1": -0.00021848228778585682,
+      "3": -0.0006915787663116956,
+      "5": -0.001194042416031847,
+      "10": -0.00259177757634984,
+      "20": -0.005051868499145258
+    },
+    "forward_return_observations": {
+      "1": 12794,
+      "3": 12760,
+      "5": 12726,
+      "10": 12641,
+      "20": 12471
+    },
+    "momentum_20_daily_return_correlation": 0.2199298586136632
+  },
+  "findings": [
+    "Both runs use fixed approved strategy and execution rules.",
+    "Differences are descriptive and cannot establish causality.",
+    "No parameters, metrics, or subsets were searched."
+  ],
+  "production_mutated": false
+}
+```

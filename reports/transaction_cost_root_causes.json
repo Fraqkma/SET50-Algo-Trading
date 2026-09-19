@@ -1,0 +1,67 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "fills": 2662,
+  "total_slippage": 9547076.11,
+  "total_fees": 2452717.7854263326,
+  "total_transaction_cost": 11999793.895426333,
+  "per_design": {
+    "A": {
+      "fills": 1363,
+      "slippage": 4765765.17,
+      "fees": 1224677.8357198732,
+      "transaction_cost": 5990443.005719873
+    },
+    "C": {
+      "fills": 1299,
+      "slippage": 4781310.94,
+      "fees": 1228039.9497064597,
+      "transaction_cost": 6009350.889706459
+    }
+  },
+  "top_10_percent_slippage_share": 0.4680283940880828,
+  "top_5_symbol_slippage_share": 0.4300420309522388,
+  "buy_sell_slippage": {
+    "BUY": 4798062.48,
+    "SELL": 4749013.63
+  },
+  "price_bucket_slippage_bps": [
+    {
+      "price_bucket": "<5",
+      "slippage_bps": 52.0222674055705
+    },
+    {
+      "price_bucket": "5-10",
+      "slippage_bps": 62.23630511059361
+    },
+    {
+      "price_bucket": "10-25",
+      "slippage_bps": 55.7276984194867
+    },
+    {
+      "price_bucket": "25-50",
+      "slippage_bps": 73.7925788133506
+    },
+    {
+      "price_bucket": "50-100",
+      "slippage_bps": 43.821223974444386
+    },
+    {
+      "price_bucket": ">100",
+      "slippage_bps": 43.219965691948246
+    }
+  ],
+  "counterfactuals": {
+    "zero_slippage_net_return_delta": 9547076.11,
+    "zero_fees_net_return_delta": 2452717.7854263326,
+    "zero_both_delta": 11999793.895426333,
+    "turnover_reduction_25pct_cost_saved": 2999948.4738565832,
+    "turnover_reduction_50pct_cost_saved": 5999896.9477131665,
+    "turnover_reduction_75pct_cost_saved": 8999845.42156975
+  },
+  "limitations": [
+    "order logs do not deterministically link non-fill retries to later fills",
+    "qualification/ranking reason is not recorded on every order",
+    "feature/liquidity joins require a separate timestamp-level event map"
+  ],
+  "production_mutated": false
+}

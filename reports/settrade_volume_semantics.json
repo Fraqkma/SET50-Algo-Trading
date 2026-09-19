@@ -1,0 +1,14 @@
+{
+  "status": "UNRESOLVED",
+  "reason": "Settrade candlestick volume/value semantics were not independently proven against an authoritative overlapping source; raw fields are retained without conversion.",
+  "production_conversion": null,
+  "comparison_rows": 245,
+  "overlap_rows": 245,
+  "ratio_min": 1.0000122503089943,
+  "ratio_max": 1.0049953129882303,
+  "observed_realtime_fields": [
+    "total_volume",
+    "total_value"
+  ],
+  "orders_placed": 0
+}

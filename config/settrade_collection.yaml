@@ -1,0 +1,91 @@
+source: settrade
+universe: current_set50
+approved_20:
+  - BDMS
+  - BGRIM
+  - CENTEL
+  - COM7
+  - GLOBAL
+  - GULF
+  - HMPRO
+  - IVL
+  - KKP
+  - KTB
+  - LH
+  - MRDIYT
+  - MTC
+  - OSP
+  - PTTGC
+  - RATCH
+  - SCGP
+  - THAI
+  - TIDLOR
+  - TOP
+current_set50:
+  - ADVANC
+  - AOT
+  - AWC
+  - BANPU
+  - BBL
+  - BCP
+  - BDMS
+  - BEM
+  - BH
+  - BJC
+  - CCET
+  - COM7
+  - CPALL
+  - CPF
+  - CPN
+  - CRC
+  - DELTA
+  - EGCO
+  - GPSC
+  - GULF
+  - HMPRO
+  - IVL
+  - KBANK
+  - KKP
+  - KTB
+  - KTC
+  - LH
+  - MINT
+  - MRDIYT
+  - MTC
+  - "OR"
+  - OSP
+  - PTT
+  - PTTEP
+  - PTTGC
+  - RATCH
+  - SCB
+  - SCC
+  - SCGP
+  - TCAP
+  - TFG
+  - THAI
+  - TIDLOR
+  - TISCO
+  - TLI
+  - TOP
+  - "TRUE"
+  - TTB
+  - TU
+  - WHA
+custom: []
+effective_start: 2026-07-01
+effective_end: 2026-12-31
+universe_source: https://www.set.or.th/en/market/news-and-alert/newsdetails?id=105128300&symbol=SET
+market_rps: 3
+retries: 2
+candle_limit: 100
+duration_seconds: 60
+storage_root: data/pilot/settrade
+disk:
+  warning_gb: 10
+  critical_gb: 5
+session_timezone: Asia/Bangkok
+realtime:
+  max_topics: 40
+  bid_offer_topics_per_rotation: 35
+  rotation_interval_seconds: 300

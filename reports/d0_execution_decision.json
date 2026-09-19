@@ -1,0 +1,9 @@
+{
+  "classification": "DIAGNOSTIC_ONLY",
+  "conclusion": "Human approval required before any next-design change.",
+  "production_mutated": false,
+  "d0_net_return": "-0.5047189956250880548074163786",
+  "d0_fills": 473,
+  "d0_turnover": "46.8218742205693915862355",
+  "walk_forward": "NOT_RUN"
+}

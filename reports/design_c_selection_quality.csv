@@ -1,0 +1,6 @@
+comparison,horizon_days,mean_selected,mean_not_selected,sample_size_selected,sample_size_not_selected,status
+C_selected_vs_A_qualified_not_selected,1,,,283,,INSUFFICIENT_EVIDENCE: qualified candidate set was not persisted
+C_selected_vs_A_qualified_not_selected,3,,,283,,INSUFFICIENT_EVIDENCE: qualified candidate set was not persisted
+C_selected_vs_A_qualified_not_selected,5,,,283,,INSUFFICIENT_EVIDENCE: qualified candidate set was not persisted
+C_selected_vs_A_qualified_not_selected,10,,,283,,INSUFFICIENT_EVIDENCE: qualified candidate set was not persisted
+C_selected_vs_A_qualified_not_selected,20,,,283,,INSUFFICIENT_EVIDENCE: qualified candidate set was not persisted

@@ -1,0 +1,8 @@
+{
+  "market_data_rps": 3,
+  "realtime_topic_limit": 40,
+  "realtime_topics_requested": 4,
+  "realtime_limit_respected": true,
+  "retry_policy": "bounded_retries_2",
+  "orders_placed": 0
+}

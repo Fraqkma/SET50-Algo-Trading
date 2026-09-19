@@ -1,0 +1,36 @@
+{
+  "status": "FEASIBILITY_ONLY",
+  "recommendation": "PROCEED WITH CAUTION",
+  "canonical_periods_listed_by_set": {
+    "first": "2005 H1",
+    "last": "2026 H2",
+    "count": 44,
+    "periods": [
+      "2005 H1", "2005 H2", "2006 H1", "2006 H2", "2007 H1", "2007 H2", "2008 H1", "2008 H2", "2009 H1", "2009 H2",
+      "2010 H1", "2010 H2", "2011 H1", "2011 H2", "2012 H1", "2012 H2", "2013 H1", "2013 H2", "2014 H1", "2014 H2",
+      "2015 H1", "2015 H2", "2016 H1", "2016 H2", "2017 H1", "2017 H2", "2018 H1", "2018 H2", "2019 H1", "2019 H2",
+      "2020 H1", "2020 H2", "2021 H1", "2021 H2", "2022 H1", "2022 H2", "2023 H1", "2023 H2", "2024 H1", "2024 H2",
+      "2025 H1", "2025 H2", "2026 H1", "2026 H2"
+    ],
+    "source": "https://www.set.or.th/en/market/information/securities-list/constituents-list-set50-set100",
+    "access": "Archive entries are public; download controls route to member.set.or.th authentication. No restricted content was bypassed."
+  },
+  "targets": [
+    {"target": "2016-2026", "periods_required": 22, "membership_listed": true, "official_files_verified": false, "price_feasibility": "partial pilot evidence", "identity_risk": "medium", "readiness": "NOT_READY"},
+    {"target": "2010-2026", "periods_required": 34, "membership_listed": true, "official_files_verified": false, "price_feasibility": "partial pilot evidence", "identity_risk": "medium-high", "readiness": "NOT_READY"},
+    {"target": "2006-2026", "periods_required": 42, "membership_listed": true, "official_files_verified": false, "price_feasibility": "unknown broad coverage", "identity_risk": "high", "readiness": "NOT_READY"}
+  ],
+  "known_identity_cases": [
+    {"case": "TRUE/TRUEE/DTAC", "status": "human approval required", "evidence": "SET 2023 amalgamation notice"},
+    {"case": "GULF/INTUCH/GULFI", "status": "human approval required", "evidence": "SET 2025 amalgamation and index inclusion notice"},
+    {"case": "TIDLOR", "status": "human approval required", "evidence": "SET new TIDLOR listing notice dated May 15, 2025"},
+    {"case": "BANPU/BANPUU", "status": "human approval required", "evidence": "repository audit and pilot notes"},
+    {"case": "MRDIYT", "status": "newer listing; no pre-listing history", "evidence": "repository coverage"}
+  ],
+  "constraints": [
+    "No full historical price acquisition performed",
+    "No raw data or approved manifest modified",
+    "No MarketDataEligibilityGate behavior modified",
+    "No strategy, backtest, or optimization run"
+  ]
+}

@@ -1,0 +1,7 @@
+﻿"capability","status"
+"historical_daily","CROSS_CHECK"
+"recent_daily","CROSS_CHECK"
+"intraday","CROSS_CHECK"
+"realtime","CROSS_CHECK"
+"execution_validation","STAGING_ONLY"
+"historical_set50_membership","INSUFFICIENT_EVIDENCE"

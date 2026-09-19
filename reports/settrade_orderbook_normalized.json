@@ -1,0 +1,282 @@
+[
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 1,
+    "price": "42.9",
+    "volume": "100"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 1,
+    "price": "43.5",
+    "volume": "10000"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 2,
+    "price": "42.5",
+    "volume": "100"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 2,
+    "price": "44.0",
+    "volume": "300"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 3,
+    "price": "42.3",
+    "volume": "86400"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 3,
+    "price": "44.2",
+    "volume": "4000"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 4,
+    "price": "42.2",
+    "volume": "10100"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 4,
+    "price": "44.3",
+    "volume": "4000"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 5,
+    "price": "42.0",
+    "volume": "110200"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 5,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 6,
+    "price": "41.5",
+    "volume": "100100"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 6,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 7,
+    "price": "41.0",
+    "volume": "6600"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 7,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 8,
+    "price": "40.9",
+    "volume": "6600"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 8,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 9,
+    "price": "40.8",
+    "volume": "3500"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 9,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "PTT",
+    "side": "bid",
+    "level": 10,
+    "price": "40.0",
+    "volume": "10100"
+  },
+  {
+    "symbol": "PTT",
+    "side": "ask",
+    "level": 10,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 1,
+    "price": "147.0",
+    "volume": "100"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 1,
+    "price": "147.5",
+    "volume": "27800"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 2,
+    "price": "146.5",
+    "volume": "100"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 2,
+    "price": "148.0",
+    "volume": "9600"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 3,
+    "price": "146.0",
+    "volume": "48500"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 3,
+    "price": "148.5",
+    "volume": "10000"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 4,
+    "price": "145.5",
+    "volume": "99000"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 4,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 5,
+    "price": "145.0",
+    "volume": "10000"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 5,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 6,
+    "price": "144.5",
+    "volume": "10000"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 6,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 7,
+    "price": "144.0",
+    "volume": "10000"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 7,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 8,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 8,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 9,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 9,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "bid",
+    "level": 10,
+    "price": "0.0",
+    "volume": "0"
+  },
+  {
+    "symbol": "ADVANC",
+    "side": "ask",
+    "level": 10,
+    "price": "0.0",
+    "volume": "0"
+  }
+]

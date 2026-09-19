@@ -1,0 +1,30 @@
+[
+  {
+    "symbol": "PTT",
+    "bid_levels": 10,
+    "ask_levels": 10,
+    "best_bid": "42.9",
+    "best_ask": "43.5",
+    "spread": "0.6",
+    "crossed": false,
+    "bid_volume_total": "333800",
+    "ask_volume_total": "18300",
+    "imbalance": "0.8960522578812837262141437092",
+    "bid_prices_descending": true,
+    "ask_prices_ascending": false
+  },
+  {
+    "symbol": "ADVANC",
+    "bid_levels": 10,
+    "ask_levels": 10,
+    "best_bid": "147.0",
+    "best_ask": "147.5",
+    "spread": "0.5",
+    "crossed": false,
+    "bid_volume_total": "177700",
+    "ask_volume_total": "47400",
+    "imbalance": "0.5788538427365615282096845846",
+    "bid_prices_descending": true,
+    "ask_prices_ascending": false
+  }
+]

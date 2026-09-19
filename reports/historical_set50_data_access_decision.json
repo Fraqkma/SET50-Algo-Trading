@@ -1,0 +1,177 @@
+{
+  "status": "READ_ONLY_PRE_ACQUISITION_DECISION",
+  "prepared_at": "2026-09-12",
+  "routes": [
+    {
+      "route": "SET Historical Data Request",
+      "url": "https://www.set.or.th/en/services/connectivity-and-data/data/historical",
+      "official": true,
+      "membership": "Potentially, must confirm requested constituent package",
+      "reference_data": "Equity trading/statistics and company information; scope/product confirmation required",
+      "access": "One-time request/licensed delivery",
+      "assessment": "MOST_SUITABLE_INITIAL_ROUTE",
+      "retrieved_at": "2026-09-12"
+    },
+    {
+      "route": "SET Historical Data Request Service",
+      "url": "https://www.set.or.th/en/services/connectivity-and-data/data/data-request",
+      "official": true,
+      "membership": "Potentially through a tailored official request",
+      "reference_data": "Historical equity data/statistics; exact security-master fields must be confirmed",
+      "access": "Request and commercial terms",
+      "assessment": "COMPLEMENTARY_REQUEST_ROUTE",
+      "retrieved_at": "2026-09-12"
+    },
+    {
+      "route": "SETSMART Corporate/Advance/Multi Market",
+      "url": "https://www.set.or.th/en/services/connectivity-and-data/data/web-based",
+      "official": true,
+      "membership": "Historical security/index functions may be available by product",
+      "reference_data": "Historical securities, issuer information, announcements and statistics; depth depends on subscription",
+      "access": "Authenticated subscription",
+      "assessment": "POSSIBLE_IF_PRODUCT_CONFIRMED",
+      "retrieved_at": "2026-09-12"
+    },
+    {
+      "route": "SMART Marketplace API",
+      "url": "https://www.set.or.th/en/services/connectivity-and-data/data/smart-marketplace",
+      "official": true,
+      "membership": "Reference/index data may be available through an API product; exact endpoint unknown",
+      "reference_data": "Reference data and corporate actions",
+      "access": "Authenticated/licensed API",
+      "assessment": "POSSIBLE_API_ROUTE",
+      "retrieved_at": "2026-09-12"
+    },
+    {
+      "route": "SET End-of-Day service",
+      "url": "https://www.set.or.th/en/services/connectivity-and-data/data/end-of-day",
+      "official": true,
+      "membership": "Index/weight or tracker files may cross-check constituents; complete historical membership uncertain",
+      "reference_data": "Official EOD/index and corporate-action-related files",
+      "access": "Product access/licensing",
+      "assessment": "CROSS_CHECK_ONLY_UNTIL_CONFIRMED",
+      "retrieved_at": "2026-09-12"
+    }
+  ],
+  "minimum_dataset_fields": [
+    {
+      "field": "index_name",
+      "priority": "REQUIRED",
+      "reason": "Distinguishes SET50 from SET100 and other indices."
+    },
+    {
+      "field": "effective_start_date",
+      "priority": "REQUIRED",
+      "reason": "Prevents boundary ambiguity and lookahead."
+    },
+    {
+      "field": "effective_end_date",
+      "priority": "REQUIRED",
+      "reason": "Defines the valid membership interval."
+    },
+    {
+      "field": "historical_symbol",
+      "priority": "REQUIRED",
+      "reason": "Preserves the symbol published at the historical date."
+    },
+    {
+      "field": "security_identifier",
+      "priority": "REQUIRED",
+      "reason": "Resolves identity across ticker changes and prevents ticker-only joins."
+    },
+    {
+      "field": "issuer_security_name",
+      "priority": "REQUIRED",
+      "reason": "Audits issuer and instrument identity."
+    },
+    {
+      "field": "membership_status",
+      "priority": "REQUIRED",
+      "reason": "Separates active, removed, replacement and boundary records."
+    },
+    {
+      "field": "revision_or_boundary_date",
+      "priority": "REQUIRED",
+      "reason": "Captures between-period changes and corrections."
+    },
+    {
+      "field": "corporate_action_reference_id",
+      "priority": "HIGHLY_DESIRABLE",
+      "reason": "Links mergers, amalgamations, listings and delistings."
+    },
+    {
+      "field": "listing_delisting_dates",
+      "priority": "HIGHLY_DESIRABLE",
+      "reason": "Constrains price eligibility and listing boundaries."
+    },
+    {
+      "field": "source_provenance_and_revision",
+      "priority": "REQUIRED",
+      "reason": "Makes the delivered extract auditable and reproducible."
+    },
+    {
+      "field": "isin_or_exchange_security_code",
+      "priority": "HIGHLY_DESIRABLE",
+      "reason": "Independent identity key when tickers change."
+    },
+    {
+      "field": "corporate_action_adjustment_factors",
+      "priority": "OPTIONAL",
+      "reason": "Needed only if supplied as part of a separately defined price policy."
+    }
+  ],
+  "request_checklist": [
+    {
+      "category": "coverage",
+      "request": "Provide all 22 canonical half-year SET50 snapshots from 2016 H1 through 2026 H2, with index name and effective start/end dates."
+    },
+    {
+      "category": "revisions",
+      "request": "Identify all between-period revisions, replacement events, corrections and superseded files."
+    },
+    {
+      "category": "security_master",
+      "request": "Provide historical security identifiers, exchange codes, issuer/security names and ticker history."
+    },
+    {
+      "category": "identity_events",
+      "request": "Document ticker changes, mergers/amalgamations, successors, delistings, relistings and listing dates."
+    },
+    {
+      "category": "membership_rows",
+      "request": "State whether each row is a member, replacement, removal or boundary record and provide the effective date."
+    },
+    {
+      "category": "provenance",
+      "request": "Provide source URL/product name, extraction date, file version, revision number and correction history."
+    },
+    {
+      "category": "licensing",
+      "request": "Confirm that internal quantitative research, audit retention and derived research reports are permitted."
+    },
+    {
+      "category": "delivery",
+      "request": "Specify format, schema, encoding, date/time convention, missing-value convention and checksum/versioning."
+    }
+  ],
+  "acceptance_criteria": [
+    "All 22 canonical periods are represented.",
+    "Effective dates and index name are explicit.",
+    "Security identity is explicit or resolvable with official identifiers.",
+    "Between-period revisions and corrections are documented.",
+    "Source provenance, version and licensing are preserved.",
+    "TRUE/TRUEE/DTAC, GULF/INTUCH/GULFI, TIDLOR, BANPU/BANPUU, SCB/SCBB, TMB/TTB and MRDIYT reconcile without synthetic continuity."
+  ],
+  "rejection_criteria": [
+    "Missing canonical periods or implicit effective dates.",
+    "Ticker-only identity with no authoritative security mapping.",
+    "Unexplained revisions, between-period changes or corporate-action boundaries.",
+    "Unknown provenance, unverifiable corrections, or unsuitable licensing.",
+    "Requirement to infer membership from current constituents or to fabricate continuity."
+  ],
+  "membership_only_consequence": "Membership lists alone are insufficient for price acquisition; obtain a separate official security master covering identifiers, names, ticker history, listing/delisting and corporate actions before mapping prices.",
+  "recommended_route": "SET Historical Data Request, with an explicit request for the membership plus security-reference bundle; use SETSMART/SMART Marketplace as alternatives or cross-checks if their product scope is confirmed.",
+  "ready_for_price_acquisition": false,
+  "bulk_price_data_downloaded": false,
+  "production_data_modified": false
+}
