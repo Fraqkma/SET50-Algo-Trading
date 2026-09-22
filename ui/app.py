@@ -23,6 +23,9 @@ from ui.data_catalog import (  # noqa: E402
     load_metadata,
     market_data_files,
     quality_summary,
+    load_settrade_bbo,
+    load_settrade_candles,
+    settrade_availability,
 )
 
 st.set_page_config(page_title="SET50 Research Desk", page_icon="R", layout="wide")
@@ -143,12 +146,106 @@ def _research_placeholders() -> None:
         st.write(f"**{name}**: Not implemented")
 
 
+def _settrade_explorer(paths: DataPaths) -> None:
+    """Read-only pilot/staging explorer for Settrade market-data artifacts."""
+    st.header("Settrade Data Explorer")
+    st.caption("PILOT / UNAPPROVED — read-only. No credentials, orders, deletion, or promotion actions are available.")
+    availability = settrade_availability(paths)
+    candle_symbols = sorted(availability.loc[availability["datatype"] == "candles", "symbol"].unique()) if not availability.empty else []
+    bbo_symbols = sorted(availability.loc[availability["datatype"] == "bbo", "symbol"].unique()) if not availability.empty else []
+    symbols = sorted(set(candle_symbols) | set(bbo_symbols))
+    if not symbols:
+        st.warning("No normalized Settrade pilot data is available yet. The next market-session collector run will populate this view.")
+        return
+    controls = st.columns(4)
+    symbol = controls[0].selectbox("Symbol", symbols)
+    data_type = controls[1].selectbox("Data type", ["Candles", "BBO / Depth", "Price info", "Trades"])
+    timeframe = controls[2].selectbox("Timeframe", ["1m", "5m", "15m"], disabled=data_type != "Candles")
+    session_filter = controls[3].selectbox("Session filter", ["All timestamps", "Continuous sessions only", "Exclude midday break"])
+    dates = pd.to_datetime(availability.loc[availability["symbol"] == symbol, "date"], errors="coerce").dropna()
+    default_dates = (dates.min().date(), dates.max().date()) if not dates.empty else None
+    selected_dates = st.date_input("Date range (Asia/Bangkok)", value=default_dates)
+    if isinstance(selected_dates, (tuple, list)) and len(selected_dates) == 2:
+        start, end = selected_dates
+    else:
+        start = end = selected_dates
+
+    if data_type == "Candles":
+        frame = load_settrade_candles(paths, timeframe, symbol, start, end)
+        if frame.empty:
+            st.info("No persisted candle data for this selection.")
+            return
+        if session_filter != "All timestamps":
+            local_times = frame["timestamp_local"].dt.time
+            frame = frame[(local_times >= pd.Timestamp("09:30").time()) & (local_times < pd.Timestamp("16:40").time())]
+            if session_filter == "Exclude midday break":
+                frame = frame[(local_times < pd.Timestamp("12:30").time()) | (local_times >= pd.Timestamp("14:30").time())]
+        quality = {"rows": len(frame), "duplicates": int(frame.duplicated(["symbol", "timestamp"]).sum()), "first": frame["timestamp_local"].min().isoformat(), "last": frame["timestamp_local"].max().isoformat(), "source": "SETTRADE_API_CANDLE", "volume_warning": "Source volume semantics are retained as provided; not used as a strategy feature."}
+        cols = st.columns(4)
+        cols[0].metric("Rows", quality["rows"])
+        cols[1].metric("Duplicates", quality["duplicates"])
+        cols[2].metric("First", quality["first"])
+        cols[3].metric("Last", quality["last"])
+        st.warning(quality["volume_warning"])
+        chart = go.Figure(go.Candlestick(x=frame["timestamp_local"], open=frame["open"], high=frame["high"], low=frame["low"], close=frame["close"], name=f"{symbol} {timeframe}"))
+        chart.update_layout(height=480, xaxis_rangeslider_visible=False, title="SETTRADE_API_CANDLE")
+        st.plotly_chart(chart, use_container_width=True)
+        if "volume" in frame:
+            st.plotly_chart(go.Figure(go.Bar(x=frame["timestamp_local"], y=frame["volume"], name="source volume")), use_container_width=True)
+        st.dataframe(frame, hide_index=True, use_container_width=True)
+        with st.expander("Data quality"):
+            st.json(quality)
+        return
+
+    if data_type == "BBO / Depth":
+        frame = load_settrade_bbo(paths, symbol, start, end)
+        if frame.empty:
+            st.info("No persisted BBO data for this selection.")
+            return
+        event_keys = ["retrieved_at", "collector_session_id", "generation", "rotation_group"]
+        events = frame[event_keys].drop_duplicates().reset_index(drop=True)
+        choice = st.selectbox("BBO event", range(len(events)), format_func=lambda index: events.iloc[index]["retrieved_at"].isoformat())
+        selected = events.iloc[choice]
+        snapshot = frame[(frame["retrieved_at"] == selected["retrieved_at"]) & (frame["collector_session_id"] == selected["collector_session_id"]) & (frame["generation"] == selected["generation"]) & (frame["rotation_group"] == selected["rotation_group"])]
+        bids = snapshot[snapshot["side"] == "bid"].sort_values("level")
+        asks = snapshot[snapshot["side"] == "ask"].sort_values("level")
+        best_bid = pd.to_numeric(bids["price"], errors="coerce").dropna().iloc[0] if not bids.empty and not pd.to_numeric(bids["price"], errors="coerce").dropna().empty else None
+        best_ask = pd.to_numeric(asks["price"], errors="coerce").dropna().iloc[0] if not asks.empty and not pd.to_numeric(asks["price"], errors="coerce").dropna().empty else None
+        midpoint = (best_bid + best_ask) / 2 if best_bid is not None and best_ask is not None else None
+        metrics = st.columns(5)
+        metrics[0].metric("Best bid", best_bid)
+        metrics[1].metric("Best ask", best_ask)
+        metrics[2].metric("Spread", best_ask - best_bid if midpoint is not None else None)
+        metrics[3].metric("Midpoint", midpoint)
+        metrics[4].metric("Levels", 10)
+        st.caption(f"SETTRADE_BBO · event={selected['retrieved_at']} · collector={selected['collector_session_id']} · generation={selected['generation']} · rotation={selected['rotation_group']}")
+        left, right = st.columns(2)
+        left.subheader("Bid depth")
+        left.dataframe(bids[["level", "price", "volume"]], hide_index=True, use_container_width=True)
+        right.subheader("Ask depth")
+        right.dataframe(asks[["level", "price", "volume"]], hide_index=True, use_container_width=True)
+        depth = pd.concat([bids.assign(cumulative=pd.to_numeric(bids["volume"], errors="coerce").fillna(0).cumsum()), asks.assign(cumulative=pd.to_numeric(asks["volume"], errors="coerce").fillna(0).cumsum())])
+        st.plotly_chart(go.Figure(go.Bar(x=depth["level"], y=depth["cumulative"], marker_color=depth["side"], name="cumulative depth")), use_container_width=True)
+        history = frame.pivot_table(index="timestamp_local", columns="side", values="price", aggfunc="first").sort_index()
+        if not history.empty:
+            history["midpoint"] = history[[column for column in ["bid", "ask"] if column in history]].mean(axis=1)
+            st.plotly_chart(go.Figure([go.Scatter(x=history.index, y=history[column], name=column) for column in history.columns]), use_container_width=True)
+        st.subheader("Execution inspection (diagnostic only)")
+        st.info("MODEL_V1 remains unchanged. This view shows the observed book and does not submit orders or recompute production decisions.")
+        return
+
+    if data_type == "Price info":
+        st.info("No persisted price_info stream is currently enabled. API quote snapshots remain separate from realtime price_info updates.")
+        return
+    st.info("TRUE_TRADE_STREAM is not exposed by the inspected settrade-v2==2.2.1 equity realtime surface; no trade chart is enabled and price_info is never relabeled as trades.")
+
+
 paths = discover_paths()
 constituents = load_constituents(paths)
 audit = load_audit(paths)
 acquisition = load_acquisition(paths)
 metadata = load_metadata(paths)
-page = st.sidebar.radio("Workspace", ["Dashboard", "Historical SET50 Universe", "Market Data Explorer", "Data Quality", "Research Results"])
+page = st.sidebar.radio("Workspace", ["Dashboard", "Historical SET50 Universe", "Market Data Explorer", "Settrade Data Explorer", "Data Quality", "Research Results"])
 st.sidebar.caption("Source data is read-only")
 if metadata:
     st.sidebar.caption(f"Acquisition: {metadata.get('acquisition_timestamp', 'unknown')}")
@@ -158,6 +255,8 @@ elif page == "Historical SET50 Universe":
     _universe(constituents, audit)
 elif page == "Market Data Explorer":
     _market_explorer(paths, audit)
+elif page == "Settrade Data Explorer":
+    _settrade_explorer(paths)
 elif page == "Data Quality":
     _quality(paths, audit, acquisition)
 else:

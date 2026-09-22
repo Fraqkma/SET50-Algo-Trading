@@ -11,10 +11,15 @@ to all SET50 names and never sends orders.
 .venv\Scripts\python.exe scripts/check_settrade_collector_health.py
 ```
 
-`candles` stores recent 1m raw responses and derives 5m/15m bars. `realtime`
-stores quote snapshots. `bid-offer` prepares the official realtime dispatcher
-boundary and records a checkpoint; the empirical topic probe is limited to four
-topics.
+`candles` requests the current Asia/Bangkok calendar-day window, stores raw 1m
+responses, and derives 5m/15m bars. `realtime` stores quote snapshots.
+`bid-offer` starts genuine official SDK subscriptions for a bounded duration,
+persists callback payloads under `raw/bid_offer/events.jsonl`, and rotates
+symbols in groups no larger than the configured 35-topic ceiling. Subscription
+acknowledgements are not counted as market events. Normalized ten-level rows
+are written to `normalized/bid_offer/data.csv`. The installed SDK exposes no
+verified equity transaction/times-and-sales stream; `price_info` is a price
+update, not an executed trade tick, and is never relabeled as one.
 
 Writes are append-safe JSONL/CSV writes. Checkpoints are replaced atomically,
 so restart does not truncate prior data. The collector uses a monotonic 3

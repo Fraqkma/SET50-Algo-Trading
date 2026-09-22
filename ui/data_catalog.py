@@ -17,6 +17,7 @@ class DataPaths:
     ticker_audit: Path
     acquisition_report: Path
     metadata: Path
+    settrade_root: Path
     raw_directories: tuple[Path, ...]
 
 
@@ -40,6 +41,7 @@ def discover_paths(root: str | Path | None = None) -> DataPaths:
         ticker_audit=reports / "yahoo_ticker_audit.csv",
         acquisition_report=reports / "market_data_acquisition.csv",
         metadata=metadata,
+        settrade_root=project_root / "data" / "pilot" / "settrade",
         raw_directories=tuple(dict.fromkeys(raw_directories)),
     )
 
@@ -134,3 +136,60 @@ def quality_summary(frame: pd.DataFrame, symbol: str = "") -> dict[str, Any]:
             gaps = dates.diff().dt.days
             missing_dates = [f"{dates.iloc[index - 1].date()} -> {dates.iloc[index].date()} ({int(gaps.iloc[index] - 1)} calendar days)" for index in range(1, len(dates)) if gaps.iloc[index] > 10]
     return {"symbol": symbol, "rows": len(frame), "missing_values": missing_values, "duplicate_dates": duplicate_dates, "invalid_relationships": invalid_relationships, "missing_dates": missing_dates}
+
+
+def load_settrade_candles(paths: DataPaths, timeframe: str, symbol: str, start: Any = None, end: Any = None) -> pd.DataFrame:
+    """Read only normalized pilot candles and expose exchange-local timestamps."""
+    path = paths.settrade_root / "normalized" / f"bars_{timeframe}" / "data.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    frame = pd.read_csv(path)
+    if symbol and "symbol" in frame:
+        frame = frame[frame["symbol"].astype(str).str.upper() == symbol.upper()]
+    if "timestamp" not in frame:
+        return frame
+    frame["timestamp"] = pd.to_datetime(frame["timestamp"], errors="coerce", utc=True)
+    frame = frame.dropna(subset=["timestamp"])
+    if start is not None:
+        frame = frame[frame["timestamp"].dt.tz_convert("Asia/Bangkok").dt.date >= pd.Timestamp(start).date()]
+    if end is not None:
+        frame = frame[frame["timestamp"].dt.tz_convert("Asia/Bangkok").dt.date <= pd.Timestamp(end).date()]
+    frame["timestamp_local"] = frame["timestamp"].dt.tz_convert("Asia/Bangkok")
+    frame["source_label"] = "SETTRADE_API_CANDLE"
+    return frame.sort_values("timestamp")
+
+
+def load_settrade_bbo(paths: DataPaths, symbol: str, start: Any = None, end: Any = None) -> pd.DataFrame:
+    """Read normalized genuine BBO events; never derive events from prices."""
+    path = paths.settrade_root / "normalized" / "bid_offer" / "data.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    frame = pd.read_csv(path)
+    if symbol and "symbol" in frame:
+        frame = frame[frame["symbol"].astype(str).str.upper() == symbol.upper()]
+    if "retrieved_at" not in frame:
+        return frame
+    frame["retrieved_at"] = pd.to_datetime(frame["retrieved_at"], errors="coerce", utc=True)
+    frame = frame.dropna(subset=["retrieved_at"])
+    if start is not None:
+        frame = frame[frame["retrieved_at"].dt.tz_convert("Asia/Bangkok").dt.date >= pd.Timestamp(start).date()]
+    if end is not None:
+        frame = frame[frame["retrieved_at"].dt.tz_convert("Asia/Bangkok").dt.date <= pd.Timestamp(end).date()]
+    frame["timestamp_local"] = frame["retrieved_at"].dt.tz_convert("Asia/Bangkok")
+    return frame.sort_values("retrieved_at")
+
+
+def settrade_availability(paths: DataPaths) -> pd.DataFrame:
+    """Build a bounded in-memory availability index from normalized pilot data."""
+    rows: list[dict[str, Any]] = []
+    for timeframe in ("1m", "5m", "15m"):
+        frame = load_settrade_candles(paths, timeframe, "")
+        if frame.empty:
+            continue
+        for (symbol, date), group in frame.groupby(["symbol", frame["timestamp_local"].dt.date], dropna=True):
+            rows.append({"symbol": symbol, "date": str(date), "datatype": "candles", "timeframe": timeframe, "rows": len(group), "first_timestamp": group["timestamp"].min().isoformat(), "last_timestamp": group["timestamp"].max().isoformat(), "path": str((paths.settrade_root / "normalized" / f"bars_{timeframe}" / "data.csv").relative_to(paths.root))})
+    bbo = load_settrade_bbo(paths, "")
+    if not bbo.empty:
+        for (symbol, date), group in bbo.groupby(["symbol", bbo["timestamp_local"].dt.date], dropna=True):
+            rows.append({"symbol": symbol, "date": str(date), "datatype": "bbo", "timeframe": "event", "rows": len(group), "first_timestamp": group["retrieved_at"].min().isoformat(), "last_timestamp": group["retrieved_at"].max().isoformat(), "path": str((paths.settrade_root / "normalized" / "bid_offer" / "data.csv").relative_to(paths.root))})
+    return pd.DataFrame(rows)

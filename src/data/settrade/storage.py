@@ -5,6 +5,8 @@ from __future__ import annotations
 import csv
 import json
 import os
+import tempfile
+import time
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
@@ -67,9 +69,36 @@ class PilotStorage:
 
     def write_checkpoint(self, name: str, state: dict[str, Any]) -> Path:
         path = self.root / "checkpoints" / f"{name}.json"
-        temporary = path.with_suffix(".json.tmp")
-        temporary.write_text(json.dumps(state, indent=2, sort_keys=True, default=str), encoding="utf-8")
-        os.replace(temporary, path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_name: str | None = None
+        try:
+            # A fixed ``.json.tmp`` name allowed a stale pilot process or an
+            # antivirus scan to block the next Windows replace.  A unique
+            # sibling keeps each writer isolated while retaining atomic replace.
+            with tempfile.NamedTemporaryFile(
+                mode="w",
+                encoding="utf-8",
+                dir=path.parent,
+                prefix=f".{path.stem}.",
+                suffix=".tmp",
+                delete=False,
+            ) as handle:
+                temporary_name = handle.name
+                handle.write(json.dumps(state, indent=2, sort_keys=True, default=str))
+                handle.flush()
+                os.fsync(handle.fileno())
+            temporary = Path(temporary_name)
+            for attempt in range(5):
+                try:
+                    os.replace(temporary, path)
+                    break
+                except PermissionError:
+                    if attempt == 4:
+                        raise
+                    time.sleep(0.05 * (2**attempt))
+        finally:
+            if temporary_name:
+                Path(temporary_name).unlink(missing_ok=True)
         return path
 
     def read_checkpoint(self, name: str) -> dict[str, Any] | None:

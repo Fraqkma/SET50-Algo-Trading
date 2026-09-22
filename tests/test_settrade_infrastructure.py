@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
@@ -19,6 +20,7 @@ from src.data.settrade.retry import call_with_retries, is_retryable
 from src.data.settrade.schemas import BarRecord
 from src.data.settrade.storage import PilotStorage
 from src.data.settrade.validation import validate_bar_records, validate_quote
+from scripts.run_settrade_collector import candle_window, collect_bid_offer, collect_candles
 
 
 def _bars(count: int = 5) -> list[BarRecord]:
@@ -75,6 +77,102 @@ def test_storage_append_and_checkpoint_resume() -> None:
         storage.write_checkpoint("test", {"last": "PTT"})
         assert storage.read_checkpoint("test") == {"last": "PTT"}
         assert len((tmp_path / "raw/realtime/test.jsonl").read_text().splitlines()) == 2
+
+
+def test_checkpoint_does_not_reuse_stale_fixed_temp_file(tmp_path: Path) -> None:
+    storage = PilotStorage(tmp_path)
+    stale = tmp_path / "checkpoints" / "candles.json.tmp"
+    stale.write_text("stale pilot temp data", encoding="utf-8")
+    storage.write_checkpoint("candles", {"symbols_completed": 50})
+    assert storage.read_checkpoint("candles") == {"symbols_completed": 50}
+    assert stale.exists()
+
+
+def test_candle_window_is_current_bangkok_day() -> None:
+    start, end = candle_window(datetime.fromisoformat("2026-09-21T16:00:00+00:00"))
+    assert (start, end) == ("2026-09-21T00:00:00", "2026-09-22T00:00:00")
+
+
+def test_candle_collection_passes_explicit_current_day_window(tmp_path: Path) -> None:
+    calls = []
+
+    class Client:
+        def candlestick(self, symbol, interval, **kwargs):
+            calls.append((symbol, interval, kwargs))
+            return {"time": [], "open": [], "high": [], "low": [], "close": [], "volume": [], "value": []}
+
+    collect_candles(Client(), PilotStorage(tmp_path), ["PTT"], 100, datetime.fromisoformat("2026-09-21T16:00:00+00:00"))
+    assert calls == [("PTT", "1m", {"limit": 100, "start": "2026-09-21T00:00:00", "end": "2026-09-22T00:00:00"})]
+
+
+def test_stale_candle_response_is_not_counted_as_completed(tmp_path: Path) -> None:
+    class Client:
+        def candlestick(self, symbol, interval, **kwargs):
+            return {"time": ["1789720200"], "open": [10], "high": [10], "low": [10], "close": [10], "volume": [1], "value": [0]}
+
+    result = collect_candles(Client(), PilotStorage(tmp_path), ["PTT"], 100, datetime.fromisoformat("2026-09-21T16:00:00+00:00"))
+    assert result["status"] == "STALE_RESPONSE"
+    assert result["symbols"] == 0
+    storage_checkpoint = PilotStorage(tmp_path).read_checkpoint("candles_PTT")
+    assert storage_checkpoint
+    assert storage_checkpoint["status"] == "STALE_RESPONSE"
+
+
+def test_empty_current_session_response_is_explicit_no_data(tmp_path: Path) -> None:
+    class Client:
+        def candlestick(self, symbol, interval, **kwargs):
+            return {"time": [], "open": [], "high": [], "low": [], "close": [], "volume": [], "value": []}
+
+    result = collect_candles(Client(), PilotStorage(tmp_path), ["PTT"], 100, datetime.fromisoformat("2026-09-22T04:00:00+00:00"))
+    assert result["status"] == "NO_DATA"
+    assert result["symbols"] == 0
+    assert result["no_data_symbols"] == ["PTT"]
+    assert PilotStorage(tmp_path).read_checkpoint("candles_PTT")["status"] == "NO_DATA"
+
+
+def test_collector_success_main_path_emits_json_and_returns_zero(monkeypatch, capsys) -> None:
+    import sys
+    import scripts.run_settrade_collector as collector
+
+    monkeypatch.setattr(sys, "argv", ["run_settrade_collector.py", "--mode", "candles"])
+    monkeypatch.setattr(collector, "run", lambda _args: {"status": "SUCCESS", "orders_placed": 0})
+    assert collector.main() == 0
+    output = capsys.readouterr().out.strip()
+    assert json.loads(output) == {"orders_placed": 0, "status": "SUCCESS"}
+
+
+def test_bid_offer_collects_callback_events_and_respects_topic_ceiling(tmp_path: Path, monkeypatch) -> None:
+    class Subscription:
+        def __init__(self, symbol, callback):
+            self.symbol, self.callback = symbol, callback
+        def start(self):
+            self.callback({"data": {"symbol": self.symbol, "bid_price1": 10, "ask_price1": 10.1}})
+        def stop(self):
+            return None
+
+    class Realtime:
+        token = "dispatcher"
+        def _fetch_host_token(self):
+            return None
+        def subscribe_bid_offer(self, symbol, callback):
+            return Subscription(symbol, callback)
+        def _stop(self):
+            return None
+
+    class Client:
+        def realtime(self):
+            return Realtime()
+
+    clock = iter([0.0, 2.0])
+    monkeypatch.setattr("scripts.run_settrade_collector.time.monotonic", lambda: next(clock))
+    monkeypatch.setattr("scripts.run_settrade_collector.time.sleep", lambda _: None)
+    result = collect_bid_offer(Client(), PilotStorage(tmp_path), [f"S{i}" for i in range(50)], 35, 300, 1)
+    assert result["events"] == 35
+    assert result["active_topics"] == 35
+    assert len((tmp_path / "raw/bid_offer/events.jsonl").read_text(encoding="utf-8").splitlines()) == 35
+    normalized = (tmp_path / "normalized/bid_offer/data.csv").read_text(encoding="utf-8")
+    assert "collector_session_id" in normalized
+    assert len(normalized.splitlines()) == 35 * 20 + 1
 
 
 def test_orderbook_normalization_and_quality() -> None:

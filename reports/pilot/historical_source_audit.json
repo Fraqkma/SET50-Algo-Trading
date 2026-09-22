@@ -1,0 +1,32 @@
+{
+  "status": "READ_ONLY_SOURCE_DISCOVERY_AUDIT",
+  "retrieved_at": "2026-09-19",
+  "case_groups_investigated": 9,
+  "security_period_rows": 15,
+  "primary_source_evidence_cases": 9,
+  "secondary_source_candidates": ["GULF", "INTUCH", "SCBX", "TIDLOR", "TRUE", "BANPU", "TTB", "BLA", "IRPC"],
+  "availability_counts": {
+    "AVAILABLE_PRIMARY": 0,
+    "AVAILABLE_SECONDARY": 0,
+    "PARTIAL_PRIMARY": 7,
+    "PARTIAL_SECONDARY": 8,
+    "NOT_FOUND": 0,
+    "UNRESOLVED": 0
+  },
+  "interpretation": "The audit found credible source routes and several secondary instrument candidates, but no case has independently verified exact security-period coverage without authenticated access or a controlled data request. Therefore no case is classified as fully available.",
+  "official_sources": [
+    {"name":"SETSMART FAQ","url":"https://media.set.or.th/set/Documents/2022/Jul/SETSMART_web_FAQs.pdf","evidence":"SETSMART provides historical daily security price/statistics, supports start/end dates, and has authenticated Excel/API access; public documentation does not establish every predecessor security's exact coverage."},
+    {"name":"SET SMART Marketplace","url":"https://www.set.or.th/en/services/connectivity-and-data/data/smart-marketplace","evidence":"SET describes API access to equity EOD trading price and statistics plus reference/corporate-action data."},
+    {"name":"SET historical data route","url":"https://www.set.or.th/en/services/connectivity-and-data/data/historical","evidence":"Repository audit identifies this as the official request/licensed-delivery route; exact product schema and period coverage require confirmation."}
+  ],
+  "secondary_sources": [
+    {"name":"EODHD EOD API","url":"https://eodhd.com/financial-apis/api-for-historical-data-and-volumes","evidence":"EODHD documents daily Open, High, Low, Close, adjusted close, and Volume via authenticated API; free access is limited to the past year and paid plans provide deeper history."},
+    {"name":"EODHD Thailand exchange","url":"https://eodhd.com/exchange/BK","evidence":"EODHD identifies Thailand Exchange code BK/MIC XBKK and lists active tickers."},
+    {"name":"EODHD instrument pages","url":"https://eodhd.com/financial-summary/BLA.BK; https://eodhd.com/financial-summary/IRPC.BK; https://eodhd.com/financial-summary/INTUCH.BK","evidence":"Public pages confirm provider instruments for BLA, IRPC, and INTUCH and advertise paid EOD access, but do not prove earliest coverage for each required period."}
+  ],
+  "production_files_modified": false,
+  "bulk_ohlcv_downloaded": false,
+  "historical_securities_merged": false,
+  "synthetic_ohlcv_created": false,
+  "step3_started": false
+}

@@ -43,7 +43,7 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\check_settrade_task.ps1
 PowerShell -ExecutionPolicy Bypass -File .\scripts\uninstall_settrade_task.ps1
 ```
 
-The registration uses the current Windows user with `InteractiveToken` and
+The registration uses the current Windows user with `Interactive` logon and
 limited privileges, `IgnoreNew` duplicate policy, `StartWhenAvailable`, and
 `WakeToRun`. It does not embed credentials. If Windows requires elevation or a
 password, stop at that prompt and run the registration manually with the exact

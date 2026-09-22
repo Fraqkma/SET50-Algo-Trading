@@ -78,25 +78,29 @@ def _market_status() -> str | None:
     return str(payload.get("marketStatus") or payload.get("market_status") or "") or None
 
 
-def _collector_cycle() -> tuple[bool, dict[str, Any]]:
-    command = [sys.executable, str(ROOT / "scripts" / "run_settrade_collector.py"), "--universe", "current_set50", "--mode", "combined", "--once"]
-    process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+def _collector_cycle(rotation_generation: int = 0) -> tuple[bool, dict[str, Any]]:
+    command = [sys.executable, str(ROOT / "scripts" / "run_settrade_collector.py"), "--universe", "current_set50", "--mode", "combined", "--once", "--rotation-generation", str(rotation_generation)]
+    process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     try:
-        output, _ = process.communicate(timeout=900)
+        output, error_output = process.communicate(timeout=900)
     except subprocess.TimeoutExpired:
         LOGGER.error("collector cycle exceeded timeout; requesting graceful interruption")
         process.send_signal(signal.SIGINT)
         try:
-            output, _ = process.communicate(timeout=30)
+            output, error_output = process.communicate(timeout=30)
         except subprocess.TimeoutExpired:
             LOGGER.error("collector did not stop after graceful interruption; terminating process")
             process.terminate()
-            output, _ = process.communicate(timeout=30)
+            output, error_output = process.communicate(timeout=30)
         return False, {"status": "FAILURE", "error": "collector timeout", "output": output[-1000:]}
-    LOGGER.info("collector cycle exit=%s output=%s", process.returncode, output[-1000:].replace("\n", " "))
+    if error_output:
+        LOGGER.info("collector diagnostics=%s", error_output[-1000:].replace("\n", " "))
+    LOGGER.info("collector cycle exit=%s", process.returncode)
     try:
-        result = json.loads(output.strip().splitlines()[-1])
-    except (json.JSONDecodeError, IndexError):
+        result = json.loads(output)
+        if not isinstance(result, dict):
+            raise ValueError("collector JSON result must be an object")
+    except (json.JSONDecodeError, TypeError, ValueError):
         result = {"status": "FAILURE", "error": "collector output was not valid JSON"}
     return process.returncode == 0 and result.get("status", "SUCCESS") != "FAILURE", result
 
@@ -132,6 +136,7 @@ def run(args: argparse.Namespace) -> int:
         "rotation_generations": 0, "api_requests": 0, "retries": 0, "reconnects": 0, "rate_limit_errors": 0,
         "validation_errors": 0, "conflicts": 0, "disk_free_start": None, "disk_free_end": None, "orders_placed": 0,
         "health_checks": 0,
+        "candle_status": "NOT_RUN",
     }
     lock = SingleInstanceLock(LOCK_PATH)
     try:
@@ -182,7 +187,9 @@ def run(args: argparse.Namespace) -> int:
                 LOGGER.info("graceful stop requested by stop helper")
                 summary["shutdown_status"] = "STOP_REQUESTED"
                 break
-            current = classify_market_window(_now(args.now), args.market_status or status)
+            # Re-evaluate against the local exchange schedule every cycle.  A
+            # status fetched at startup can remain PRE_OPEN for hours in UAT.
+            current = classify_market_window(_now(args.now), None)
             if current.state == "CLOSED":
                 summary["shutdown_status"] = f"MARKET_CLOSED/{current.reason}"
                 break
@@ -196,11 +203,17 @@ def run(args: argparse.Namespace) -> int:
             while attempts < 3:
                 attempts += 1
                 try:
-                    ok, result = (True, {"orders_placed": 0}) if args.dry_run else _collector_cycle()
+                    ok, result = (True, {"orders_placed": 0}) if args.dry_run else _collector_cycle(cycles)
                     if ok:
                         summary["rotation_generations"] += 1
                         summary["api_requests"] += 50
                         summary["one_minute_rows_written"] += int(result.get("rows_1m", 0))
+                        summary["candle_status"] = str(result.get("status", "SUCCESS"))
+                        if summary["candle_status"] != "SUCCESS":
+                            LOGGER.warning("candle collection status=%s symbols_completed=%s no_data=%s stale=%s", summary["candle_status"], result.get("symbols", 0), result.get("no_data_symbols", []), result.get("stale_symbols", []))
+                        summary["symbols_with_1m_data"] = max(summary["symbols_with_1m_data"], int(result.get("symbols", 0)))
+                        bbo = result.get("realtime_rotation", result)
+                        summary["bbo_events_written"] += int(bbo.get("events", 0)) if isinstance(bbo, dict) else 0
                         summary["validation_errors"] += int(result.get("validation_issues", 0))
                         summary["conflicts"] += int(result.get("conflicts", 0))
                         health = _health()

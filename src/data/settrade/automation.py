@@ -36,11 +36,13 @@ def classify_market_window(now: datetime, api_status: str | None = None) -> Mark
         return MarketWindow("CLOSED", False, False, "WEEKEND")
 
     status = (api_status or "").strip().casefold().replace("_", "-")
-    if status and any(token in status for token in ("pre-open", "preopen")):
+    # The API status is a point-in-time hint.  Never let a stale PRE_OPEN
+    # response override the authoritative Bangkok session clock after open.
+    if status and any(token in status for token in ("pre-open", "preopen")) and scheduled == "PRE_OPEN":
         return MarketWindow("PRE_OPEN", True, False, "API_PRE_OPEN")
-    if status and any(token in status for token in ("auction", "pre-close")):
+    if status and any(token in status for token in ("auction", "pre-close")) and scheduled == "PRE_CLOSE_AUCTION":
         return MarketWindow("PRE_CLOSE_AUCTION", True, False, "API_AUCTION")
-    if status and any(token in status for token in ("break", "lunch")):
+    if status and any(token in status for token in ("break", "lunch")) and scheduled == "MIDDAY_BREAK":
         return MarketWindow("MIDDAY_BREAK", True, False, "API_MIDDAY_BREAK")
     if status and any(token in status for token in ("open", "continuous")):
         if scheduled in {"CONTINUOUS_MORNING", "CONTINUOUS_AFTERNOON"}:

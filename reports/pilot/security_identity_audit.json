@@ -1,0 +1,34 @@
+{
+  "status": "READ_ONLY_PILOT_AUDIT",
+  "scope": "Step 1C cases: BANPU, GULF, INTUCH, SCB, TIDLOR, TRUE, TTB, BLA, DTAC, IRPC",
+  "retrieved_at": "2026-09-19",
+  "source_hierarchy": ["Official SET documents", "Existing repository identity audit", "Existing Step 1C Yahoo results"],
+  "classifications": {
+    "SECURITY_REPLACED": ["BANPU", "DTAC", "GULF", "INTUCH", "SCB", "TIDLOR", "TRUE"],
+    "TICKER_CHANGED": ["TTB"],
+    "CONTINUOUS_IDENTITY": ["BLA", "IRPC"]
+  },
+  "mapping_conclusion": {
+    "yahoo_mapping_issue_only": [],
+    "unresolved_mapping_or_source": ["BLA", "IRPC"],
+    "no_data_due_to_identity_and_mapping": ["INTUCH"],
+    "replacement_history_needing_another_source": ["BANPU", "DTAC", "GULF", "INTUCH", "SCB", "TIDLOR", "TRUE"]
+  },
+  "cases": [
+    {"symbol":"BANPU","historical_ticker":"BANPU","current_ticker":"BANPUU then BANPU","event_type":"amalgamation/security replacement","event_date":"2026-07-17 to 2026-08-04","status":"SECURITY_REPLACED","yahoo_ticker":"BANPU.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=105587000&symbol=BPP","summary":"BANPUU/BPP were delisted after amalgamation; new BANPU traded from 2026-08-04. Raw histories must remain boundary-separated."},
+    {"symbol":"BLA","historical_ticker":"BLA","current_ticker":"BLA","event_type":"none identified","event_date":"UNKNOWN","status":"CONTINUOUS_IDENTITY","yahoo_ticker":"UNKNOWN","step1c_status":"UNMAPPED","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/product/stock/quote/bla/factsheet","summary":"SET confirms an active BLA listed security; the existing Yahoo audit has no verified mapping."},
+    {"symbol":"DTAC","historical_ticker":"DTAC","current_ticker":"TRUE","event_type":"merger/security replacement","event_date":"2023-03-01 to 2023-03-03","status":"SECURITY_REPLACED","yahoo_ticker":"UNKNOWN","step1c_status":"UNMAPPED","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=16776256332430","summary":"DTAC was delisted after amalgamation; new TRUE traded from 2023-03-03. TRUE must not replace DTAC history."},
+    {"symbol":"GULF","historical_ticker":"GULF","current_ticker":"GULFI then GULF","event_type":"merger/security replacement","event_date":"2025-03-20 to 2025-04-02","status":"SECURITY_REPLACED","yahoo_ticker":"GULF.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=94859900&symbol=INTUCH","summary":"GULF/INTUCH amalgamation created a post-event security; Yahoo GULF.BK begins 2025-04-03."},
+    {"symbol":"INTUCH","historical_ticker":"INTUCH","current_ticker":"GULF","event_type":"merger/security replacement","event_date":"2025-03-20 to 2025-04-02","status":"SECURITY_REPLACED","yahoo_ticker":"INTUCH.BK","step1c_status":"NO_DATA","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=94859900&symbol=INTUCH","summary":"INTUCH ceased as a separately traded security after the amalgamation; GULF is not a continuous INTUCH OHLCV series."},
+    {"symbol":"IRPC","historical_ticker":"IRPC","current_ticker":"IRPC","event_type":"none identified","event_date":"UNKNOWN","status":"CONTINUOUS_IDENTITY","yahoo_ticker":"UNKNOWN","step1c_status":"UNMAPPED","confidence":"MEDIUM","source_url":"https://media.set.or.th/set/Documents/2023/Mar/SET50SET100_H1_2023_revise.pdf","summary":"SET material identifies IRPC as a listed security; no verified Yahoo mapping was found and no relevant identity transition was established."},
+    {"symbol":"SCB","historical_ticker":"SCBB","current_ticker":"SCB","event_type":"holding-company restructuring/security replacement","event_date":"2022-04-27","status":"SECURITY_REPLACED","yahoo_ticker":"SCB.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/th/market/news-and-alert/newsdetails?id=16486816997531","summary":"SCBX replaced SCBB through restructuring; SCB.BK must not be presumed continuous across the boundary."},
+    {"symbol":"TIDLOR","historical_ticker":"NTL","current_ticker":"TIDLOR","event_type":"corporate shareholding restructuring/security replacement","event_date":"2025-05-15","status":"SECURITY_REPLACED","yahoo_ticker":"TIDLOR.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=96648700&symbol=SET","summary":"TIDLOR was listed in place of NTL. Yahoo TIDLOR.BK begins after the replacement."},
+    {"symbol":"TRUE","historical_ticker":"TRUEE","current_ticker":"TRUE","event_type":"merger/security replacement","event_date":"2023-03-01 to 2023-03-03","status":"SECURITY_REPLACED","yahoo_ticker":"TRUE.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=16776256332430","summary":"TRUEE and DTAC were delisted and new TRUE began trading on 2023-03-03; current TRUE must not be backfilled."},
+    {"symbol":"TTB","historical_ticker":"TMB","current_ticker":"TTB","event_type":"ticker/company-name change","event_date":"2021-05-12","status":"TICKER_CHANGED","yahoo_ticker":"TTB.BK","step1c_status":"PARTIAL","confidence":"HIGH","source_url":"https://www.set.or.th/en/market/news-and-alert/newsdetails?id=2021051542&symbol=TTB","summary":"SET records TMB to TTB as an effective name and ticker change; historical symbol-aware mapping remains required."}
+  ],
+  "production_files_modified": false,
+  "step1c_pilot_files_modified": false,
+  "bulk_price_acquisition": false,
+  "mapping_files_modified": false,
+  "backtest_or_strategy_modified": false
+}
