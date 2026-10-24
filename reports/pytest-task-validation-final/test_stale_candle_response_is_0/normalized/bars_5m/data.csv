@@ -1,0 +1,2 @@
+timestamp,collected_at,symbol,interval,open,high,low,close,volume,turnover,source,source_environment,broker_id,app_code,collector_version,git_head,retrieved_at,timezone,session,adjustment_status,incomplete_bucket,observed_source_bars
+2026-09-18 08:30:00+00:00,2026-10-16T14:24:20.788972+00:00,PTT,5m,10,10,10,10,1,,settrade,unknown,,,workspace-sha256:8b6fa530052aeede0d150158e06f209c8e6cb0ffd8494a2f2e6cf28e0a9905ad,5c29ba0128155d50352ddd15a26cb0f9883d1627,2026-10-16 14:24:20.788972+00:00,UTC,,UNKNOWN,True,1

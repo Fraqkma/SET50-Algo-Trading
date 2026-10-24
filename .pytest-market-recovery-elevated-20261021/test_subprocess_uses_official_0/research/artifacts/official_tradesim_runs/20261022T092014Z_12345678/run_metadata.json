@@ -1,0 +1,21 @@
+{
+  "run_started_at_utc": "2026-10-22T09:20:14.604822+00:00",
+  "tradesim_archive": null,
+  "tradesim_source_tree_sha256": null,
+  "tick_data": [
+    {
+      "date": "2026-09-09",
+      "path": "D:\\GitHub\\SET50-Algo-Trading\\.pytest-market-recovery-elevated-20261021\\test_subprocess_uses_official_0\\official\\marketInfo\\ticks\\2026-09-09.csv",
+      "size_bytes": null,
+      "sha256": null
+    }
+  ],
+  "simulation_dates": [
+    "2026-09-09"
+  ],
+  "research_git": {
+    "commit": "research-commit",
+    "dirty": true
+  },
+  "strategy_sha256": "d224e889a17649039ec1403fef78c2b6b9e0968cf45c7a55532e47dd5d293420"
+}

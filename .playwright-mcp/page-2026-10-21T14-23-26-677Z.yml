@@ -1,0 +1,61 @@
+- generic:
+  - generic [ref=f1e102]:
+    - log
+    - log
+  - generic [ref=f1e2]:
+    - generic [ref=f1e7]:
+      - button "keyboard_double_arrow_left" [ref=f1e225] [cursor=pointer]
+      - generic [ref=f1e11]:
+        - button [ref=f1e226] [cursor=pointer]:
+          - paragraph [ref=f1e19]: Refresh data
+        - heading "Research" [level=3] [ref=f1e227]
+        - group [ref=f1e28]:
+          - combobox "Workspace" [active] [ref=f1e29]: Candle Explorer
+          - button "Open" [ref=f1e228] [cursor=pointer]
+        - paragraph [ref=f1e38]: Source data is read-only
+    - generic [ref=f1e3]:
+      - banner [ref=f1e41]:
+        - generic [ref=f1e44]:
+          - button "Deploy" [ref=f1e229] [cursor=pointer]
+          - button "Main menu" [ref=f1e230] [cursor=pointer]
+      - generic [ref=f1e54]:
+        - generic [ref=f1e59]:
+          - generic [ref=f1e60]: Pilot observability · read only
+          - heading "Settrade Data Explorer" [level=1] [ref=f1e231]:
+            - text: Settrade Data Explorer
+            - generic [ref=f1e63]:
+              - link "Link to heading":
+                - /url: "#settrade-data-explorer"
+          - paragraph [ref=f1e64]: Inspect persisted candles and genuine bid/offer callbacks without altering source data or production decisions.
+        - generic [ref=f1e66]:
+          - generic [ref=f1e233]:
+            - paragraph [ref=f1e237]: Environment
+            - group [ref=f1e239]:
+              - combobox "Environment" [ref=f1e240]: PRODUCTION
+              - button "Open" [ref=f1e241] [cursor=pointer]
+          - generic [ref=f1e246]:
+            - paragraph [ref=f1e250]: Source
+            - group [ref=f1e252]:
+              - combobox "Source" [ref=f1e253]: Candles
+              - button "Open" [ref=f1e254] [cursor=pointer]
+          - generic [ref=f1e134]:
+            - paragraph [ref=f1e138]: Candle state
+            - paragraph [ref=f1e141]: 1m SPARSE / 5m PARTIAL / 15m PARTIAL
+          - generic [ref=f1e143]:
+            - paragraph [ref=f1e147]: Orders
+            - paragraph [ref=f1e150]: 0 (read-only audit)
+          - generic [ref=f1e152]:
+            - paragraph [ref=f1e156]: Audit
+            - paragraph [ref=f1e159]: MEASURED
+        - heading "Recent collection runs" [level=3] [ref=f1e260]:
+          - text: Recent collection runs
+          - generic [ref=f1e92]:
+            - link "Link to heading":
+              - /url: "#recent-collection-runs"
+        - generic [ref=f1e164]:
+          - button "Show/hide columns" [ref=f1e261] [cursor=pointer]
+          - button "Download as CSV" [ref=f1e262] [cursor=pointer]
+          - button "Search" [ref=f1e263] [cursor=pointer]
+          - button "Fullscreen" [ref=f1e264] [cursor=pointer]
+        - status [ref=f1e97]:
+          - paragraph [ref=f1e101]: Use Candle Explorer for session-aware candle coverage, Order Book Explorer for genuine callbacks, and Collection Health for cycle-level evidence. All Settrade views are pilot/read-only.

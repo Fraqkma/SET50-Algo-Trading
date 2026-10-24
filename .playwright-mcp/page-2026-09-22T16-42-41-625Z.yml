@@ -1,0 +1,65 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - paragraph [ref=e17]: Workspace
+      - radiogroup "Workspace" [ref=e18]:
+        - generic [ref=e19] [cursor=pointer]:
+          - radio "Dashboard" [ref=e21]
+          - paragraph [ref=e27]: Dashboard
+        - generic [ref=e28] [cursor=pointer]:
+          - radio "Historical SET50 Universe" [ref=e30]
+          - paragraph [ref=e36]: Historical SET50 Universe
+        - generic [ref=e37] [cursor=pointer]:
+          - radio "Market Data Explorer" [ref=e39]
+          - paragraph [ref=e45]: Market Data Explorer
+        - generic [ref=e46] [cursor=pointer]:
+          - radio "Settrade Data Explorer" [ref=e48]
+          - paragraph [ref=e54]: Settrade Data Explorer
+        - generic [ref=e55] [cursor=pointer]:
+          - radio "Data Quality" [checked] [active] [ref=e57]
+          - paragraph [ref=e63]: Data Quality
+        - generic [ref=e64] [cursor=pointer]:
+          - radio "Research Results" [ref=e66]
+          - paragraph [ref=e72]: Research Results
+    - paragraph [ref=e77]: Source data is read-only
+    - paragraph [ref=e82]: "Acquisition: 2026-09-08T17:26:21.073955+00:00"
+  - generic [ref=e3]:
+    - banner
+    - generic [ref=e85]:
+      - heading "Data Quality" [level=2] [ref=e1302]:
+        - text: Data Quality
+        - generic [ref=e1159]:
+          - link "Link to heading":
+            - /url: "#data-quality"
+      - generic [ref=e1306]:
+        - button "Show/hide columns" [ref=e1310] [cursor=pointer]
+        - button "Download as CSV" [ref=e1316] [cursor=pointer]
+        - button "Search" [ref=e1322] [cursor=pointer]
+        - button "Fullscreen" [ref=e1328] [cursor=pointer]
+      - heading "Yahoo ticker audit" [level=3] [ref=e1344]:
+        - text: Yahoo ticker audit
+        - generic [ref=e1345]:
+          - link "Link to heading":
+            - /url: "#yahoo-ticker-audit"
+      - generic [ref=e1350]:
+        - button "Show/hide columns" [ref=e1354] [cursor=pointer]
+        - button "Download as CSV" [ref=e1360] [cursor=pointer]
+        - button "Search" [ref=e1366] [cursor=pointer]
+        - button "Fullscreen" [ref=e1372] [cursor=pointer]
+      - heading "Raw-file validation diagnostics" [level=3] [ref=e1387]:
+        - text: Raw-file validation diagnostics
+        - generic [ref=e1388]:
+          - link "Link to heading":
+            - /url: "#raw-file-validation-diagnostics"
+      - generic [ref=e1392]:
+        - button "Show/hide columns" [ref=e1396] [cursor=pointer]
+        - button "Download as CSV" [ref=e1402] [cursor=pointer]
+        - button "Search" [ref=e1408] [cursor=pointer]
+        - button "Fullscreen" [ref=e1414] [cursor=pointer]
+      - generic [ref=e1114]:
+        - button "Show/hide columns" [ref=e1118] [cursor=pointer]
+        - button "Download as CSV" [ref=e1124] [cursor=pointer]
+        - button "Search" [ref=e1130] [cursor=pointer]
+        - button "Fullscreen" [ref=e1136] [cursor=pointer]
+      - status [ref=e1297]:
+        - paragraph [ref=e1301]: "Raw directories discovered: data\\raw\\market_data, data\\raw\\prices"

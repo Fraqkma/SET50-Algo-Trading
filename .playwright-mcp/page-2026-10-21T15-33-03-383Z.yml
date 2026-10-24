@@ -1,0 +1,189 @@
+- generic:
+  - generic [ref=f2e178]:
+    - log [ref=f2e179]:
+      - generic [ref=f2e1883]: 18 options available.
+    - log
+  - generic [ref=f2e2]:
+    - generic [ref=f2e7]:
+      - button "keyboard_double_arrow_left" [ref=f2e1884] [cursor=pointer]
+      - generic [ref=f2e11]:
+        - button [ref=f2e1885] [cursor=pointer]:
+          - paragraph [ref=f2e19]: Refresh data
+        - heading "Research" [level=3] [ref=f2e1886]
+        - group [ref=f2e28]:
+          - combobox "Workspace" [active] [ref=f2e29]: Order Book Explorer
+          - button "Open" [ref=f2e1887] [cursor=pointer]
+        - paragraph [ref=f2e38]: Source data is read-only
+    - generic [ref=f2e3]:
+      - banner [ref=f2e41]:
+        - generic [ref=f2e44]:
+          - generic [ref=f2e1889]:
+            - img "Running..." [ref=f2e1890]
+            - button "Stop" [ref=f2e1895] [cursor=pointer]
+          - button "Deploy" [ref=f2e1896] [cursor=pointer]
+          - button "Main menu" [ref=f2e1897] [cursor=pointer]
+      - generic [ref=f2e54]:
+        - generic [ref=f2e1283]:
+          - generic [ref=f2e1284]: Pilot observability · read only
+          - heading "Order book explorer" [level=1] [ref=f2e1898]:
+            - text: Order book explorer
+            - generic [ref=f2e1287]:
+              - link "Link to heading":
+                - /url: "#order-book-explorer"
+          - paragraph [ref=f2e1288]: Inspect genuine Settrade bid/offer callbacks, depth snapshots, and event timing.
+        - generic [ref=f2e1900]:
+          - paragraph [ref=f2e1904]: Symbol
+          - group [ref=f2e1906]:
+            - combobox "Symbol" [ref=f2e1907]: ADVANC
+            - button "Open" [ref=f2e1908] [cursor=pointer]
+        - generic [ref=f2e1419]:
+          - paragraph [ref=f2e1423]: Trading day (Asia/Bangkok)
+          - generic [ref=f2e1427]:
+            - group "Trading day (Asia/Bangkok)" [ref=f2e1912]:
+              - spinbutton "year, Trading day (Asia/Bangkok)" [ref=f2e1913]: "2026"
+              - generic [aria-hidden] [ref=f2e1431]: /
+              - spinbutton "month, Trading day (Asia/Bangkok)" [ref=f2e1914]: "10"
+              - generic [aria-hidden] [ref=f2e1433]: /
+              - spinbutton "day, Trading day (Asia/Bangkok)" [ref=f2e1915]: "21"
+            - textbox [ref=f2e1436]: 2026-10-21
+        - generic [ref=f2e1399]:
+          - generic [ref=f2e1400]:
+            - paragraph [ref=f2e1403]: View scope
+            - button "Help for View scope" [ref=f2e1916] [cursor=pointer]
+          - group [ref=f2e1412]:
+            - combobox "View scope" [ref=f2e1917]: Single trading day
+            - button "Open" [ref=f2e1918] [cursor=pointer]
+        - generic [ref=f2e1438]:
+          - generic [ref=f2e1439]:
+            - paragraph [ref=f2e1442]: Timeline
+            - button "Help for Timeline" [ref=f2e1919] [cursor=pointer]
+          - group [ref=f2e1451]:
+            - combobox "Timeline" [ref=f2e1920]: Compact trading timeline
+            - button "Open" [ref=f2e1921] [cursor=pointer]
+        - generic [ref=f2e1458]:
+          - generic [ref=f2e1463]:
+            - paragraph [ref=f2e1467]: Observed rows
+            - paragraph [ref=f2e1470]: "100"
+          - generic [ref=f2e1475]:
+            - paragraph [ref=f2e1479]: Expected
+            - paragraph [ref=f2e1482]: "330"
+          - generic [ref=f2e1487]:
+            - paragraph [ref=f2e1491]: Coverage
+            - paragraph [ref=f2e1494]: 30.3%
+          - generic [ref=f2e1499]:
+            - paragraph [ref=f2e1503]: Status
+            - paragraph [ref=f2e1506]: SPARSE
+          - generic [ref=f2e1511]:
+            - paragraph [ref=f2e1515]: First
+            - paragraph [ref=f2e1518]: 09:57
+          - generic [ref=f2e1523]:
+            - paragraph [ref=f2e1527]: Last
+            - paragraph [ref=f2e1530]: 11:51
+          - generic [ref=f2e1535]:
+            - paragraph [ref=f2e1539]: Morning
+            - paragraph [ref=f2e1542]: "100"
+          - generic [ref=f2e1547]:
+            - paragraph [ref=f2e1551]: Afternoon
+            - paragraph [ref=f2e1554]: "0"
+        - paragraph [ref=f2e1558]: "Coverage since collector start (2026-10-21T20:43:27.848980+07:00): 0 observed / 0 expected (0.0%). Full-session coverage remains 30.3%."
+        - alert [ref=f2e1561]:
+          - paragraph [ref=f2e1565]: Quality diagnostics found sparse or structurally invalid observations. The explorer preserves them and does not interpolate or repair source rows.
+        - generic [ref=f2e1567]:
+          - generic [ref=f2e1572] [cursor=pointer]:
+            - switch "SMA 20 / 50" [ref=f2e1922]
+            - generic "SMA 20 / 50" [ref=f2e1923]:
+              - paragraph [ref=f2e1581]: SMA 20 / 50
+          - generic [ref=f2e1586] [cursor=pointer]:
+            - switch "Session VWAP" [ref=f2e1924]
+            - generic "Session VWAP" [ref=f2e1925]:
+              - paragraph [ref=f2e1595]: Session VWAP
+          - generic [ref=f2e1633]:
+            - paragraph [ref=f2e1637]: Compare symbol
+            - group [ref=f2e1639]:
+              - combobox "Compare symbol" [ref=f2e1926]: None
+              - button "Open" [ref=f2e1927] [cursor=pointer]
+        - generic [ref=f2e1657]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: 21 Oct 09:57
+                  - generic: 21 Oct 10:09
+                  - generic: 21 Oct 10:21
+                  - generic: 21 Oct 10:33
+                  - generic: 21 Oct 10:45
+                  - generic: 21 Oct 11:02
+                  - generic: 21 Oct 11:14
+                  - generic: 21 Oct 11:32
+                  - generic: 21 Oct 11:47
+                - generic:
+                  - generic: "328"
+                  - generic: "329"
+                  - generic: "330"
+                  - generic: "331"
+                  - generic: "332"
+                  - generic: "333"
+                  - generic: "334"
+          - img:
+            - generic:
+              - generic: ADVANC · 1m · compact
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+          - toolbar [ref=f2e1671]:
+            - button "Download plot as a PNG" [ref=f2e1928] [cursor=pointer]
+            - generic [ref=f2e1676]:
+              - button "Zoom" [ref=f2e1929] [cursor=pointer]
+              - button "Pan" [ref=f2e1930] [cursor=pointer]
+            - generic [ref=f2e1683]:
+              - button "Zoom in" [ref=f2e1931] [cursor=pointer]
+              - button "Zoom out" [ref=f2e1932] [cursor=pointer]
+              - button "Autoscale" [ref=f2e1933] [cursor=pointer]
+              - button "Reset axes" [ref=f2e1934] [cursor=pointer]
+            - button "Fullscreen" [ref=f2e1935] [cursor=pointer]
+        - generic [ref=f2e1702]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: "40"
+                  - generic: "60"
+                  - generic: "80"
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+                - generic:
+                  - generic: "0"
+                  - generic: 200k
+                  - generic: 400k
+          - img:
+            - generic: Persisted source volume
+          - toolbar [ref=f2e1716]:
+            - button "Download plot as a PNG" [ref=f2e1936] [cursor=pointer]
+            - generic [ref=f2e1721]:
+              - button "Zoom" [ref=f2e1937] [cursor=pointer]
+              - button "Pan" [ref=f2e1938] [cursor=pointer]
+            - generic [ref=f2e1728]:
+              - button "Zoom in" [ref=f2e1939] [cursor=pointer]
+              - button "Zoom out" [ref=f2e1940] [cursor=pointer]
+              - button "Autoscale" [ref=f2e1941] [cursor=pointer]
+              - button "Reset axes" [ref=f2e1942] [cursor=pointer]
+            - button "Fullscreen" [ref=f2e1943] [cursor=pointer]
+        - paragraph [ref=f2e1654]: "Chart input rows: 100 · source rows displayed: 100 · no resampling, gap filling, or BBO-derived candles."
+        - generic [ref=f2e1749]:
+          - button "Show/hide columns" [ref=f2e1944] [cursor=pointer]
+          - button "Download as CSV" [ref=f2e1945] [cursor=pointer]
+          - button "Search" [ref=f2e1946] [cursor=pointer]
+          - button "Fullscreen" [ref=f2e1947] [cursor=pointer]
+        - group [ref=f2e1785]:
+          - generic "keyboard_arrow_right Data quality" [ref=f2e1948] [cursor=pointer]:
+            - generic [ref=f2e1787]:
+              - generic [ref=f2e1788]: keyboard_arrow_right
+              - paragraph [ref=f2e1792]: Data quality

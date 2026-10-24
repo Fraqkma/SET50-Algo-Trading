@@ -1,0 +1,216 @@
+- generic:
+  - generic [ref=f2e178]:
+    - log
+    - log
+  - generic [ref=f2e2]:
+    - generic [ref=f2e7]:
+      - button [ref=f2e1794] [cursor=pointer]:
+        - generic [ref=f2e183]: keyboard_double_arrow_left
+      - generic [ref=f2e11]:
+        - button [ref=f2e1795] [cursor=pointer]:
+          - paragraph [ref=f2e19]: Refresh data
+        - heading [level=3] [ref=f2e1796]: Research
+        - group [ref=f2e28]:
+          - combobox "Workspace" [expanded] [active] [ref=f2e29]: Order Book Explorer
+          - button [expanded] [aria-hidden] [ref=f2e1797] [cursor=pointer]
+        - paragraph [ref=f2e38]: Source data is read-only
+    - generic [aria-hidden] [ref=f2e3]:
+      - banner [ref=f2e41]:
+        - generic [ref=f2e44]:
+          - button [ref=f2e1798] [cursor=pointer]:
+            - generic [ref=f2e47]: Deploy
+          - button [ref=f2e1799] [cursor=pointer]
+      - generic [ref=f2e54]:
+        - generic [ref=f2e1283]:
+          - generic [ref=f2e1284]: Pilot observability · read only
+          - heading [level=1] [ref=f2e1800]:
+            - text: Settrade Data Explorer
+            - generic [ref=f2e1287]:
+              - link:
+                - /url: "#settrade-data-explorer"
+          - paragraph [ref=f2e1288]: Inspect persisted candles and genuine bid/offer callbacks without altering source data or production decisions.
+        - generic [ref=f2e1290]:
+          - generic [ref=f2e1294]:
+            - paragraph [ref=f2e1298]: Environment
+            - group [ref=f2e1300]:
+              - combobox [ref=f2e1801]: PRODUCTION
+              - button [ref=f2e1802] [cursor=pointer]
+          - generic [ref=f2e1309]:
+            - paragraph [ref=f2e1313]: Source
+            - group [ref=f2e1315]:
+              - combobox [ref=f2e1803]: Candles
+              - button [ref=f2e1804] [cursor=pointer]
+          - generic [ref=f2e1324]:
+            - paragraph [ref=f2e1328]: Symbol
+            - group [ref=f2e1330]:
+              - combobox [ref=f2e1805]: ADVANC
+              - button [ref=f2e1806] [cursor=pointer]
+          - generic [ref=f2e1339]:
+            - paragraph [ref=f2e1343]: Timeframe
+            - group [ref=f2e1345]:
+              - combobox [ref=f2e1807]: 1m
+              - button [ref=f2e1808] [cursor=pointer]
+          - generic [ref=f2e1354]:
+            - paragraph [ref=f2e1358]: Session filter
+            - group [ref=f2e1360]:
+              - combobox [ref=f2e1809]: All timestamps
+              - button [ref=f2e1810] [cursor=pointer]
+          - button [ref=f2e1811] [cursor=pointer]:
+            - paragraph [ref=f2e1378]: Refresh local view
+        - generic [ref=f2e1381] [cursor=pointer]:
+          - switch [ref=f2e1812]
+          - generic [ref=f2e1386]:
+            - paragraph [ref=f2e1390]: Auto-refresh persisted view every 60 seconds
+            - button [ref=f2e1813]
+        - generic [ref=f2e1399]:
+          - generic [ref=f2e1400]:
+            - paragraph [ref=f2e1403]: View scope
+            - button [ref=f2e1814] [cursor=pointer]
+          - group [ref=f2e1412]:
+            - combobox [ref=f2e1815]: Single trading day
+            - button [ref=f2e1816] [cursor=pointer]
+        - generic [ref=f2e1419]:
+          - paragraph [ref=f2e1423]: Trading day (Asia/Bangkok)
+          - generic [ref=f2e1427]:
+            - group [ref=f2e1817]:
+              - spinbutton [ref=f2e1818]: "2026"
+              - generic [aria-hidden] [ref=f2e1431]: /
+              - spinbutton [ref=f2e1819]: "10"
+              - generic [aria-hidden] [ref=f2e1433]: /
+              - spinbutton [ref=f2e1820]: "21"
+            - textbox [ref=f2e1436]: 2026-10-21
+        - generic [ref=f2e1438]:
+          - generic [ref=f2e1439]:
+            - paragraph [ref=f2e1442]: Timeline
+            - button [ref=f2e1821] [cursor=pointer]
+          - group [ref=f2e1451]:
+            - combobox [ref=f2e1822]: Compact trading timeline
+            - button [ref=f2e1823] [cursor=pointer]
+        - generic [ref=f2e1458]:
+          - generic [ref=f2e1463]:
+            - paragraph [ref=f2e1467]: Observed rows
+            - paragraph [ref=f2e1470]: "100"
+          - generic [ref=f2e1475]:
+            - paragraph [ref=f2e1479]: Expected
+            - paragraph [ref=f2e1482]: "330"
+          - generic [ref=f2e1487]:
+            - paragraph [ref=f2e1491]: Coverage
+            - paragraph [ref=f2e1494]: 30.3%
+          - generic [ref=f2e1499]:
+            - paragraph [ref=f2e1503]: Status
+            - paragraph [ref=f2e1506]: SPARSE
+          - generic [ref=f2e1511]:
+            - paragraph [ref=f2e1515]: First
+            - paragraph [ref=f2e1518]: 09:57
+          - generic [ref=f2e1523]:
+            - paragraph [ref=f2e1527]: Last
+            - paragraph [ref=f2e1530]: 11:51
+          - generic [ref=f2e1535]:
+            - paragraph [ref=f2e1539]: Morning
+            - paragraph [ref=f2e1542]: "100"
+          - generic [ref=f2e1547]:
+            - paragraph [ref=f2e1551]: Afternoon
+            - paragraph [ref=f2e1554]: "0"
+        - paragraph [ref=f2e1558]: "Coverage since collector start (2026-10-21T20:43:27.848980+07:00): 0 observed / 0 expected (0.0%). Full-session coverage remains 30.3%."
+        - alert [ref=f2e1561]:
+          - paragraph [ref=f2e1565]: Quality diagnostics found sparse or structurally invalid observations. The explorer preserves them and does not interpolate or repair source rows.
+        - generic [ref=f2e1567]:
+          - generic [ref=f2e1572] [cursor=pointer]:
+            - switch [ref=f2e1824]
+            - paragraph [ref=f2e1581]: SMA 20 / 50
+          - generic [ref=f2e1586] [cursor=pointer]:
+            - switch [ref=f2e1826]
+            - paragraph [ref=f2e1595]: Session VWAP
+          - generic [ref=f2e1633]:
+            - paragraph [ref=f2e1637]: Compare symbol
+            - group [ref=f2e1639]:
+              - combobox [ref=f2e1828]: None
+              - button [ref=f2e1829] [cursor=pointer]
+        - generic [ref=f2e1657]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: 21 Oct 09:57
+                  - generic: 21 Oct 10:09
+                  - generic: 21 Oct 10:21
+                  - generic: 21 Oct 10:33
+                  - generic: 21 Oct 10:45
+                  - generic: 21 Oct 11:02
+                  - generic: 21 Oct 11:14
+                  - generic: 21 Oct 11:32
+                  - generic: 21 Oct 11:47
+                - generic:
+                  - generic: "328"
+                  - generic: "329"
+                  - generic: "330"
+                  - generic: "331"
+                  - generic: "332"
+                  - generic: "333"
+                  - generic: "334"
+          - img:
+            - generic:
+              - generic: ADVANC · 1m · compact
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+              - generic: active-session gap
+          - toolbar [ref=f2e1671]:
+            - button [ref=f2e1830] [cursor=pointer]
+            - generic [ref=f2e1676]:
+              - button [ref=f2e1831] [cursor=pointer]
+              - button [ref=f2e1832] [cursor=pointer]
+            - generic [ref=f2e1683]:
+              - button [ref=f2e1833] [cursor=pointer]
+              - button [ref=f2e1834] [cursor=pointer]
+              - button [ref=f2e1835] [cursor=pointer]
+              - button [ref=f2e1836] [cursor=pointer]
+            - button [ref=f2e1837] [cursor=pointer]
+        - generic [ref=f2e1702]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: "40"
+                  - generic: "60"
+                  - generic: "80"
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+                - generic:
+                  - generic: "0"
+                  - generic: 200k
+                  - generic: 400k
+          - img:
+            - generic: Persisted source volume
+          - toolbar [ref=f2e1716]:
+            - button [ref=f2e1838] [cursor=pointer]
+            - generic [ref=f2e1721]:
+              - button [ref=f2e1839] [cursor=pointer]
+              - button [ref=f2e1840] [cursor=pointer]
+            - generic [ref=f2e1728]:
+              - button [ref=f2e1841] [cursor=pointer]
+              - button [ref=f2e1842] [cursor=pointer]
+              - button [ref=f2e1843] [cursor=pointer]
+              - button [ref=f2e1844] [cursor=pointer]
+            - button [ref=f2e1845] [cursor=pointer]
+        - paragraph [ref=f2e1654]: "Chart input rows: 100 · source rows displayed: 100 · no resampling, gap filling, or BBO-derived candles."
+        - generic [ref=f2e1749]:
+          - button [ref=f2e1846] [cursor=pointer]
+          - button [ref=f2e1847] [cursor=pointer]
+          - button [ref=f2e1848] [cursor=pointer]
+          - button [ref=f2e1849] [cursor=pointer]
+        - group [ref=f2e1785]:
+          - generic [ref=f2e1787] [cursor=pointer]:
+            - generic [ref=f2e1788]: keyboard_arrow_right
+            - paragraph [ref=f2e1792]: Data quality
+  - generic [ref=f2e1852]:
+    - listbox "Workspace Open" [ref=f2e1853]:
+      - option "Order Book Explorer" [ref=f2e1872] [cursor=pointer]
+    - button "Dismiss" [ref=f2e1881] [cursor=pointer]

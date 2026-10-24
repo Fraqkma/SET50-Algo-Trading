@@ -64,13 +64,32 @@ The pipeline expects this file to be supplied locally. If no historical constitu
 
 The project keeps raw downloaded data, cleaned/processed data, and validation reports under the repository's `data/` and `results/` directories. No trading strategy or backtest claims are made at this stage.
 
+## Official KGI TradeSim
+
+The organizer-designated TradeSim 0.2.6 runtime and official `Daily_Ticks.zip`
+data workflow are documented in [the integration guide](docs/OFFICIAL_TRADESIM_INTEGRATION.md).
+Research backtests remain separate. Use `python scripts/run_official_tradesim.py
+--check` to inspect runtime readiness, `--list-official-data` to inspect official
+coverage, and pass `--data-source official` explicitly to run against an isolated
+copy of the official ticks/history. Practice remains the default source.
+
 ## Data Exploration UI
 
-The repository includes a read-only Streamlit UI for inspecting the historical
-SET50 universe, Yahoo ticker audit, acquisition reports, raw OHLCV, and data
-quality warnings. It discovers the current Gate 2 raw directory from
-`reports/data_acquisition_metadata.json` and falls back to the legacy parquet
-layout when present. It never fills, cleans, or overwrites source data.
+The repository includes a read-only Streamlit UI for current-SET50 visual
+research, historical membership, Yahoo ticker audit, acquisition reports, raw
+OHLCV, Settrade pilot evidence, and data-quality warnings. The current SET50
+Market Overview is explicitly an exploratory display universe, not a historical
+membership series or survivorship-safe backtest input. The derived daily view
+preserves per-row provenance, rejects conflicting symbol-dates, and does not
+fill prices or volume. See [the market research terminal guide](docs/MARKET_RESEARCH_TERMINAL.md)
+for source precedence, identity boundaries, return/correlation methodology, and
+catalog refresh instructions.
+
+Settrade production is isolated from the older sandbox pilot under
+`data/pilot/settrade/production`. The connection and collector are market-data
+only; account/private endpoints require an account number and any trading SDK
+methods remain unused. See [the production cutover and capability audit](docs/SETTRADE_PRODUCTION_CUTOVER.md)
+for verified API behavior, provenance, readiness commands, and current limits.
 
 Install dependencies and start it from the repository root:
 
@@ -81,3 +100,6 @@ python -m streamlit run ui/app.py
 
 The research-result sections are placeholders only. No strategy, feature,
 backtest, optimization, or paper-trading logic is implemented by the UI.
+
+For bounded recovery, reconnect evidence, and the local TradeSim archive upgrade
+procedure, see [operational recovery and TradeSim readiness](docs/FULL_OPERATIONAL_TRADESIM_READINESS.md).

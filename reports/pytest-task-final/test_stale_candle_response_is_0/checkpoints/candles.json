@@ -1,0 +1,12 @@
+{
+  "expected_session_date": "2026-09-21",
+  "last_candle_timestamp": "2026-09-18T08:30:00+00:00",
+  "last_successful_authentication": "2026-10-16T14:01:40.977753+00:00",
+  "no_data_symbols": [],
+  "stale_symbols": [
+    "PTT"
+  ],
+  "status": "STALE_RESPONSE",
+  "symbols_attempted": 1,
+  "symbols_completed": 0
+}

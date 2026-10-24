@@ -1,0 +1,120 @@
+- generic:
+  - generic [ref=f2e178]:
+    - log [ref=f2e179]:
+      - generic [ref=f2e2324]: 18 options available.
+    - log
+  - generic [ref=f2e2]:
+    - generic [ref=f2e7]:
+      - button [ref=f2e2325] [cursor=pointer]:
+        - generic [ref=f2e183]: keyboard_double_arrow_left
+      - generic [ref=f2e11]:
+        - button [ref=f2e2326] [cursor=pointer]:
+          - paragraph [ref=f2e19]: Refresh data
+        - heading [level=3] [ref=f2e2327]: Research
+        - group [ref=f2e28]:
+          - combobox "Workspace" [expanded] [active] [ref=f2e29]: Market Breadth
+          - button [expanded] [aria-hidden] [ref=f2e2328] [cursor=pointer]
+        - paragraph [ref=f2e38]: Source data is read-only
+    - generic [aria-hidden] [ref=f2e3]:
+      - banner [ref=f2e41]:
+        - generic [ref=f2e44]:
+          - button [ref=f2e2329] [cursor=pointer]:
+            - generic [ref=f2e47]: Deploy
+          - button [ref=f2e2330] [cursor=pointer]
+      - generic [ref=f2e54]:
+        - heading [level=1] [ref=f2e2331]:
+          - generic [ref=f2e2067]: ssid_chart
+          - text: Market breadth and trend matrix
+          - generic [ref=f2e2069]:
+            - link:
+              - /url: "#market-breadth-and-trend-matrix"
+        - paragraph [ref=f2e2074]: Descriptive coverage-aware metrics; no score, ranking tier, or buy/sell recommendation.
+        - alert [ref=f2e2077]:
+          - generic [ref=f2e2079]:
+            - generic [ref=f2e2080]: warning
+            - paragraph [ref=f2e2084]: Current SET50 display universe only — historical charts show each security’s genuine available history, not historical SET50 membership. Exploratory continuity is not survivorship-safe backtest evidence.
+        - generic [ref=f2e2123]:
+          - generic [ref=f2e2128]:
+            - paragraph [ref=f2e2132]: Above SMA20
+            - paragraph [ref=f2e2135]: 16 / 49
+            - paragraph [ref=f2e2142]: 32.7% available
+          - generic [ref=f2e2147]:
+            - paragraph [ref=f2e2151]: Above SMA50
+            - paragraph [ref=f2e2154]: 15 / 49
+            - paragraph [ref=f2e2161]: 30.6% available
+          - generic [ref=f2e2166]:
+            - paragraph [ref=f2e2170]: Positive 20D return
+            - paragraph [ref=f2e2173]: 18 / 49
+            - paragraph [ref=f2e2180]: 36.7% available
+          - generic [ref=f2e2185]:
+            - paragraph [ref=f2e2189]: Positive 5D return
+            - paragraph [ref=f2e2192]: 27 / 50
+            - paragraph [ref=f2e2199]: 54.0% available
+        - paragraph [ref=f2e2204]: Each denominator includes only securities with enough actual observations for that metric. Moving averages use 20 or 50 observed closes; no missing close is filled.
+        - heading [level=3] [ref=f2e2332]:
+          - text: Cross-sectional performance and trend matrix
+          - generic [ref=f2e2210]:
+            - link:
+              - /url: "#cross-sectional-performance-and-trend-matrix"
+        - generic [ref=f2e2215]:
+          - button [ref=f2e2333] [cursor=pointer]
+          - button [ref=f2e2334] [cursor=pointer]
+          - button [ref=f2e2335] [cursor=pointer]
+          - button [ref=f2e2336] [cursor=pointer]
+        - generic [ref=f2e2246]:
+          - paragraph [ref=f2e2250]: Inspect historical volume
+          - group [ref=f2e2252]:
+            - combobox [ref=f2e2337]: ADVANC
+            - button [ref=f2e2338] [cursor=pointer]
+        - generic [ref=f2e2267]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Nov 2025
+                  - generic: Jan 2026
+                  - generic: Mar 2026
+                  - generic: May 2026
+                  - generic: Jul 2026
+                  - generic: Sep 2026
+                - generic:
+                  - generic: "0"
+                  - generic: 5M
+                  - generic: 10M
+                  - generic: 15M
+          - img:
+            - generic:
+              - generic [ref=f2e2284]:
+                - generic [ref=f2e2285]:
+                  - generic [ref=f2e2286]: Yahoo daily volume
+                  - generic [ref=f2e2291] [cursor=pointer]
+                - generic [ref=f2e2292]:
+                  - generic [ref=f2e2293]: 20-observation mean
+                  - generic [ref=f2e2294] [cursor=pointer]
+              - generic: ADVANC · vendor-reported daily volume · raw_yahoo
+              - generic: Reported volume units
+          - toolbar [ref=f2e2295]:
+            - button [ref=f2e2339] [cursor=pointer]
+            - generic [ref=f2e2300]:
+              - button [ref=f2e2340] [cursor=pointer]
+              - button [ref=f2e2341] [cursor=pointer]
+            - generic [ref=f2e2307]:
+              - button [ref=f2e2342] [cursor=pointer]
+              - button [ref=f2e2343] [cursor=pointer]
+              - button [ref=f2e2344] [cursor=pointer]
+              - button [ref=f2e2345] [cursor=pointer]
+            - button [ref=f2e2346] [cursor=pointer]
+  - generic [ref=f2e2348]:
+    - listbox "Workspace Open" [ref=f2e2349]:
+      - option "Market Overview" [ref=f2e2350] [cursor=pointer]
+      - option "Multi-Stock Trends" [ref=f2e2352] [cursor=pointer]
+      - option "Correlation Lab" [ref=f2e2354] [cursor=pointer]
+      - option "Market Breadth" [selected] [ref=f2e2356] [cursor=pointer]
+      - option "Stock Detail" [ref=f2e2358] [cursor=pointer]
+      - option "Overview" [ref=f2e2360] [cursor=pointer]
+      - option "Historical Data Explorer" [ref=f2e2362] [cursor=pointer]
+      - option "Historical SET50 Universe" [ref=f2e2364] [cursor=pointer]
+      - option "Market Data Explorer" [ref=f2e2366] [cursor=pointer]
+      - option "Candle Explorer" [ref=f2e2368] [cursor=pointer]
+      - option "Order Book Explorer" [ref=f2e2370] [cursor=pointer]
+    - button "Dismiss" [ref=f2e2373] [cursor=pointer]

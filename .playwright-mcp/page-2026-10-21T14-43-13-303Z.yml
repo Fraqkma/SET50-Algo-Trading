@@ -1,0 +1,74 @@
+- generic:
+  - generic [ref=f2e178]:
+    - log [ref=f2e179]:
+      - generic [ref=f2e180]: 15 options available.
+    - log
+  - generic [ref=f2e2]:
+    - generic [ref=f2e7]:
+      - button [ref=f2e182] [cursor=pointer]:
+        - generic [ref=f2e183]: keyboard_double_arrow_left
+      - generic [ref=f2e11]:
+        - button [ref=f2e185] [cursor=pointer]:
+          - paragraph [ref=f2e19]: Refresh data
+        - heading [level=3] [ref=f2e186]: Research
+        - group [ref=f2e28]:
+          - combobox "Workspace" [expanded] [active] [ref=f2e29]: Overview
+          - button [expanded] [aria-hidden] [ref=f2e187] [cursor=pointer]
+        - paragraph [ref=f2e38]: Source data is read-only
+    - generic [aria-hidden] [ref=f2e3]:
+      - banner [ref=f2e41]:
+        - generic [ref=f2e44]:
+          - button [ref=f2e188] [cursor=pointer]:
+            - generic [ref=f2e47]: Deploy
+          - button [ref=f2e189] [cursor=pointer]
+      - generic [ref=f2e54]:
+        - generic [ref=f2e59]:
+          - generic [ref=f2e60]: SET50 research desk · read only
+          - heading [level=1] [ref=f2e190]:
+            - text: Overview
+            - generic [ref=f2e63]:
+              - link:
+                - /url: "#overview"
+          - paragraph [ref=f2e64]: One place for collection health, historical universe, and source-faithful research views.
+        - generic [ref=f2e66]:
+          - generic [ref=f2e71]:
+            - paragraph [ref=f2e75]: SET50 universe
+            - paragraph [ref=f2e78]: READY
+          - generic [ref=f2e83]:
+            - paragraph [ref=f2e87]: BBO readiness
+            - paragraph [ref=f2e90]: READY_FOR_EXPLORATORY_RESEARCH
+          - generic [ref=f2e95]:
+            - paragraph [ref=f2e99]: Candle state
+            - paragraph [ref=f2e102]: 1m SPARSE / 5m PARTIAL / 15m PARTIAL
+          - generic [ref=f2e107]:
+            - paragraph [ref=f2e111]: Orders
+            - paragraph [ref=f2e114]: 0 (read-only audit)
+          - generic [ref=f2e119]:
+            - paragraph [ref=f2e123]: Audit
+            - paragraph [ref=f2e126]: MEASURED
+        - heading [level=3] [ref=f2e191]:
+          - text: Recent collection runs
+          - generic [ref=f2e132]:
+            - link:
+              - /url: "#recent-collection-runs"
+        - generic [ref=f2e137]:
+          - button [ref=f2e192] [cursor=pointer]
+          - button [ref=f2e193] [cursor=pointer]
+          - button [ref=f2e194] [cursor=pointer]
+          - button [ref=f2e195] [cursor=pointer]
+        - status [ref=f2e173]:
+          - paragraph [ref=f2e177]: Use Candle Explorer for session-aware candle coverage, Order Book Explorer for genuine callbacks, and Collection Health for cycle-level evidence. All Settrade views are pilot/read-only.
+  - generic [ref=f2e197]:
+    - listbox "Workspace Open" [ref=f2e198]:
+      - option "Market Overview" [ref=f2e199] [cursor=pointer]
+      - option "Multi-Stock Trends" [ref=f2e201] [cursor=pointer]
+      - option "Correlation Lab" [ref=f2e203] [cursor=pointer]
+      - option "Market Breadth" [ref=f2e205] [cursor=pointer]
+      - option "Stock Detail" [ref=f2e207] [cursor=pointer]
+      - option "Overview" [selected] [ref=f2e209] [cursor=pointer]
+      - option "Historical Data Explorer" [ref=f2e211] [cursor=pointer]
+      - option "Historical SET50 Universe" [ref=f2e213] [cursor=pointer]
+      - option "Market Data Explorer" [ref=f2e215] [cursor=pointer]
+      - option "Candle Explorer" [ref=f2e217] [cursor=pointer]
+      - option "Order Book Explorer" [ref=f2e219] [cursor=pointer]
+    - button "Dismiss" [ref=f2e222] [cursor=pointer]

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-10-24T13:53:25.952245+07:00",
+  "dark_theme": "Streamlit base dark theme with shared slate surfaces, readable status colors, and Plotly dark template.",
+  "tradingview_reference": "docs/TRADINGVIEW_UX_RESEARCH.md; anonymous public chart inspected with Playwright after the REA CDP endpoint proved unreachable.",
+  "working_tools": [
+    "Market Overview",
+    "Multi-Stock Trends",
+    "Correlation Lab",
+    "Market Breadth",
+    "Stock Detail",
+    "Historical Data Explorer",
+    "Candle Explorer",
+    "Order Book Explorer",
+    "Collection Health",
+    "Data Quality",
+    "Official TradeSim Validation"
+  ],
+  "watchlist": "Daily close, 1D/5D/20D return, volume activity, volatility, and market-date freshness with sort/filter.",
+  "heatmap": "Available daily-source metric selections include 1D/5D/20D return, volatility, ATR%, volume activity, and freshness; unsupported intraday return/spread explicitly report unavailable.",
+  "data_truth": "Charts retain genuine source timestamps; gaps and stale values are not filled or labeled live.",
+  "orders_placed": 0
+}

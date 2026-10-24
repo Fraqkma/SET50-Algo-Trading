@@ -1,0 +1,51 @@
+- generic [ref=e2]:
+  - generic [ref=e33]:
+    - button [ref=e36] [cursor=pointer]:
+      - paragraph [ref=e41]: Refresh data
+    - heading "Research" [level=3] [ref=e46]
+    - group [ref=e50]:
+      - combobox "Workspace" [ref=e51]: Overview
+      - button "Open" [ref=e52] [cursor=pointer]
+    - paragraph [ref=e60]: Source data is read-only
+  - generic [ref=e3]:
+    - banner [ref=e6]:
+      - generic [ref=e9]:
+        - button "Deploy" [ref=e20] [cursor=pointer]
+        - button "Main menu" [ref=e24] [cursor=pointer]
+    - generic [ref=e63]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: SET50 research desk · read only
+        - heading "Overview" [level=1] [ref=e71]:
+          - text: Overview
+          - generic [ref=e72]:
+            - link "Link to heading":
+              - /url: "#overview"
+        - paragraph [ref=e73]: One place for collection health, historical universe, and source-faithful research views.
+      - generic [ref=e75]:
+        - generic [ref=e80]:
+          - paragraph [ref=e84]: SET50 universe
+          - paragraph [ref=e87]: READY
+        - generic [ref=e92]:
+          - paragraph [ref=e96]: BBO readiness
+          - paragraph [ref=e99]: READY_FOR_EXPLORATORY_RESEARCH
+        - generic [ref=e104]:
+          - paragraph [ref=e108]: Candle state
+          - paragraph [ref=e111]: 1m PARTIAL / 5m PARTIAL / 15m PARTIAL
+        - generic [ref=e116]:
+          - paragraph [ref=e120]: Orders
+          - paragraph [ref=e123]: 0 (read-only audit)
+        - generic [ref=e128]:
+          - paragraph [ref=e132]: Audit
+          - paragraph [ref=e135]: MEASURED
+      - heading "Recent collection runs" [level=3] [ref=e140]:
+        - text: Recent collection runs
+        - generic [ref=e141]:
+          - link "Link to heading":
+            - /url: "#recent-collection-runs"
+      - generic [ref=e146]:
+        - button "Show/hide columns" [ref=e150] [cursor=pointer]
+        - button "Download as CSV" [ref=e156] [cursor=pointer]
+        - button "Search" [ref=e162] [cursor=pointer]
+        - button "Fullscreen" [ref=e168] [cursor=pointer]
+      - status [ref=e182]:
+        - paragraph [ref=e186]: Use Candle Explorer for session-aware candle coverage, Order Book Explorer for genuine callbacks, and Collection Health for cycle-level evidence. All Settrade views are pilot/read-only.

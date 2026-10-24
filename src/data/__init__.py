@@ -6,7 +6,7 @@ from .eligibility import EligibilityDecision, MarketDataEligibilityGate
 from .market_data_remediation import ApprovalRecord, generate_approval_records, write_approval_reports, write_research_readiness_reports
 from .ohlc_adjudication import OhlcAdjudication, find_ohlc_anomalies, write_ohlc_adjudication_report
 from .loader import load_market_data
-from .features import build_features
+from .features import FeatureContext, build_features
 from .research import load_approved_market_data
 from .validator import validate_market_data
 from .yahoo_loader import build_raw_price_path, download_set50_data, normalize_yahoo_symbol
@@ -28,6 +28,7 @@ __all__ = [
     "get_required_symbols",
     "load_market_data",
     "build_features",
+    "FeatureContext",
     "load_approved_market_data",
     "normalize_yahoo_symbol",
     "validate_market_data",

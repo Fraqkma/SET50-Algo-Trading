@@ -7,6 +7,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.data.settrade import RotationScheduler, SettradeClient, SettradeConfig, check_disk
+from src.data.settrade.paths import resolve_data_root
 from scripts.run_settrade_collector import load_config
 
 
@@ -30,7 +31,8 @@ def main() -> int:
                 reasons.append("rotation group exceeds 35 topics")
         except Exception as error:
             reasons.append(f"rotation: {error}")
-    disk = check_disk(ROOT / "data/pilot/settrade" if (ROOT / "data/pilot/settrade").exists() else ROOT)
+    limits = config.get("disk", {})
+    disk = check_disk(resolve_data_root(ROOT, config.get("storage_root", "data/pilot/settrade")), float(limits.get("warning_gb", 10)), float(limits.get("critical_gb", 5)))
     if disk.state == "CRITICAL": reasons.append("disk below critical threshold")
     auth = "NOT_CHECKED"
     try:

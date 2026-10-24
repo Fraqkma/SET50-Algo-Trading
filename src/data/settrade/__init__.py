@@ -5,6 +5,7 @@ constructed by :class:`SettradeClient`.
 """
 
 from .client import SettradeClient, SettradeConfig
+from .account_readonly import ReadOnlyEquityAdapter
 from .aggregation import AggregatedBar, aggregate_bars
 from .normalization import normalize_candlestick, normalize_quote
 from .rate_limiter import RateLimiter
@@ -18,6 +19,7 @@ __all__ = [
     "RateLimiter",
     "SettradeClient",
     "SettradeConfig",
+    "ReadOnlyEquityAdapter",
     "AggregatedBar",
     "aggregate_bars",
     "ValidationIssue",

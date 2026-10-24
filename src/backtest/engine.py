@@ -140,6 +140,7 @@ class BacktestEngine:
         execution_policy: ExecutionPolicy,
         design: str = "A",
         gate: object | None = None,
+        candidate_selector: Callable[[Mapping[str, pd.DataFrame], pd.Timestamp, object, int], list[str]] | None = None,
         commission_rate: Decimal = Decimal("0.00157"),
         vat_rate: Decimal = Decimal("0.07"),
     ) -> None:
@@ -155,6 +156,7 @@ class BacktestEngine:
         self.execution_policy = execution_policy
         self.design = design
         self.gate = gate or MarketDataEligibilityGate()
+        self.candidate_selector = candidate_selector
         if commission_rate < 0 or vat_rate < 0:
             raise ValueError("Transaction-cost rates must be non-negative.")
         self.commission_rate = commission_rate
@@ -200,15 +202,18 @@ class BacktestEngine:
                     orders.append(event)
             if current_date in schedule and current_date != dates[-1]:
                 signal_date = current_date
-                selected = rank_time_series_candidates(
-                    market_data, current_date.date(),
-                    top_n=len(market_data) if self.design == "A" else self.top_n,
-                    gate=self.gate,
-                )
+                if self.candidate_selector is None:
+                    selected = rank_time_series_candidates(
+                        market_data, current_date.date(),
+                        top_n=len(market_data) if self.design == "A" else self.top_n,
+                        gate=self.gate,
+                    )["symbol"].tolist()
+                else:
+                    selected = self.candidate_selector(market_data, current_date, self.gate, self.top_n)
                 next_session = next_trading_session(current_date, dates)
                 if next_session <= current_date:
                     raise AssertionError("Execution must be strictly after signal date.")
-                selected_symbols = selected["symbol"].tolist()
+                selected_symbols = list(selected)
                 pending[next_session] = (current_date, selected_symbols)
                 selections.append(SelectionEvent(current_date, next_session, tuple(selected_symbols)))
             market_value, valuation_gaps, gap_reasons = _market_value(

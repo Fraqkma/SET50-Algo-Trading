@@ -1,0 +1,175 @@
+{
+  "audit_date": "2026-10-22",
+  "timezone": "Asia/Bangkok",
+  "repository": {
+    "root": "D:\\GitHub\\SET50-Algo-Trading",
+    "branch": "main",
+    "head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+    "dirty_work_preserved": true,
+    "commit_created": false,
+    "push_performed": false,
+    "official_submission_repository_accessed": false
+  },
+  "archive": {
+    "filename": "tradeSim0.2.6.zip",
+    "absolute_path": "D:\\GitHub\\SET50-Algo-Trading\\tradeSim0.2.6.zip",
+    "size_bytes": 15785706,
+    "sha256": "38e928e62190204d4f2edde4aa8ce2d324d08e99ba6caa2ffab30b94a568389a",
+    "zip_integrity": "PASS",
+    "member_count": 535,
+    "top_level": [
+      "TradingSimulation.ipynb",
+      "docs",
+      "marketInfo",
+      "requirements-optional.txt",
+      "requirements.txt",
+      "strategy",
+      "tradeSim"
+    ],
+    "version_evidence": [
+      "archive filename",
+      "official docs/CHANGELOG.md section 0.2.6"
+    ],
+    "extracted_path": "D:\\GitHub\\SET50-Algo-Trading\\tools\\kgi_tradesim\\0.2.6"
+  },
+  "versions": {
+    "organizer_designated": "0.2.6",
+    "adapter_status": "SUPPORTED_WITH_WARNINGS",
+    "active_preferred_version": null,
+    "active_preferred_gate": "Exact Python 3.13.0 runtime validation has not succeeded.",
+    "preserved_0_2_5_extraction": "D:\\GitHub\\SET50-Algo-Trading\\tools\\kgi_tradesim",
+    "0_2_5_archive_present": false,
+    "0_2_5_archive_sha256": null,
+    "comparison_baseline": "preserved unversioned 0.2.5 extraction",
+    "comparison_report": "reports/tradesim_version_comparison.json",
+    "source_changed_files": [
+      "tradeSim/Execution.py",
+      "tradeSim/Order.py",
+      "tradeSim/Portfolio.py",
+      "tradeSim/Stock.py",
+      "tradeSim/StrategyHandler.py",
+      "tradeSim/Strategy_runner.py",
+      "tradeSim/TradeSim.py",
+      "tradeSim/TransactionLog.py"
+    ],
+    "requirements": {
+      "status": "UNCHANGED",
+      "added": [],
+      "removed": [],
+      "version_changes": {}
+    }
+  },
+  "runtime": {
+    "required_python": "3.13.0",
+    "required_architecture": "64-bit",
+    "py_0_p": [
+      {
+        "version": "3.14.7",
+        "path": "C:\\Users\\server\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "architecture": "64-bit"
+      },
+      {
+        "version": "3.13.16",
+        "path": "C:\\Users\\server\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "architecture": "64-bit"
+      }
+    ],
+    "python_3_13_0_found": false,
+    "py_3_13_resolves_to": "3.13.16",
+    "venv_kgi313": "NOT_CREATED; exact base interpreter not found",
+    "research_venv_modified": false,
+    "requirements_installed": false,
+    "imports": "NOT_CHECKED; exact runtime unavailable",
+    "check_status": "BLOCKED",
+    "check_reason": "MISSING_EXACT_VERSION",
+    "adapter": "SUPPORTED_WITH_WARNINGS",
+    "preferred_competition_version": "0.2.6",
+    "validated_runtime_version": null
+  },
+  "changelog_and_source": {
+    "resting_limit_requires_trade_through": "CHANGELOG DOCUMENTED + SOURCE IMPLEMENTED; runtime not observed",
+    "tick_volume_cap": "Per triggering tick, floor to whole lots of 100; runtime not observed",
+    "multi_order_tick_volume_allocation": "Placement order; previous team fills reduce remaining symbol volume; runtime not observed",
+    "residual_quantity": "Remains pending intraday; runtime not observed",
+    "eod_cancellation": "Unfilled remainder canceled at close; next day uses new order book; runtime not observed",
+    "immediate_limit_fill": "Prior immediate behavior and price improvement retained, now quantity-capped; runtime not observed",
+    "market_order": "Changelog/source behavior unchanged; runtime not observed",
+    "create_order_to_limit": "Four-argument signature unchanged; fill assumptions changed; runtime not observed",
+    "transaction_log": "One row per fill with shared order number",
+    "partial_buy_lot": "Pieces from one buy order join one lot; separate orders remain distinct lots",
+    "commission": "0.157%",
+    "vat": "7% of commission",
+    "market_slippage": "Price-bucket tick increment unchanged in source; runtime not observed",
+    "competition_order_rule_discrepancy": "TradeSim exposes Limit and Market; local AGENTS.md permits Limit and Market-to-Limit IOC and disallows Market. Organizer rule confirmation remains unresolved."
+  },
+  "practice_data": {
+    "source": "TRADESIM_0_2_6_PRACTICE",
+    "tick_inventory_report": "reports/tradesim_026_practice_data_inventory.json",
+    "files": 16,
+    "earliest_date": "2026-09-09",
+    "latest_date": "2026-09-30",
+    "symbols_per_day": 48,
+    "tick_csv_sha256_count": 16,
+    "invalid_timestamp_rows": 0,
+    "invalid_market_rows": 0,
+    "outside_set50_symbols": 0,
+    "inventory_basis": "Pre-existing 0.2.5 inventory rows; source comparison confirms every tick CSV is unchanged in the 0.2.6 archive."
+  },
+  "official_data_archives": {
+    "history": "OFFICIAL_HISTORY_ARCHIVE_NOT_PRESENT",
+    "ticks": "OFFICIAL_HISTORY_ARCHIVE_NOT_PRESENT",
+    "source_separation": "TRADESIM_OFFICIAL_HISTORY, TRADESIM_OFFICIAL_TICKS, and TRADESIM_0_2_6_PRACTICE labels supported",
+    "read_only_inspector": "scripts/inspect_official_tradesim_data.py",
+    "extract_mode": "Source-specific archive-hash directory; refuses overwrite"
+  },
+  "bridge_and_fifo": {
+    "normalized_schema": 4,
+    "multiple_fills_per_order": "supported",
+    "requested_filled_remaining_canceled_quantities": "represented when supported by fills/captured EOD order state; unknown values remain null",
+    "fill_prices_timestamps": "preserved per fill",
+    "eod_canceled_residual": "captured by local runner before order-book cleanup",
+    "fifo_actual_fills_only": true,
+    "qualification_uses_actual_fills": true,
+    "old_retained_run_artifacts": 7,
+    "old_retained_run_version": "0.2.3 in metadata; not reclassified"
+  },
+  "simulations": {
+    "one_day_0_2_6": "BLOCKED; exact runtime unavailable",
+    "three_day_0_2_6": "BLOCKED; exact runtime unavailable",
+    "resting_partial_fill_runtime": "NOT RUN",
+    "eod_cancellation_runtime": "NOT RUN",
+    "immediate_limit_runtime": "NOT RUN",
+    "market_regression_runtime": "NOT RUN",
+    "create_order_to_limit_runtime": "NOT RUN",
+    "raw_0_2_6_artifacts": null
+  },
+  "ui": {
+    "page": "OFFICIAL TRADESIM 0.2.6 · Results",
+    "0_2_5_vs_0_2_6_comparison": "implemented when same-strategy/same-date runs exist",
+    "streamlit_smoke": "PASS",
+    "manual_inspection": "PASS; local Playwright browser; screenshot reports/tradesim_026_results_smoke.png",
+    "saved_0_2_6_run_details": "not available until exact runtime succeeds"
+  },
+  "validation": {
+    "focused_tests": "PASS: 45 passed, 214 deselected in 4.97s",
+    "full_pytest": "PASS: 258 passed, 1 skipped in 82.72s",
+    "compileall": "PASS: py -3.14 -m compileall -q src scripts ui",
+    "git_diff_check": "PASS; line-ending warnings only",
+    "streamlit": "PASS",
+    "version_inventory": "PASS: scripts/manage_tradesim_versions.py --check (0.2.6 archive intact; 0.2.5 preserved)",
+    "runtime_gate": "BLOCKED as expected: exact Python 3.13.0 unavailable; no dependency installation or simulator import attempted"
+  },
+  "final_controls": {
+    "final_strategy_selected": false,
+    "parameters_optimized": false,
+    "data_fabricated": false,
+    "real_orders_placed": 0,
+    "committed": false,
+    "pushed": false
+  },
+  "readiness": {
+    "tradesim_0_2_6_fully_ready_for_strategy_validation": false,
+    "decision_support_competition_state_machine_simulator_coupled_work": "WAIT FOR EXACT PYTHON 3.13.0 AND RUNTIME REGRESSION",
+    "blocking_condition": "Installed Python is 3.13.16, not the requested exact 3.13.0."
+  }
+}\n

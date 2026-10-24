@@ -1,0 +1,9 @@
+{
+  "current_session_rows": 0,
+  "expected_session_date": "2026-09-21",
+  "last_candle_timestamp": "2026-09-18T08:30:00+00:00",
+  "last_successful_authentication": "2026-10-16T13:51:16.454357+00:00",
+  "rows": 1,
+  "status": "STALE_RESPONSE",
+  "symbol": "PTT"
+}

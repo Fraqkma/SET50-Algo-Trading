@@ -1,0 +1,80 @@
+- generic [ref=e2]:
+  - generic [ref=e7]:
+    - button "keyboard_double_arrow_left" [ref=e267] [cursor=pointer]
+    - generic [ref=e11]:
+      - generic [ref=e13]:
+        - paragraph [ref=e17]: Workspace
+        - radiogroup "Workspace" [ref=e18]:
+          - generic [ref=e19] [cursor=pointer]:
+            - radio "Dashboard" [ref=e21]
+            - paragraph [ref=e27]: Dashboard
+          - generic [ref=e28] [cursor=pointer]:
+            - radio "Historical SET50 Universe" [ref=e30]
+            - paragraph [ref=e36]: Historical SET50 Universe
+          - generic [ref=e37] [cursor=pointer]:
+            - radio "Market Data Explorer" [checked] [active] [ref=e39]
+            - paragraph [ref=e45]: Market Data Explorer
+          - generic [ref=e46] [cursor=pointer]:
+            - radio "Settrade Data Explorer" [ref=e48]
+            - paragraph [ref=e54]: Settrade Data Explorer
+          - generic [ref=e55] [cursor=pointer]:
+            - radio "Data Quality" [ref=e57]
+            - paragraph [ref=e63]: Data Quality
+          - generic [ref=e64] [cursor=pointer]:
+            - radio "Research Results" [ref=e66]
+            - paragraph [ref=e72]: Research Results
+      - paragraph [ref=e77]: Source data is read-only
+      - paragraph [ref=e82]: "Acquisition: 2026-09-08T17:26:21.073955+00:00"
+  - generic [ref=e3]:
+    - banner
+    - generic [ref=e85]:
+      - heading "Market Data Explorer" [level=2] [ref=e327]:
+        - text: Market Data Explorer
+        - generic [ref=e328]:
+          - link "Link to heading":
+            - /url: "#market-data-explorer"
+      - generic [ref=e330]:
+        - paragraph [ref=e334]: Symbol
+        - group [ref=e336]:
+          - combobox "Symbol" [ref=e337]: ADVANC
+          - button "Open" [ref=e338] [cursor=pointer]
+      - generic [ref=e343]:
+        - paragraph [ref=e347]: Date range
+        - generic [ref=e349]:
+          - generic [ref=e351]:
+            - group "Date range start date" [ref=e353]:
+              - spinbutton "year, Date range start date" [ref=e354]: "2023"
+              - generic [aria-hidden] [ref=e355]: /
+              - spinbutton "month, Date range start date" [ref=e356]: "01"
+              - generic [aria-hidden] [ref=e357]: /
+              - spinbutton "day, Date range start date" [ref=e358]: "03"
+            - textbox [ref=e360]: 2023-01-03
+          - generic [aria-hidden] [ref=e361]: –
+          - generic [ref=e363]:
+            - group "Date range end date" [ref=e365]:
+              - spinbutton "year, Date range end date" [ref=e366]: "2026"
+              - generic [aria-hidden] [ref=e367]: /
+              - spinbutton "month, Date range end date" [ref=e368]: "09"
+              - generic [aria-hidden] [ref=e369]: /
+              - spinbutton "day, Date range end date" [ref=e370]: "04"
+            - textbox [ref=e372]: 2026-09-04
+      - generic [ref=e374]:
+        - generic [ref=e379]:
+          - paragraph [ref=e383]: Rows
+          - paragraph [ref=e386]: "898"
+        - generic [ref=e391]:
+          - paragraph [ref=e395]: Missing values
+          - paragraph [ref=e398]: "0"
+        - generic [ref=e403]:
+          - paragraph [ref=e407]: Duplicate dates
+          - paragraph [ref=e410]: "0"
+        - generic [ref=e415]:
+          - paragraph [ref=e419]: OHLC warnings
+          - paragraph [ref=e422]: "1"
+      - generic [ref=e225]:
+        - button "Show/hide columns" [ref=e229] [cursor=pointer]
+        - button "Download as CSV" [ref=e235] [cursor=pointer]
+        - button "Search" [ref=e241] [cursor=pointer]
+        - button "Fullscreen" [ref=e247] [cursor=pointer]
+      - status [ref=e261]:
+        - paragraph [ref=e265]: "Raw directories discovered: data\\raw\\market_data, data\\raw\\prices"

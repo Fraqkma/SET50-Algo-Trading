@@ -12,6 +12,7 @@ htmlcov/
 
 # Virtual environments
 .venv/
+.venv-kgi313/
 venv/
 
 # Environment files
@@ -35,12 +36,23 @@ data/processed/*
 !data/processed/constituents/historical_set50.csv
 data/features/*
 !data/features/.gitkeep
+data/official/tradesim/
 results/backtests/*
 !results/backtests/.gitkeep
 results/reports/*
 !results/reports/.gitkeep
 results/figures/*
 !results/figures/.gitkeep
+artifacts/official_tradesim_runs/
+artifacts/tradesim/
+artifacts/pytest-tmp/
+/reports/pytest-tradesim-*/
+.pytest-tmp-probe/
+.pytest-basetemp-*/
+.pytest-basetemp-full-*/
+tools/kgi_tradesim/
+# Official KGI TradeSim 0.2.5 archive is retained locally as a setup source.
+/tradeSim0.2.5.zip
 #   you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 # Temporary file for partial code execution
@@ -59,3 +71,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Raw Data
+data/pilot/settrade/production/normalized/bid_offer/
+data/pilot/settrade/production/raw/bid_offer/

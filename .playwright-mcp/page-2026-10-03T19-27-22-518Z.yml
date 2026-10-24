@@ -1,0 +1,295 @@
+- generic:
+  - generic [ref=e285]:
+    - log
+    - log
+  - generic [ref=e2]:
+    - generic [ref=e7]:
+      - button [ref=e1019] [cursor=pointer]:
+        - generic [ref=e290]: keyboard_double_arrow_left
+      - generic [ref=e11]:
+        - button [ref=e1020] [cursor=pointer]:
+          - paragraph [ref=e19]: Refresh data
+        - heading [level=3] [ref=e1021]: Research
+        - group [ref=e28]:
+          - combobox "Workspace" [expanded] [active] [ref=e29]: Correlation Lab
+          - button [expanded] [aria-hidden] [ref=e1022] [cursor=pointer]
+        - paragraph [ref=e38]: Source data is read-only
+    - generic [aria-hidden] [ref=e3]:
+      - banner [ref=e41]:
+        - generic [ref=e44]:
+          - button [ref=e1023] [cursor=pointer]:
+            - generic [ref=e55]: Deploy
+          - button [ref=e1024] [cursor=pointer]
+      - generic [ref=e62]:
+        - heading [level=1] [ref=e1025]:
+          - generic [ref=e704]: hub
+          - text: Correlation lab
+          - generic [ref=e71]:
+            - link:
+              - /url: "#correlation-lab"
+        - paragraph [ref=e76]: Exploratory daily close-to-close return co-movement. Pairwise observations only; unavailable prices and returns are never forward-filled.
+        - alert [ref=e79]:
+          - generic [ref=e81]:
+            - generic [ref=e82]: warning
+            - paragraph [ref=e86]: Current SET50 display universe only — historical charts show each security’s genuine available history, not historical SET50 membership. Exploratory continuity is not survivorship-safe backtest evidence.
+        - generic [ref=e707]:
+          - paragraph [ref=e711]: Return window (trading observations)
+          - group [ref=e713]:
+            - combobox [ref=e1026]: 60 trading days
+            - button [ref=e1027] [cursor=pointer]
+        - generic [ref=e720]:
+          - paragraph [ref=e724]: Time range
+          - group [ref=e726]:
+            - combobox [ref=e1028]: Max available
+            - button [ref=e1029] [cursor=pointer]
+        - paragraph [ref=e759]: Daily close-to-close percentage returns · latest 60 selected-universe trading dates in 2010-01-04–2026-09-04 · minimum pair overlap 36 observations. N is available on heatmap hover.
+        - generic [ref=e761]:
+          - paragraph [ref=e765]: Heatmap order
+          - radiogroup [ref=e1030]:
+            - radio [checked] [ref=e1031] [cursor=pointer]:
+              - paragraph [ref=e772]: Universe order
+            - radio [ref=e1032] [cursor=pointer]:
+              - paragraph [ref=e778]: Correlation clustered
+        - generic [ref=e784]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: ADVANC
+                  - generic: AOT
+                  - generic: AWC
+                  - generic: BANPU
+                  - generic: BBL
+                  - generic: BCP
+                  - generic: BDMS
+                  - generic: BEM
+                  - generic: BH
+                  - generic: BJC
+                  - generic: CCET
+                  - generic: COM7
+                  - generic: CPALL
+                  - generic: CPF
+                  - generic: CPN
+                  - generic: CRC
+                  - generic: DELTA
+                  - generic: EGCO
+                  - generic: GPSC
+                  - generic: GULF
+                  - generic: HMPRO
+                  - generic: IVL
+                  - generic: KBANK
+                  - generic: KKP
+                  - generic: KTB
+                  - generic: KTC
+                  - generic: LH
+                  - generic: MINT
+                  - generic: MRDIYT
+                  - generic: MTC
+                  - generic: OR
+                  - generic: OSP
+                  - generic: PTT
+                  - generic: PTTEP
+                  - generic: PTTGC
+                  - generic: RATCH
+                  - generic: SCB
+                  - generic: SCC
+                  - generic: SCGP
+                  - generic: TCAP
+                  - generic: TFG
+                  - generic: THAI
+                  - generic: TIDLOR
+                  - generic: TISCO
+                  - generic: TLI
+                  - generic: TOP
+                  - generic: "TRUE"
+                  - generic: TTB
+                  - generic: TU
+                  - generic: WHA
+                - generic:
+                  - generic: ADVANC
+                  - generic: AOT
+                  - generic: AWC
+                  - generic: BANPU
+                  - generic: BBL
+                  - generic: BCP
+                  - generic: BDMS
+                  - generic: BEM
+                  - generic: BH
+                  - generic: BJC
+                  - generic: CCET
+                  - generic: COM7
+                  - generic: CPALL
+                  - generic: CPF
+                  - generic: CPN
+                  - generic: CRC
+                  - generic: DELTA
+                  - generic: EGCO
+                  - generic: GPSC
+                  - generic: GULF
+                  - generic: HMPRO
+                  - generic: IVL
+                  - generic: KBANK
+                  - generic: KKP
+                  - generic: KTB
+                  - generic: KTC
+                  - generic: LH
+                  - generic: MINT
+                  - generic: MRDIYT
+                  - generic: MTC
+                  - generic: OR
+                  - generic: OSP
+                  - generic: PTT
+                  - generic: PTTEP
+                  - generic: PTTGC
+                  - generic: RATCH
+                  - generic: SCB
+                  - generic: SCC
+                  - generic: SCGP
+                  - generic: TCAP
+                  - generic: TFG
+                  - generic: THAI
+                  - generic: TIDLOR
+                  - generic: TISCO
+                  - generic: TLI
+                  - generic: TOP
+                  - generic: "TRUE"
+                  - generic: TTB
+                  - generic: TU
+                  - generic: WHA
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: −1
+                  - generic: −0.5
+                  - generic: "0"
+                  - generic: "0.5"
+                  - generic: "1"
+                - generic: Pearson r
+          - toolbar [ref=e798]:
+            - button [ref=e1033] [cursor=pointer]
+            - generic [ref=e803]:
+              - button [ref=e1034] [cursor=pointer]
+              - button [ref=e1035] [cursor=pointer]
+            - generic [ref=e810]:
+              - button [ref=e1036] [cursor=pointer]
+              - button [ref=e1037] [cursor=pointer]
+              - button [ref=e1038] [cursor=pointer]
+              - button [ref=e1039] [cursor=pointer]
+            - button [ref=e1040] [cursor=pointer]
+        - paragraph [ref=e831]: Blank/light cells are pairs below the overlap threshold. Pearson correlation is descriptive, not causal.
+        - heading [level=3] [ref=e1041]:
+          - text: Pair inspection
+          - generic [ref=e837]:
+            - link:
+              - /url: "#pair-inspection"
+        - generic [ref=e839]:
+          - generic [ref=e843]:
+            - paragraph [ref=e847]: Symbol A
+            - group [ref=e849]:
+              - combobox [ref=e1042]: ADVANC
+              - button [ref=e1043] [cursor=pointer]
+          - generic [ref=e858]:
+            - paragraph [ref=e862]: Symbol B
+            - group [ref=e864]:
+              - combobox [ref=e1044]: AOT
+              - button [ref=e1045] [cursor=pointer]
+          - generic [ref=e873]:
+            - paragraph [ref=e877]: Rolling window
+            - group [ref=e879]:
+              - combobox [ref=e1046]: 20 trading days
+              - button [ref=e1047] [cursor=pointer]
+        - generic [ref=e886]:
+          - generic [ref=e891]:
+            - paragraph [ref=e895]: Pearson correlation
+            - paragraph [ref=e898]: "0.286"
+          - generic [ref=e903]:
+            - paragraph [ref=e907]: Aligned return observations
+            - paragraph [ref=e910]: "4064"
+          - generic [ref=e915]:
+            - paragraph [ref=e919]: Date coverage
+            - paragraph [ref=e922]: 2010-01-05 to 2026-09-04
+        - generic [ref=e928]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: −0.2
+                  - generic: −0.15
+                  - generic: −0.1
+                  - generic: −0.05
+                  - generic: "0"
+                  - generic: "0.05"
+                  - generic: "0.1"
+                - generic:
+                  - generic: −0.15
+                  - generic: −0.1
+                  - generic: −0.05
+                  - generic: "0"
+                  - generic: "0.05"
+                  - generic: "0.1"
+                  - generic: "0.15"
+                  - generic: "0.2"
+          - img:
+            - generic:
+              - generic: ADVANC daily return
+              - generic: AOT daily return
+          - toolbar [ref=e942]:
+            - button [ref=e1048] [cursor=pointer]
+            - generic [ref=e947]:
+              - button [ref=e1049] [cursor=pointer]
+              - button [ref=e1050] [cursor=pointer]
+            - generic [ref=e954]:
+              - button [ref=e1051] [cursor=pointer]
+              - button [ref=e1052] [cursor=pointer]
+              - button [ref=e1053] [cursor=pointer]
+              - button [ref=e1054] [cursor=pointer]
+            - button [ref=e1055] [cursor=pointer]
+        - generic [ref=e976]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: "2012"
+                  - generic: "2014"
+                  - generic: "2016"
+                  - generic: "2018"
+                  - generic: "2020"
+                  - generic: "2022"
+                  - generic: "2024"
+                  - generic: "2026"
+                - generic:
+                  - generic: −1
+                  - generic: −0.5
+                  - generic: "0"
+                  - generic: "0.5"
+                  - generic: "1"
+          - img:
+            - generic:
+              - generic: Date
+              - generic: Rolling Pearson r
+          - toolbar [ref=e990]:
+            - button [ref=e1056] [cursor=pointer]
+            - generic [ref=e995]:
+              - button [ref=e1057] [cursor=pointer]
+              - button [ref=e1058] [cursor=pointer]
+            - generic [ref=e1002]:
+              - button [ref=e1059] [cursor=pointer]
+              - button [ref=e1060] [cursor=pointer]
+              - button [ref=e1061] [cursor=pointer]
+              - button [ref=e1062] [cursor=pointer]
+            - button [ref=e1063] [cursor=pointer]
+  - generic [ref=e1065]:
+    - listbox "Workspace Open" [ref=e1066]:
+      - option "Market Overview" [ref=e1067] [cursor=pointer]
+      - option "Multi-Stock Trends" [ref=e1069] [cursor=pointer]
+      - option "Correlation Lab" [selected] [ref=e1071] [cursor=pointer]
+      - option "Market Breadth" [ref=e1073] [cursor=pointer]
+      - option "Stock Detail" [ref=e1075] [cursor=pointer]
+      - option "Overview" [ref=e1077] [cursor=pointer]
+      - option "Historical Data Explorer" [ref=e1079] [cursor=pointer]
+      - option "Historical SET50 Universe" [ref=e1081] [cursor=pointer]
+      - option "Market Data Explorer" [ref=e1083] [cursor=pointer]
+      - option "Candle Explorer" [ref=e1085] [cursor=pointer]
+      - option "Order Book Explorer" [ref=e1087] [cursor=pointer]
+    - button "Dismiss" [ref=e1090] [cursor=pointer]

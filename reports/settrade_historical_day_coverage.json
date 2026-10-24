@@ -1,0 +1,1417 @@
+{
+  "generated_at": "2026-10-24T13:53:25.952245+07:00",
+  "historical_days": [
+    {
+      "date": "2026-09-22",
+      "classification": "API_NO_DATA",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 2647,
+        "sandbox:normalized_bbo": 52940,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-22T09:45:27.696470+07:00",
+          "last": "2026-09-22T16:56:28.299212+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-22T09:45:27.696470+07:00",
+          "last": "2026-09-22T16:56:28.299212+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 1200,
+        "bbo_events_written": 1394,
+        "candle_status": "NO_DATA",
+        "conflicts": 0,
+        "date": "2026-09-22",
+        "disk_free_end": 14406324224,
+        "disk_free_start": 14371840000,
+        "end_time": "2026-09-22T10:02:28.702263+00:00",
+        "health_checks": 24,
+        "market_day": true,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 24,
+        "runtime_seconds": 12306.488012,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-22T06:37:22.214251+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 2439,
+        "sandbox:normalized_bbo": 48780,
+        "sandbox:candles_1m": 1361,
+        "sandbox:candles_5m": 594,
+        "sandbox:candles_15m": 542
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 43,
+        "sandbox:candles_5m": 43,
+        "sandbox:candles_15m": 43
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-23T09:45:26.553221+07:00",
+          "last": "2026-09-23T16:57:09.031400+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-23T09:45:26.553221+07:00",
+          "last": "2026-09-23T16:57:09.031400+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-09-23T10:33:00+07:00",
+          "last": "2026-09-23T16:39:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-09-23T10:33:00+07:00",
+          "last": "2026-09-23T16:39:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-09-23T10:33:00+07:00",
+          "last": "2026-09-23T16:39:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2500,
+        "bbo_events_written": 2439,
+        "candle_status": "NO_DATA",
+        "conflicts": 654,
+        "date": "2026-09-23",
+        "disk_free_end": 9788694528,
+        "disk_free_start": 12478382080,
+        "end_time": "2026-09-23T10:03:09.393613+00:00",
+        "health_checks": 50,
+        "market_day": true,
+        "one_minute_rows_written": 23385,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 50,
+        "runtime_seconds": 26284.861226,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-23T02:45:04.532387+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 43,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "classification": "API_NO_DATA",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 6432,
+        "sandbox:normalized_bbo": 128640,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-24T09:45:10.280444+07:00",
+          "last": "2026-09-24T16:56:51.736025+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-24T09:45:10.280444+07:00",
+          "last": "2026-09-24T16:56:51.736025+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2650,
+        "bbo_events_written": 6430,
+        "candle_status": "NO_DATA",
+        "conflicts": 0,
+        "date": "2026-09-24",
+        "disk_free_end": 9406640128,
+        "disk_free_start": 9561239552,
+        "end_time": "2026-09-24T10:02:51.489506+00:00",
+        "health_checks": 53,
+        "market_day": true,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 53,
+        "runtime_seconds": 26267.034108,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-24T02:45:04.455398+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 1240,
+        "sandbox:normalized_bbo": 24800,
+        "sandbox:candles_1m": 174,
+        "sandbox:candles_5m": 134,
+        "sandbox:candles_15m": 133
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 48,
+        "sandbox:normalized_bbo": 48,
+        "sandbox:candles_1m": 27,
+        "sandbox:candles_5m": 27,
+        "sandbox:candles_15m": 27
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-25T09:45:09.727800+07:00",
+          "last": "2026-09-25T16:56:35.327496+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-25T09:45:09.727800+07:00",
+          "last": "2026-09-25T16:56:35.327496+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-09-25T10:23:00+07:00",
+          "last": "2026-09-25T16:28:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-09-25T10:23:00+07:00",
+          "last": "2026-09-25T16:27:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-09-25T10:23:00+07:00",
+          "last": "2026-09-25T16:27:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2550,
+        "bbo_events_written": 1240,
+        "candle_status": "NO_DATA",
+        "conflicts": 49,
+        "date": "2026-09-25",
+        "disk_free_end": 8584699904,
+        "disk_free_start": 9373253632,
+        "end_time": "2026-09-25T10:02:35.495008+00:00",
+        "health_checks": 51,
+        "market_day": true,
+        "one_minute_rows_written": 4858,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 51,
+        "runtime_seconds": 26250.95056,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-25T02:45:04.544448+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 27,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-28",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 1401,
+        "sandbox:normalized_bbo": 28020,
+        "sandbox:candles_1m": 198,
+        "sandbox:candles_5m": 131,
+        "sandbox:candles_15m": 130
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 25,
+        "sandbox:candles_5m": 25,
+        "sandbox:candles_15m": 25
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-28T09:45:09.969806+07:00",
+          "last": "2026-09-28T16:58:52.877589+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-28T09:45:09.969806+07:00",
+          "last": "2026-09-28T16:58:52.877589+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-09-28T09:56:00+07:00",
+          "last": "2026-09-28T16:36:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-09-28T09:56:00+07:00",
+          "last": "2026-09-28T16:36:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-09-28T09:56:00+07:00",
+          "last": "2026-09-28T16:36:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2550,
+        "bbo_events_written": 1401,
+        "candle_status": "NO_DATA",
+        "conflicts": 118,
+        "date": "2026-09-28",
+        "disk_free_end": 8027803648,
+        "disk_free_start": 7977820160,
+        "end_time": "2026-09-28T10:04:53.045089+00:00",
+        "health_checks": 51,
+        "market_day": true,
+        "one_minute_rows_written": 3574,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 51,
+        "runtime_seconds": 26388.435287,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-28T02:45:04.609802+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 25,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 1685,
+        "sandbox:normalized_bbo": 33700,
+        "sandbox:candles_1m": 154,
+        "sandbox:candles_5m": 102,
+        "sandbox:candles_15m": 99
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 20,
+        "sandbox:candles_5m": 20,
+        "sandbox:candles_15m": 20
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-29T09:45:14.779028+07:00",
+          "last": "2026-09-29T16:57:07.139732+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-29T09:45:14.779028+07:00",
+          "last": "2026-09-29T16:57:07.139732+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-09-29T09:55:00+07:00",
+          "last": "2026-09-29T16:37:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-09-29T09:55:00+07:00",
+          "last": "2026-09-29T16:37:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-09-29T09:55:00+07:00",
+          "last": "2026-09-29T16:37:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2550,
+        "bbo_events_written": 1685,
+        "candle_status": "NO_DATA",
+        "conflicts": 48,
+        "date": "2026-09-29",
+        "disk_free_end": 8268558336,
+        "disk_free_start": 8245882880,
+        "end_time": "2026-09-29T10:03:07.245032+00:00",
+        "health_checks": 51,
+        "market_day": true,
+        "one_minute_rows_written": 4217,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 51,
+        "runtime_seconds": 26282.589077,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-29T02:45:04.655955+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 20,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 1766,
+        "sandbox:normalized_bbo": 35320,
+        "sandbox:candles_1m": 198,
+        "sandbox:candles_5m": 151,
+        "sandbox:candles_15m": 150
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 27,
+        "sandbox:candles_5m": 27,
+        "sandbox:candles_15m": 27
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-09-30T09:45:10.499458+07:00",
+          "last": "2026-09-30T16:57:01.530376+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-09-30T09:45:10.499458+07:00",
+          "last": "2026-09-30T16:57:01.530376+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-09-30T09:56:00+07:00",
+          "last": "2026-09-30T16:37:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-09-30T09:56:00+07:00",
+          "last": "2026-09-30T16:37:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-09-30T09:56:00+07:00",
+          "last": "2026-09-30T16:37:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2550,
+        "bbo_events_written": 1766,
+        "candle_status": "NO_DATA",
+        "conflicts": 21,
+        "date": "2026-09-30",
+        "disk_free_end": 7236407296,
+        "disk_free_start": 7278944256,
+        "end_time": "2026-09-30T10:03:01.569474+00:00",
+        "health_checks": 51,
+        "market_day": true,
+        "one_minute_rows_written": 6116,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 51,
+        "runtime_seconds": 26276.934111,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-09-30T02:45:04.635363+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 27,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-01",
+      "classification": "NO_RUNTIME_EVIDENCE",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 711,
+        "sandbox:normalized_bbo": 14220,
+        "sandbox:candles_1m": 125,
+        "sandbox:candles_5m": 90,
+        "sandbox:candles_15m": 90
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 32,
+        "sandbox:candles_5m": 32,
+        "sandbox:candles_15m": 32
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-01T09:45:10.179561+07:00",
+          "last": "2026-10-01T12:29:44.646636+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-01T09:45:10.179561+07:00",
+          "last": "2026-10-01T12:29:44.646636+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-10-01T09:55:00+07:00",
+          "last": "2026-10-01T12:29:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-10-01T09:55:00+07:00",
+          "last": "2026-10-01T12:28:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-10-01T09:55:00+07:00",
+          "last": "2026-10-01T12:28:00+07:00"
+        }
+      },
+      "runtime_evidence": false,
+      "runtime_summary": null
+    },
+    {
+      "date": "2026-10-08",
+      "classification": "API_NO_DATA",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 105,
+        "sandbox:normalized_bbo": 2100,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 35,
+        "sandbox:normalized_bbo": 35,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-08T00:47:04.209240+07:00",
+          "last": "2026-10-08T00:51:39.810423+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-08T00:47:04.209240+07:00",
+          "last": "2026-10-08T00:51:39.810423+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 150,
+        "bbo_events_written": 105,
+        "candle_status": "NO_DATA",
+        "conflicts": 0,
+        "date": "2026-10-08",
+        "disk_free_end": 1017601417216,
+        "disk_free_start": 1017601830912,
+        "end_time": "2026-10-07T17:53:09.365394+00:00",
+        "health_checks": 0,
+        "market_day": true,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 3,
+        "runtime_seconds": 376.249797,
+        "shutdown_status": "FAILED",
+        "start_time": "2026-10-07T17:46:53.115597+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "classification": "API_NO_DATA",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 581,
+        "sandbox:normalized_bbo": 11620,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 35,
+        "sandbox:normalized_bbo": 35,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-12T03:28:29.307122+07:00",
+          "last": "2026-10-12T09:50:46.744682+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-12T03:28:29.307122+07:00",
+          "last": "2026-10-12T09:50:46.744682+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 150,
+        "bbo_events_written": 371,
+        "candle_status": "NO_DATA",
+        "conflicts": 0,
+        "date": "2026-10-12",
+        "disk_free_end": 1021409349632,
+        "disk_free_start": 1021581402112,
+        "end_time": "2026-10-12T02:51:17.336703+00:00",
+        "health_checks": 0,
+        "market_day": true,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 3,
+        "runtime_seconds": 372.634843,
+        "shutdown_status": "FAILED",
+        "start_time": "2026-10-12T02:45:04.701860+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "classification": "API_NO_DATA",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 585,
+        "sandbox:normalized_bbo": 11700,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-13T14:30:36.347114+07:00",
+          "last": "2026-10-13T16:56:44.970552+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-13T14:30:36.347114+07:00",
+          "last": "2026-10-13T16:56:44.970552+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 1150,
+        "bbo_events_written": 585,
+        "candle_status": "NO_DATA",
+        "conflicts": 0,
+        "date": "2026-10-13",
+        "disk_free_end": 1021295620096,
+        "disk_free_start": 1021409320960,
+        "end_time": "2026-10-13T10:03:20.358803+00:00",
+        "health_checks": 23,
+        "market_day": true,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 23,
+        "runtime_seconds": 9709.831678,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-13T07:21:30.527125+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 2893,
+        "sandbox:normalized_bbo": 57860,
+        "sandbox:candles_1m": 1027,
+        "sandbox:candles_5m": 355,
+        "sandbox:candles_15m": 258
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 32,
+        "sandbox:candles_5m": 32,
+        "sandbox:candles_15m": 32
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-14T09:45:10.159588+07:00",
+          "last": "2026-10-14T16:56:41.049557+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-14T09:45:10.159588+07:00",
+          "last": "2026-10-14T16:56:41.049557+07:00"
+        },
+        "sandbox:candles_1m": {
+          "first": "2026-10-14T09:57:00+07:00",
+          "last": "2026-10-14T16:35:00+07:00"
+        },
+        "sandbox:candles_5m": {
+          "first": "2026-10-14T09:57:00+07:00",
+          "last": "2026-10-14T16:35:00+07:00"
+        },
+        "sandbox:candles_15m": {
+          "first": "2026-10-14T09:57:00+07:00",
+          "last": "2026-10-14T16:35:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2350,
+        "bbo_events_written": 2893,
+        "candle_status": "NO_DATA",
+        "conflicts": 214,
+        "date": "2026-10-14",
+        "disk_free_end": 1020142297088,
+        "disk_free_start": 1021295640576,
+        "end_time": "2026-10-14T10:03:16.932173+00:00",
+        "health_checks": 47,
+        "market_day": true,
+        "one_minute_rows_written": 27839,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 47,
+        "runtime_seconds": 26292.040586,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-14T02:45:04.891587+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 32,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "classification": "CUTOVER_PARTIAL",
+      "environment_provenance": [
+        "SANDBOX"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 457,
+        "sandbox:normalized_bbo": 9140,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 0,
+        "production:normalized_bbo": 0,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 50,
+        "sandbox:normalized_bbo": 50,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "sandbox:raw_bbo": {
+          "first": "2026-10-16T14:30:04.139839+07:00",
+          "last": "2026-10-16T16:56:47.226803+07:00"
+        },
+        "sandbox:normalized_bbo": {
+          "first": "2026-10-16T14:30:04.139839+07:00",
+          "last": "2026-10-16T16:56:47.226803+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 0,
+        "bbo_events_written": 0,
+        "candle_status": "NOT_RUN",
+        "conflicts": 0,
+        "date": "2026-10-16",
+        "disk_free_end": 1020004818944,
+        "disk_free_start": 1020004823040,
+        "end_time": "2026-10-16T14:34:26.076496+00:00",
+        "health_checks": 0,
+        "market_day": false,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 0,
+        "runtime_seconds": 7.966371,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-16T14:34:18.110125+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "classification": "COMPLETE",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 20215,
+        "production:normalized_bbo": 404300,
+        "production:candles_1m": 5000,
+        "production:candles_5m": 1375,
+        "production:candles_15m": 848,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-19T09:45:11.004344+07:00",
+          "last": "2026-10-19T16:57:28.264351+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-19T09:45:11.004344+07:00",
+          "last": "2026-10-19T16:57:28.264351+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-19T09:58:00+07:00",
+          "last": "2026-10-19T16:00:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-19T09:58:00+07:00",
+          "last": "2026-10-19T16:00:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-19T09:58:00+07:00",
+          "last": "2026-10-19T16:00:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2300,
+        "bbo_events_written": 20214,
+        "candle_status": "SUCCESS",
+        "conflicts": 9648,
+        "date": "2026-10-19",
+        "disk_free_end": 1017199935488,
+        "disk_free_start": 1020001062912,
+        "end_time": "2026-10-19T10:04:07.069821+00:00",
+        "health_checks": 46,
+        "market_day": true,
+        "one_minute_rows_written": 174943,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 46,
+        "runtime_seconds": 26341.587606,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-19T02:45:05.482215+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 50,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "classification": "COMPLETE",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 19233,
+        "production:normalized_bbo": 384640,
+        "production:candles_1m": 5000,
+        "production:candles_5m": 1448,
+        "production:candles_15m": 936,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-20T02:47:02.076620+07:00",
+          "last": "2026-10-20T16:58:26.009345+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-20T02:47:02.076620+07:00",
+          "last": "2026-10-20T16:58:26.009345+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-20T09:57:00+07:00",
+          "last": "2026-10-20T16:14:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-20T09:55:00+07:00",
+          "last": "2026-10-20T16:14:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-20T09:45:00+07:00",
+          "last": "2026-10-20T16:14:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2300,
+        "bbo_events_written": 18880,
+        "candle_status": "SUCCESS",
+        "conflicts": 15638,
+        "date": "2026-10-20",
+        "disk_free_end": 1009949351936,
+        "disk_free_start": 1016872513536,
+        "end_time": "2026-10-20T10:05:07.042267+00:00",
+        "health_checks": 46,
+        "market_day": true,
+        "one_minute_rows_written": 174805,
+        "orders_placed": 0,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 46,
+        "runtime_seconds": 26404.024917,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-20T02:45:03.017350+00:00",
+        "startup_status": "READY",
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 50,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 20249,
+        "production:normalized_bbo": 404980,
+        "production:candles_1m": 5174,
+        "production:candles_5m": 1289,
+        "production:candles_15m": 720,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-21T09:45:10.997907+07:00",
+          "last": "2026-10-21T16:59:37.592107+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-21T09:45:10.997907+07:00",
+          "last": "2026-10-21T16:59:37.592107+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-21T09:57:00+07:00",
+          "last": "2026-10-21T16:37:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-21T09:55:00+07:00",
+          "last": "2026-10-21T14:24:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-21T09:45:00+07:00",
+          "last": "2026-10-21T14:24:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 0,
+        "bbo_events_written": 0,
+        "candle_status": "NOT_RUN",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-21",
+        "disk_free_end": 989535494144,
+        "disk_free_start": 989542993920,
+        "end_time": "2026-10-21T16:58:39.248983+00:00",
+        "health_checks": 0,
+        "last_bbo_callback": null,
+        "last_candle_response": null,
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": null,
+        "last_successful_api_request": null,
+        "last_successful_websocket_callback": null,
+        "market_day": false,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "pid": 27888,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 0,
+        "runtime_seconds": 3.016702,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-21T16:58:36.232281+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-21T16:58:36.232645+00:00"
+          },
+          {
+            "reason": "OUTSIDE_SET_SESSION",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-21T16:58:39.225358+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 20488,
+        "production:normalized_bbo": 409760,
+        "production:candles_1m": 13384,
+        "production:candles_5m": 4351,
+        "production:candles_15m": 3007,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-22T09:45:11.790282+07:00",
+          "last": "2026-10-22T16:56:02.674240+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-22T09:45:11.790282+07:00",
+          "last": "2026-10-22T16:56:02.674240+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-22T09:58:00+07:00",
+          "last": "2026-10-22T16:35:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-22T09:58:00+07:00",
+          "last": "2026-10-22T16:35:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-22T09:58:00+07:00",
+          "last": "2026-10-22T16:35:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 0,
+        "bbo_events_written": 0,
+        "candle_status": "NOT_RUN",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-22",
+        "disk_free_end": 987337109504,
+        "disk_free_start": 987337109504,
+        "end_time": "2026-10-22T10:28:59.753839+00:00",
+        "health_checks": 0,
+        "last_bbo_callback": null,
+        "last_candle_response": null,
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": null,
+        "last_successful_api_request": null,
+        "last_successful_websocket_callback": null,
+        "market_day": false,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "pid": 28808,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 0,
+        "runtime_seconds": 2.725731,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-22T10:28:57.028108+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-22T10:28:57.028508+00:00"
+          },
+          {
+            "reason": "OUTSIDE_SET_SESSION",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-22T10:28:59.729299+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 485,
+        "production:normalized_bbo": 9700,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 0,
+        "production:candles_5m": 0,
+        "production:candles_15m": 0,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-23T02:06:20.388852+07:00",
+          "last": "2026-10-23T04:09:35.460993+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-23T02:06:20.388852+07:00",
+          "last": "2026-10-23T04:09:35.460993+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 0,
+        "bbo_events_written": 0,
+        "candle_status": "NOT_RUN",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-23",
+        "disk_free_end": 982653607936,
+        "disk_free_start": 982653607936,
+        "end_time": "2026-10-23T02:45:07.556414+00:00",
+        "health_checks": 0,
+        "last_bbo_callback": null,
+        "last_candle_response": null,
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": null,
+        "last_successful_api_request": null,
+        "last_successful_websocket_callback": null,
+        "market_day": false,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "pid": 30328,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 0,
+        "runtime_seconds": 4.563344,
+        "shutdown_status": "MARKET_CLOSED/API_CLOSED_OR_HOLIDAY",
+        "start_time": "2026-10-23T02:45:02.993070+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-23T02:45:02.993824+00:00"
+          },
+          {
+            "reason": "API_CLOSED_OR_HOLIDAY",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-23T02:45:07.533316+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    }
+  ],
+  "incomplete_dates": [
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-08",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-16",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23"
+  ]
+}

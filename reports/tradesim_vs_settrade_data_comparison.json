@@ -1,0 +1,3364 @@
+{
+  "generated_at_utc": "2026-10-24T06:53:15.013356+00:00",
+  "source_identity": {
+    "outer_archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+    "nested_archive_sha256": {
+      "tradeSim_history.zip": "a47c00b9b7c3be421ad0060ebfc1bbc60f51e60643dd188d8e33c6ad81d9df7b",
+      "tradeSim_ticks.zip": "b321a5d88d8c316d0c9ed5e2f833714b3fa4fc4a058be3aac8d1ac6b15e13858"
+    }
+  },
+  "tick_practice_comparison": {
+    "source_dates": {
+      "TRADESIM_0_2_5_PRACTICE": [
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30"
+      ],
+      "TRADESIM_0_2_6_PRACTICE": [
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30"
+      ],
+      "TRADESIM_OFFICIAL_TICKS": [
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-12",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "DAILY_TICKS_STANDALONE": [
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-12",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21"
+      ]
+    },
+    "standalone_vs_nested_tick_archive": [
+      {
+        "date": "2026-10-06",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "9fbcee38cb0df66c7fd486fc34352672e9edc9b1af1d4c65f837a4c080aee06f",
+        "archive_sha256": "9fbcee38cb0df66c7fd486fc34352672e9edc9b1af1d4c65f837a4c080aee06f"
+      },
+      {
+        "date": "2026-10-07",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "3d1c30e6da5b54278144cfa978523e1962d19110d6f81fba45a8b23db6373c1a",
+        "archive_sha256": "3d1c30e6da5b54278144cfa978523e1962d19110d6f81fba45a8b23db6373c1a"
+      },
+      {
+        "date": "2026-10-08",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "798b652aaf66ba906cd37b19ff0fb1fb3b7fec253c7e2109b6ddd3b0397f5455",
+        "archive_sha256": "798b652aaf66ba906cd37b19ff0fb1fb3b7fec253c7e2109b6ddd3b0397f5455"
+      },
+      {
+        "date": "2026-10-09",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "85ef3d2292267eff7251c8f52e1c2bb26768ee150c0deb71c747147a72b9e9f2",
+        "archive_sha256": "85ef3d2292267eff7251c8f52e1c2bb26768ee150c0deb71c747147a72b9e9f2"
+      },
+      {
+        "date": "2026-10-12",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "631f2d7d3d6d06486c951734808a0c6a8106dfa716b59fb59a7cf64a2eaacfff",
+        "archive_sha256": "631f2d7d3d6d06486c951734808a0c6a8106dfa716b59fb59a7cf64a2eaacfff"
+      },
+      {
+        "date": "2026-10-14",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "ff6779de4d8cddd7104fce9ff56b5be6c222642a9a7d6b4804985a246a36931e",
+        "archive_sha256": "ff6779de4d8cddd7104fce9ff56b5be6c222642a9a7d6b4804985a246a36931e"
+      },
+      {
+        "date": "2026-10-15",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "cda0f4e84dc260f66506712710d57c69d3d82bb786c97a18514f9f5358e6e0f7",
+        "archive_sha256": "cda0f4e84dc260f66506712710d57c69d3d82bb786c97a18514f9f5358e6e0f7"
+      },
+      {
+        "date": "2026-10-19",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "e177acf607b577a4dd5a45018df81bebe8aadc376ffffdf978f9525ee7bdbc3d",
+        "archive_sha256": "e177acf607b577a4dd5a45018df81bebe8aadc376ffffdf978f9525ee7bdbc3d"
+      },
+      {
+        "date": "2026-10-20",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "5fe665f5e22890c322d4ac6049a0a9b632319178012518c0b31f5e3ddd5d817b",
+        "archive_sha256": "5fe665f5e22890c322d4ac6049a0a9b632319178012518c0b31f5e3ddd5d817b"
+      },
+      {
+        "date": "2026-10-21",
+        "official_archive_present": true,
+        "byte_identical": true,
+        "standalone_sha256": "21aa6aa24d8081962d62bc9aa79f96e18406259ad4dd9ec3dc0d403ed04fce9a",
+        "archive_sha256": "21aa6aa24d8081962d62bc9aa79f96e18406259ad4dd9ec3dc0d403ed04fce9a"
+      }
+    ],
+    "practice_comparisons": {
+      "TRADESIM_0_2_5_PRACTICE": {
+        "practice_dates": [
+          "2026-09-09",
+          "2026-09-10",
+          "2026-09-11",
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-16",
+          "2026-09-17",
+          "2026-09-18",
+          "2026-09-21",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-09-30"
+        ],
+        "official_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-12",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21"
+        ],
+        "overlap_dates": [],
+        "classification": "EXTENDED_HISTORY",
+        "overlap_byte_identical_dates": [],
+        "overlap_differences": [],
+        "practice_schema": [
+          "ShareCode",
+          "TradeDateTime",
+          "LastPrice",
+          "Volume",
+          "Value",
+          "Flag"
+        ],
+        "official_schema": [
+          "ShareCode",
+          "TradeDateTime",
+          "LastPrice",
+          "Volume",
+          "Value",
+          "Flag"
+        ]
+      },
+      "TRADESIM_0_2_6_PRACTICE": {
+        "practice_dates": [
+          "2026-09-09",
+          "2026-09-10",
+          "2026-09-11",
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-16",
+          "2026-09-17",
+          "2026-09-18",
+          "2026-09-21",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-09-30"
+        ],
+        "official_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-12",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21"
+        ],
+        "overlap_dates": [],
+        "classification": "EXTENDED_HISTORY",
+        "overlap_byte_identical_dates": [],
+        "overlap_differences": [],
+        "practice_schema": [
+          "ShareCode",
+          "TradeDateTime",
+          "LastPrice",
+          "Volume",
+          "Value",
+          "Flag"
+        ],
+        "official_schema": [
+          "ShareCode",
+          "TradeDateTime",
+          "LastPrice",
+          "Volume",
+          "Value",
+          "Flag"
+        ]
+      }
+    },
+    "interpretation": "The official archive extends the Sep 9-30 practice set beginning Oct 1; identical outer CSVs duplicate the same dates in the nested official tick package."
+  },
+  "history_settrade_comparison": {
+    "1m": {
+      "SANDBOX": {
+        "timeframe": "1m",
+        "environment": "SANDBOX",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_SANDBOX_PILOT",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\1m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\normalized\\bars_1m\\data.csv",
+        "overlap_dates": [
+          "2026-09-25",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-09-30",
+          "2026-10-01",
+          "2026-10-14"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "THAI",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-24",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-15",
+            "2026-10-19",
+            "2026-10-20",
+            "2026-10-21"
+          ],
+          "settrade": [
+            "2026-09-23"
+          ]
+        },
+        "overlap_symbol_day_pairs": 160,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 650,
+          "settrade_only_pairs": 41,
+          "official_only_sample": [
+            [
+              "2026-09-24",
+              "ADVANC"
+            ],
+            [
+              "2026-09-24",
+              "AOT"
+            ],
+            [
+              "2026-09-24",
+              "AWC"
+            ],
+            [
+              "2026-09-24",
+              "BANPU"
+            ],
+            [
+              "2026-09-24",
+              "BBL"
+            ],
+            [
+              "2026-09-24",
+              "BCP"
+            ],
+            [
+              "2026-09-24",
+              "BDMS"
+            ],
+            [
+              "2026-09-24",
+              "BEM"
+            ],
+            [
+              "2026-09-24",
+              "BH"
+            ],
+            [
+              "2026-09-24",
+              "BJC"
+            ],
+            [
+              "2026-09-24",
+              "CCET"
+            ],
+            [
+              "2026-09-24",
+              "CPALL"
+            ],
+            [
+              "2026-09-24",
+              "CPF"
+            ],
+            [
+              "2026-09-24",
+              "CPN"
+            ],
+            [
+              "2026-09-24",
+              "CRC"
+            ],
+            [
+              "2026-09-24",
+              "DELTA"
+            ],
+            [
+              "2026-09-24",
+              "EGCO"
+            ],
+            [
+              "2026-09-24",
+              "GPSC"
+            ],
+            [
+              "2026-09-24",
+              "GULF"
+            ],
+            [
+              "2026-09-24",
+              "HMPRO"
+            ]
+          ],
+          "settrade_only_sample": [
+            [
+              "2026-09-23",
+              "ADVANC"
+            ],
+            [
+              "2026-09-23",
+              "AOT"
+            ],
+            [
+              "2026-09-23",
+              "AWC"
+            ],
+            [
+              "2026-09-23",
+              "BANPU"
+            ],
+            [
+              "2026-09-23",
+              "BBL"
+            ],
+            [
+              "2026-09-23",
+              "BCP"
+            ],
+            [
+              "2026-09-23",
+              "BDMS"
+            ],
+            [
+              "2026-09-23",
+              "BEM"
+            ],
+            [
+              "2026-09-23",
+              "BH"
+            ],
+            [
+              "2026-09-23",
+              "BJC"
+            ],
+            [
+              "2026-09-23",
+              "CPALL"
+            ],
+            [
+              "2026-09-23",
+              "CPF"
+            ],
+            [
+              "2026-09-23",
+              "CPN"
+            ],
+            [
+              "2026-09-23",
+              "DELTA"
+            ],
+            [
+              "2026-09-23",
+              "EGCO"
+            ],
+            [
+              "2026-09-23",
+              "GPSC"
+            ],
+            [
+              "2026-09-23",
+              "GULF"
+            ],
+            [
+              "2026-09-23",
+              "HMPRO"
+            ],
+            [
+              "2026-09-23",
+              "IVL"
+            ],
+            [
+              "2026-09-23",
+              "KBANK"
+            ]
+          ]
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-09-25",
+            "official_first_bangkok": "2026-09-25T09:58:00+07:00",
+            "official_last_bangkok": "2026-09-25T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-25T10:23:00+07:00",
+            "settrade_last_bangkok": "2026-09-25T16:28:00+07:00",
+            "official_rows": 6641,
+            "settrade_rows": 173
+          },
+          {
+            "date": "2026-09-28",
+            "official_first_bangkok": "2026-09-28T09:58:00+07:00",
+            "official_last_bangkok": "2026-09-28T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-28T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-28T16:36:00+07:00",
+            "official_rows": 6419,
+            "settrade_rows": 198
+          },
+          {
+            "date": "2026-09-29",
+            "official_first_bangkok": "2026-09-29T09:59:00+07:00",
+            "official_last_bangkok": "2026-09-29T16:37:00+07:00",
+            "settrade_first_bangkok": "2026-09-29T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-09-29T16:37:00+07:00",
+            "official_rows": 5453,
+            "settrade_rows": 154
+          },
+          {
+            "date": "2026-09-30",
+            "official_first_bangkok": "2026-09-30T09:57:00+07:00",
+            "official_last_bangkok": "2026-09-30T16:36:00+07:00",
+            "settrade_first_bangkok": "2026-09-30T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-30T16:37:00+07:00",
+            "official_rows": 7575,
+            "settrade_rows": 192
+          },
+          {
+            "date": "2026-10-01",
+            "official_first_bangkok": "2026-10-01T09:56:00+07:00",
+            "official_last_bangkok": "2026-10-01T16:39:00+07:00",
+            "settrade_first_bangkok": "2026-10-01T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-10-01T12:29:00+07:00",
+            "official_rows": 8313,
+            "settrade_rows": 118
+          },
+          {
+            "date": "2026-10-14",
+            "official_first_bangkok": "2026-10-14T09:56:00+07:00",
+            "official_last_bangkok": "2026-10-14T16:37:00+07:00",
+            "settrade_first_bangkok": "2026-10-14T09:57:00+07:00",
+            "settrade_last_bangkok": "2026-10-14T16:35:00+07:00",
+            "official_rows": 8838,
+            "settrade_rows": 1027
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-09-25T02:58:00+00:00",
+          "official_last_utc": "2026-10-14T09:37:00+00:00",
+          "settrade_first_utc": "2026-09-25T03:23:00+00:00",
+          "settrade_last_utc": "2026-10-14T09:35:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 1862,
+          "official_rows": 43239,
+          "matched_timestamp_rows": 1561,
+          "exact_ohlcv_matches": 1,
+          "divergent_rows": 1560,
+          "settrade_only_rows": 301,
+          "tradesim_only_rows": 41678,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.0006406149903907751,
+        "field_mismatch_counts": {
+          "open": 1444,
+          "high": 1443,
+          "low": 1460,
+          "close": 1446,
+          "volume": 1538
+        },
+        "field_max_absolute_difference": {
+          "open": 59.0,
+          "high": 59.0,
+          "low": 58.0,
+          "close": 58.0,
+          "volume": 23194500.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 346.0,
+            "low_official": 345.0,
+            "close_official": 345.0,
+            "volume_official": 3700,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 200
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T03:36:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 345.0,
+            "high_official": 345.0,
+            "low_official": 345.0,
+            "close_official": 345.0,
+            "volume_official": 9900,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 700
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T03:53:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 345.0,
+            "high_official": 346.0,
+            "low_official": 345.0,
+            "close_official": 345.0,
+            "volume_official": 14700,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 2100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T04:17:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 346.0,
+            "low_official": 345.0,
+            "close_official": 345.0,
+            "volume_official": 1700,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T04:55:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 6800,
+            "open_settrade": 365.0,
+            "high_settrade": 365.0,
+            "low_settrade": 365.0,
+            "close_settrade": 365.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T05:21:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 347.0,
+            "close_official": 347.0,
+            "volume_official": 19300,
+            "open_settrade": 365.0,
+            "high_settrade": 365.0,
+            "low_settrade": 365.0,
+            "close_settrade": 365.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T06:57:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 347.0,
+            "close_official": 347.0,
+            "volume_official": 74900,
+            "open_settrade": 382.0,
+            "high_settrade": 382.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 22800
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:06:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 12100,
+            "open_settrade": 382.0,
+            "high_settrade": 383.0,
+            "low_settrade": 382.0,
+            "close_settrade": 383.0,
+            "volume_settrade": 500
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:07:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 347.0,
+            "close_official": 347.0,
+            "volume_official": 800,
+            "open_settrade": 383.0,
+            "high_settrade": 384.0,
+            "low_settrade": 383.0,
+            "close_settrade": 384.0,
+            "volume_settrade": 4000
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:09:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 346.0,
+            "volume_official": 2200,
+            "open_settrade": 384.0,
+            "high_settrade": 384.0,
+            "low_settrade": 378.0,
+            "close_settrade": 378.0,
+            "volume_settrade": 6500
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 500,
+            "open_settrade": 378.0,
+            "high_settrade": 378.0,
+            "low_settrade": 378.0,
+            "close_settrade": 378.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:46:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 3300,
+            "open_settrade": 378.0,
+            "high_settrade": 378.0,
+            "low_settrade": 365.0,
+            "close_settrade": 365.0,
+            "volume_settrade": 5200
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      },
+      "PRODUCTION": {
+        "timeframe": "1m",
+        "environment": "PRODUCTION",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_PRODUCTION",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\1m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\production\\normalized\\bars_1m\\data.csv",
+        "overlap_dates": [
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "COM7",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MRDIYT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "SCGP",
+          "TCAP",
+          "TFG",
+          "THAI",
+          "TIDLOR",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-24",
+            "2026-09-25",
+            "2026-09-28",
+            "2026-09-29",
+            "2026-09-30",
+            "2026-10-01",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-14",
+            "2026-10-15"
+          ],
+          "settrade": [
+            "2026-10-22"
+          ]
+        },
+        "overlap_symbol_day_pairs": 144,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 720,
+          "settrade_only_pairs": 48,
+          "official_only_sample": [
+            [
+              "2026-09-24",
+              "ADVANC"
+            ],
+            [
+              "2026-09-24",
+              "AOT"
+            ],
+            [
+              "2026-09-24",
+              "AWC"
+            ],
+            [
+              "2026-09-24",
+              "BANPU"
+            ],
+            [
+              "2026-09-24",
+              "BBL"
+            ],
+            [
+              "2026-09-24",
+              "BCP"
+            ],
+            [
+              "2026-09-24",
+              "BDMS"
+            ],
+            [
+              "2026-09-24",
+              "BEM"
+            ],
+            [
+              "2026-09-24",
+              "BH"
+            ],
+            [
+              "2026-09-24",
+              "BJC"
+            ],
+            [
+              "2026-09-24",
+              "CCET"
+            ],
+            [
+              "2026-09-24",
+              "COM7"
+            ],
+            [
+              "2026-09-24",
+              "CPALL"
+            ],
+            [
+              "2026-09-24",
+              "CPF"
+            ],
+            [
+              "2026-09-24",
+              "CPN"
+            ],
+            [
+              "2026-09-24",
+              "CRC"
+            ],
+            [
+              "2026-09-24",
+              "DELTA"
+            ],
+            [
+              "2026-09-24",
+              "EGCO"
+            ],
+            [
+              "2026-09-24",
+              "GPSC"
+            ],
+            [
+              "2026-09-24",
+              "GULF"
+            ]
+          ],
+          "settrade_only_sample": [
+            [
+              "2026-10-22",
+              "ADVANC"
+            ],
+            [
+              "2026-10-22",
+              "AOT"
+            ],
+            [
+              "2026-10-22",
+              "AWC"
+            ],
+            [
+              "2026-10-22",
+              "BANPU"
+            ],
+            [
+              "2026-10-22",
+              "BBL"
+            ],
+            [
+              "2026-10-22",
+              "BCP"
+            ],
+            [
+              "2026-10-22",
+              "BDMS"
+            ],
+            [
+              "2026-10-22",
+              "BEM"
+            ],
+            [
+              "2026-10-22",
+              "BH"
+            ],
+            [
+              "2026-10-22",
+              "BJC"
+            ],
+            [
+              "2026-10-22",
+              "CCET"
+            ],
+            [
+              "2026-10-22",
+              "COM7"
+            ],
+            [
+              "2026-10-22",
+              "CPALL"
+            ],
+            [
+              "2026-10-22",
+              "CPF"
+            ],
+            [
+              "2026-10-22",
+              "CPN"
+            ],
+            [
+              "2026-10-22",
+              "CRC"
+            ],
+            [
+              "2026-10-22",
+              "DELTA"
+            ],
+            [
+              "2026-10-22",
+              "EGCO"
+            ],
+            [
+              "2026-10-22",
+              "GPSC"
+            ],
+            [
+              "2026-10-22",
+              "GULF"
+            ]
+          ]
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-10-19",
+            "official_first_bangkok": "2026-10-19T09:58:00+07:00",
+            "official_last_bangkok": "2026-10-19T16:36:00+07:00",
+            "settrade_first_bangkok": "2026-10-19T09:58:00+07:00",
+            "settrade_last_bangkok": "2026-10-19T16:00:00+07:00",
+            "official_rows": 12464,
+            "settrade_rows": 4800
+          },
+          {
+            "date": "2026-10-20",
+            "official_first_bangkok": "2026-10-20T09:57:00+07:00",
+            "official_last_bangkok": "2026-10-20T16:36:00+07:00",
+            "settrade_first_bangkok": "2026-10-20T09:57:00+07:00",
+            "settrade_last_bangkok": "2026-10-20T16:14:00+07:00",
+            "official_rows": 12174,
+            "settrade_rows": 4800
+          },
+          {
+            "date": "2026-10-21",
+            "official_first_bangkok": "2026-10-21T09:57:00+07:00",
+            "official_last_bangkok": "2026-10-21T16:37:00+07:00",
+            "settrade_first_bangkok": "2026-10-21T09:57:00+07:00",
+            "settrade_last_bangkok": "2026-10-21T16:37:00+07:00",
+            "official_rows": 13019,
+            "settrade_rows": 4974
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-10-19T02:58:00+00:00",
+          "official_last_utc": "2026-10-21T09:37:00+00:00",
+          "settrade_first_utc": "2026-10-19T02:58:00+00:00",
+          "settrade_last_utc": "2026-10-21T09:37:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 14574,
+          "official_rows": 37657,
+          "matched_timestamp_rows": 14574,
+          "exact_ohlcv_matches": 13578,
+          "divergent_rows": 996,
+          "settrade_only_rows": 0,
+          "tradesim_only_rows": 23083,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.9316591189790037,
+        "field_mismatch_counts": {
+          "volume": 996,
+          "close": 309,
+          "low": 167,
+          "high": 111
+        },
+        "field_max_absolute_difference": {
+          "volume": 19479800.0,
+          "close": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T03:05:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 285000,
+            "volume_settrade": 282400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T03:19:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 335.0,
+            "volume_official": 70400,
+            "close_settrade": 336.0,
+            "volume_settrade": 300
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T03:26:00+00:00",
+            "differences": [
+              "low",
+              "close",
+              "volume"
+            ],
+            "low_official": 334.0,
+            "close_official": 334.0,
+            "volume_official": 1600,
+            "low_settrade": 335.0,
+            "close_settrade": 335.0,
+            "volume_settrade": 500
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T03:33:00+00:00",
+            "differences": [
+              "high",
+              "close",
+              "volume"
+            ],
+            "high_official": 336.0,
+            "close_official": 336.0,
+            "volume_official": 500,
+            "high_settrade": 335.0,
+            "close_settrade": 335.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T04:07:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 336.0,
+            "volume_official": 800,
+            "close_settrade": 335.0,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T04:14:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 335.0,
+            "volume_official": 3300,
+            "close_settrade": 336.0,
+            "volume_settrade": 3100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T04:21:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 1600,
+            "volume_settrade": 1200
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T04:28:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 1100,
+            "volume_settrade": 700
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-19T04:35:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 3000,
+            "volume_settrade": 2900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-20T02:58:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 335.0,
+            "volume_official": 54500,
+            "close_settrade": 334.0,
+            "volume_settrade": 39700
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-20T03:05:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 332.0,
+            "volume_official": 64800,
+            "close_settrade": 331.0,
+            "volume_settrade": 5300
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-20T03:12:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 5400,
+            "volume_settrade": 1900
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      }
+    },
+    "5m": {
+      "SANDBOX": {
+        "timeframe": "5m",
+        "environment": "SANDBOX",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_SANDBOX_PILOT",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\5m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\normalized\\bars_5m\\data.csv",
+        "overlap_dates": [
+          "2026-09-23",
+          "2026-09-25",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-09-30",
+          "2026-10-01",
+          "2026-10-14"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "SCGP",
+          "TCAP",
+          "THAI",
+          "TIDLOR",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-21",
+            "2026-09-22",
+            "2026-09-24",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-15",
+            "2026-10-19",
+            "2026-10-20",
+            "2026-10-21"
+          ],
+          "settrade": []
+        },
+        "overlap_symbol_day_pairs": 201,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 744,
+          "settrade_only_pairs": 0,
+          "official_only_sample": [
+            [
+              "2026-09-21",
+              "ADVANC"
+            ],
+            [
+              "2026-09-21",
+              "AOT"
+            ],
+            [
+              "2026-09-21",
+              "AWC"
+            ],
+            [
+              "2026-09-21",
+              "BANPU"
+            ],
+            [
+              "2026-09-21",
+              "BBL"
+            ],
+            [
+              "2026-09-21",
+              "BCP"
+            ],
+            [
+              "2026-09-21",
+              "BDMS"
+            ],
+            [
+              "2026-09-21",
+              "BEM"
+            ],
+            [
+              "2026-09-21",
+              "BH"
+            ],
+            [
+              "2026-09-21",
+              "BJC"
+            ],
+            [
+              "2026-09-21",
+              "CCET"
+            ],
+            [
+              "2026-09-21",
+              "CPALL"
+            ],
+            [
+              "2026-09-21",
+              "CPF"
+            ],
+            [
+              "2026-09-21",
+              "CPN"
+            ],
+            [
+              "2026-09-21",
+              "CRC"
+            ],
+            [
+              "2026-09-21",
+              "DELTA"
+            ],
+            [
+              "2026-09-21",
+              "EGCO"
+            ],
+            [
+              "2026-09-21",
+              "GPSC"
+            ],
+            [
+              "2026-09-21",
+              "GULF"
+            ],
+            [
+              "2026-09-21",
+              "HMPRO"
+            ]
+          ],
+          "settrade_only_sample": []
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-09-23",
+            "official_first_bangkok": "2026-09-23T09:55:00+07:00",
+            "official_last_bangkok": "2026-09-23T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-23T10:33:00+07:00",
+            "settrade_last_bangkok": "2026-09-23T16:39:00+07:00",
+            "official_rows": 2557,
+            "settrade_rows": 582
+          },
+          {
+            "date": "2026-09-25",
+            "official_first_bangkok": "2026-09-25T09:55:00+07:00",
+            "official_last_bangkok": "2026-09-25T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-25T10:23:00+07:00",
+            "settrade_last_bangkok": "2026-09-25T16:27:00+07:00",
+            "official_rows": 1612,
+            "settrade_rows": 133
+          },
+          {
+            "date": "2026-09-28",
+            "official_first_bangkok": "2026-09-28T09:55:00+07:00",
+            "official_last_bangkok": "2026-09-28T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-28T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-28T16:36:00+07:00",
+            "official_rows": 1565,
+            "settrade_rows": 131
+          },
+          {
+            "date": "2026-09-29",
+            "official_first_bangkok": "2026-09-29T09:55:00+07:00",
+            "official_last_bangkok": "2026-09-29T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-29T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-09-29T16:37:00+07:00",
+            "official_rows": 1247,
+            "settrade_rows": 102
+          },
+          {
+            "date": "2026-09-30",
+            "official_first_bangkok": "2026-09-30T09:55:00+07:00",
+            "official_last_bangkok": "2026-09-30T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-09-30T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-30T16:37:00+07:00",
+            "official_rows": 1638,
+            "settrade_rows": 145
+          },
+          {
+            "date": "2026-10-01",
+            "official_first_bangkok": "2026-10-01T09:55:00+07:00",
+            "official_last_bangkok": "2026-10-01T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-10-01T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-10-01T12:28:00+07:00",
+            "official_rows": 1945,
+            "settrade_rows": 83
+          },
+          {
+            "date": "2026-10-14",
+            "official_first_bangkok": "2026-10-14T09:55:00+07:00",
+            "official_last_bangkok": "2026-10-14T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-10-14T09:57:00+07:00",
+            "settrade_last_bangkok": "2026-10-14T16:35:00+07:00",
+            "official_rows": 2012,
+            "settrade_rows": 355
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-09-23T02:55:00+00:00",
+          "official_last_utc": "2026-10-14T09:35:00+00:00",
+          "settrade_first_utc": "2026-09-23T03:33:00+00:00",
+          "settrade_last_utc": "2026-10-14T09:35:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 1531,
+          "official_rows": 12576,
+          "matched_timestamp_rows": 371,
+          "exact_ohlcv_matches": 0,
+          "divergent_rows": 371,
+          "settrade_only_rows": 1160,
+          "tradesim_only_rows": 12205,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.0,
+        "field_mismatch_counts": {
+          "open": 339,
+          "high": 347,
+          "low": 350,
+          "close": 350,
+          "volume": 370
+        },
+        "field_max_absolute_difference": {
+          "open": 59.0,
+          "high": 59.0,
+          "low": 58.0,
+          "close": 59.0,
+          "volume": 15596700.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T03:55:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 347.0,
+            "low_official": 345.0,
+            "close_official": 347.0,
+            "volume_official": 364500,
+            "open_settrade": 383.0,
+            "high_settrade": 383.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 600
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T05:20:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 349.0,
+            "high_official": 349.0,
+            "low_official": 348.0,
+            "close_official": 349.0,
+            "volume_official": 15400,
+            "open_settrade": 382.0,
+            "high_settrade": 382.0,
+            "low_settrade": 381.0,
+            "close_settrade": 381.0,
+            "volume_settrade": 500
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 348.0,
+            "close_official": 348.0,
+            "volume_official": 3800,
+            "open_settrade": 382.0,
+            "high_settrade": 382.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 9900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T07:45:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 4900,
+            "open_settrade": 381.0,
+            "high_settrade": 381.0,
+            "low_settrade": 381.0,
+            "close_settrade": 381.0,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T08:40:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 29400,
+            "open_settrade": 382.0,
+            "high_settrade": 382.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T09:05:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 348.0,
+            "close_official": 348.0,
+            "volume_official": 40800,
+            "open_settrade": 383.0,
+            "high_settrade": 383.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 300
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T09:10:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 55900,
+            "open_settrade": 383.0,
+            "high_settrade": 383.0,
+            "low_settrade": 383.0,
+            "close_settrade": 383.0,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T09:15:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 90800,
+            "open_settrade": 383.0,
+            "high_settrade": 383.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 300
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 346.0,
+            "low_official": 345.0,
+            "close_official": 346.0,
+            "volume_official": 164900,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 200
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T04:55:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 36200,
+            "open_settrade": 365.0,
+            "high_settrade": 365.0,
+            "low_settrade": 365.0,
+            "close_settrade": 365.0,
+            "volume_settrade": 100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 14200,
+            "open_settrade": 378.0,
+            "high_settrade": 378.0,
+            "low_settrade": 378.0,
+            "close_settrade": 378.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-28T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 349.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 207300,
+            "open_settrade": 366.0,
+            "high_settrade": 366.0,
+            "low_settrade": 366.0,
+            "close_settrade": 366.0,
+            "volume_settrade": 900
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      },
+      "PRODUCTION": {
+        "timeframe": "5m",
+        "environment": "PRODUCTION",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_PRODUCTION",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\5m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\production\\normalized\\bars_5m\\data.csv",
+        "overlap_dates": [
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "COM7",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MRDIYT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "SCGP",
+          "TCAP",
+          "TFG",
+          "THAI",
+          "TIDLOR",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-21",
+            "2026-09-22",
+            "2026-09-23",
+            "2026-09-24",
+            "2026-09-25",
+            "2026-09-28",
+            "2026-09-29",
+            "2026-09-30",
+            "2026-10-01",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-14",
+            "2026-10-15"
+          ],
+          "settrade": [
+            "2026-10-22"
+          ]
+        },
+        "overlap_symbol_day_pairs": 144,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 864,
+          "settrade_only_pairs": 48,
+          "official_only_sample": [
+            [
+              "2026-09-21",
+              "ADVANC"
+            ],
+            [
+              "2026-09-21",
+              "AOT"
+            ],
+            [
+              "2026-09-21",
+              "AWC"
+            ],
+            [
+              "2026-09-21",
+              "BANPU"
+            ],
+            [
+              "2026-09-21",
+              "BBL"
+            ],
+            [
+              "2026-09-21",
+              "BCP"
+            ],
+            [
+              "2026-09-21",
+              "BDMS"
+            ],
+            [
+              "2026-09-21",
+              "BEM"
+            ],
+            [
+              "2026-09-21",
+              "BH"
+            ],
+            [
+              "2026-09-21",
+              "BJC"
+            ],
+            [
+              "2026-09-21",
+              "CCET"
+            ],
+            [
+              "2026-09-21",
+              "COM7"
+            ],
+            [
+              "2026-09-21",
+              "CPALL"
+            ],
+            [
+              "2026-09-21",
+              "CPF"
+            ],
+            [
+              "2026-09-21",
+              "CPN"
+            ],
+            [
+              "2026-09-21",
+              "CRC"
+            ],
+            [
+              "2026-09-21",
+              "DELTA"
+            ],
+            [
+              "2026-09-21",
+              "EGCO"
+            ],
+            [
+              "2026-09-21",
+              "GPSC"
+            ],
+            [
+              "2026-09-21",
+              "GULF"
+            ]
+          ],
+          "settrade_only_sample": [
+            [
+              "2026-10-22",
+              "ADVANC"
+            ],
+            [
+              "2026-10-22",
+              "AOT"
+            ],
+            [
+              "2026-10-22",
+              "AWC"
+            ],
+            [
+              "2026-10-22",
+              "BANPU"
+            ],
+            [
+              "2026-10-22",
+              "BBL"
+            ],
+            [
+              "2026-10-22",
+              "BCP"
+            ],
+            [
+              "2026-10-22",
+              "BDMS"
+            ],
+            [
+              "2026-10-22",
+              "BEM"
+            ],
+            [
+              "2026-10-22",
+              "BH"
+            ],
+            [
+              "2026-10-22",
+              "BJC"
+            ],
+            [
+              "2026-10-22",
+              "CCET"
+            ],
+            [
+              "2026-10-22",
+              "COM7"
+            ],
+            [
+              "2026-10-22",
+              "CPALL"
+            ],
+            [
+              "2026-10-22",
+              "CPF"
+            ],
+            [
+              "2026-10-22",
+              "CPN"
+            ],
+            [
+              "2026-10-22",
+              "CRC"
+            ],
+            [
+              "2026-10-22",
+              "DELTA"
+            ],
+            [
+              "2026-10-22",
+              "EGCO"
+            ],
+            [
+              "2026-10-22",
+              "GPSC"
+            ],
+            [
+              "2026-10-22",
+              "GULF"
+            ]
+          ]
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-10-19",
+            "official_first_bangkok": "2026-10-19T09:55:00+07:00",
+            "official_last_bangkok": "2026-10-19T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-10-19T09:58:00+07:00",
+            "settrade_last_bangkok": "2026-10-19T16:00:00+07:00",
+            "official_rows": 3001,
+            "settrade_rows": 1333
+          },
+          {
+            "date": "2026-10-20",
+            "official_first_bangkok": "2026-10-20T09:55:00+07:00",
+            "official_last_bangkok": "2026-10-20T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-10-20T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-10-20T16:14:00+07:00",
+            "official_rows": 2981,
+            "settrade_rows": 1389
+          },
+          {
+            "date": "2026-10-21",
+            "official_first_bangkok": "2026-10-21T09:55:00+07:00",
+            "official_last_bangkok": "2026-10-21T16:35:00+07:00",
+            "settrade_first_bangkok": "2026-10-21T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-10-21T14:24:00+07:00",
+            "official_rows": 3004,
+            "settrade_rows": 1231
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-10-19T02:55:00+00:00",
+          "official_last_utc": "2026-10-21T09:35:00+00:00",
+          "settrade_first_utc": "2026-10-19T02:58:00+00:00",
+          "settrade_last_utc": "2026-10-21T07:24:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 3953,
+          "official_rows": 8986,
+          "matched_timestamp_rows": 600,
+          "exact_ohlcv_matches": 182,
+          "divergent_rows": 418,
+          "settrade_only_rows": 3353,
+          "tradesim_only_rows": 8386,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.30333333333333334,
+        "field_mismatch_counts": {
+          "volume": 418,
+          "close": 148,
+          "low": 69,
+          "high": 57
+        },
+        "field_max_absolute_difference": {
+          "volume": 4608700.0,
+          "close": 1.0,
+          "low": 1.0,
+          "high": 2.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:00:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 20300,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:05:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 332.0,
+            "volume_official": 132400,
+            "close_settrade": 333.0,
+            "volume_settrade": 132000
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:35:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 157300,
+            "volume_settrade": 153100
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:50:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 194300,
+            "volume_settrade": 5200
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:05:00+00:00",
+            "differences": [
+              "low",
+              "close",
+              "volume"
+            ],
+            "low_official": 57.25,
+            "close_official": 57.5,
+            "volume_official": 884300,
+            "low_settrade": 57.75,
+            "close_settrade": 57.75,
+            "volume_settrade": 48300
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:10:00+00:00",
+            "differences": [
+              "low",
+              "close",
+              "volume"
+            ],
+            "low_official": 57.0,
+            "close_official": 57.25,
+            "volume_official": 1935300,
+            "low_settrade": 57.25,
+            "close_settrade": 57.5,
+            "volume_settrade": 1701900
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:15:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 41800,
+            "volume_settrade": 36100
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:25:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 205600,
+            "volume_settrade": 66800
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:30:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 794500,
+            "volume_settrade": 791000
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:40:00+00:00",
+            "differences": [
+              "high",
+              "close",
+              "volume"
+            ],
+            "high_official": 57.75,
+            "close_official": 57.75,
+            "volume_official": 263600,
+            "high_settrade": 57.5,
+            "close_settrade": 57.5,
+            "volume_settrade": 7100
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:45:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 839900,
+            "volume_settrade": 823100
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:50:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 278500,
+            "volume_settrade": 277400
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      }
+    },
+    "15m": {
+      "SANDBOX": {
+        "timeframe": "15m",
+        "environment": "SANDBOX",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_SANDBOX_PILOT",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\15m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\normalized\\bars_15m\\data.csv",
+        "overlap_dates": [
+          "2026-09-23",
+          "2026-09-25",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-09-30",
+          "2026-10-01",
+          "2026-10-14"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "SCGP",
+          "TCAP",
+          "THAI",
+          "TIDLOR",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-07",
+            "2026-09-08",
+            "2026-09-09",
+            "2026-09-10",
+            "2026-09-11",
+            "2026-09-14",
+            "2026-09-15",
+            "2026-09-16",
+            "2026-09-17",
+            "2026-09-18",
+            "2026-09-21",
+            "2026-09-22",
+            "2026-09-24",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-15",
+            "2026-10-19",
+            "2026-10-20",
+            "2026-10-21"
+          ],
+          "settrade": []
+        },
+        "overlap_symbol_day_pairs": 201,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 1194,
+          "settrade_only_pairs": 0,
+          "official_only_sample": [
+            [
+              "2026-09-07",
+              "ADVANC"
+            ],
+            [
+              "2026-09-07",
+              "AOT"
+            ],
+            [
+              "2026-09-07",
+              "AWC"
+            ],
+            [
+              "2026-09-07",
+              "BANPU"
+            ],
+            [
+              "2026-09-07",
+              "BBL"
+            ],
+            [
+              "2026-09-07",
+              "BCP"
+            ],
+            [
+              "2026-09-07",
+              "BDMS"
+            ],
+            [
+              "2026-09-07",
+              "BEM"
+            ],
+            [
+              "2026-09-07",
+              "BH"
+            ],
+            [
+              "2026-09-07",
+              "BJC"
+            ],
+            [
+              "2026-09-07",
+              "CCET"
+            ],
+            [
+              "2026-09-07",
+              "CPALL"
+            ],
+            [
+              "2026-09-07",
+              "CPF"
+            ],
+            [
+              "2026-09-07",
+              "CPN"
+            ],
+            [
+              "2026-09-07",
+              "CRC"
+            ],
+            [
+              "2026-09-07",
+              "DELTA"
+            ],
+            [
+              "2026-09-07",
+              "EGCO"
+            ],
+            [
+              "2026-09-07",
+              "GPSC"
+            ],
+            [
+              "2026-09-07",
+              "GULF"
+            ],
+            [
+              "2026-09-07",
+              "HMPRO"
+            ]
+          ],
+          "settrade_only_sample": []
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-09-23",
+            "official_first_bangkok": "2026-09-23T09:45:00+07:00",
+            "official_last_bangkok": "2026-09-23T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-09-23T10:33:00+07:00",
+            "settrade_last_bangkok": "2026-09-23T16:39:00+07:00",
+            "official_rows": 943,
+            "settrade_rows": 532
+          },
+          {
+            "date": "2026-09-25",
+            "official_first_bangkok": "2026-09-25T09:45:00+07:00",
+            "official_last_bangkok": "2026-09-25T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-09-25T10:23:00+07:00",
+            "settrade_last_bangkok": "2026-09-25T16:27:00+07:00",
+            "official_rows": 598,
+            "settrade_rows": 132
+          },
+          {
+            "date": "2026-09-28",
+            "official_first_bangkok": "2026-09-28T09:45:00+07:00",
+            "official_last_bangkok": "2026-09-28T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-09-28T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-28T16:36:00+07:00",
+            "official_rows": 575,
+            "settrade_rows": 130
+          },
+          {
+            "date": "2026-09-29",
+            "official_first_bangkok": "2026-09-29T09:45:00+07:00",
+            "official_last_bangkok": "2026-09-29T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-09-29T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-09-29T16:37:00+07:00",
+            "official_rows": 460,
+            "settrade_rows": 99
+          },
+          {
+            "date": "2026-09-30",
+            "official_first_bangkok": "2026-09-30T09:45:00+07:00",
+            "official_last_bangkok": "2026-09-30T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-09-30T09:56:00+07:00",
+            "settrade_last_bangkok": "2026-09-30T16:37:00+07:00",
+            "official_rows": 598,
+            "settrade_rows": 144
+          },
+          {
+            "date": "2026-10-01",
+            "official_first_bangkok": "2026-10-01T09:45:00+07:00",
+            "official_last_bangkok": "2026-10-01T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-10-01T09:55:00+07:00",
+            "settrade_last_bangkok": "2026-10-01T12:28:00+07:00",
+            "official_rows": 713,
+            "settrade_rows": 83
+          },
+          {
+            "date": "2026-10-14",
+            "official_first_bangkok": "2026-10-14T09:45:00+07:00",
+            "official_last_bangkok": "2026-10-14T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-10-14T09:57:00+07:00",
+            "settrade_last_bangkok": "2026-10-14T16:35:00+07:00",
+            "official_rows": 736,
+            "settrade_rows": 258
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-09-23T02:45:00+00:00",
+          "official_last_utc": "2026-10-14T09:30:00+00:00",
+          "settrade_first_utc": "2026-09-23T03:33:00+00:00",
+          "settrade_last_utc": "2026-10-14T09:35:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 1378,
+          "official_rows": 4623,
+          "matched_timestamp_rows": 118,
+          "exact_ohlcv_matches": 0,
+          "divergent_rows": 118,
+          "settrade_only_rows": 1260,
+          "tradesim_only_rows": 4505,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.0,
+        "field_mismatch_counts": {
+          "open": 108,
+          "high": 114,
+          "low": 111,
+          "close": 114,
+          "volume": 118
+        },
+        "field_max_absolute_difference": {
+          "open": 59.0,
+          "high": 59.0,
+          "low": 57.0,
+          "close": 58.0,
+          "volume": 25157700.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 347.0,
+            "volume_official": 24700,
+            "open_settrade": 382.0,
+            "high_settrade": 382.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 9900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T07:45:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 12200,
+            "open_settrade": 381.0,
+            "high_settrade": 381.0,
+            "low_settrade": 381.0,
+            "close_settrade": 381.0,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-23T09:15:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 157200,
+            "open_settrade": 383.0,
+            "high_settrade": 383.0,
+            "low_settrade": 382.0,
+            "close_settrade": 382.0,
+            "volume_settrade": 300
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 346.0,
+            "high_official": 346.0,
+            "low_official": 344.0,
+            "close_official": 345.0,
+            "volume_official": 594900,
+            "open_settrade": 287.0,
+            "high_settrade": 287.0,
+            "low_settrade": 287.0,
+            "close_settrade": 287.0,
+            "volume_settrade": 200
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-25T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 347.0,
+            "high_official": 347.0,
+            "low_official": 346.0,
+            "close_official": 347.0,
+            "volume_official": 77500,
+            "open_settrade": 378.0,
+            "high_settrade": 378.0,
+            "low_settrade": 378.0,
+            "close_settrade": 378.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-28T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 349.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 367200,
+            "open_settrade": 366.0,
+            "high_settrade": 366.0,
+            "low_settrade": 366.0,
+            "close_settrade": 366.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-28T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 347.0,
+            "close_official": 347.0,
+            "volume_official": 54700,
+            "open_settrade": 380.0,
+            "high_settrade": 380.0,
+            "low_settrade": 380.0,
+            "close_settrade": 380.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-28T08:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 349.0,
+            "low_official": 347.0,
+            "close_official": 348.0,
+            "volume_official": 219300,
+            "open_settrade": 380.0,
+            "high_settrade": 380.0,
+            "low_settrade": 380.0,
+            "close_settrade": 380.0,
+            "volume_settrade": 700
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-30T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 348.0,
+            "high_official": 348.0,
+            "low_official": 345.0,
+            "close_official": 346.0,
+            "volume_official": 537600,
+            "open_settrade": 380.0,
+            "high_settrade": 380.0,
+            "low_settrade": 380.0,
+            "close_settrade": 380.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-30T07:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 343.0,
+            "high_official": 344.0,
+            "low_official": 343.0,
+            "close_official": 344.0,
+            "volume_official": 563600,
+            "open_settrade": 379.0,
+            "high_settrade": 379.0,
+            "low_settrade": 379.0,
+            "close_settrade": 379.0,
+            "volume_settrade": 900
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-09-30T08:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 344.0,
+            "high_official": 344.0,
+            "low_official": 343.0,
+            "close_official": 344.0,
+            "volume_official": 525900,
+            "open_settrade": 379.0,
+            "high_settrade": 379.0,
+            "low_settrade": 379.0,
+            "close_settrade": 379.0,
+            "volume_settrade": 200
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-14T03:30:00+00:00",
+            "differences": [
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "open_official": 334.0,
+            "high_official": 334.0,
+            "low_official": 331.0,
+            "close_official": 332.0,
+            "volume_official": 366200,
+            "open_settrade": 375.0,
+            "high_settrade": 375.0,
+            "low_settrade": 375.0,
+            "close_settrade": 375.0,
+            "volume_settrade": 300
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      },
+      "PRODUCTION": {
+        "timeframe": "15m",
+        "environment": "PRODUCTION",
+        "official_source": "TRADESIM_OFFICIAL_HISTORY",
+        "settrade_source": "SETTRADE_PRODUCTION",
+        "official_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\official\\tradesim\\history\\intraday_history\\15m",
+        "settrade_path": "D:\\GitHub\\SET50-Algo-Trading\\data\\pilot\\settrade\\production\\normalized\\bars_15m\\data.csv",
+        "overlap_dates": [
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21"
+        ],
+        "overlap_symbols": [
+          "ADVANC",
+          "AOT",
+          "AWC",
+          "BANPU",
+          "BBL",
+          "BCP",
+          "BDMS",
+          "BEM",
+          "BH",
+          "BJC",
+          "CCET",
+          "COM7",
+          "CPALL",
+          "CPF",
+          "CPN",
+          "CRC",
+          "DELTA",
+          "EGCO",
+          "GPSC",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KBANK",
+          "KKP",
+          "KTC",
+          "LH",
+          "MINT",
+          "MRDIYT",
+          "MTC",
+          "OR",
+          "OSP",
+          "PTT",
+          "PTTEP",
+          "PTTGC",
+          "RATCH",
+          "SCB",
+          "SCC",
+          "SCGP",
+          "TCAP",
+          "TFG",
+          "THAI",
+          "TIDLOR",
+          "TISCO",
+          "TOP",
+          "TRUE",
+          "TTB",
+          "TU",
+          "WHA"
+        ],
+        "source_only_dates": {
+          "official_history": [
+            "2026-09-07",
+            "2026-09-08",
+            "2026-09-09",
+            "2026-09-10",
+            "2026-09-11",
+            "2026-09-14",
+            "2026-09-15",
+            "2026-09-16",
+            "2026-09-17",
+            "2026-09-18",
+            "2026-09-21",
+            "2026-09-22",
+            "2026-09-23",
+            "2026-09-24",
+            "2026-09-25",
+            "2026-09-28",
+            "2026-09-29",
+            "2026-09-30",
+            "2026-10-01",
+            "2026-10-02",
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-12",
+            "2026-10-14",
+            "2026-10-15"
+          ],
+          "settrade": [
+            "2026-10-22"
+          ]
+        },
+        "overlap_symbol_day_pairs": 144,
+        "source_only_symbol_day_pairs": {
+          "official_only_pairs": 1344,
+          "settrade_only_pairs": 48,
+          "official_only_sample": [
+            [
+              "2026-09-07",
+              "ADVANC"
+            ],
+            [
+              "2026-09-07",
+              "AOT"
+            ],
+            [
+              "2026-09-07",
+              "AWC"
+            ],
+            [
+              "2026-09-07",
+              "BANPU"
+            ],
+            [
+              "2026-09-07",
+              "BBL"
+            ],
+            [
+              "2026-09-07",
+              "BCP"
+            ],
+            [
+              "2026-09-07",
+              "BDMS"
+            ],
+            [
+              "2026-09-07",
+              "BEM"
+            ],
+            [
+              "2026-09-07",
+              "BH"
+            ],
+            [
+              "2026-09-07",
+              "BJC"
+            ],
+            [
+              "2026-09-07",
+              "CCET"
+            ],
+            [
+              "2026-09-07",
+              "COM7"
+            ],
+            [
+              "2026-09-07",
+              "CPALL"
+            ],
+            [
+              "2026-09-07",
+              "CPF"
+            ],
+            [
+              "2026-09-07",
+              "CPN"
+            ],
+            [
+              "2026-09-07",
+              "CRC"
+            ],
+            [
+              "2026-09-07",
+              "DELTA"
+            ],
+            [
+              "2026-09-07",
+              "EGCO"
+            ],
+            [
+              "2026-09-07",
+              "GPSC"
+            ],
+            [
+              "2026-09-07",
+              "GULF"
+            ]
+          ],
+          "settrade_only_sample": [
+            [
+              "2026-10-22",
+              "ADVANC"
+            ],
+            [
+              "2026-10-22",
+              "AOT"
+            ],
+            [
+              "2026-10-22",
+              "AWC"
+            ],
+            [
+              "2026-10-22",
+              "BANPU"
+            ],
+            [
+              "2026-10-22",
+              "BBL"
+            ],
+            [
+              "2026-10-22",
+              "BCP"
+            ],
+            [
+              "2026-10-22",
+              "BDMS"
+            ],
+            [
+              "2026-10-22",
+              "BEM"
+            ],
+            [
+              "2026-10-22",
+              "BH"
+            ],
+            [
+              "2026-10-22",
+              "BJC"
+            ],
+            [
+              "2026-10-22",
+              "CCET"
+            ],
+            [
+              "2026-10-22",
+              "COM7"
+            ],
+            [
+              "2026-10-22",
+              "CPALL"
+            ],
+            [
+              "2026-10-22",
+              "CPF"
+            ],
+            [
+              "2026-10-22",
+              "CPN"
+            ],
+            [
+              "2026-10-22",
+              "CRC"
+            ],
+            [
+              "2026-10-22",
+              "DELTA"
+            ],
+            [
+              "2026-10-22",
+              "EGCO"
+            ],
+            [
+              "2026-10-22",
+              "GPSC"
+            ],
+            [
+              "2026-10-22",
+              "GULF"
+            ]
+          ]
+        },
+        "session_coverage_by_date": [
+          {
+            "date": "2026-10-19",
+            "official_first_bangkok": "2026-10-19T09:45:00+07:00",
+            "official_last_bangkok": "2026-10-19T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-10-19T09:58:00+07:00",
+            "settrade_last_bangkok": "2026-10-19T16:00:00+07:00",
+            "official_rows": 1104,
+            "settrade_rows": 831
+          },
+          {
+            "date": "2026-10-20",
+            "official_first_bangkok": "2026-10-20T09:45:00+07:00",
+            "official_last_bangkok": "2026-10-20T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-10-20T09:45:00+07:00",
+            "settrade_last_bangkok": "2026-10-20T16:14:00+07:00",
+            "official_rows": 1104,
+            "settrade_rows": 895
+          },
+          {
+            "date": "2026-10-21",
+            "official_first_bangkok": "2026-10-21T09:45:00+07:00",
+            "official_last_bangkok": "2026-10-21T16:30:00+07:00",
+            "settrade_first_bangkok": "2026-10-21T09:45:00+07:00",
+            "settrade_last_bangkok": "2026-10-21T14:24:00+07:00",
+            "official_rows": 1104,
+            "settrade_rows": 683
+          }
+        ],
+        "coverage": {
+          "official_first_utc": "2026-10-19T02:45:00+00:00",
+          "official_last_utc": "2026-10-21T09:30:00+00:00",
+          "settrade_first_utc": "2026-10-19T02:58:00+00:00",
+          "settrade_last_utc": "2026-10-21T07:24:00+00:00"
+        },
+        "counts": {
+          "settrade_rows": 2409,
+          "official_rows": 3312,
+          "matched_timestamp_rows": 182,
+          "exact_ohlcv_matches": 20,
+          "divergent_rows": 162,
+          "settrade_only_rows": 2227,
+          "tradesim_only_rows": 3130,
+          "duplicate_official_keys": 0,
+          "duplicate_settrade_keys": 0
+        },
+        "exact_match_rate_on_overlap": 0.10989010989010989,
+        "field_mismatch_counts": {
+          "high": 41,
+          "close": 71,
+          "volume": 162,
+          "low": 45
+        },
+        "field_max_absolute_difference": {
+          "high": 1.0,
+          "close": 1.0,
+          "volume": 13432500.0,
+          "low": 1.0
+        },
+        "representative_mismatches": [
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:00:00+00:00",
+            "differences": [
+              "high",
+              "close",
+              "volume"
+            ],
+            "high_official": 333.0,
+            "close_official": 333.0,
+            "volume_official": 689400,
+            "high_settrade": 332.0,
+            "close_settrade": 332.0,
+            "volume_settrade": 400
+          },
+          {
+            "symbol": "ADVANC",
+            "timestamp_utc": "2026-10-21T04:45:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 210400,
+            "volume_settrade": 3900
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:00:00+00:00",
+            "differences": [
+              "low",
+              "close",
+              "volume"
+            ],
+            "low_official": 57.0,
+            "close_official": 57.25,
+            "volume_official": 4848600,
+            "low_settrade": 57.75,
+            "close_settrade": 57.75,
+            "volume_settrade": 2077300
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:15:00+00:00",
+            "differences": [
+              "high",
+              "close",
+              "volume"
+            ],
+            "high_official": 57.5,
+            "close_official": 57.5,
+            "volume_official": 2073200,
+            "high_settrade": 57.25,
+            "close_settrade": 57.25,
+            "volume_settrade": 36100
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:30:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 1890000,
+            "volume_settrade": 791000
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T03:45:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 1793500,
+            "volume_settrade": 823100
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T04:00:00+00:00",
+            "differences": [
+              "low",
+              "volume"
+            ],
+            "low_official": 57.25,
+            "volume_official": 65400,
+            "low_settrade": 57.5,
+            "volume_settrade": 1600
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T04:15:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 220600,
+            "volume_settrade": 4300
+          },
+          {
+            "symbol": "AOT",
+            "timestamp_utc": "2026-10-21T04:30:00+00:00",
+            "differences": [
+              "close",
+              "volume"
+            ],
+            "close_official": 57.5,
+            "volume_official": 1626900,
+            "close_settrade": 57.75,
+            "volume_settrade": 763500
+          },
+          {
+            "symbol": "AWC",
+            "timestamp_utc": "2026-10-19T03:15:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 2803400,
+            "volume_settrade": 2479500
+          },
+          {
+            "symbol": "AWC",
+            "timestamp_utc": "2026-10-19T03:30:00+00:00",
+            "differences": [
+              "volume"
+            ],
+            "volume_official": 3310200,
+            "volume_settrade": 7900
+          },
+          {
+            "symbol": "AWC",
+            "timestamp_utc": "2026-10-19T04:30:00+00:00",
+            "differences": [
+              "low",
+              "volume"
+            ],
+            "low_official": 3.06,
+            "volume_official": 1966900,
+            "low_settrade": 3.08,
+            "volume_settrade": 159800
+          }
+        ],
+        "gap_classification": {
+          "tradesim_only_rows": "SETTRADE_ONLY_GAP",
+          "settrade_only_rows": "TRADESIM_ONLY_GAP",
+          "matched_timestamp_value_differences": "SOURCE_SEMANTIC_DIFFERENCE",
+          "source_only_symbol_day_pairs": "UNKNOWN; coverage differs but no expected per-symbol session grid is asserted",
+          "both_sources_gap": "UNKNOWN; no complete exchange-calendar expectation applied"
+        },
+        "likely_explanations": [
+          "Official TradeSim documentation says historical prices are adjusted for capital actions; Settrade production adjustment_status is UNKNOWN.",
+          "Official history timestamps are naive Asia/Bangkok exchange times; Settrade persisted timestamps are UTC and were converted to UTC for the join.",
+          "Settrade 5m/15m files are locally derived from observed 1m source rows and mark incomplete buckets; official history bars may use different aggregation/session rules.",
+          "No-trade bars, auctions, corrections, and volume semantics are not assumed equivalent; mismatches are retained as source-specific evidence."
+        ]
+      }
+    }
+  },
+  "daily_settrade_comparison": {
+    "status": "SETTRADE_DAILY_CANDLE_DATASET_NOT_PRESENT",
+    "note": "Persisted Settrade production normalized candle data covers 1m, 5m, and 15m only; no daily Settrade dataset exists in the inspected production tree."
+  },
+  "source_policy": {
+    "competition_simulator_validation": "TRADESIM_OFFICIAL_HISTORY and TRADESIM_OFFICIAL_TICKS",
+    "official_competition_replay": "TRADESIM_OFFICIAL_TICKS plus the official TradeSim 0.2.6 runtime",
+    "matching_validation": "Official ticks and official simulator; never infer fills from Settrade candles",
+    "live_current_monitoring": "SETTRADE_PRODUCTION",
+    "long_horizon_research": "Existing survivorship-aware research inputs; official history may supplement only with explicit source/adjustment labels",
+    "cross_source_fill_policy": "No source is used to fill another source's missing rows."
+  }
+}

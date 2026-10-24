@@ -1,0 +1,766 @@
+{
+  "started_at_utc": "2026-10-16T13:22:38.077111+00:00",
+  "source": "Yahoo Finance via yfinance (same existing daily source)",
+  "universe_expected": 50,
+  "verified_symbols_requested": 50,
+  "unresolved_current_symbols": [],
+  "symbols": {
+    "ADVANC": {
+      "symbol": "ADVANC",
+      "ticker": "ADVANC.BK",
+      "path": "data/raw/market_data/ADVANC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 1.00 (0.44%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "AOT": {
+      "symbol": "AOT",
+      "ticker": "AOT.BK",
+      "path": "data/raw/market_data/AOT_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.25 (0.36%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "AWC": {
+      "symbol": "AWC",
+      "ticker": "AWC.BK",
+      "path": "data/raw/market_data/AWC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.02 (0.49%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "BANPU": {
+      "symbol": "BANPU",
+      "ticker": "BANPU.BK",
+      "path": "data/raw/market_data/BANPU_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 880,
+      "rows_after": 882,
+      "rows_appended": 2,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "missing values in Open",
+        "missing values in High",
+        "missing values in Low",
+        "missing values in Close",
+        "High below Open/Close by 0.10 (0.69%)",
+        "large calendar date gap (>10 days): 2026-08-11 -> 2026-09-11 (30 calendar days)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "BBL": {
+      "symbol": "BBL",
+      "ticker": "BBL.BK",
+      "path": "data/raw/market_data/BBL_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.50 (0.31%)",
+        "Low above Open/Close by 0.50 (0.32%)"
+      ],
+      "overlap_conflicts": 1
+    },
+    "BCP": {
+      "symbol": "BCP",
+      "ticker": "BCP.BK",
+      "path": "data/raw/market_data/BCP_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.50 (1.56%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "BDMS": {
+      "symbol": "BDMS",
+      "ticker": "BDMS.BK",
+      "path": "data/raw/market_data/BDMS_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "BEM": {
+      "symbol": "BEM",
+      "ticker": "BEM.BK",
+      "path": "data/raw/market_data/BEM_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.05 (0.56%)",
+        "Low above Open/Close by 0.05 (0.58%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "BH": {
+      "symbol": "BH",
+      "ticker": "BH.BK",
+      "path": "data/raw/market_data/BH_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 2.00 (0.77%)",
+        "Low above Open/Close by 1.00 (0.37%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "BJC": {
+      "symbol": "BJC",
+      "ticker": "BJC.BK",
+      "path": "data/raw/market_data/BJC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.72%)",
+        "Low above Open/Close by 0.25 (0.68%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "CCET": {
+      "symbol": "CCET",
+      "ticker": "CCET.BK",
+      "path": "data/raw/market_data/CCET_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.04 (2.16%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "COM7": {
+      "symbol": "COM7",
+      "ticker": "COM7.BK",
+      "path": "data/raw/market_data/COM7_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "CPALL": {
+      "symbol": "CPALL",
+      "ticker": "CPALL.BK",
+      "path": "data/raw/market_data/CPALL_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.39%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "CPF": {
+      "symbol": "CPF",
+      "ticker": "CPF.BK",
+      "path": "data/raw/market_data/CPF_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.10 (0.49%)",
+        "Low above Open/Close by 0.10 (0.51%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "CPN": {
+      "symbol": "CPN",
+      "ticker": "CPN.BK",
+      "path": "data/raw/market_data/CPN_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.37%)",
+        "Low above Open/Close by 0.25 (0.38%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "CRC": {
+      "symbol": "CRC",
+      "ticker": "CRC.BK",
+      "path": "data/raw/market_data/CRC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.25 (0.66%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "DELTA": {
+      "symbol": "DELTA",
+      "ticker": "DELTA.BK",
+      "path": "data/raw/market_data/DELTA_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 2.25 (2.27%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "EGCO": {
+      "symbol": "EGCO",
+      "ticker": "EGCO.BK",
+      "path": "data/raw/market_data/EGCO_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 2.50 (1.73%)",
+        "Low above Open/Close by 0.50 (0.42%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "GPSC": {
+      "symbol": "GPSC",
+      "ticker": "GPSC.BK",
+      "path": "data/raw/market_data/GPSC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.38%)",
+        "Low above Open/Close by 0.25 (0.54%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "GULF": {
+      "symbol": "GULF",
+      "ticker": "GULF.BK",
+      "path": "data/raw/market_data/GULF_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 348,
+      "rows_after": 376,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "HMPRO": {
+      "symbol": "HMPRO",
+      "ticker": "HMPRO.BK",
+      "path": "data/raw/market_data/HMPRO_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "IVL": {
+      "symbol": "IVL",
+      "ticker": "IVL.BK",
+      "path": "data/raw/market_data/IVL_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "KBANK": {
+      "symbol": "KBANK",
+      "ticker": "KBANK.BK",
+      "path": "data/raw/market_data/KBANK_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.50 (0.39%)",
+        "Low above Open/Close by 0.50 (0.39%)"
+      ],
+      "overlap_conflicts": 1
+    },
+    "KKP": {
+      "symbol": "KKP",
+      "ticker": "KKP.BK",
+      "path": "data/raw/market_data/KKP_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 1
+    },
+    "KTB": {
+      "symbol": "KTB",
+      "ticker": "KTB.BK",
+      "path": "data/raw/market_data/KTB_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 1
+    },
+    "KTC": {
+      "symbol": "KTC",
+      "ticker": "KTC.BK",
+      "path": "data/raw/market_data/KTC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.75 (1.47%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "LH": {
+      "symbol": "LH",
+      "ticker": "LH.BK",
+      "path": "data/raw/market_data/LH_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 1
+    },
+    "MINT": {
+      "symbol": "MINT",
+      "ticker": "MINT.BK",
+      "path": "data/raw/market_data/MINT_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.72%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "MRDIYT": {
+      "symbol": "MRDIYT",
+      "ticker": "MRDIYT.BK",
+      "path": "data/raw/market_data/MRDIYT_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 208,
+      "rows_after": 236,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "MTC": {
+      "symbol": "MTC",
+      "ticker": "MTC.BK",
+      "path": "data/raw/market_data/MTC_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "OR": {
+      "symbol": "OR",
+      "ticker": "OR.BK",
+      "path": "data/raw/market_data/OR_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.10 (0.44%)",
+        "Low above Open/Close by 0.10 (0.45%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "OSP": {
+      "symbol": "OSP",
+      "ticker": "OSP.BK",
+      "path": "data/raw/market_data/OSP_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "PTT": {
+      "symbol": "PTT",
+      "ticker": "PTT.BK",
+      "path": "data/raw/market_data/PTT_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.79%)",
+        "Low above Open/Close by 0.25 (0.79%)"
+      ],
+      "overlap_conflicts": 1
+    },
+    "PTTEP": {
+      "symbol": "PTTEP",
+      "ticker": "PTTEP.BK",
+      "path": "data/raw/market_data/PTTEP_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.50 (0.34%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "PTTGC": {
+      "symbol": "PTTGC",
+      "ticker": "PTTGC.BK",
+      "path": "data/raw/market_data/PTTGC_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "RATCH": {
+      "symbol": "RATCH",
+      "ticker": "RATCH.BK",
+      "path": "data/raw/market_data/RATCH_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "SCB": {
+      "symbol": "SCB",
+      "ticker": "SCB.BK",
+      "path": "data/raw/market_data/SCB_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.50 (0.50%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "SCC": {
+      "symbol": "SCC",
+      "ticker": "SCC.BK",
+      "path": "data/raw/market_data/SCC_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 2.00 (0.59%)",
+        "Low above Open/Close by 1.00 (0.31%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "SCGP": {
+      "symbol": "SCGP",
+      "ticker": "SCGP.BK",
+      "path": "data/raw/market_data/SCGP_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "TCAP": {
+      "symbol": "TCAP",
+      "ticker": "TCAP.BK",
+      "path": "data/raw/market_data/TCAP_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.50 (1.00%)"
+      ],
+      "overlap_conflicts": 1
+    },
+    "TFG": {
+      "symbol": "TFG",
+      "ticker": "TFG.BK",
+      "path": "data/raw/market_data/TFG_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.02 (0.50%)",
+        "Low above Open/Close by 0.06 (1.57%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "THAI": {
+      "symbol": "THAI",
+      "ticker": "THAI.BK",
+      "path": "data/raw/market_data/THAI_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "TIDLOR": {
+      "symbol": "TIDLOR",
+      "ticker": "TIDLOR.BK",
+      "path": "data/raw/market_data/TIDLOR_BK.csv",
+      "status": "SUCCESS",
+      "rows_before": 323,
+      "rows_after": 351,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 0
+    },
+    "TISCO": {
+      "symbol": "TISCO",
+      "ticker": "TISCO.BK",
+      "path": "data/raw/market_data/TISCO_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.25 (0.26%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "TLI": {
+      "symbol": "TLI",
+      "ticker": "TLI.BK",
+      "path": "data/raw/market_data/TLI_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.10 (0.77%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "TOP": {
+      "symbol": "TOP",
+      "ticker": "TOP.BK",
+      "path": "data/raw/market_data/TOP_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [],
+      "overlap_conflicts": 1
+    },
+    "TRUE": {
+      "symbol": "TRUE",
+      "ticker": "TRUE.BK",
+      "path": "data/raw/market_data/TRUE_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.05 (0.70%)",
+        "Low above Open/Close by 0.05 (0.76%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "TTB": {
+      "symbol": "TTB",
+      "ticker": "TTB.BK",
+      "path": "data/raw/market_data/TTB_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.01 (0.58%)",
+        "Low above Open/Close by 0.01 (0.58%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "TU": {
+      "symbol": "TU",
+      "ticker": "TU.BK",
+      "path": "data/raw/market_data/TU_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "Low above Open/Close by 0.10 (0.68%)"
+      ],
+      "overlap_conflicts": 0
+    },
+    "WHA": {
+      "symbol": "WHA",
+      "ticker": "WHA.BK",
+      "path": "data/raw/market_data/WHA_BK.csv",
+      "status": "PARTIAL",
+      "rows_before": 898,
+      "rows_after": 926,
+      "rows_appended": 28,
+      "latest_date": "2026-10-15",
+      "validation_issues": [
+        "High below Open/Close by 0.05 (0.98%)"
+      ],
+      "overlap_conflicts": 0
+    }
+  },
+  "appended_rows": 1374,
+  "overlap_conflicts": [
+    {
+      "symbol": "BBL",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "KBANK",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "KKP",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "KTB",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "LH",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "PTT",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "TCAP",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    },
+    {
+      "symbol": "TOP",
+      "date": "2026-09-04",
+      "differing_fields": [
+        "Adj Close"
+      ],
+      "resolution": "PRESERVED_EXISTING; incoming overlap not written"
+    }
+  ],
+  "synthetic_rows": 0,
+  "orders_placed": 0,
+  "completed_at_utc": "2026-10-16T13:23:43.006449+00:00",
+  "status": "PARTIAL"
+}

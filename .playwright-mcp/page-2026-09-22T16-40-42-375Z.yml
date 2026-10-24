@@ -1,0 +1,137 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - paragraph [ref=e17]: Workspace
+      - radiogroup "Workspace" [ref=e18]:
+        - generic [ref=e19] [cursor=pointer]:
+          - radio "Dashboard" [ref=e21]
+          - paragraph [ref=e27]: Dashboard
+        - generic [ref=e28] [cursor=pointer]:
+          - radio "Historical SET50 Universe" [ref=e30]
+          - paragraph [ref=e36]: Historical SET50 Universe
+        - generic [ref=e37] [cursor=pointer]:
+          - radio "Market Data Explorer" [checked] [ref=e39]
+          - paragraph [ref=e45]: Market Data Explorer
+        - generic [ref=e46] [cursor=pointer]:
+          - radio "Settrade Data Explorer" [ref=e48]
+          - paragraph [ref=e54]: Settrade Data Explorer
+        - generic [ref=e55] [cursor=pointer]:
+          - radio "Data Quality" [ref=e57]
+          - paragraph [ref=e63]: Data Quality
+        - generic [ref=e64] [cursor=pointer]:
+          - radio "Research Results" [ref=e66]
+          - paragraph [ref=e72]: Research Results
+    - paragraph [ref=e77]: Source data is read-only
+    - paragraph [ref=e82]: "Acquisition: 2026-09-08T17:26:21.073955+00:00"
+  - generic [ref=e3]:
+    - banner
+    - generic [ref=e85]:
+      - heading "Market Data Explorer" [level=2] [ref=e920]:
+        - text: Market Data Explorer
+        - generic [ref=e534]:
+          - link "Link to heading":
+            - /url: "#market-data-explorer"
+      - generic [ref=e922]:
+        - paragraph [ref=e926]: Symbol
+        - group [ref=e928]:
+          - combobox "Symbol" [ref=e929]: ADVANC
+          - button "Open" [ref=e930] [cursor=pointer]
+      - generic [ref=e935]:
+        - paragraph [ref=e939]: Date range
+        - generic [ref=e941]:
+          - generic [ref=e943]:
+            - group "Date range start date" [ref=e945]:
+              - spinbutton "year, Date range start date" [ref=e946]: "2023"
+              - generic [aria-hidden] [ref=e947]: /
+              - spinbutton "month, Date range start date" [ref=e948]: "01"
+              - generic [aria-hidden] [ref=e949]: /
+              - spinbutton "day, Date range start date" [ref=e950]: "03"
+            - textbox [ref=e952]: 2023-01-03
+          - generic [aria-hidden] [ref=e953]: –
+          - generic [ref=e955]:
+            - group "Date range end date" [ref=e957]:
+              - spinbutton "year, Date range end date" [ref=e958]: "2026"
+              - generic [aria-hidden] [ref=e959]: /
+              - spinbutton "month, Date range end date" [ref=e960]: "09"
+              - generic [aria-hidden] [ref=e961]: /
+              - spinbutton "day, Date range end date" [ref=e962]: "04"
+            - textbox [ref=e964]: 2026-09-04
+      - generic [ref=e966]:
+        - generic [ref=e971]:
+          - paragraph [ref=e975]: Rows
+          - paragraph [ref=e978]: "898"
+        - generic [ref=e983]:
+          - paragraph [ref=e987]: Missing values
+          - paragraph [ref=e990]: "0"
+        - generic [ref=e995]:
+          - paragraph [ref=e999]: Duplicate dates
+          - paragraph [ref=e1002]: "0"
+        - generic [ref=e1007]:
+          - paragraph [ref=e1011]: OHLC warnings
+          - paragraph [ref=e1014]: "1"
+      - generic [ref=e1020]:
+        - img:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Jul 2023
+                - generic: Jan 2024
+                - generic: Jul 2024
+                - generic: Jan 2025
+                - generic: Jul 2025
+                - generic: Jan 2026
+                - generic: Jul 2026
+              - generic:
+                - generic: "200"
+                - generic: "250"
+                - generic: "300"
+                - generic: "350"
+                - generic: "400"
+        - toolbar [ref=e1034]:
+          - button "Download plot as a PNG" [ref=e1036] [cursor=pointer]
+          - generic [ref=e1039]:
+            - button "Zoom" [ref=e1040] [cursor=pointer]
+            - button "Pan" [ref=e1043] [cursor=pointer]
+          - generic [ref=e1046]:
+            - button "Zoom in" [ref=e1047] [cursor=pointer]
+            - button "Zoom out" [ref=e1050] [cursor=pointer]
+            - button "Autoscale" [ref=e1053] [cursor=pointer]
+            - button "Reset axes" [ref=e1056] [cursor=pointer]
+          - button "Fullscreen" [ref=e1060] [cursor=pointer]
+      - generic [ref=e1068]:
+        - img:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Jul 2023
+                - generic: Jan 2024
+                - generic: Jul 2024
+                - generic: Jan 2025
+                - generic: Jul 2025
+                - generic: Jan 2026
+                - generic: Jul 2026
+              - generic:
+                - generic: "0"
+                - generic: 10M
+                - generic: 20M
+        - toolbar [ref=e1082]:
+          - button "Download plot as a PNG" [ref=e1084] [cursor=pointer]
+          - generic [ref=e1087]:
+            - button "Zoom" [ref=e1088] [cursor=pointer]
+            - button "Pan" [ref=e1091] [cursor=pointer]
+          - generic [ref=e1094]:
+            - button "Zoom in" [ref=e1095] [cursor=pointer]
+            - button "Zoom out" [ref=e1098] [cursor=pointer]
+            - button "Autoscale" [ref=e1101] [cursor=pointer]
+            - button "Reset axes" [ref=e1104] [cursor=pointer]
+          - button "Fullscreen" [ref=e1108] [cursor=pointer]
+      - generic [ref=e1114]:
+        - button "Show/hide columns" [ref=e1118] [cursor=pointer]
+        - button "Download as CSV" [ref=e1124] [cursor=pointer]
+        - button "Search" [ref=e1130] [cursor=pointer]
+        - button "Fullscreen" [ref=e1136] [cursor=pointer]
+      - group [ref=e1150]:
+        - generic "keyboard_arrow_right Data quality details" [ref=e1151] [cursor=pointer]:
+          - generic [ref=e1152]:
+            - generic [ref=e1153]: keyboard_arrow_right
+            - paragraph [ref=e1157]: Data quality details

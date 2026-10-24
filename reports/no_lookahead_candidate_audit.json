@@ -1,0 +1,43 @@
+{
+  "run_id": "20261023T154742Z_candidate_discovery",
+  "status": "PASS_WITH_LIMITATIONS",
+  "checks": {
+    "future_bars_in_selector": "PASS: candidate selector truncates every symbol frame at as_of before reading",
+    "centered_rolling_windows": "PASS: no centered rolling features",
+    "breakout_reference": "PASS: close is compared with prior 20 observed highs, excluding current row",
+    "mean_reversion_reference": "PASS: current and prior five-observation adjusted closes only",
+    "signal_execution_order": "PASS: signal timestamp is strictly before next observed execution session in existing engine",
+    "same_bar_fill": "PASS: requested price is checked against the next observed execution bar; same signal bar is not used",
+    "future_constituents": "PASS_WITH_LIMITATIONS: point-in-time gate is enforced; available constituent and approval evidence is incomplete before 2023",
+    "future_normalized_rank": "PASS: no full-sample normalization; ranking uses current-date rows only",
+    "data_coverage": "LIMITATION: approved partial daily universe; no missing prices or BBO were synthesized"
+  },
+  "survivorship_audit": {
+    "policy": "PIT eligibility gate plus approved market data loader",
+    "status": "PARTIAL_COVERAGE",
+    "historical_pre_2023_membership": "INSUFFICIENT_DATA",
+    "current_members_retroactively_applied": false
+  },
+  "regime_audit": "NOT_RUN_AFTER_STAGE_1_REJECTION; historical BBO and reliable complete breadth/dispersion series unavailable",
+  "source_data_modified": false,
+  "round2": {
+    "run_id": "20261024T071608Z_round2_signal",
+    "status": "PASS",
+    "checks": {
+      "point_in_time_eligibility": "PASS: approved loader/gate is used for stock rows",
+      "feature_windows": "PASS: adjusted returns, SMA, and efficiency use trailing observations only",
+      "benchmark_regime": "PASS: SMA/return/volatility use trailing observations; expanding thresholds are shifted one row",
+      "cross_sectional_dispersion": "PASS: same-date returns only, with minimum 10 observed symbols",
+      "execution_after_signal": "PASS",
+      "forward_returns_after_execution": "PASS",
+      "same_bar_execution": "PASS: entry uses the next observed session open; no signal-close fill",
+      "future_labels_in_selector": "PASS: forward return fields are appended after signal selection and are not inputs",
+      "no_synthetic_market_data": "PASS: source rows are used as persisted; no BBO or missing bars synthesized"
+    },
+    "events_checked": 137,
+    "limitations": [
+      "The signal and portfolio history has been repeatedly inspected; this is not untouched OOS evidence.",
+      "Approximate confidence intervals do not correct overlapping event dependence."
+    ]
+  }
+}

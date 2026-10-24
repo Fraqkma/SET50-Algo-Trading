@@ -1,0 +1,80 @@
+- generic:
+  - generic [ref=e178]:
+    - log [ref=e179]:
+      - generic [ref=e223]: 1 option available.
+    - log
+  - generic [ref=e2]:
+    - generic [ref=e7]:
+      - button "keyboard_double_arrow_left" [ref=e224] [cursor=pointer]
+      - generic [ref=e11]:
+        - button [ref=e225] [cursor=pointer]:
+          - paragraph [ref=e19]: Refresh data
+        - heading "Research" [level=3] [ref=e226]
+        - group [ref=e28]:
+          - combobox "Workspace" [active] [ref=e29]: Gap Inspector
+          - button "Open" [ref=e227] [cursor=pointer]
+        - paragraph [ref=e38]: Source data is read-only
+    - generic [ref=e3]:
+      - banner [ref=e41]:
+        - generic [ref=e44]:
+          - button "Deploy" [ref=e228] [cursor=pointer]
+          - button "Main menu" [ref=e229] [cursor=pointer]
+      - generic [ref=e54]:
+        - heading "Gap Inspector" [level=1] [ref=e233]:
+          - text: Gap Inspector
+          - generic [ref=e234]:
+            - link "Link to heading":
+              - /url: "#gap-inspector"
+        - paragraph [ref=e239]: Estimated gaps are separate per timeframe; event-driven BBO silence is not proof of missing trades or network failure.
+        - heading "Worst symbols · 1m" [level=3] [ref=e240]:
+          - text: Worst symbols · 1m
+          - generic [ref=e132]:
+            - link "Link to heading":
+              - /url: "#worst-symbols-1m"
+        - generic [ref=e137]:
+          - button "Show/hide columns" [ref=e241] [cursor=pointer]
+          - button "Download as CSV" [ref=e242] [cursor=pointer]
+          - button "Search" [ref=e243] [cursor=pointer]
+          - button "Fullscreen" [ref=e244] [cursor=pointer]
+        - heading "Worst symbols · 5m" [level=3] [ref=e248]:
+          - text: Worst symbols · 5m
+          - generic [ref=e249]:
+            - link "Link to heading":
+              - /url: "#worst-symbols-5m"
+        - generic [ref=e254]:
+          - button "Show/hide columns" [ref=e258] [cursor=pointer]
+          - button "Download as CSV" [ref=e264] [cursor=pointer]
+          - button "Search" [ref=e270] [cursor=pointer]
+          - button "Fullscreen" [ref=e276] [cursor=pointer]
+        - heading "Worst symbols · 15m" [level=3] [ref=e292]:
+          - text: Worst symbols · 15m
+          - generic [ref=e293]:
+            - link "Link to heading":
+              - /url: "#worst-symbols-15m"
+        - button "Fullscreen" [ref=e301] [cursor=pointer]
+        - generic [ref=e315]:
+          - paragraph [ref=e319]: Temporal overlaps across candle timeframes
+          - paragraph [ref=e322]: "6"
+        - paragraph [ref=e327]: 1m, 5m, and 15m gaps are not additive; only explicit temporal overlaps are identified here.
+        - generic [ref=e329]:
+          - generic [ref=e333]:
+            - paragraph [ref=e337]: Dataset
+            - group [ref=e339]:
+              - combobox "Dataset" [ref=e340]: candles_1m
+              - button "Open" [ref=e341] [cursor=pointer]
+          - generic [ref=e348]:
+            - paragraph [ref=e352]: Symbol
+            - group [ref=e354]:
+              - combobox "Symbol" [ref=e355]: All
+              - button "Open" [ref=e356] [cursor=pointer]
+          - generic [ref=e363]:
+            - paragraph [ref=e367]: Evidence class
+            - group [ref=e369]:
+              - combobox "Evidence class" [ref=e370]: All
+              - button "Open" [ref=e371] [cursor=pointer]
+        - generic [ref=e379]:
+          - button "Show/hide columns" [ref=e383] [cursor=pointer]
+          - button "Download as CSV" [ref=e389] [cursor=pointer]
+          - button "Search" [ref=e395] [cursor=pointer]
+          - button "Fullscreen" [ref=e401] [cursor=pointer]
+        - paragraph [ref=e417]: "Generated 2026-10-21T22:20:46.272213+07:00 · Orders placed: 0"

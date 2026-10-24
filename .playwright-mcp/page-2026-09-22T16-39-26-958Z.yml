@@ -1,0 +1,86 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - paragraph [ref=e17]: Workspace
+      - radiogroup "Workspace" [ref=e18]:
+        - generic [ref=e19] [cursor=pointer]:
+          - radio "Dashboard" [ref=e21]
+          - paragraph [ref=e27]: Dashboard
+        - generic [ref=e28] [cursor=pointer]:
+          - radio "Historical SET50 Universe" [ref=e30]
+          - paragraph [ref=e36]: Historical SET50 Universe
+        - generic [ref=e37] [cursor=pointer]:
+          - radio "Market Data Explorer" [ref=e39]
+          - paragraph [ref=e45]: Market Data Explorer
+        - generic [ref=e46] [cursor=pointer]:
+          - radio "Settrade Data Explorer" [checked] [active] [ref=e48]
+          - paragraph [ref=e54]: Settrade Data Explorer
+        - generic [ref=e55] [cursor=pointer]:
+          - radio "Data Quality" [ref=e57]
+          - paragraph [ref=e63]: Data Quality
+        - generic [ref=e64] [cursor=pointer]:
+          - radio "Research Results" [ref=e66]
+          - paragraph [ref=e72]: Research Results
+    - paragraph [ref=e77]: Source data is read-only
+    - paragraph [ref=e82]: "Acquisition: 2026-09-08T17:26:21.073955+00:00"
+  - generic [ref=e3]:
+    - banner
+    - generic [ref=e85]:
+      - heading "Settrade Data Explorer" [level=2] [ref=e801]:
+        - text: Settrade Data Explorer
+        - generic [ref=e534]:
+          - link "Link to heading":
+            - /url: "#settrade-data-explorer"
+      - paragraph [ref=e805]: PILOT / UNAPPROVED — read-only. No credentials, orders, deletion, or promotion actions are available.
+      - generic [ref=e807]:
+        - generic [ref=e811]:
+          - paragraph [ref=e815]: Symbol
+          - group [ref=e817]:
+            - combobox "Symbol" [ref=e818]: ADVANC
+            - button "Open" [ref=e819] [cursor=pointer]
+        - generic [ref=e826]:
+          - paragraph [ref=e830]: Data type
+          - group [ref=e832]:
+            - combobox "Data type" [ref=e833]: Candles
+            - button "Open" [ref=e834] [cursor=pointer]
+        - generic [ref=e841]:
+          - paragraph [ref=e845]: Timeframe
+          - group [ref=e847]:
+            - combobox "Timeframe" [ref=e848]: 1m
+            - button "Open" [ref=e849] [cursor=pointer]
+        - generic [ref=e856]:
+          - paragraph [ref=e860]: Session filter
+          - group [ref=e862]:
+            - combobox "Session filter" [ref=e863]: All timestamps
+            - button "Open" [ref=e864] [cursor=pointer]
+      - generic [ref=e869]:
+        - paragraph [ref=e873]: Date range (Asia/Bangkok)
+        - generic [ref=e875]:
+          - generic [ref=e877]:
+            - group "Date range (Asia/Bangkok) start date" [ref=e879]:
+              - spinbutton "year, Date range (Asia/Bangkok) start date" [ref=e880]: "2026"
+              - generic [aria-hidden] [ref=e881]: /
+              - spinbutton "month, Date range (Asia/Bangkok) start date" [ref=e882]: "09"
+              - generic [aria-hidden] [ref=e883]: /
+              - spinbutton "day, Date range (Asia/Bangkok) start date" [ref=e884]: "22"
+            - textbox [ref=e886]: 2026-09-22
+          - generic [aria-hidden] [ref=e887]: –
+          - generic [ref=e889]:
+            - group "Date range (Asia/Bangkok) end date" [ref=e891]:
+              - spinbutton "year, Date range (Asia/Bangkok) end date" [ref=e892]: "2026"
+              - generic [aria-hidden] [ref=e893]: /
+              - spinbutton "month, Date range (Asia/Bangkok) end date" [ref=e894]: "09"
+              - generic [aria-hidden] [ref=e895]: /
+              - spinbutton "day, Date range (Asia/Bangkok) end date" [ref=e896]: "22"
+            - textbox [ref=e898]: 2026-09-22
+      - status [ref=e900]:
+        - paragraph [ref=e904]: No persisted candle data for this selection.
+      - paragraph [ref=e908]:
+        - strong [ref=e909]: Optimization
+        - text: ": Not implemented"
+      - paragraph [ref=e913]:
+        - strong [ref=e914]: Robustness
+        - text: ": Not implemented"
+      - paragraph [ref=e918]:
+        - strong [ref=e919]: Paper Trading
+        - text: ": Not implemented"

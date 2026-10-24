@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import logging
 import os
 import tempfile
 import time
@@ -11,6 +12,8 @@ from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
+
+LOGGER = logging.getLogger("settrade_storage")
 
 
 class PilotStorage:
@@ -24,19 +27,30 @@ class PilotStorage:
     def append_jsonl(self, relative: str, record: dict[str, Any]) -> Path:
         path = self.root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(record, ensure_ascii=False, default=str, sort_keys=True) + "\n")
+        payload = json.dumps(record, ensure_ascii=False, default=str, sort_keys=True) + "\n"
+        try:
+            with path.open("a", encoding="utf-8") as handle:
+                handle.write(payload)
+                handle.flush()
+        except OSError:
+            LOGGER.exception("market-data JSONL persistence failed path=%s", path)
+            raise
         return path
 
     def append_csv(self, relative: str, rows: Iterable[dict[str, Any]], fieldnames: list[str]) -> Path:
         path = self.root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         exists = path.exists() and path.stat().st_size > 0
-        with path.open("a", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
-            if not exists:
-                writer.writeheader()
-            writer.writerows(rows)
+        try:
+            with path.open("a", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
+                if not exists:
+                    writer.writeheader()
+                writer.writerows(rows)
+                handle.flush()
+        except OSError:
+            LOGGER.exception("market-data CSV persistence failed path=%s", path)
+            raise
         return path
 
     def append_csv_deduplicated(self, relative: str, rows: Iterable[dict[str, Any]], fieldnames: list[str], key_fields: tuple[str, ...]) -> dict[str, int]:

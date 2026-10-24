@@ -1,0 +1,2 @@
+timestamp,symbol,interval,open,high,low,close,volume,turnover,source,source_environment,retrieved_at,timezone,session,adjustment_status
+2026-09-18 08:30:00+00:00,PTT,1m,10,10,10,10,1,0,settrade,unknown,2026-10-16 13:48:46.247162+00:00,UTC,,UNKNOWN

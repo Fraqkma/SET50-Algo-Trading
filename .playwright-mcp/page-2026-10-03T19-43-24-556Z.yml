@@ -1,0 +1,102 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e11]:
+    - button [ref=f2e14] [cursor=pointer]:
+      - paragraph [ref=f2e19]: Refresh data
+    - heading "Research" [level=3] [ref=f2e24]
+    - group [ref=f2e28]:
+      - combobox "Workspace" [ref=f2e29]: Market Overview
+      - button "Open" [ref=f2e30] [cursor=pointer]
+    - paragraph [ref=f2e38]: Source data is read-only
+  - generic [ref=f2e3]:
+    - banner [ref=f2e41]:
+      - generic [ref=f2e44]:
+        - generic [ref=f2e46]:
+          - img "Running..." [ref=f2e47]
+          - button "Stop" [ref=f2e52] [cursor=pointer]
+        - button "Deploy" [ref=f2e54] [cursor=pointer]
+        - button "Main menu" [ref=f2e58] [cursor=pointer]
+    - generic [ref=f2e62]:
+      - heading "Market overview" [level=1] [ref=f2e67]:
+        - generic [ref=f2e69]: monitoring
+        - text: Market overview
+        - generic [ref=f2e71]:
+          - link "Link to heading":
+            - /url: "#market-overview"
+      - paragraph [ref=f2e76]: A read-only visual scan of current SET50 names using historical daily Yahoo OHLCV already stored in this repository.
+      - alert [ref=f2e79]:
+        - generic [ref=f2e81]:
+          - generic [ref=f2e82]: warning
+          - paragraph [ref=f2e86]: Current SET50 display universe only — historical charts show each security’s genuine available history, not historical SET50 membership. Exploratory continuity is not survivorship-safe backtest evidence.
+      - generic [ref=f2e88]:
+        - generic [ref=f2e93]:
+          - paragraph [ref=f2e97]: Display universe
+          - paragraph [ref=f2e100]: 50 / 50
+        - generic [ref=f2e105]:
+          - paragraph [ref=f2e109]: Latest source date
+          - paragraph [ref=f2e112]: 2026-09-04
+        - generic [ref=f2e117]:
+          - paragraph [ref=f2e121]: Stale > 7 days
+          - paragraph [ref=f2e124]: "50"
+        - generic [ref=f2e129]:
+          - paragraph [ref=f2e133]: Insufficient history
+          - paragraph [ref=f2e136]: "1"
+        - generic [ref=f2e141]:
+          - paragraph [ref=f2e145]: Conflicting dates excluded
+          - paragraph [ref=f2e148]: "0"
+        - generic [ref=f2e153]:
+          - paragraph [ref=f2e157]: Invalid source OHLC rows
+          - paragraph [ref=f2e160]: "82"
+      - alert [ref=f2e163]:
+        - paragraph [ref=f2e167]: 82 source rows violate OHLC range checks. Close-based views retain these real source closes; invalid candles are omitted from the candlestick trace and remain listed in detail provenance/quality.
+      - alert [ref=f2e170]:
+        - paragraph [ref=f2e174]: "Stored daily history is stale relative to today: newest source date is 2026-09-04. No live prices or missing bars are synthesized."
+      - generic [ref=f2e176]:
+        - generic [ref=f2e181]:
+          - paragraph [ref=f2e185]: Above SMA20
+          - paragraph [ref=f2e188]: 20 / 49
+        - generic [ref=f2e193]:
+          - paragraph [ref=f2e197]: Above SMA50
+          - paragraph [ref=f2e200]: 26 / 49
+        - generic [ref=f2e205]:
+          - paragraph [ref=f2e209]: Median 20D return
+          - paragraph [ref=f2e212]: "-1.6%"
+        - generic [ref=f2e217]:
+          - paragraph [ref=f2e221]: Median 20D volatility, annualized
+          - paragraph [ref=f2e224]: 25.2%
+      - paragraph [ref=f2e229]: "Latest common breadth observation (≥80% coverage): 2026-09-04 — 28 advancing / 14 declining / 49 observed."
+      - generic [ref=f2e231]:
+        - paragraph [ref=f2e235]: Trend grid
+        - radiogroup "Trend grid" [ref=f2e236]:
+          - radio [checked] [ref=f2e237] [cursor=pointer]:
+            - paragraph [ref=f2e242]: Stocks 1–25
+          - radio [ref=f2e243] [cursor=pointer]:
+            - paragraph [ref=f2e248]: Stocks 26–50
+      - generic [ref=f2e250]:
+        - paragraph [ref=f2e254]: Time range
+        - group [ref=f2e256]:
+          - combobox "Time range" [ref=f2e257]: 6M
+          - button "Open" [ref=f2e258] [cursor=pointer]
+      - generic [ref=f2e263]:
+        - paragraph [ref=f2e267]: Chart mode
+        - radiogroup "Chart mode" [ref=f2e268]:
+          - radio [ref=f2e269] [cursor=pointer]:
+            - paragraph [ref=f2e274]: Raw close
+          - radio [checked] [ref=f2e275] [cursor=pointer]:
+            - paragraph [ref=f2e280]: Normalized performance
+          - radio [ref=f2e281] [cursor=pointer]:
+            - paragraph [ref=f2e286]: Cumulative return
+          - radio [ref=f2e287] [cursor=pointer]:
+            - paragraph [ref=f2e292]: Relative performance
+      - heading "Stocks 1–25 · 25 mini-charts" [level=3] [ref=f2e297]:
+        - text: Stocks 1–25 · 25 mini-charts
+        - generic [ref=f2e298]:
+          - link "Link to heading":
+            - /url: "#stocks-1-25-25-mini-charts"
+      - paragraph [ref=f2e303]: 2026-03-04 to 2026-09-04 · latest daily close date 2026-09-04
+      - paragraph [ref=f2e308]: Each line starts at 100 at its first actual observation in this range.
+      - paragraph [ref=f2e315]: 4 columns × 7 rows; 25 symbols in this group. Values use each security’s actual observed dates; unavailable dates stay missing.
+      - group [ref=f2e318]:
+        - generic "keyboard_arrow_right Source coverage and caveats" [ref=f2e319] [cursor=pointer]:
+          - generic [ref=f2e320]:
+            - generic [ref=f2e321]: keyboard_arrow_right
+            - paragraph [ref=f2e325]: Source coverage and caveats

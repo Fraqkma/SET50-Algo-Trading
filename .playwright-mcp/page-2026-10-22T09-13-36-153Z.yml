@@ -1,0 +1,54 @@
+- generic:
+  - generic [ref=e187]:
+    - log [ref=e188]:
+      - generic [ref=e234]: 18 options available.
+    - log
+  - generic [ref=e2]:
+    - generic [ref=e29]:
+      - button "keyboard_double_arrow_left" [ref=e235] [cursor=pointer]
+      - generic [ref=e33]:
+        - button [ref=e236] [cursor=pointer]:
+          - paragraph [ref=e41]: Refresh data
+        - heading "Research" [level=3] [ref=e237]
+        - group [ref=e50]:
+          - combobox "Workspace" [active] [ref=e51]: TradeSim Results
+          - button "Open" [ref=e238] [cursor=pointer]
+        - paragraph [ref=e60]: Source data is read-only
+    - generic [ref=e3]:
+      - banner [ref=e6]:
+        - generic [ref=e9]:
+          - generic [ref=e240]:
+            - img "Running..." [ref=e241]
+            - button "Stop" [ref=e246] [cursor=pointer]
+          - button "Deploy" [ref=e247] [cursor=pointer]
+          - button "Main menu" [ref=e248] [cursor=pointer]
+      - generic [ref=e63]:
+        - heading "OFFICIAL TRADESIM 0.2.6 · Results" [level=1] [ref=e252]:
+          - text: OFFICIAL TRADESIM 0.2.6 · Results
+          - generic [ref=e253]:
+            - link "Link to heading":
+              - /url: "#official-tradesim-0-2-6-results"
+        - status [ref=e256]:
+          - paragraph [ref=e260]: Local archive and saved simulation evidence only. This page does not open the separate KGI submission repository or run simulations.
+        - generic [ref=e262]:
+          - generic [ref=e267]:
+            - paragraph [ref=e271]: Archive version
+            - paragraph [ref=e274]: 0.2.6
+          - generic [ref=e279]:
+            - paragraph [ref=e283]: Archive integrity
+            - paragraph [ref=e286]: PASS
+          - generic [ref=e291]:
+            - paragraph [ref=e295]: Runtime readiness
+            - paragraph [ref=e298]: BLOCKED
+          - generic [ref=e303]:
+            - paragraph [ref=e307]: Exact Python
+            - paragraph [ref=e310]: MISSING_EXACT_VERSION
+          - generic [ref=e315]:
+            - paragraph [ref=e319]: Adapter
+            - paragraph [ref=e322]: SUPPORTED_WITH_WARNINGS
+        - paragraph [ref=e326]: "Archive SHA-256: 38e928e62190204d4f2edde4aa8ce2d324d08e99ba6caa2ffab30b94a568389a · extracted: D:\\GitHub\\SET50-Algo-Trading\\tools\\kgi_tradesim\\0.2.6"
+        - paragraph [ref=e330]: Current adapter requires Python 3.13.0 exactly. The installed 3.13.16 runtime is not substituted.
+        - generic [ref=e333]:
+          - paragraph [ref=e337]: 0.2.6 version status
+          - paragraph [ref=e340]: SUPPORTED_WITH_WARNINGS
+        - paragraph [ref=e345]: Version review · changed files 501 · added 1 · removed 1 · requirements UNCHANGED

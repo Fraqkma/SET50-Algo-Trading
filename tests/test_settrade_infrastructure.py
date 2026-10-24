@@ -20,7 +20,7 @@ from src.data.settrade.retry import call_with_retries, is_retryable
 from src.data.settrade.schemas import BarRecord
 from src.data.settrade.storage import PilotStorage
 from src.data.settrade.validation import validate_bar_records, validate_quote
-from scripts.run_settrade_collector import candle_window, collect_bid_offer, collect_candles
+from scripts.run_settrade_collector import candle_request_window, candle_window, collect_bid_offer, collect_candles, probe_candle_availability
 
 
 def _bars(count: int = 5) -> list[BarRecord]:
@@ -93,6 +93,19 @@ def test_candle_window_is_current_bangkok_day() -> None:
     assert (start, end) == ("2026-09-21T00:00:00", "2026-09-22T00:00:00")
 
 
+def test_candle_request_window_resumes_after_current_day_checkpoint() -> None:
+    now = datetime.fromisoformat("2026-10-21T08:00:00+00:00")
+    start, end = candle_request_window(now, "2026-10-21T04:36:00+00:00")
+    assert start == "2026-10-21T11:37:00"
+    assert end == "2026-10-22T00:00:00"
+
+
+def test_candle_request_window_starts_new_day_after_prior_day_checkpoint() -> None:
+    now = datetime.fromisoformat("2026-10-21T08:00:00+00:00")
+    start, _ = candle_request_window(now, "2026-10-20T08:00:00+00:00")
+    assert start == "2026-10-21T00:00:00"
+
+
 def test_candle_collection_passes_explicit_current_day_window(tmp_path: Path) -> None:
     calls = []
 
@@ -128,6 +141,39 @@ def test_empty_current_session_response_is_explicit_no_data(tmp_path: Path) -> N
     assert result["symbols"] == 0
     assert result["no_data_symbols"] == ["PTT"]
     assert PilotStorage(tmp_path).read_checkpoint("candles_PTT")["status"] == "NO_DATA"
+
+
+def test_empty_catchup_response_preserves_last_confirmed_checkpoint(tmp_path: Path) -> None:
+    storage = PilotStorage(tmp_path)
+    storage.write_checkpoint("candles_PTT", {"last_candle_timestamp": "2026-10-21T04:36:00+00:00"})
+
+    class EmptyClient:
+        def candlestick(self, symbol, interval, **kwargs):
+            assert kwargs["start"] == "2026-10-21T11:37:00"
+            return {"time": [], "open": [], "high": [], "low": [], "close": [], "volume": [], "value": []}
+
+    now = datetime.fromisoformat("2026-10-21T08:00:00+00:00")
+    collect_candles(EmptyClient(), storage, ["PTT"], 100, now)
+    checkpoint = storage.read_checkpoint("candles_PTT")
+    assert checkpoint["last_candle_timestamp"] == "2026-10-21T04:36:00+00:00"
+
+
+def test_single_symbol_probe_distinguishes_external_no_data_from_current_availability(tmp_path: Path) -> None:
+    class EmptyClient:
+        def candlestick(self, symbol, interval, **kwargs):
+            return {"time": [], "open": [], "high": [], "low": [], "close": [], "volume": [], "value": []}
+
+    empty = probe_candle_availability(EmptyClient(), PilotStorage(tmp_path), "PTT", 100, datetime.fromisoformat("2026-09-23T04:00:00+00:00"))
+    assert empty["status"] == "NO_DATA"
+    assert empty["current_session_rows"] == 0
+
+    class CurrentClient:
+        def candlestick(self, symbol, interval, **kwargs):
+            return {"time": ["1790135340"], "open": [10], "high": [10], "low": [10], "close": [10], "volume": [1], "value": [10]}
+
+    current = probe_candle_availability(CurrentClient(), PilotStorage(tmp_path), "PTT", 100, datetime.fromisoformat("2026-09-23T04:00:00+00:00"))
+    assert current["status"] == "SUCCESS"
+    assert current["current_session_rows"] == 1
 
 
 def test_collector_success_main_path_emits_json_and_returns_zero(monkeypatch, capsys) -> None:

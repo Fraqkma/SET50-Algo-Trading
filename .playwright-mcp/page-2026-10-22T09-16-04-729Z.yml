@@ -1,0 +1,127 @@
+- generic:
+  - generic [ref=f1e178]:
+    - log [ref=f1e179]:
+      - generic [ref=f1e223]: 1 option available.
+      - generic [ref=f1e225]: 18 options available.
+    - log
+  - generic [ref=f1e2]:
+    - generic [ref=f1e7]:
+      - button "keyboard_double_arrow_left" [ref=f1e226] [cursor=pointer]
+      - generic [ref=f1e11]:
+        - button [ref=f1e227] [cursor=pointer]:
+          - paragraph [ref=f1e19]: Refresh data
+        - heading "Research" [level=3] [ref=f1e228]
+        - group [ref=f1e28]:
+          - combobox "Workspace" [active] [ref=f1e29]: TradeSim Results
+          - button "Open" [ref=f1e229] [cursor=pointer]
+        - paragraph [ref=f1e38]: Source data is read-only
+    - generic [ref=f1e3]:
+      - banner [ref=f1e41]:
+        - generic [ref=f1e44]:
+          - button "Deploy" [ref=f1e230] [cursor=pointer]
+          - button "Main menu" [ref=f1e231] [cursor=pointer]
+      - generic [ref=f1e54]:
+        - heading "OFFICIAL TRADESIM 0.2.6 · Results" [level=1] [ref=f1e235]:
+          - text: OFFICIAL TRADESIM 0.2.6 · Results
+          - generic [ref=f1e236]:
+            - link "Link to heading":
+              - /url: "#official-tradesim-0-2-6-results"
+        - status [ref=f1e239]:
+          - paragraph [ref=f1e243]: Local archive and saved simulation evidence only. This page does not open the separate KGI submission repository or run simulations.
+        - generic [ref=f1e245]:
+          - generic [ref=f1e250]:
+            - paragraph [ref=f1e254]: Simulator
+            - paragraph [ref=f1e257]: 0.2.6
+          - generic [ref=f1e262]:
+            - paragraph [ref=f1e266]: ZIP integrity
+            - paragraph [ref=f1e269]: PASS
+          - generic [ref=f1e274]:
+            - paragraph [ref=f1e278]: Runtime
+            - paragraph [ref=f1e281]: BLOCKED
+        - generic [ref=f1e283]:
+          - generic [ref=f1e288]:
+            - paragraph [ref=f1e292]: Python 3.13.0
+            - paragraph [ref=f1e295]: MISSING_EXACT_VERSION
+          - generic [ref=f1e300]:
+            - paragraph [ref=f1e304]: Adapter
+            - paragraph [ref=f1e307]: SUPPORTED_WITH_WARNINGS
+        - paragraph [ref=f1e311]: "Archive SHA-256: 38e928e62190204d4f2edde4aa8ce2d324d08e99ba6caa2ffab30b94a568389a · extracted: D:\\GitHub\\SET50-Algo-Trading\\tools\\kgi_tradesim\\0.2.6"
+        - paragraph [ref=f1e316]: Current adapter requires Python 3.13.0 exactly. The installed 3.13.16 runtime is not substituted.
+        - status [ref=f1e319]:
+          - paragraph [ref=f1e323]: "0.2.6 version status: SUPPORTED_WITH_WARNINGS"
+        - paragraph [ref=f1e328]: Version review · changed files 501 · added 1 · removed 1 · requirements UNCHANGED
+        - generic [ref=f1e333]:
+          - button "Show/hide columns" [ref=f1e337] [cursor=pointer]
+          - button "Download as CSV" [ref=f1e343] [cursor=pointer]
+          - button "Search" [ref=f1e349] [cursor=pointer]
+          - button "Fullscreen" [ref=f1e355] [cursor=pointer]
+        - heading "Retained local runs" [level=3] [ref=f1e371]:
+          - text: Retained local runs
+          - generic [ref=f1e372]:
+            - link "Link to heading":
+              - /url: "#retained-local-runs"
+        - generic [ref=f1e377]:
+          - button "Show/hide columns" [ref=f1e381] [cursor=pointer]
+          - button "Download as CSV" [ref=f1e387] [cursor=pointer]
+          - button "Search" [ref=f1e393] [cursor=pointer]
+          - button "Fullscreen" [ref=f1e399] [cursor=pointer]
+        - generic [ref=f1e412]:
+          - paragraph [ref=f1e416]: Inspect saved run
+          - group [ref=f1e418]:
+            - combobox "Inspect saved run" [ref=f1e419]: 20261008T133430Z_d7fdc923
+            - button "Open" [ref=f1e420] [cursor=pointer]
+        - generic [ref=f1e425]:
+          - generic [ref=f1e430]:
+            - paragraph [ref=f1e434]: Fills
+            - paragraph [ref=f1e437]: "1"
+          - generic [ref=f1e442]:
+            - paragraph [ref=f1e446]: Partial fill orders
+            - paragraph [ref=f1e449]: —
+          - generic [ref=f1e454]:
+            - paragraph [ref=f1e458]: Total fees
+            - paragraph [ref=f1e461]: —
+          - generic [ref=f1e466]:
+            - paragraph [ref=f1e470]: Ending NAV
+            - paragraph [ref=f1e473]: —
+          - generic [ref=f1e478]:
+            - paragraph [ref=f1e482]: Round-trips
+            - paragraph [ref=f1e485]: —
+        - generic [ref=f1e487]:
+          - generic [ref=f1e492]:
+            - paragraph [ref=f1e496]: Cash
+            - paragraph [ref=f1e499]: "9964490.45"
+          - generic [ref=f1e504]:
+            - paragraph [ref=f1e508]: Average exposure
+            - paragraph [ref=f1e511]: —
+          - generic [ref=f1e516]:
+            - paragraph [ref=f1e520]: Win rate
+            - paragraph [ref=f1e523]: —
+          - generic [ref=f1e528]:
+            - paragraph [ref=f1e532]: Expected payoff
+            - paragraph [ref=f1e535]: —
+        - generic [ref=f1e537]:
+          - generic [ref=f1e539]:
+            - heading "Orders and residuals" [level=3] [ref=f1e544]:
+              - text: Orders and residuals
+              - generic [ref=f1e545]:
+                - link "Link to heading":
+                  - /url: "#orders-and-residuals"
+            - button "Fullscreen" [ref=f1e553] [cursor=pointer]
+          - generic [ref=f1e566]:
+            - heading "Fills" [level=3] [ref=f1e571]:
+              - text: Fills
+              - generic [ref=f1e572]:
+                - link "Link to heading":
+                  - /url: "#fills"
+            - button "Fullscreen" [ref=f1e580] [cursor=pointer]
+        - heading "Ending holdings" [level=3] [ref=f1e596]:
+          - text: Ending holdings
+          - generic [ref=f1e597]:
+            - link "Link to heading":
+              - /url: "#ending-holdings"
+        - generic [ref=f1e602]:
+          - button "Show/hide columns" [ref=f1e606] [cursor=pointer]
+          - button "Download as CSV" [ref=f1e612] [cursor=pointer]
+          - button "Search" [ref=f1e618] [cursor=pointer]
+          - button "Fullscreen" [ref=f1e624] [cursor=pointer]
+        - paragraph [ref=f1e640]: "Raw artifact: D:\\GitHub\\SET50-Algo-Trading\\artifacts\\official_tradesim_runs\\20261008T133430Z_d7fdc923\\raw_official"

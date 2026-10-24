@@ -15,6 +15,7 @@ if (-not (Get-Command Register-ScheduledTask -ErrorAction SilentlyContinue)) { t
 Write-Output "TaskName: $TaskName"
 Write-Output "Trigger: Monday-Friday at 09:45 local Windows time"
 Write-Output "Action: $launcher"
+Write-Output "Working directory: $repoRoot"
 Write-Output "Instance policy: IgnoreNew"
 Write-Output "Run identity: $userId (interactive, limited)"
 Write-Output "WakeToRun: enabled where supported"
@@ -24,7 +25,7 @@ if ($DryRun) {
     exit 0
 }
 
-$action = New-ScheduledTaskAction -Execute $env:ComSpec -Argument "/d /c `"$launcher`""
+$action = New-ScheduledTaskAction -Execute $env:ComSpec -Argument "/d /c `"$launcher`"" -WorkingDirectory $repoRoot
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At '09:45'
 $settings = New-ScheduledTaskSettingsSet -MultipleInstances IgnoreNew -StartWhenAvailable -WakeToRun -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Days 1)
 $principal = New-ScheduledTaskPrincipal -UserId $userId -LogonType Interactive -RunLevel Limited

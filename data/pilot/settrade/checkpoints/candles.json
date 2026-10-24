@@ -1,0 +1,29 @@
+{
+  "expected_session_date": "2026-10-14",
+  "last_candle_timestamp": "2026-10-14T09:35:00+00:00",
+  "last_successful_authentication": "2026-10-14T09:56:39.044982+00:00",
+  "no_data_symbols": [
+    "AWC",
+    "CCET",
+    "COM7",
+    "CPALL",
+    "CRC",
+    "DELTA",
+    "EGCO",
+    "KTB",
+    "MRDIYT",
+    "OR",
+    "RATCH",
+    "SCGP",
+    "TCAP",
+    "TFG",
+    "THAI",
+    "TIDLOR",
+    "TLI",
+    "TOP"
+  ],
+  "stale_symbols": [],
+  "status": "NO_DATA",
+  "symbols_attempted": 50,
+  "symbols_completed": 32
+}

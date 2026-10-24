@@ -1,1199 +1,1134 @@
-# SET50 Algo Trading — Tick Data Probe + Historical Visualizer + Collector Hardening
+# TASK — Production Settrade Readiness, API Capability Audit, Data Refresh, and UI Upgrade
 
-You are continuing the existing SET50 algorithmic trading repository.
+Repository root:
 
-This is an autonomous implementation/research task intended to run end-to-end.
+`D:\GitHub\SET50-Algo-Trading`
 
-The human researcher will be away while this task runs.
+This is the primary research workspace.
 
-The objectives are:
+The user will update `.env` manually before or during this task.
 
-1. Fix remaining collector issues discovered from the latest automated run.
-2. Determine whether Settrade Open API exposes true transaction-level trade/ticker data.
-3. If available, implement safe raw trade-tick collection.
-4. Continue collecting 10-level bid/offer updates.
-5. Build a historical visualizer/dashboard for collected Settrade data.
-6. Make the visualizer useful for manual inspection and research.
-7. Keep all new data PILOT/STAGING only.
-8. Do not alter strategy logic or MODEL_V1.
-9. Put all human decisions only at the END.
+Known production routing values:
 
-==================================================
-AUTONOMOUS EXECUTION POLICY
-==================================================
+- `SETTRADE_BROKER_ID=013`
+- `SETTRADE_APP_CODE=ALGO_EQ`
 
-Do not stop for ordinary engineering choices.
+Do **not** ask for, print, log, commit, or echo the user's App ID, App Secret, PIN, account number, tokens, or any other secret.
 
-For reversible implementation choices:
+Do **not** place, change, or cancel any real order.
 
-- inspect repository conventions
-- choose the simplest conservative design
-- document assumptions
-- test
-- continue
+Do **not** access the separate official KGI submission repository.
 
-Only stop early for a true hard blocker such as:
+Do **not** commit or push.
 
-- Settrade authentication failure
-- unavailable runtime credentials
-- undocumented API behavior that creates access/compliance risk
-- risk of placing a real-money order
-- unrecoverable data corruption
-- inability to preserve raw source fidelity
-- critical disk shortage
-- severe correctness issue that invalidates later phases
+Preserve all existing dirty work.
 
-If one phase is blocked:
-- record the blocker
-- continue independent safe phases
-- do not terminate the entire task unnecessarily
+Never run:
 
-Collect all human decisions only in FINAL HUMAN DECISIONS.
+- `git reset --hard`
+- `git clean -fd`
 
-==================================================
-MANDATORY STARTUP
-==================================================
+---
 
-Before modifying anything:
+## 0. Read instructions and inspect current state first
 
-1. Read `AGENTS.md` completely.
-2. Read this `TASK.md` completely.
-3. Inspect:
-   - `git status`
-   - `git diff`
-   - current branch
-   - Settrade collector code
-   - Windows daily automation
-   - readiness/health scripts
-   - current pilot data
-   - existing Streamlit UI
-   - existing reports
-   - existing realtime schemas
-4. Do NOT redo completed infrastructure unnecessarily.
-5. Use:
-   `.venv\Scripts\python.exe`
-6. Confirm Python version.
-7. Confirm `.env` is ignored.
-8. Never print credentials.
-9. Never commit credentials.
-10. Real orders placed must remain exactly 0.
+Read `AGENTS.md` first.
 
-==================================================
-KNOWN CURRENT STATE
-==================================================
+Then read all relevant repository docs and current implementations, including at minimum:
 
-Current project already has:
+- `README.md`
+- existing `TASK.md`
+- Settrade collector docs
+- market research terminal docs
+- competition / TradeSim docs
+- current Streamlit navigation/pages
+- `scripts/run_settrade_daily.py`
+- `scripts/check_settrade_collector_health.py`
+- `scripts/run_settrade_collector.py`
+- Settrade client/config/storage modules under `src/`
+- existing tests around Settrade, health, UI, and data loaders
 
-- official Settrade SDK authentication working
-- current H2 2026 SET50 universe with exactly 50 symbols
-- quote access 50/50
-- daily candles 50/50
-- 1m candles 50/50
-- 5m candles 50/50
-- 15m candles 50/50
-- realtime dispatcher
-- realtime price_info
-- realtime 10-level bid/offer
-- 35/15 BBO rotation
-- Windows Task Scheduler automation
-- daily runner
-- readiness/health checks
-- per-symbol checkpoints
-- duplicate/conflict detection
-- disk guardrails
-- Asia/Bangkok session handling
-- dry-run zero-order execution protection
-- Streamlit UI already exists in repository
+If `SKILL.md` or `skill.md` exists in the repository, read it completely before editing.
 
-Production MODEL_V1 remains:
+Do not assume the current implementation still matches old reports; inspect the actual code and data.
 
-- next-session execution
-- LIMIT / IOC
-- one adverse tick
-- daily bar fill logic
-- fees
-- VAT
-- cash constraints
+---
 
-Do not modify MODEL_V1.
+## 1. Main objective
 
-==================================================
-KNOWN LATEST COLLECTOR ISSUES
-==================================================
+Transition the research workspace from the old Settrade SANDBOX assumptions to a **safe production-readiness workflow** using the user's real KGI Settrade Open API access, while remaining strictly read-only for this task.
 
-From the most recent health report:
+Deliver four outcomes:
 
-1. Candle checkpoints still showed timestamps from 2026-09-18 during the 2026-09-21 automated run.
-2. Global candles checkpoint showed 49 completed symbols instead of 50.
-3. BBO persisted event count remained 0.
-4. Existing bid_offer checkpoint still reflected only the earlier 4-symbol preparation/probe.
-5. Authentication/log activity continued much later than expected after market close.
+1. Production authentication/readiness verification
+2. Production-vs-sandbox API capability audit
+3. Existing persisted market-data audit + safe incremental refresh
+4. Streamlit UI upgrades so the user can visibly inspect connection state, account/read-only information, data freshness, and refreshed market data
 
-These issues MUST be investigated before trusting tomorrow's automated collection.
+No real order placement is allowed.
 
-==================================================
-SETTRADE SAFETY LIMITS
-==================================================
+---
 
-Known official limits supplied by the human:
+## 2. Production configuration detection
 
-General data API:
-5 requests/sec
+The user will manually edit `.env`.
 
-Market Data:
-60 requests/sec
+Expected non-secret routing values:
 
-Order-changing:
-60 requests/minute
+```text
+SETTRADE_BROKER_ID=013
+SETTRADE_APP_CODE=ALGO_EQ
+```
 
-Realtime subscription:
-40 topics
+The App ID / App Secret must remain secret.
 
-Continue using conservative internal limits.
+Inspect how environment variables are currently loaded.
 
-Do not attempt to bypass subscription limits through multiple connections.
+Verify the application is no longer silently forcing:
 
-==================================================
-GLOBAL SAFETY RULES
-==================================================
+- `SANDBOX`
+- sandbox endpoints
+- sandbox account naming conventions
+- sandbox-only defaults
 
-Do NOT:
+Add a safe configuration summary that may display only non-secret values, for example:
 
-- modify approved historical production data
-- modify approved manifest
-- weaken eligibility logic
-- alter A/C/D0 strategy rules
-- alter MODEL_V1
-- promote pilot data automatically
-- fabricate market events
-- synthesize fake trade ticks
-- infer transaction-level trades from price_info unless documentation proves that semantics
-- interpolate missing bars
-- hard-code credentials
-- expose tokens
-- exceed API limits
-- initialize real trading/account paths
-- place orders
-- enable live trading
+- environment mode: PRODUCTION / SANDBOX / UNKNOWN
+- broker id
+- app code
+- SDK version
+- account capability detected: yes/no/unknown
 
-All new Settrade data remains:
+Never display App ID or App Secret.
 
-PILOT / STAGING / UNAPPROVED.
+---
 
-==================================================
-PHASE 1 — FIX LATEST COLLECTOR FAILURES FIRST
-==================================================
+## 3. Fix the known daily health timeout bug
 
-Inspect:
+There is a deterministic operational issue:
 
-- September 21 logs
-- runtime summaries
-- raw pilot files
-- normalized files
+`run_settrade_daily.py` invokes:
+
+`scripts/check_settrade_collector_health.py`
+
+with a 30-second subprocess timeout.
+
+The health command has recently taken approximately 40–45 seconds and therefore causes a false `FAILED` result.
+
+Inspect and measure the current health path.
+
+Make the smallest safe correction.
+
+Preferred order:
+
+1. identify why deep health takes >30 seconds
+2. separate lightweight runtime health from expensive/deep health if this is clean and low risk
+3. otherwise introduce a realistic configurable timeout
+4. preserve genuine non-zero failures and exceptions
+
+Do not simply hide failures.
+
+Add regression tests proving a valid but slow health check no longer causes a false failed daily run.
+
+Do not rewrite the collector.
+
+---
+
+## 4. Production authentication smoke test — READ ONLY
+
+After the `.env` has production values, perform a safe authentication/readiness test.
+
+Allowed:
+
+- initialize official Settrade SDK objects
+- authenticate
+- create MarketData object
+- create RealtimeDataConnection object
+- create Equity/account object if supported and an account number is configured
+- call read-only account / portfolio / order-list / deal-list methods if exposed and safe
+- query market data
+- subscribe briefly to realtime data
+- disconnect cleanly
+
+Forbidden:
+
+- place order
+- change order
+- cancel order
+- any method that can mutate the brokerage account
+
+If an account number is required but not configured, do not guess it.
+
+Report `ACCOUNT_NUMBER_REQUIRED`.
+
+Never print secrets.
+
+---
+
+## 5. API capability audit: production vs old sandbox usage
+
+Determine what this production KGI equity connection actually makes available.
+
+Do not answer from assumptions alone.
+
+Use three evidence layers:
+
+1. current installed `settrade-v2` package and its actual Python objects/methods
+2. current official Settrade Open API documentation
+3. safe read-only production smoke tests
+
+Create a capability matrix with at least:
+
+### Market data
+
+- historical candlestick
+- realtime price info
+- realtime bid/offer
+- any market status / instrument metadata methods actually exposed
+- supported intervals / parameters where discoverable
+- actual returned BBO depth/fields
+- production-vs-sandbox differences observed
+
+### Equity account data
+
+Where supported:
+
+- account information
+- cash balance / line available
+- portfolio
+- holdings
+- orders
+- order status
+- deals / fills / executions
+- realized / unrealized fields
+- fee/commission-related fields
+- subscriptions to order status if available
+
+### Trading methods
+
+Inventory only; do not call them.
+
+Record existence/signatures for:
+
+- place order
+- change order
+- cancel order
+
+The UI may show that trading methods exist, but the task must keep them disabled.
+
+### Important conclusion
+
+Explicitly answer:
+
+> What new capabilities do we gain from using the real KGI production investor connection instead of the old sandbox workflow?
+
+Separate:
+
+- genuinely new production account/private-state capabilities
+- market-data capabilities that already existed in sandbox
+- data-quality / realism differences
+- methods that exist in the SDK but are not enabled for this account
+- anything still unknown
+
+Do not claim a capability unless supported by code/docs/read-only verification.
+
+---
+
+## 6. Official documentation research
+
+Use the official Settrade Open API reference as the primary documentation source:
+
+`https://developer.settrade.com/open-api/api-reference`
+
+Where the site is difficult to crawl, inspect:
+
+- installed SDK objects
+- package source/docstrings
+- official SDK examples
+- authoritative broker documentation only as secondary evidence
+
+Document the sources used.
+
+Do not use old unofficial tutorials as the only authority for production behavior.
+
+---
+
+## 7. Existing data audit before refresh
+
+Before collecting anything new, audit what is already persisted.
+
+At minimum inspect:
+
+### Settrade realtime/pilot data
+
+- raw BBO
+- normalized BBO
+- 1m candles
+- 5m candles
+- 15m candles
 - checkpoints
-- Windows daily-runner logs
+- runtime reports
+- logs
 
-Determine exact root causes of:
+### Historical/research data
 
-A. stale 1m checkpoint timestamps
-B. only 49 completed symbols
-C. zero persisted BBO events
-D. late-night runner/API activity
+- `data/raw/market_data`
+- current daily OHLCV
+- exploratory market view inputs/outputs
+- current SET50 coverage
+- latest genuine date per symbol
+- known invalid OHLC rows
+- conflicts / duplicates
 
-Specifically inspect whether:
+For each dataset report:
 
-- current-session request windows are stale/fixed
-- UTC vs Asia/Bangkok conversion is wrong
-- `combined --once` subscribes then exits too quickly for realtime events
-- realtime callbacks are not wired to persistent storage
-- one symbol fails due to response/checkpoint edge case
-- session-close logic compares UTC to local time incorrectly
-- daily runner keeps cycling after market close
+- path
+- row count
+- symbol count
+- earliest timestamp/date
+- latest timestamp/date
+- latest-day coverage
+- obvious gaps
+- malformed/conflicting rows
+- provenance/source
 
-Fix the smallest root causes.
+Do not silently merge incompatible sources.
 
-Add regression tests reproducing the failures.
+---
 
-==================================================
-PHASE 2 — VERIFY CURRENT-SESSION CANDLE COLLECTION
-==================================================
+## 7A. Historical day-by-day coverage audit before any backfill
 
-After fixes:
+Do not inspect only the latest day. Audit prior trading days across the available Settrade collection history.
 
-ensure the collector requests the ACTUAL current trading session.
+Build a day-by-day coverage report for every persisted Settrade dataset, especially:
 
-Requirements:
+- raw BBO
+- normalized BBO
+- 1m candles
+- 5m candles
+- 15m candles
 
-- all 50 symbols attempted
-- current-session 1m bars can advance checkpoints
-- stale historical response must not be mistaken for current-session success
-- rows from previous days must remain preserved
-- per-symbol checkpoint must reflect latest real retained timestamp
-- global checkpoint must accurately report completeness
+For each trading date, calculate where applicable:
 
-Add explicit stale-data detection.
+- expected universe size
+- observed symbol count
+- first timestamp
+- last timestamp
+- row/event count
+- approximate session coverage
+- symbols with zero observations
+- symbols with partial observations
+- obvious intraday gaps
+- collector/log evidence for that date
+- whether host/runtime evidence exists
+- whether the day is SANDBOX, PRODUCTION, MIXED, or UNKNOWN provenance
 
-If a request succeeds but latest returned timestamp is older than expected:
-classify as STALE_RESPONSE rather than success.
+Use the exchange calendar / actual trading-day evidence already available in the project. Do not treat weekends or holidays as missing collection days.
 
-==================================================
-PHASE 3 — FIX REALTIME BBO PERSISTENCE
-==================================================
+Produce a report that makes historical gaps easy to inspect rather than only reporting a single latest timestamp.
 
-The system currently observes BBO fields but has persisted 0 rotating events.
+Classify each date with reason codes such as:
 
-Inspect the full path:
+- COMPLETE_OR_EXPECTED
+- PARTIAL_SESSION
+- NO_RUNTIME_EVIDENCE
+- COLLECTOR_FAILED
+- AUTH_FAILED
+- UPSTREAM_NO_DATA
+- HOST_LIKELY_OFFLINE
+- DATA_WRITE_FAILURE
+- UNKNOWN_CAUSE
 
-subscription
-→ callback
-→ normalization
-→ raw persistence
-→ normalized persistence
-→ checkpoint/update
-→ rotation
+Only use a cause when supported by logs/runtime evidence. Otherwise use UNKNOWN.
 
-Ensure genuine realtime events received from Settrade are persisted.
+## 7B. Missing-data inventory
 
-Do not create synthetic events.
+Create an explicit inventory of data that should have been collected but is absent.
 
-Each raw BBO event should preserve:
+At minimum identify:
 
-- original payload
-- retrieval timestamp
-- symbol
-- collector session ID
-- rotation group
-- generation
-- subscription start timestamp
+- missing trading dates
+- missing symbols by date
+- missing intraday intervals by symbol/date
+- days where BBO exists but candles do not
+- days where candles exist but BBO does not
+- partial starts / early stops
+- collector sessions that started but produced no usable data
+- gaps caused by authentication/readiness failures
+- gaps where no collector runtime evidence exists
 
-Each normalized BBO event should preserve 10 levels.
+Do not infer that all absent data can be recovered.
 
-==================================================
-PHASE 4 — REALTIME DWELL TIME
-==================================================
+Separate missing data into:
 
-Determine whether current `--once` behavior exits too quickly to receive events.
+- RECOVERABLE_FROM_API
+- RECOVERABLE_FROM_EXISTING_OTHER_SOURCE
+- NOT_RECOVERABLE_WITH_CURRENT_API
+- UNKNOWN
 
-If yes:
+Save a machine-readable gap report under the project's report convention and expose a concise version in Streamlit.
 
-implement a bounded realtime dwell interval.
+## 8. Re-check previous stale-data findings
 
-Example configurable defaults:
+The last readiness audit observed approximately:
 
-- 30 seconds for smoke test
-- 5 minutes for regular rotation group
+- BBO newer than candles
+- candles older than BBO
+- daily OHLCV stale relative to Settrade data
+- exploratory market view stale
 
-Do not hard-code unnecessarily.
+Recalculate all of this from current files.
 
-The daily runner should keep the realtime connection alive long enough to receive real events.
+Do not blindly reuse old numbers.
 
-==================================================
-PHASE 5 — CONFIRM AUTO SHUTDOWN
-==================================================
+Classify freshness as:
 
-Fix any timezone/session bug causing post-close execution.
+- LIVE
+- FRESH
+- STALE
+- PARTIAL
+- OFFLINE
+- UNKNOWN
 
-Internal exchange-local decision time must be:
+Use Asia/Bangkok timestamps.
 
-Asia/Bangkok.
+---
 
-Ensure:
+## 9. Safe production market-data smoke collection
 
-- market-close detection works
-- fallback cutoff works
-- no normal API polling continues hours after market close
-- daily runner exits gracefully
-- summary records shutdown reason
+After successful production authentication, perform a small bounded test.
 
-Add deterministic tests around:
-
-16:30
-16:40
-17:00
-17:05
-23:00
-
-Thailand time.
-
-==================================================
-PHASE 6 — PROBE FOR TRUE TRADE/TICK STREAM
-==================================================
-
-This is a key research task.
-
-Inspect:
-
-1. installed `settrade-v2==2.2.1`
-2. official SDK surface
-3. official Settrade Open API documentation available locally / publicly accessible from the environment
-4. realtime dispatcher methods
-
-Look specifically for:
-
-- trade tick
-- transaction stream
-- ticker
-- last trade event
-- time-and-sales
-- trade-by-trade data
-- deal event
-- execution prints
-- intraday transaction feed
-
-Do NOT assume `price_info` is transaction-level.
-
-Record exact methods and semantics.
-
-Classify result as:
-
-TRUE_TRADE_STREAM_AVAILABLE
-PRICE_UPDATE_ONLY
-NO_TRADE_STREAM_EXPOSED
-INSUFFICIENT_EVIDENCE
-
-==================================================
-PHASE 7 — SAFE EMPIRICAL TRADE-STREAM PROBE
-==================================================
-
-If a documented trade/ticker stream exists:
-
-subscribe to a SMALL test set:
-
-PTT
-ADVANC
-
-or equivalent liquid symbols.
-
-Capture a bounded sample.
-
-Determine actual payload fields:
-
-- symbol
-- timestamp
-- price
-- volume/quantity
-- side/aggressor if present
-- sequence
-- cumulative vs per-trade volume
-- market state
-- trade condition flags
-
-Do not infer unavailable fields.
-
-If market is closed:
-do not fabricate evidence.
-Implement/test subscription plumbing and continue.
-
-==================================================
-PHASE 8 — IMPLEMENT RAW TRADE-TICK COLLECTION IF SUPPORTED
-==================================================
-
-Only if true transaction-level semantics are verified.
-
-Preferred path:
-
-`data/pilot/settrade/raw/trades/`
-
-Normalized:
-
-`data/pilot/settrade/normalized/trades/`
-
-Suggested schema:
-
-event_timestamp
-retrieved_at
-symbol
-price
-quantity
-sequence
-side
-trade_condition
-source
-collector_session_id
-
-Fields unavailable from source remain null.
-
-Preserve raw event separately.
-
-==================================================
-PHASE 9 — DO NOT FAKE TICKS
-==================================================
-
-If Settrade exposes only price_info updates:
-
-DO NOT label them trades.
-
-Store them separately as:
-
-`price_info_updates`
-
-Possible path:
-
-`data/pilot/settrade/raw/price_info/`
-
-and normalized equivalent.
-
-Explicitly document:
-
-price-info update != executed trade tick.
-
-==================================================
-PHASE 10 — MAXIMUM-GRANULARITY RAW DATA MODEL
-==================================================
-
-Target architecture should clearly separate:
-
-RAW:
-- trade ticks, if genuinely available
-- BBO/depth updates
-- price_info updates
-- API candles
-
-DERIVED:
-- 1m
-- 5m
-- 15m
-- spread
-- midpoint
-- depth
-- imbalance
-- execution diagnostics
-
-Do not merge distinct event types into one ambiguous schema.
-
-==================================================
-PHASE 11 — DERIVE BARS FROM TRUE TRADE TICKS IF AVAILABLE
-==================================================
-
-If true trade ticks exist and include transaction quantity:
-
-implement diagnostic-only local bar derivation.
-
-For 1m:
-
-open = first trade
-high = max trade
-low = min trade
-close = last trade
-volume = sum per-trade quantity
-
-Then derive:
-
-5m
-15m
-
-Do NOT replace Settrade candle API as canonical pilot source yet.
-
-Instead compare:
-
-trade-derived 1m
-vs Settrade API 1m
-
-Classify:
-
-MATCH
-SMALL_DIFFERENCE
-MATERIAL_DIFFERENCE
-INSUFFICIENT_TICKS
-
-==================================================
-PHASE 12 — TICK / BBO TIME ALIGNMENT
-==================================================
-
-If true trade ticks exist:
-
-implement alignment utilities between:
-
-trade event
-nearest preceding BBO snapshot
-nearest following BBO snapshot
-
-Do not use future BBO for causal execution analysis unless explicitly labeled.
-
-Support:
-
-previous_book
-next_book
-time_gap_ms
-
-This will later help study:
-
-- spread at trade
-- book depletion
-- IOC plausibility
-- intrabar execution
-
-==================================================
-PHASE 13 — STORAGE IMPACT OF TICK DATA
-==================================================
-
-Measure:
-
-raw bytes/event
-normalized bytes/event
-events/minute/symbol
-
-If market is open and enough events are observed.
-
-Estimate 50-symbol storage:
-
-1 month
-3 months
-6 months
-12 months
-
-Separately:
-
-trade ticks
-BBO
-price_info
-1m bars
-
-Use LOW / BASE / HIGH if sample remains limited.
-
-==================================================
-PHASE 14 — STREAMLIT HISTORICAL DATA EXPLORER
-==================================================
-
-Build or extend the existing Streamlit UI.
-
-Do NOT create a separate web framework.
-
-Add a clear page/section:
-
-`Settrade Data Explorer`
-
-or repository-consistent name.
-
-It must read ONLY pilot/staging data by default.
-
-==================================================
-PHASE 15 — EXPLORER CONTROLS
-==================================================
-
-Provide controls for:
-
-Symbol
-
-Date / date range
-
-Data type:
-- Candles
-- BBO / Depth
-- Price info
-- Trades, only if supported
-
-Timeframe:
-- 1m
-- 5m
-- 15m
-- 1d if available
-
-Optional session filter.
-
-Keep UI usable even if some data types are unavailable.
-
-==================================================
-PHASE 16 — CANDLE CHART
-==================================================
-
-Display historical OHLC as a candlestick chart.
-
-Prefer an existing plotting dependency already available.
-
-Do not add heavy dependencies unnecessarily.
-
-Show:
-
-OHLC
-timestamp
-volume if allowed for display
-
-Important:
-
-Volume may be shown as raw source volume with a warning if semantics remain unresolved.
-
-Do not use it as a research feature automatically.
-
-==================================================
-PHASE 17 — TIME NAVIGATION
-==================================================
-
-Allow the human to inspect historical collected data easily.
-
-Support:
-
-- select exact date
-- select range
-- zoom/pan if plotting library supports it
-- hover timestamp/OHLC values
-
-For intraday:
-show exchange-local Asia/Bangkok timestamps.
-
-==================================================
-PHASE 18 — DEPTH / ORDER-BOOK VIEW
-==================================================
-
-For BBO data:
-
-allow selecting a timestamp/event.
-
-Display 10 levels:
-
-Bid:
-level
-price
-volume
-
-Ask:
-level
-price
-volume
-
-Prefer side-by-side tables.
-
-Also display:
-
-best bid
-best ask
-spread
-spread bps
-midpoint
-depth 1
-depth 5
-depth 10
-imbalance 1/5/10
-
-Clearly show:
-
-collector session
-rotation group
-event timestamp
-retrieval timestamp
-
-==================================================
-PHASE 19 — DEPTH VISUALIZATION
-==================================================
-
-Add an intuitive depth visualization where practical.
-
-For selected snapshot:
-
-- bid-side cumulative depth
-- ask-side cumulative depth
-
-Do not fabricate levels.
-
-If plotting library supports horizontal depth bars cleanly, use it.
-
-Keep raw values accessible.
-
-==================================================
-PHASE 20 — BBO HISTORY CHART
-==================================================
-
-For a chosen symbol/date:
-
-plot over time:
-
-best bid
-best ask
-midpoint
-
-and optionally:
-
-spread bps
-
-Use genuine persisted BBO events only.
-
-If no events exist:
-show a clear `No persisted BBO data` message.
-
-==================================================
-PHASE 21 — TRADE-TICK CHART IF SUPPORTED
-==================================================
-
-If true trade ticks are available:
-
-plot:
-
-trade price vs time
-
-Optional marker sizing only if quantity semantics are confirmed.
-
-Provide a raw trade table.
-
-Do not call price_info events trades.
-
-==================================================
-PHASE 22 — PRICE + BBO OVERLAY
-==================================================
-
-Where timestamps overlap:
-
-provide a view combining:
-
-1m price
-best bid
-best ask
-
-Do not over-interpolate.
-
-BBO is event-driven, so use actual event timestamps.
-
-If resampling for visualization:
-label it explicitly.
-
-==================================================
-PHASE 23 — EXECUTION INSPECTION VIEW
-==================================================
-
-Add a manual research view for a selected timestamp.
-
-Show:
-
-symbol
-time
-current 1m bar
-nearest valid BBO
-spread
-depth
-MODEL_V1 one-tick estimate
-observed-book crossing diagnostic
-IOC plausibility
-
-This is diagnostic only.
-
-Do NOT change production MODEL_V1.
-
-==================================================
-PHASE 24 — DATA QUALITY PANEL
-==================================================
-
-For selected symbol/date display:
-
-row count
-earliest timestamp
-latest timestamp
-missing intervals
-duplicate count
-conflict count
-validation issues
-stale-data flags
-
-This will help the human visually audit the collector.
-
-==================================================
-PHASE 25 — DATE AVAILABILITY INDEX
-==================================================
-
-Create a lightweight data index so the UI does not recursively scan all files on every render.
-
-Track per:
-
-symbol
-date
-datatype
-timeframe
-
-with:
-
-row/event count
-first timestamp
-last timestamp
-file/path metadata
-
-Rebuild/update incrementally.
-
-Do not move or rewrite raw source data.
-
-==================================================
-PHASE 26 — UI PERFORMANCE
-==================================================
-
-The viewer should remain usable as data grow.
-
-Use:
-
-- cached reads where appropriate
-- date partitions
-- symbol filtering before load
-- bounded table display
-
-Do not load all 50 symbols/all raw BBO into memory at once.
-
-==================================================
-PHASE 27 — UI SAFETY
-==================================================
-
-The dashboard must be READ-ONLY.
-
-No:
-
-- order buttons
-- trading actions
-- data deletion
-- canonical promotion
-- credential display
-
-==================================================
-PHASE 28 — SOURCE LABELS
-==================================================
-
-Every chart/table should make data source obvious:
-
-SETTRADE_API_CANDLE
-SETTRADE_BBO
-SETTRADE_PRICE_INFO
-SETTRADE_TRADE_TICK
-
-only use the trade-tick label if verified.
-
-Also show:
-
-PILOT / UNAPPROVED
-
-in the explorer.
-
-==================================================
-PHASE 29 — CURRENT DATA DIAGNOSTIC
-==================================================
-
-After fixing collector bugs, inspect what data actually exist.
-
-Report:
-
-dates available
-symbols available
-1m rows
-BBO events
-price_info events
-trade events if available
-
-Do not infer successful collection from file modification time alone.
-
-Use timestamps inside records.
-
-==================================================
-PHASE 30 — NEXT-MARKET-SESSION READINESS
-==================================================
-
-Before finishing:
-
-ensure tomorrow's automated collection path is genuinely ready.
-
-Check:
-
-Task Scheduler installed/enabled
-
-daily runner
-
-current 50 universe
-
-current-date request windows
-
-BBO dwell/persistence
-
-rotation
-
-market-close shutdown
-
-logs
-
-disk
-
-readiness
-
-==================================================
-PHASE 31 — OPTIONAL SHORT LIVE TEST
-==================================================
-
-If market is open during execution:
-
-run a bounded live test.
-
-Collect:
-
-current 1m
-BBO
-trade ticks if supported
-
-Verify persistence.
-
-If market is closed:
-
-do not wait indefinitely.
-
-Use mocks/fixtures for lifecycle tests and leave exact commands for the next session.
-
-==================================================
-PHASE 32 — TESTING
-==================================================
-
-Add tests for:
-
-- stale candle detection
-- 50/50 checkpoint completion
-- current-session request windows
-- BBO callback persistence
-- realtime dwell lifecycle
-- BBO rotation persistence
-- Asia/Bangkok close cutoff
-- price_info vs trade-tick type separation
-- trade normalization if supported
-- tick-derived bar aggregation if supported
-- BBO/trade causal alignment
-- data availability index
-- explorer data loaders
-- missing-data UI behavior
-- read-only UI boundaries
-
-Run:
-
-full pytest
-focused Settrade tests
-automation tests
-execution tests
-UI/data-loader tests
-Python compilation
-JSON validation
-CSV validation
-git diff --check
-secret scan
-
-==================================================
-PHASE 33 — DOCUMENTATION
-==================================================
-
-Update existing docs rather than duplicating unnecessarily.
-
-At minimum cover:
-
-- actual collector data types
-- true trade-tick availability status
-- raw vs derived architecture
-- historical visualizer usage
-- BBO/depth viewer
-- timestamp/timezone handling
-- source labels
-- data-quality warnings
-- volume semantics warning
-- tomorrow automation readiness
-
-Possible docs:
-
-`docs/SETTRADE_COLLECTOR_GUIDE.md`
-
-`docs/SETTRADE_DATA_EXPLORER.md`
-
-`docs/SETTRADE_TICK_DATA_AUDIT.md`
-
-==================================================
-PHASE 34 — EXACT RUN COMMANDS
-==================================================
-
-Provide exact command for the Streamlit viewer.
-
-Use existing app entrypoint where possible.
-
-Example only:
-
-`.venv\Scripts\python.exe -m streamlit run app.py`
-
-Do not invent an entrypoint if repository uses another one.
-
-Also provide:
-
-readiness
-health
-manual collector
-Task Scheduler status
-
-==================================================
-PHASE 35 — FINAL QUALITY AUDIT
-==================================================
-
-Inspect:
-
-git diff
-
-Remove:
-
-debug prints
-temporary probes
-unused helpers
-fake/sample empirical reports
-duplicate docs
-
-Preserve actual pilot evidence.
+Use a tiny number of SET50 symbols first.
 
 Verify:
 
-credentials exposed = NO
-orders placed = 0
-MODEL_V1 changed = NO
-approved data changed = NO
-Task Scheduler behavior preserved
+- historical candle response
+- realtime price response
+- realtime BBO response
+- schemas
+- timestamps
+- symbol naming
+- depth structure
+- volume/value fields
+- session behavior
 
-==================================================
-FINAL CONSOLIDATED REPORT
-==================================================
+Do not immediately run a giant full-universe collection.
 
-Do not stop before this section unless a true hard blocker occurs.
+Compare production observations with persisted sandbox observations.
 
-Report:
+Document any schema/value differences.
 
-## 1. COLLECTOR BUG FIXES
+---
 
-- stale candles root cause
-- 49/50 root cause
-- zero BBO root cause
-- late shutdown root cause
-- exact fixes
-- regression tests
+## 10. Determine whether production resolves the old candle issue
 
-## 2. TRUE TICK DATA AVAILABILITY
+The previous sandbox collector had cases where:
 
-Classification:
+- realtime quote/BBO worked
+- current-session candles returned `NO_DATA`
 
-TRUE_TRADE_STREAM_AVAILABLE
-PRICE_UPDATE_ONLY
-NO_TRADE_STREAM_EXPOSED
-INSUFFICIENT_EVIDENCE
+Now test the same candle path safely under production.
 
-Report exact SDK method(s) and observed fields.
+Determine whether production:
 
-## 3. CURRENT RAW DATA ARCHITECTURE
+- returns current-session historical candles
+- has the same delay
+- behaves differently by interval
+- behaves differently by symbol
+- still produces `NO_DATA`
 
-List actual supported raw sources:
+Do not forward-fill or fabricate missing bars.
 
-- candles
-- BBO
-- price_info
-- trade tick if available
+This comparison is important.
 
-## 4. TICK COLLECTION
+---
 
-If supported:
+## 10A. Historical backfill capability test
 
-- symbols tested
-- events collected
-- fields
-- event rate
-- storage estimate
-- persistence paths
+Before performing any historical repair, determine what the production API can actually backfill.
 
-If unsupported:
-state clearly.
+For a small sample of known missing dates/symbols, test read-only historical requests and document:
 
-## 5. BBO COLLECTION
+- how far back the API allows retrieval
+- available candle intervals
+- whether current and prior trading days behave differently
+- whether BBO/depth history can be retrieved historically or is realtime-only
+- returned timestamp boundaries
+- pagination/limit behavior if any
+- symbol/date-specific `NO_DATA` behavior
 
-- events persisted
-- symbols covered
-- rotations
-- 10 levels status
-- event rate if measured
+Do not assume realtime BBO gaps can be reconstructed historically.
 
-## 6. HISTORICAL VISUALIZER
+Use these results to decide which historical gaps are genuinely recoverable.
 
-Report implemented views:
+## 11. Data refresh plan
 
-- candle chart
-- date selector
-- timeframe selector
-- BBO table
-- depth visualization
-- BBO history
-- trade chart if supported
-- execution inspection
-- data-quality panel
+If production authentication and market-data smoke tests succeed, refresh the research data safely.
 
-Give exact launch command.
+### Intraday / Settrade
 
-## 7. DATA AVAILABLE NOW
+Use the existing collector architecture.
 
-Report:
+Do not create a parallel duplicate collector.
 
-- dates
+Before normal forward collection, execute a controlled backfill pass for gaps classified as `RECOVERABLE_FROM_API`.
+
+Backfill rules:
+
+- oldest missing trading date first unless API constraints require otherwise
+- bounded requests; do not hammer the API
+- respect existing rate limiting
+- never fabricate unavailable BBO history
+- never overwrite a valid persisted observation silently
+- use duplicate/conflict detection on every recovered row
+- preserve the original source/provenance
+- mark recovered rows as backfilled where the schema permits
+- produce before/after gap counts
+
+If a gap cannot be recovered, retain it explicitly in the gap report rather than filling it synthetically.
+
+Preserve:
+
+- raw provenance
+- normalized outputs
+- checkpoints
+- duplicate detection
+- conflict detection
+- session-aware behavior
+- no interpolation
+- no gap filling
+
+### Daily OHLCV
+
+Determine the best currently-supported source already used by this repository.
+
+Refresh stale current-SET50 daily data incrementally from the last genuine observation through the latest available trading date.
+
+Do not overwrite historical identity boundaries or synthesize merger histories.
+
+Preserve symbol-identity policies for known sensitive names.
+
+### Exploratory view
+
+After source refresh:
+
+- rebuild derived/exploratory metrics
+- update freshness metadata
+- rerun data-quality checks
+
+Do not treat the current-SET50 exploratory view as survivorship-safe historical research.
+
+---
+
+## 12. Protect sandbox provenance
+
+Existing sandbox data must remain distinguishable from new production data.
+
+Do not silently append production observations into a dataset whose provenance says SANDBOX unless the storage format already has an explicit environment/source field that makes this safe.
+
+If current schema cannot distinguish source environment cleanly:
+
+design the smallest safe migration.
+
+Preferred approaches:
+
+- explicit `environment` / `source` field
+- environment-specific subdirectories
+- documented cutover marker
+
+Do not destroy old sandbox data.
+
+## 12A. Create an explicit production API cutover marker
+
+Create a durable, human-readable marker for the exact point where this project begins using the new production KGI Settrade API configuration.
+
+This marker must make it possible to distinguish:
+
+- data collected before production cutover
+- the first verified production API session
+- data collected after production cutover
+
+Record at minimum:
+
+- cutover timestamp in Asia/Bangkok
+- first successful production-auth timestamp
+- first successful production market-data timestamp
+- broker id = `013`
+- app code = `ALGO_EQ`
+- previous environment = SANDBOX where supported by evidence
+- new environment = PRODUCTION
+- git HEAD
+- collector/runtime version if available
+- latest persisted timestamp immediately before cutover
+- first persisted timestamp after cutover
+
+Never record secrets.
+
+Preferred implementation:
+
+- machine-readable cutover metadata under the existing runtime/report metadata convention, and
+- a visible cutover marker in Streamlit / data-status UI.
+
+The UI should clearly display something equivalent to:
+
+`Production API cutover: YYYY-MM-DD HH:MM Asia/Bangkok`
+
+Where charts/tables span both eras, visibly mark the cutover boundary so later differences in fields, coverage, latency, or data quality can be investigated rather than mistaken for market behavior.
+
+Do not manufacture a historical cutover time. If the first successful production API use cannot be proven, mark it UNKNOWN until observed.
+
+---
+
+## 13. Production data provenance
+
+Every newly persisted production observation should be traceable to:
+
+- environment = production
+- broker id = 013 where appropriate
+- app code = ALGO_EQ where appropriate
+- collector version / git HEAD if already supported
+- collected timestamp
+- market timestamp
+- symbol
+- source type
+
+Never store secrets.
+
+---
+
+## 14. Account/private-state read-only adapter
+
+If production auth exposes equity account/private state, create or reuse a clean **read-only adapter**.
+
+It may expose normalized methods such as:
+
+- connection status
+- account summary
+- portfolio
+- holdings
+- order list
+- deal/fill list
+
+Do not expose mutation methods through this adapter.
+
+Do not add trading buttons to Streamlit.
+
+If account number is required, use environment/configuration only.
+
+Never hardcode it.
+
+---
+
+## 15. Streamlit UI — production status header
+
+Update the Streamlit application so the user can immediately see:
+
+- Settrade mode: PRODUCTION / SANDBOX / OFFLINE
+- broker id
+- app code
+- authentication status
+- market-data connectivity
+- account-data connectivity
+- latest successful API check
+- collector running/not running
+- latest data timestamp
+- freshness badge
+
+Do not display secrets.
+
+---
+
+## 15A. Streamlit UI — API cutover and historical gaps
+
+Add visible operational history to the UI.
+
+Show:
+
+- production API cutover timestamp
+- last sandbox observation
+- first production observation
+- whether a displayed dataset spans the cutover boundary
+- historical day-by-day collection coverage
+- missing-data count by dataset
+- recoverable gap count
+- unrecoverable/unknown gap count
+- latest backfill run timestamp
+- backfill success/failure summary
+
+Where practical, add a timeline/calendar-style coverage view with one row per trading day so the user can immediately see which dates are complete, partial, missing, or unknown.
+
+For selected dates, allow drill-down into missing symbols/intervals and evidence/reason codes.
+
+## 16. Streamlit UI — Settrade / Data Status page
+
+Create or upgrade a first-class status page that shows:
+
+### Connection
+
+- environment
+- SDK version
+- auth status
+- MarketData status
+- realtime status
+- account/private API status
+- last checked timestamp
+
+### Collector
+
+- daily runner status
+- lock/process status
+- last cycle
+- last success
+- last failure
+- health duration
+- current timeout configuration
+- scheduler state
+
+### Data freshness
+
+Table for:
+
+- raw BBO
+- normalized BBO
+- 1m
+- 5m
+- 15m
+- daily OHLCV
+- exploratory market view
+
+Columns:
+
+- latest timestamp
 - symbols
-- 1m rows
-- 5m rows
-- 15m rows
-- BBO events
-- price_info events
-- trade tick events
+- rows
+- freshness
+- source/environment
 
-## 8. TOMORROW READINESS
+---
 
-State:
+## 17. Streamlit UI — account summary (read only)
 
-READY
-PARTIALLY_READY
-NOT_READY
+If production account access succeeds, show a **READ ONLY** account section.
 
-for the next automated market session.
+Display only safe financial/account data already returned by the API, for example where available:
 
-Explain blockers if any.
+- cash balance
+- line available
+- portfolio value
+- holdings count
+- unrealized P/L
+- realized P/L
+- pending order count
+- recent deal/fill count
 
-## 9. TESTS
+Do not show:
+
+- PIN
+- secret
+- token
+- authentication material
+
+Do not add any order-placement control.
+
+Clearly label:
+
+`READ ONLY — NO LIVE ORDER ACTIONS ENABLED`
+
+---
+
+## 18. Streamlit UI — portfolio/holdings
+
+If available through the API, show a sortable table containing normalized fields such as:
+
+- symbol
+- quantity
+- average cost
+- market price
+- market value
+- unrealized P/L
+- unrealized P/L %
+- realized P/L if supported
+
+Use actual API field semantics.
+
+Do not invent unavailable values.
+
+---
+
+## 19. Streamlit UI — orders and deals
+
+If read-only API methods are available, show:
+
+### Orders
+
+- order number/id
+- symbol
+- side
+- quantity
+- matched quantity
+- price
+- price type
+- status
+- timestamp
+
+### Deals/fills
+
+- symbol
+- side
+- quantity
+- price
+- timestamp
+- order reference
+
+Only if fields are genuinely available.
+
+No Cancel / Change / Place controls.
+
+---
+
+## 20. Streamlit UI — API capability page/panel
+
+Add a visible capability matrix so the user can see what the current production connection supports.
+
+Example statuses:
+
+- VERIFIED
+- AVAILABLE_NOT_TESTED
+- UNAVAILABLE
+- REQUIRES_ACCOUNT_NUMBER
+- UNKNOWN
+
+Include:
+
+- historical candles
+- realtime price
+- realtime BBO
+- account info
+- portfolio
+- orders
+- deals/fills
+- order-status subscription
+- trading methods present (disabled)
+
+This should answer the user's question visually.
+
+---
+
+## 21. Market Research Terminal refresh
+
+Update existing market/research pages so they use refreshed source data and expose source freshness.
+
+At minimum ensure:
+
+- latest daily date is visible
+- latest BBO timestamp is visible
+- candle freshness is visible
+- source environment is visible
+- stale warnings are not hidden
+
+Do not blend sources with different timestamps without labeling them.
+
+---
+
+## 22. BBO / liquidity page upgrade
+
+Use production BBO schema actually returned by the API.
+
+Where supported, display:
+
+- best bid/ask
+- spread THB
+- spread ticks
+- spread bps
+- available depth levels
+- cumulative depth
+- timestamp
+- source environment
+
+Do not assume the depth is 5 or 10 levels; detect and document what the production SDK actually returns.
+
+Preserve the distinction between visible depth and fill probability.
+
+---
+
+## 23. Historical candle page/data audit
+
+Expose:
+
+- latest 1m/5m/15m bars
+- coverage by symbol
+- latest timestamps
+- current-session availability
+- missing/NO_DATA symbols
+- production-vs-sandbox comparison
+
+This should make it easy to confirm whether production fixed the earlier candle limitation.
+
+---
+
+## 24. Commands for the user
+
+Provide exact commands from:
+
+`D:\GitHub\SET50-Algo-Trading`
+
+for:
+
+### Activate research env
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+### Read-only production readiness check
+
+Create/reuse a command such as:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\check_settrade_production_readiness.py
+```
+
+If an equivalent script already exists, reuse it.
+
+It must not place orders.
+
+### Existing collector health
+
+```powershell
+.\.venv\Scripts\python.exe scripts\check_settrade_collector_health.py
+```
+
+### Start collector manually
+
+```powershell
+.\scripts\start_settrade_daily.bat
+```
+
+### Direct collector debug
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_settrade_collector.py --universe current_set50 --mode combined
+```
+
+### Streamlit
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run ui\app.py
+```
+
+### Scheduler status
+
+```powershell
+PowerShell -ExecutionPolicy Bypass -File .\scripts\check_settrade_task.ps1
+```
+
+### Scheduler install
+
+Only after readiness passes:
+
+```powershell
+PowerShell -ExecutionPolicy Bypass -File .\scripts\install_settrade_task.ps1
+```
+
+Do not install the task automatically unless the current task explicitly requires it and all readiness checks pass.
+
+---
+
+## 25. Production readiness script
+
+Create or improve a dedicated read-only script:
+
+`scripts/check_settrade_production_readiness.py`
+
+Desired checks:
+
+1. environment variables present
+2. broker id = 013
+3. app code = ALGO_EQ
+4. secrets present but never printed
+5. SDK import/version
+6. authentication
+7. MarketData initialization
+8. one safe historical candle query
+9. one safe realtime capability probe
+10. Equity/account adapter availability
+11. account info read if account number configured
+12. portfolio read if supported
+13. order/deal list read if supported
+14. disk/write health
+15. collector health summary
+16. source freshness summary
+
+Final state:
+
+- `READY`
+- `READY_WITH_WARNINGS`
+- `NOT_READY`
+
+No real orders.
+
+---
+
+## 26. Safety guard against accidental real trading
+
+Because the repo is now connected to a real brokerage environment, add explicit safeguards.
+
+At minimum:
+
+- production readiness scripts must be read-only
+- UI must contain no trade action
+- collector must not place orders
+- test scripts must not place orders
+- any existing order helper must not be invoked by readiness or data-refresh code
+- tests should verify readiness flow never calls place/change/cancel methods
+
+If practical, create a reusable production read-only guard/context for operational scripts.
+
+Do not break existing competition simulation code.
+
+---
+
+## 27. Test plan
+
+Add focused deterministic tests for:
+
+### Configuration
+
+- production broker/app code detection
+- sandbox detection
+- secret redaction
+
+### Readiness
+
+- auth success
+- auth failure
+- missing account number
+- market data success/failure
+- account API success/failure
+- no order mutation
+
+### Health timeout
+
+- slow valid health succeeds
+- real health failure remains failure
+- timeout configuration
+
+### Data
+
+- production provenance
+- sandbox provenance preserved
+- duplicate/conflict behavior
+- freshness classification
+
+### UI/data models
+
+- production status
+- capability matrix
+- account summary
+- portfolio
+- orders/deals
+- stale state
+- offline state
+
+No tests may place real orders.
+
+---
+
+## 28. Validation
+
+Before finishing:
+
+- production readiness script (read only)
+- collector health
+- bounded production market-data smoke test
+- focused tests
+- full pytest
+- Python compile checks
+- Streamlit smoke
+- manual Streamlit inspection at normal desktop size
+- git diff --check
+- git status
+- secret scan if available
+
+Do not print `.env`.
+
+Do not place real orders.
+
+---
+
+## 29. Documentation
+
+Update concise docs covering:
+
+- transition from SANDBOX to KGI production
+- broker id / app code as non-secret routing config
+- what production adds compared with sandbox
+- which capabilities were actually verified
+- how to run readiness
+- how to run collector
+- how to inspect the UI
+- data provenance/cutover
+- account/private-state read-only policy
+- current limitations
+
+Do not duplicate large documents unnecessarily.
+
+---
+
+## 30. Final report
 
 Report:
 
-pytest
-focused collector tests
-automation tests
-UI tests
-compile
-JSON
-CSV
-git diff
-secret scan
+1. repo root / branch / HEAD
+2. dirty work preserved
+3. current environment mode
+4. broker/app routing values detected
+5. SDK version
+6. production authentication result
+7. market-data capability result
+8. realtime capability result
+9. equity/account capability result
+10. portfolio capability result
+11. orders/deals capability result
+12. exact production-vs-sandbox differences discovered
+13. trading methods present but not invoked
+14. latest raw BBO timestamp
+15. latest normalized BBO timestamp
+16. latest 1m/5m/15m candle timestamps
+17. latest daily OHLCV date
+18. latest exploratory view date
+19. current SET50 coverage
+20. invalid/conflicting row findings
+21. whether production current-session candles work
+22. whether production BBO schema/depth differs
+23. data refreshed
+24. provenance approach
+25. health timeout fix
+26. readiness result
+27. scheduler status
+28. Streamlit changes
+29. account/portfolio UI result
+30. API capability UI result
+31. tests
+32. full pytest
+33. Streamlit inspection
+34. git diff --check
+35. git status
+36. files modified
+37. blockers / unknowns
+38. exact commands the user should run tomorrow morning
+39. recommended next step before enabling automatic scheduled collection
+40. production API cutover marker timestamp/status
+41. last verified sandbox observation
+42. first verified production observation
+43. historical day-by-day coverage summary
+44. missing trading dates/symbols/intervals discovered
+45. recoverable vs unrecoverable gap counts
+46. historical backfill capability discovered
+47. backfill performed and exact recovered coverage
+48. remaining unrecovered gaps and reason codes
+49. confirmation that real orders placed = 0
 
-Required:
-
-orders placed = 0
-credentials exposed = NO
-approved production data changed = NO
-MODEL_V1 changed = NO
-
-==================================================
-FINAL HUMAN DECISIONS
-==================================================
-
-ONLY HERE collect real decisions requiring the human.
-
-Potential decisions:
-
-1. Whether to retain true trade ticks continuously if available.
-2. Trade-tick retention duration.
-3. Whether to retain price_info in addition to trades + BBO.
-4. BBO retention duration.
-5. Whether the visualizer should later become the main research UI.
-6. Whether tick-derived bars should ever replace API candles after enough validation.
-7. Whether to expand execution research after 1–2 weeks of tick/BBO data.
-
-For each decision:
-
-- Option A
-- Option B
-- evidence
-- trade-off
-
-Do not choose for the human.
-
-==================================================
-END CONDITION
-==================================================
-
-After the final report and FINAL HUMAN DECISIONS:
-
-STOP.
-
-Do NOT:
-
-- optimize a strategy
-- modify MODEL_V1
-- promote pilot data
-- enable live trading
-- submit orders
+Do not commit.
+Do not push.
+Do not place, change, or cancel any real order.

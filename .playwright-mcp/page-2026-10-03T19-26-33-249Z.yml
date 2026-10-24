@@ -1,0 +1,382 @@
+- generic:
+  - generic [ref=e285]:
+    - log [ref=e286]:
+      - generic [ref=e287]: 14 options available.
+    - log
+  - generic [ref=e2]:
+    - generic [ref=e7]:
+      - button [ref=e289] [cursor=pointer]:
+        - generic [ref=e290]: keyboard_double_arrow_left
+      - generic [ref=e11]:
+        - button [ref=e292] [cursor=pointer]:
+          - paragraph [ref=e19]: Refresh data
+        - heading [level=3] [ref=e293]: Research
+        - group [ref=e28]:
+          - combobox "Workspace" [expanded] [active] [ref=e29]: Market Overview
+          - button [expanded] [aria-hidden] [ref=e294] [cursor=pointer]
+        - paragraph [ref=e38]: Source data is read-only
+    - generic [aria-hidden] [ref=e3]:
+      - banner [ref=e41]:
+        - generic [ref=e44]:
+          - button [ref=e295] [cursor=pointer]:
+            - generic [ref=e55]: Deploy
+          - button [ref=e296] [cursor=pointer]
+      - generic [ref=e62]:
+        - heading [level=1] [ref=e297]:
+          - generic [ref=e69]: monitoring
+          - text: Market overview
+          - generic [ref=e71]:
+            - link:
+              - /url: "#market-overview"
+        - paragraph [ref=e76]: A read-only visual scan of current SET50 names using historical daily Yahoo OHLCV already stored in this repository.
+        - alert [ref=e79]:
+          - generic [ref=e81]:
+            - generic [ref=e82]: warning
+            - paragraph [ref=e86]: Current SET50 display universe only — historical charts show each security’s genuine available history, not historical SET50 membership. Exploratory continuity is not survivorship-safe backtest evidence.
+        - generic [ref=e88]:
+          - generic [ref=e93]:
+            - paragraph [ref=e97]: Display universe
+            - paragraph [ref=e100]: 50 / 50
+          - generic [ref=e105]:
+            - paragraph [ref=e109]: Latest source date
+            - paragraph [ref=e112]: 2026-09-04
+          - generic [ref=e117]:
+            - paragraph [ref=e121]: Stale > 7 days
+            - paragraph [ref=e124]: "50"
+          - generic [ref=e129]:
+            - paragraph [ref=e133]: Insufficient history
+            - paragraph [ref=e136]: "1"
+          - generic [ref=e141]:
+            - paragraph [ref=e145]: Conflicting dates excluded
+            - paragraph [ref=e148]: "0"
+        - alert [ref=e151]:
+          - paragraph [ref=e155]: "Stored daily history is stale relative to today: newest source date is 2026-09-04. No live prices or missing bars are synthesized."
+        - generic [ref=e157]:
+          - generic [ref=e162]:
+            - paragraph [ref=e166]: Above SMA20
+            - paragraph [ref=e169]: 20 / 49
+          - generic [ref=e174]:
+            - paragraph [ref=e178]: Above SMA50
+            - paragraph [ref=e181]: 26 / 49
+          - generic [ref=e186]:
+            - paragraph [ref=e190]: Median 20D return
+            - paragraph [ref=e193]: "-1.6%"
+          - generic [ref=e198]:
+            - paragraph [ref=e202]: Median 20D volatility, annualized
+            - paragraph [ref=e205]: 25.2%
+        - paragraph [ref=e210]: "Latest common breadth observation (≥80% coverage): 2026-09-04 — 28 advancing / 14 declining / 49 observed."
+        - generic [ref=e212]:
+          - paragraph [ref=e216]: Trend grid
+          - radiogroup [ref=e298]:
+            - radio [checked] [ref=e299] [cursor=pointer]:
+              - paragraph [ref=e223]: Stocks 1–25
+            - radio [ref=e300] [cursor=pointer]:
+              - paragraph [ref=e229]: Stocks 26–50
+        - generic [ref=e231]:
+          - paragraph [ref=e235]: Time range
+          - group [ref=e237]:
+            - combobox [ref=e301]: 6M
+            - button [ref=e302] [cursor=pointer]
+        - generic [ref=e244]:
+          - paragraph [ref=e248]: Chart mode
+          - radiogroup [ref=e303]:
+            - radio [ref=e304] [cursor=pointer]:
+              - paragraph [ref=e255]: Raw close
+            - radio [checked] [ref=e305] [cursor=pointer]:
+              - paragraph [ref=e261]: Normalized performance
+            - radio [ref=e306] [cursor=pointer]:
+              - paragraph [ref=e267]: Cumulative return
+            - radio [ref=e307] [cursor=pointer]:
+              - paragraph [ref=e273]: Relative performance
+        - heading [level=3] [ref=e308]:
+          - text: Stocks 1–25 · 25 mini-charts
+          - generic [ref=e279]:
+            - link:
+              - /url: "#stocks-1-25-25-mini-charts"
+        - paragraph [ref=e284]: 2026-03-04 to 2026-09-04 · latest daily close date 2026-09-04
+        - generic [ref=e314]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "95"
+                  - generic: "100"
+                  - generic: "105"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "150"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "95"
+                  - generic: "100"
+                  - generic: "105"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "90"
+                  - generic: "100"
+                  - generic: "110"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "150"
+                  - generic: "200"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "90"
+                  - generic: "95"
+                  - generic: "100"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "95"
+                  - generic: "100"
+                  - generic: "105"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+                  - generic: "160"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+                  - generic: "160"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "110"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "90"
+                  - generic: "95"
+                  - generic: "100"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+                  - generic: "160"
+              - generic:
+                - generic:
+                  - generic: Apr 26
+                  - generic: Jul 26
+                - generic:
+                  - generic: "100"
+                  - generic: "120"
+                  - generic: "140"
+          - img:
+            - generic:
+              - generic: undefined
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: Start = 100
+              - generic: ADVANC
+              - generic: AOT
+              - generic: AWC
+              - generic: BANPU
+              - generic: BBL
+              - generic: BCP
+              - generic: BDMS
+              - generic: BEM
+              - generic: BH
+              - generic: BJC
+              - generic: CCET
+              - generic: COM7
+              - generic: CPALL
+              - generic: CPF
+              - generic: CPN
+              - generic: CRC
+              - generic: DELTA
+              - generic: EGCO
+              - generic: GPSC
+              - generic: GULF
+              - generic: HMPRO
+              - generic: IVL
+              - generic: KBANK
+              - generic: KKP
+              - generic: KTB
+          - toolbar [ref=e616]:
+            - button [ref=e618] [cursor=pointer]
+            - generic [ref=e621]:
+              - button [ref=e622] [cursor=pointer]
+              - button [ref=e625] [cursor=pointer]
+            - generic [ref=e628]:
+              - button [ref=e629] [cursor=pointer]
+              - button [ref=e632] [cursor=pointer]
+              - button [ref=e635] [cursor=pointer]
+              - button [ref=e638] [cursor=pointer]
+            - button [ref=e642] [cursor=pointer]
+        - paragraph [ref=e649]: Five columns × five rows; 25 symbols in this group. Values use each security’s actual observed dates; unavailable dates stay missing.
+        - group [ref=e652]:
+          - generic [ref=e654] [cursor=pointer]:
+            - generic [ref=e655]: keyboard_arrow_right
+            - paragraph [ref=e659]: Source coverage and caveats
+  - generic [ref=e663]:
+    - listbox "Workspace Open" [ref=e664]:
+      - option "Market Overview" [selected] [ref=e665] [cursor=pointer]
+      - option "Multi-Stock Trends" [ref=e667] [cursor=pointer]
+      - option "Correlation Lab" [ref=e669] [cursor=pointer]
+      - option "Market Breadth" [ref=e671] [cursor=pointer]
+      - option "Stock Detail" [ref=e673] [cursor=pointer]
+      - option "Overview" [ref=e675] [cursor=pointer]
+      - option "Historical Data Explorer" [ref=e677] [cursor=pointer]
+      - option "Historical SET50 Universe" [ref=e679] [cursor=pointer]
+      - option "Market Data Explorer" [ref=e681] [cursor=pointer]
+      - option "Candle Explorer" [ref=e683] [cursor=pointer]
+      - option "Order Book Explorer" [ref=e685] [cursor=pointer]
+    - button "Dismiss" [ref=e688] [cursor=pointer]

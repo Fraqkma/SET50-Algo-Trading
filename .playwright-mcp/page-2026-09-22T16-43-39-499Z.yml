@@ -1,0 +1,52 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - paragraph [ref=e17]: Workspace
+      - radiogroup "Workspace" [ref=e18]:
+        - generic [ref=e19] [cursor=pointer]:
+          - radio "Dashboard" [ref=e21]
+          - paragraph [ref=e27]: Dashboard
+        - generic [ref=e28] [cursor=pointer]:
+          - radio "Historical SET50 Universe" [ref=e30]
+          - paragraph [ref=e36]: Historical SET50 Universe
+        - generic [ref=e37] [cursor=pointer]:
+          - radio "Market Data Explorer" [ref=e39]
+          - paragraph [ref=e45]: Market Data Explorer
+        - generic [ref=e46] [cursor=pointer]:
+          - radio "Settrade Data Explorer" [ref=e48]
+          - paragraph [ref=e54]: Settrade Data Explorer
+        - generic [ref=e55] [cursor=pointer]:
+          - radio "Data Quality" [ref=e57]
+          - paragraph [ref=e63]: Data Quality
+        - generic [ref=e64] [cursor=pointer]:
+          - radio "Research Results" [checked] [active] [ref=e66]
+          - paragraph [ref=e72]: Research Results
+    - paragraph [ref=e77]: Source data is read-only
+    - paragraph [ref=e82]: "Acquisition: 2026-09-08T17:26:21.073955+00:00"
+  - generic [ref=e3]:
+    - banner
+    - generic [ref=e85]:
+      - heading "Research Results" [level=2] [ref=e1426]:
+        - text: Research Results
+        - generic [ref=e1159]:
+          - link "Link to heading":
+            - /url: "#research-results"
+      - paragraph [ref=e1430]: Reserved for reproducible research outputs. No strategies or backtests are implemented here.
+      - paragraph [ref=e1434]:
+        - strong [ref=e1435]: Strategy Research
+        - text: ": Not implemented"
+      - paragraph [ref=e1439]:
+        - strong [ref=e1440]: Backtest
+        - text: ": Not implemented"
+      - paragraph [ref=e1444]:
+        - strong [ref=e1445]: Out-of-Sample
+        - text: ": Not implemented"
+      - paragraph [ref=e1449]:
+        - strong [ref=e1450]: Optimization
+        - text: ": Not implemented"
+      - paragraph [ref=e1454]:
+        - strong [ref=e1455]: Robustness
+        - text: ": Not implemented"
+      - paragraph [ref=e1459]:
+        - strong [ref=e1460]: Paper Trading
+        - text: ": Not implemented"

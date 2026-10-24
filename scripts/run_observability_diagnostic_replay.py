@@ -13,7 +13,19 @@ def load_frames():
     manifest=pd.read_csv(ROOT/"data/processed/approved_market_data_manifest.csv")
     gate=MarketDataEligibilityGate(ROOT); frames={}
     for s in manifest.set_symbol.astype(str).str.upper():
-        try: frames[s]=build_features(load_approved_market_data(s,gate=gate))
+        try:
+            source = load_approved_market_data(s, gate=gate)
+            context = {
+                "security_id": s,
+                "pit_membership": True,
+                "identity_status": "VERIFIED",
+                "data_status": "APPROVED",
+                "information_cutoff": source.index,
+                "data_timestamp": source.index,
+                "feature_timestamp": source.index,
+                "source_data": "approved_market_data",
+            }
+            frames[s] = build_features(source, context=context)
         except (FileNotFoundError,ValueError): pass
     return frames,gate
 

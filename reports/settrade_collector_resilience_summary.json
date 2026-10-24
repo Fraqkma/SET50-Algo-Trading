@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-24T13:53:25.952245+07:00",
+  "before_changes": "Runner retried every exception up to three attempts with fixed 30/60 second waits; auth errors were not distinguished; retry/reconnect counters were not incremented; each retry starts a fresh collector subprocess which restores configured subscriptions and re-reads current-day candle history.",
+  "after_changes": "Runner classifies AUTH_FAILURE, NETWORK_FAILURE, RATE_LIMIT, and API_FAILURE; auth stops without retry; retry delay is capped exponential backoff (5, 10 seconds for the runner's two retries); retries start a fresh process/session, re-register subscriptions on the next cycle, and run the existing health scan after success.",
+  "current_day_log_evidence": {
+    "path": "logs\\settrade\\daily-2026-10-24.log",
+    "exists": true,
+    "runtime_log_timestamp_bounds_bangkok": [
+      {
+        "first_log_timestamp": "2026-10-24T13:04:26+07:00",
+        "last_log_timestamp": "2026-10-24T13:05:19+07:00",
+        "basis": "timestamps embedded in collector/SDK log lines; not a process uptime interval"
+      }
+    ],
+    "collector_cycle_windows_bangkok": [],
+    "collector_cycle_count": 0,
+    "market_window_transitions": [
+      {
+        "line": 3,
+        "timestamp_bangkok": "2026-10-24T13:04:26+07:00",
+        "event": "2026-10-24 13:04:26,428 INFO settrade_daily market window state=CLOSED reason=WEEKEND"
+      }
+    ],
+    "network_errors": [],
+    "auth_errors": [],
+    "log_bytes": 356
+  },
+  "current_state_telemetry": "State transitions, PID, retries, reconnect count, last success, reason, and current delay are written to new runner summaries after the updated runner is used.",
+  "checkpoint_policy": "Per-symbol candle checkpoints are not reset during reconnect. Current-day request spans midnight to next midnight; the existing deduplicating append path retains genuine rows and flags conflicts.",
+  "historical_bbo": "Realtime callback gaps cannot be reconstructed; no synthetic BBO is created.",
+  "orders_placed": 0
+}

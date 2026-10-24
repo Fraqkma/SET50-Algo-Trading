@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-10-21T15:42:35.948522+00:00",
+  "validation_type": "MOCK",
+  "live_network_interruption": "NOT_OBSERVED",
+  "live_network_interruption_code": "LIVE_NETWORK_INTERRUPTION_NOT_OBSERVED",
+  "transitions": [
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948309+00:00",
+      "state": "STARTING",
+      "reason": "RUNNER_STARTED"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948329+00:00",
+      "state": "LIVE",
+      "reason": "MOCK_TRANSPORT_CONNECTED"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948354+00:00",
+      "state": "DEGRADED",
+      "reason": "NETWORK_FAILURE"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948359+00:00",
+      "state": "OFFLINE",
+      "reason": "MOCK_CONNECTION_CLOSED"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948363+00:00",
+      "state": "RECONNECTING",
+      "reason": "MOCK_RETRY"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948370+00:00",
+      "state": "RECOVERED",
+      "reason": "MOCK_SUBSCRIPTIONS_RESTORED"
+    },
+    {
+      "timestamp_utc": "2026-10-21T15:42:35.948374+00:00",
+      "state": "LIVE",
+      "reason": "MOCK_CANDLES_AND_BBO_RESUMED"
+    }
+  ],
+  "attempts": 1,
+  "duration_seconds": 0.0,
+  "failure_kind": "NETWORK_FAILURE",
+  "retry_backoff_seconds": 5.0,
+  "configured_subscriptions": [
+    "BBO:ADVANC",
+    "BBO:PTT",
+    "PRICE:ADVANC",
+    "PRICE:PTT"
+  ],
+  "restored_subscriptions": [
+    "BBO:ADVANC",
+    "BBO:PTT",
+    "PRICE:ADVANC",
+    "PRICE:PTT"
+  ],
+  "subscription_restoration": true,
+  "checkpoint_continuity": {
+    "path": "data\\pilot\\settrade\\production\\checkpoints\\candles.json",
+    "present": true,
+    "sha256_before": "b1adbca70166e6e4260e787120f7a699d800c3e3333b72601b809328516c74a0",
+    "sha256_after": "b1adbca70166e6e4260e787120f7a699d800c3e3333b72601b809328516c74a0",
+    "unchanged": true
+  },
+  "post_reconnect_timestamps": {
+    "mock_bbo": "2026-10-21T15:42:35.948522+00:00",
+    "mock_candle": "2026-10-21T15:42:35.948522+00:00"
+  },
+  "duplicate_result": {
+    "subscription_keys_unique": true,
+    "persisted_rows_created": 0
+  },
+  "warnings": [
+    "MOCK_ONLY_NO_LIVE_NETWORK_OR_BROKER_CALLS",
+    "LIVE_NETWORK_INTERRUPTION_NOT_OBSERVED"
+  ],
+  "orders_placed": 0
+}

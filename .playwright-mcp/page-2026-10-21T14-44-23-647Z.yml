@@ -1,0 +1,2757 @@
+- generic:
+  - generic [ref=f2e178]:
+    - log [ref=f2e179]:
+      - generic [ref=f2e224]: 15 options available.
+    - log
+  - generic [ref=f2e2]:
+    - generic [ref=f2e7]:
+      - button "keyboard_double_arrow_left" [ref=f2e225] [cursor=pointer]
+      - generic [ref=f2e11]:
+        - button [ref=f2e226] [cursor=pointer]:
+          - paragraph [ref=f2e19]: Refresh data
+        - heading "Research" [level=3] [ref=f2e227]
+        - group [ref=f2e28]:
+          - combobox "Workspace" [active] [ref=f2e29]: Collection Health
+          - button "Open" [ref=f2e228] [cursor=pointer]
+        - paragraph [ref=f2e38]: Source data is read-only
+    - generic [ref=f2e3]:
+      - banner [ref=f2e41]:
+        - generic [ref=f2e44]:
+          - generic [ref=f2e230]:
+            - img "Running..." [ref=f2e231]
+            - button "Stop" [ref=f2e236] [cursor=pointer]
+          - button "Deploy" [ref=f2e237] [cursor=pointer]
+          - button "Main menu" [ref=f2e238] [cursor=pointer]
+      - generic [ref=f2e54]:
+        - generic [ref=f2e59]:
+          - generic [ref=f2e60]: Operational evidence · read only
+          - heading "Collection Health" [level=1] [ref=f2e239]:
+            - text: Collection Health
+            - generic [ref=f2e63]:
+              - link "Link to heading":
+                - /url: "#collection-health"
+          - paragraph [ref=f2e64]: Measured runner summaries, persisted coverage, rotation evidence, and known external limitations.
+        - generic [ref=f2e66]:
+          - generic [ref=f2e71]:
+            - paragraph [ref=f2e75]: Configured environment
+            - paragraph [ref=f2e78]: PRODUCTION
+          - generic [ref=f2e83]:
+            - paragraph [ref=f2e87]: Market-data readiness
+            - paragraph [ref=f2e90]: READY_WITH_WARNINGS
+          - generic [ref=f2e95]:
+            - paragraph [ref=f2e99]: Authentication
+            - paragraph [ref=f2e102]: SUCCESS
+          - generic [ref=f2e107]:
+            - paragraph [ref=f2e111]: Orders placed
+            - paragraph [ref=f2e114]: "0"
+          - generic [ref=f2e119]:
+            - paragraph [ref=f2e123]: Audit
+            - paragraph [ref=f2e126]: MEASURED
+        - paragraph [ref=f2e243]: "Routing: broker 013 · app ALGO_EQ · SDK 2.2.1 · last API check 2026-10-19T18:45:40.310385+00:00 · account/private API: REQUIRES_ACCOUNT_NUMBER"
+        - alert [ref=f2e245]:
+          - paragraph [ref=f2e249]: "Readiness warnings: private account APIs not probed: account number is not configured; sampled historical 1m candle request returned no rows"
+        - heading "Production cutover and provenance" [level=3] [ref=f2e253]:
+          - text: Production cutover and provenance
+          - generic [ref=f2e254]:
+            - link "Link to heading":
+              - /url: "#production-cutover-and-provenance"
+        - status [ref=f2e257]:
+          - paragraph [ref=f2e261]: "Production API cutover: 2026-10-16 19:12 Asia/Bangkok · last sandbox observation: 2026-10-16T16:56:47.226803+07:00 · first production quote time: UNKNOWN_EXACT (smoke session start 2026-10-16T19:12:02.434784+07:00; exact receipt UNKNOWN)"
+        - generic [ref=f2e267]:
+          - generic [ref=f2e268]: "{"
+          - generic [ref=f2e276]:
+            - generic [ref=f2e277]:
+              - generic [ref=f2e278]:
+                - generic [ref=f2e279]:
+                  - text: "\""
+                  - generic [ref=f2e280]: last_known_sandbox_observation
+                  - text: "\""
+                - generic [ref=f2e281]: ":"
+              - generic [ref=f2e282] [cursor=pointer]: "\"2026-10-16T09:56:47.226803+00:00\""
+            - generic [ref=f2e285]:
+              - generic [ref=f2e286]:
+                - generic [ref=f2e287]:
+                  - text: "\""
+                  - generic [ref=f2e288]: cutover_timestamp_utc
+                  - text: "\""
+                - generic [ref=f2e289]: ":"
+              - generic [ref=f2e290] [cursor=pointer]: "\"2026-10-16T12:12:02.434784+00:00\""
+            - generic [ref=f2e293]:
+              - generic [ref=f2e295] [cursor=pointer]:
+                - generic [ref=f2e300]:
+                  - generic [ref=f2e301]: "\"first_production_observation\""
+                  - generic [ref=f2e302]: ":"
+                - generic [ref=f2e303]: "{"
+              - generic [ref=f2e305]:
+                - generic [ref=f2e306]:
+                  - generic [ref=f2e307]:
+                    - generic [ref=f2e308]:
+                      - text: "\""
+                      - generic [ref=f2e309]: timestamp_utc
+                      - text: "\""
+                    - generic [ref=f2e310]: ":"
+                  - generic [ref=f2e311] [cursor=pointer]: "\"UNKNOWN_EXACT\""
+                - generic [ref=f2e314]:
+                  - generic [ref=f2e315]:
+                    - generic [ref=f2e316]:
+                      - text: "\""
+                      - generic [ref=f2e317]: symbol
+                      - text: "\""
+                    - generic [ref=f2e318]: ":"
+                  - generic [ref=f2e319] [cursor=pointer]: "\"PTT\""
+                - generic [ref=f2e322]:
+                  - generic [ref=f2e323]:
+                    - generic [ref=f2e324]:
+                      - text: "\""
+                      - generic [ref=f2e325]: operation
+                      - text: "\""
+                    - generic [ref=f2e326]: ":"
+                  - generic [ref=f2e327] [cursor=pointer]: "\"quote_PTT\""
+                - generic [ref=f2e330]:
+                  - generic [ref=f2e332] [cursor=pointer]:
+                    - generic [ref=f2e337]:
+                      - generic [ref=f2e338]: "\"result\""
+                      - generic [ref=f2e339]: ":"
+                    - generic [ref=f2e340]: "{"
+                  - generic [ref=f2e342]:
+                    - generic [ref=f2e343]:
+                      - generic [ref=f2e344]:
+                        - generic [ref=f2e345]:
+                          - text: "\""
+                          - generic [ref=f2e346]: status
+                          - text: "\""
+                        - generic [ref=f2e347]: ":"
+                      - generic [ref=f2e348] [cursor=pointer]: "\"SUCCESS\""
+                    - generic [ref=f2e351]:
+                      - generic [ref=f2e353] [cursor=pointer]:
+                        - generic [ref=f2e358]:
+                          - generic [ref=f2e359]: "\"fields\""
+                          - generic [ref=f2e360]: ":"
+                        - generic [ref=f2e361]: "["
+                      - generic [ref=f2e363]:
+                        - generic [ref=f2e364]:
+                          - generic [ref=f2e365]:
+                            - text: "0"
+                            - generic [ref=f2e366]: ":"
+                          - generic [ref=f2e367] [cursor=pointer]: "\"aumSize\""
+                        - generic [ref=f2e370]:
+                          - generic [ref=f2e371]:
+                            - text: "1"
+                            - generic [ref=f2e372]: ":"
+                          - generic [ref=f2e373] [cursor=pointer]: "\"average\""
+                        - generic [ref=f2e376]:
+                          - generic [ref=f2e377]:
+                            - text: "2"
+                            - generic [ref=f2e378]: ":"
+                          - generic [ref=f2e379] [cursor=pointer]: "\"change\""
+                        - generic [ref=f2e382]:
+                          - generic [ref=f2e383]:
+                            - text: "3"
+                            - generic [ref=f2e384]: ":"
+                          - generic [ref=f2e385] [cursor=pointer]: "\"eps\""
+                        - generic [ref=f2e388]:
+                          - generic [ref=f2e389]:
+                            - text: "4"
+                            - generic [ref=f2e390]: ":"
+                          - generic [ref=f2e391] [cursor=pointer]: "\"exchange\""
+                        - generic [ref=f2e394]:
+                          - generic [ref=f2e395]:
+                            - text: "5"
+                            - generic [ref=f2e396]: ":"
+                          - generic [ref=f2e397] [cursor=pointer]: "\"exercisePrice\""
+                        - generic [ref=f2e400]:
+                          - generic [ref=f2e401]:
+                            - text: "6"
+                            - generic [ref=f2e402]: ":"
+                          - generic [ref=f2e403] [cursor=pointer]: "\"exerciseRatio\""
+                        - generic [ref=f2e406]:
+                          - generic [ref=f2e407]:
+                            - text: "7"
+                            - generic [ref=f2e408]: ":"
+                          - generic [ref=f2e409] [cursor=pointer]: "\"high\""
+                        - generic [ref=f2e412]:
+                          - generic [ref=f2e413]:
+                            - text: "8"
+                            - generic [ref=f2e414]: ":"
+                          - generic [ref=f2e415] [cursor=pointer]: "\"iNav\""
+                        - generic [ref=f2e418]:
+                          - generic [ref=f2e419]:
+                            - text: "9"
+                            - generic [ref=f2e420]: ":"
+                          - generic [ref=f2e421] [cursor=pointer]: "\"impliedVolatility\""
+                        - generic [ref=f2e424]:
+                          - generic [ref=f2e425]:
+                            - text: "10"
+                            - generic [ref=f2e426]: ":"
+                          - generic [ref=f2e427] [cursor=pointer]: "\"instrumentType\""
+                        - generic [ref=f2e430]:
+                          - generic [ref=f2e431]:
+                            - text: "11"
+                            - generic [ref=f2e432]: ":"
+                          - generic [ref=f2e433] [cursor=pointer]: "\"intrinsicValue\""
+                        - generic [ref=f2e436]:
+                          - generic [ref=f2e437]:
+                            - text: "12"
+                            - generic [ref=f2e438]: ":"
+                          - generic [ref=f2e439] [cursor=pointer]: "\"last\""
+                        - generic [ref=f2e442]:
+                          - generic [ref=f2e443]:
+                            - text: "13"
+                            - generic [ref=f2e444]: ":"
+                          - generic [ref=f2e445] [cursor=pointer]: "\"lastTradingDate\""
+                        - generic [ref=f2e448]:
+                          - generic [ref=f2e449]:
+                            - text: "14"
+                            - generic [ref=f2e450]: ":"
+                          - generic [ref=f2e451] [cursor=pointer]: "\"low\""
+                        - generic [ref=f2e454]:
+                          - generic [ref=f2e455]:
+                            - text: "15"
+                            - generic [ref=f2e456]: ":"
+                          - generic [ref=f2e457] [cursor=pointer]: "\"marketStatus\""
+                        - generic [ref=f2e460]:
+                          - generic [ref=f2e461]:
+                            - text: "16"
+                            - generic [ref=f2e462]: ":"
+                          - generic [ref=f2e463] [cursor=pointer]: "\"maturityDate\""
+                        - generic [ref=f2e466]:
+                          - generic [ref=f2e467]:
+                            - text: "17"
+                            - generic [ref=f2e468]: ":"
+                          - generic [ref=f2e469] [cursor=pointer]: "\"moneyness\""
+                        - generic [ref=f2e472]:
+                          - generic [ref=f2e473]:
+                            - text: "18"
+                            - generic [ref=f2e474]: ":"
+                          - generic [ref=f2e475] [cursor=pointer]: "\"pbv\""
+                        - generic [ref=f2e478]:
+                          - generic [ref=f2e479]:
+                            - text: "19"
+                            - generic [ref=f2e480]: ":"
+                          - generic [ref=f2e481] [cursor=pointer]: "\"pe\""
+                        - generic [ref=f2e484]:
+                          - generic [ref=f2e485]:
+                            - text: "20"
+                            - generic [ref=f2e486]: ":"
+                          - generic [ref=f2e487] [cursor=pointer]: "\"percentChange\""
+                        - generic [ref=f2e490]:
+                          - generic [ref=f2e491]:
+                            - text: "21"
+                            - generic [ref=f2e492]: ":"
+                          - generic [ref=f2e493] [cursor=pointer]: "\"percentYield\""
+                        - generic [ref=f2e496]:
+                          - generic [ref=f2e497]:
+                            - text: "22"
+                            - generic [ref=f2e498]: ":"
+                          - generic [ref=f2e499] [cursor=pointer]: "\"securityType\""
+                        - generic [ref=f2e502]:
+                          - generic [ref=f2e503]:
+                            - text: "23"
+                            - generic [ref=f2e504]: ":"
+                          - generic [ref=f2e505] [cursor=pointer]: "\"status\""
+                        - generic [ref=f2e508]:
+                          - generic [ref=f2e509]:
+                            - text: "24"
+                            - generic [ref=f2e510]: ":"
+                          - generic [ref=f2e511] [cursor=pointer]: "\"symbol\""
+                        - generic [ref=f2e514]:
+                          - generic [ref=f2e515]:
+                            - text: "25"
+                            - generic [ref=f2e516]: ":"
+                          - generic [ref=f2e517] [cursor=pointer]: "\"theoretical\""
+                        - generic [ref=f2e520]:
+                          - generic [ref=f2e521]:
+                            - text: "26"
+                            - generic [ref=f2e522]: ":"
+                          - generic [ref=f2e523] [cursor=pointer]: "\"toLastTrade\""
+                        - generic [ref=f2e526]:
+                          - generic [ref=f2e527]:
+                            - text: "27"
+                            - generic [ref=f2e528]: ":"
+                          - generic [ref=f2e529] [cursor=pointer]: "\"totalBuyVolume\""
+                        - generic [ref=f2e532]:
+                          - generic [ref=f2e533]:
+                            - text: "28"
+                            - generic [ref=f2e534]: ":"
+                          - generic [ref=f2e535] [cursor=pointer]: "\"totalNoSideVolume\""
+                        - generic [ref=f2e538]:
+                          - generic [ref=f2e539]:
+                            - text: "29"
+                            - generic [ref=f2e540]: ":"
+                          - generic [ref=f2e541] [cursor=pointer]: "\"totalSellVolume\""
+                        - generic [ref=f2e544]:
+                          - generic [ref=f2e545]:
+                            - text: "30"
+                            - generic [ref=f2e546]: ":"
+                          - generic [ref=f2e547] [cursor=pointer]: "\"totalVolume\""
+                        - generic [ref=f2e550]:
+                          - generic [ref=f2e551]:
+                            - text: "31"
+                            - generic [ref=f2e552]: ":"
+                          - generic [ref=f2e553] [cursor=pointer]: "\"underlying\""
+                        - generic [ref=f2e556]:
+                          - generic [ref=f2e557]:
+                            - text: "32"
+                            - generic [ref=f2e558]: ":"
+                          - generic [ref=f2e559] [cursor=pointer]: "\"underlyingPrice\""
+                      - generic [ref=f2e562]: "]"
+                  - generic [ref=f2e564]: "}"
+                - generic [ref=f2e566]:
+                  - generic [ref=f2e567]:
+                    - generic [ref=f2e568]:
+                      - text: "\""
+                      - generic [ref=f2e569]: timestamp_basis
+                      - text: "\""
+                    - generic [ref=f2e570]: ":"
+                  - generic [ref=f2e571] [cursor=pointer]: "\"successful quote observed during this smoke session; exact response receipt time was not persisted\""
+                - generic [ref=f2e574]:
+                  - generic [ref=f2e575]:
+                    - generic [ref=f2e576]:
+                      - text: "\""
+                      - generic [ref=f2e577]: session_started_at_utc
+                      - text: "\""
+                    - generic [ref=f2e578]: ":"
+                  - generic [ref=f2e579] [cursor=pointer]: "\"2026-10-16T12:12:02.434784+00:00\""
+              - generic [ref=f2e582]: "}"
+            - generic [ref=f2e584]:
+              - generic [ref=f2e585]:
+                - generic [ref=f2e586]:
+                  - text: "\""
+                  - generic [ref=f2e587]: later_data_source
+                  - text: "\""
+                - generic [ref=f2e588]: ":"
+              - generic [ref=f2e589] [cursor=pointer]: "\"Settrade Open API\""
+            - generic [ref=f2e592]:
+              - generic [ref=f2e593]:
+                - generic [ref=f2e594]:
+                  - text: "\""
+                  - generic [ref=f2e595]: later_data_environment
+                  - text: "\""
+                - generic [ref=f2e596]: ":"
+              - generic [ref=f2e597] [cursor=pointer]: "\"production\""
+            - generic [ref=f2e600]:
+              - generic [ref=f2e601]:
+                - generic [ref=f2e602]:
+                  - text: "\""
+                  - generic [ref=f2e603]: orders_placed
+                  - text: "\""
+                - generic [ref=f2e604]: ":"
+              - generic [ref=f2e605] [cursor=pointer]: "0"
+            - generic [ref=f2e607]:
+              - generic [ref=f2e608]:
+                - generic [ref=f2e609]:
+                  - text: "\""
+                  - generic [ref=f2e610]: cutover_timestamp_asia_bangkok
+                  - text: "\""
+                - generic [ref=f2e611]: ":"
+              - generic [ref=f2e612] [cursor=pointer]: "\"2026-10-16T19:12:02.434784+07:00\""
+            - generic [ref=f2e615]:
+              - generic [ref=f2e616]:
+                - generic [ref=f2e617]:
+                  - text: "\""
+                  - generic [ref=f2e618]: previous_environment
+                  - text: "\""
+                - generic [ref=f2e619]: ":"
+              - generic [ref=f2e620] [cursor=pointer]: "\"SANDBOX (supported by pre-cutover persisted artifacts and prior sandbox configuration)\""
+            - generic [ref=f2e623]:
+              - generic [ref=f2e624]:
+                - generic [ref=f2e625]:
+                  - text: "\""
+                  - generic [ref=f2e626]: new_environment
+                  - text: "\""
+                - generic [ref=f2e627]: ":"
+              - generic [ref=f2e628] [cursor=pointer]: "\"PRODUCTION\""
+            - generic [ref=f2e631]:
+              - generic [ref=f2e632]:
+                - generic [ref=f2e633]:
+                  - text: "\""
+                  - generic [ref=f2e634]: broker_id
+                  - text: "\""
+                - generic [ref=f2e635]: ":"
+              - generic [ref=f2e636] [cursor=pointer]: "\"013\""
+            - generic [ref=f2e639]:
+              - generic [ref=f2e640]:
+                - generic [ref=f2e641]:
+                  - text: "\""
+                  - generic [ref=f2e642]: app_code
+                  - text: "\""
+                - generic [ref=f2e643]: ":"
+              - generic [ref=f2e644] [cursor=pointer]: "\"ALGO_EQ\""
+            - generic [ref=f2e647]:
+              - generic [ref=f2e648]:
+                - generic [ref=f2e649]:
+                  - text: "\""
+                  - generic [ref=f2e650]: git_head_at_cutover
+                  - text: "\""
+                - generic [ref=f2e651]: ":"
+              - generic [ref=f2e652] [cursor=pointer]: "\"5c29ba0128155d50352ddd15a26cb0f9883d1627\""
+            - generic [ref=f2e655]:
+              - generic [ref=f2e656]:
+                - generic [ref=f2e657]:
+                  - text: "\""
+                  - generic [ref=f2e658]: collector_runtime_version
+                  - text: "\""
+                - generic [ref=f2e659]: ":"
+              - generic [ref=f2e660] [cursor=pointer]: "\"UNKNOWN\""
+            - generic [ref=f2e663]:
+              - generic [ref=f2e664]:
+                - generic [ref=f2e665]:
+                  - text: "\""
+                  - generic [ref=f2e666]: latest_persisted_market_timestamp_before_cutover
+                  - text: "\""
+                - generic [ref=f2e667]: ":"
+              - generic [ref=f2e668] [cursor=pointer]: "\"UNKNOWN (latest event market timestamp was absent; collected/received timestamp is recorded)\""
+            - generic [ref=f2e671]:
+              - generic [ref=f2e672]:
+                - generic [ref=f2e673]:
+                  - text: "\""
+                  - generic [ref=f2e674]: first_persisted_production_market_timestamp
+                  - text: "\""
+                - generic [ref=f2e675]: ":"
+              - generic [ref=f2e676] [cursor=pointer]: "\"UNKNOWN (production collector yielded no market rows)\""
+            - generic [ref=f2e679]:
+              - generic [ref=f2e681] [cursor=pointer]:
+                - generic [ref=f2e686]:
+                  - generic [ref=f2e687]: "\"first_successful_production_auth\""
+                  - generic [ref=f2e688]: ":"
+                - generic [ref=f2e689]: "{"
+              - generic [ref=f2e691]:
+                - generic [ref=f2e692]:
+                  - generic [ref=f2e693]:
+                    - generic [ref=f2e694]:
+                      - text: "\""
+                      - generic [ref=f2e695]: timestamp_utc
+                      - text: "\""
+                    - generic [ref=f2e696]: ":"
+                  - generic [ref=f2e697] [cursor=pointer]: "\"UNKNOWN_EXACT\""
+                - generic [ref=f2e700]:
+                  - generic [ref=f2e701]:
+                    - generic [ref=f2e702]:
+                      - text: "\""
+                      - generic [ref=f2e703]: session_started_at_utc
+                      - text: "\""
+                    - generic [ref=f2e704]: ":"
+                  - generic [ref=f2e705] [cursor=pointer]: "\"2026-10-16T12:12:02.434784+00:00\""
+                - generic [ref=f2e708]:
+                  - generic [ref=f2e709]:
+                    - generic [ref=f2e710]:
+                      - text: "\""
+                      - generic [ref=f2e711]: timestamp_basis
+                      - text: "\""
+                    - generic [ref=f2e712]: ":"
+                  - generic [ref=f2e713] [cursor=pointer]: "\"initial smoke session start; exact auth response receipt was not persisted\""
+              - generic [ref=f2e716]: "}"
+            - generic [ref=f2e718]:
+              - generic [ref=f2e719]:
+                - generic [ref=f2e720]:
+                  - text: "\""
+                  - generic [ref=f2e721]: cutover_timestamp_basis
+                  - text: "\""
+                - generic [ref=f2e722]: ":"
+              - generic [ref=f2e723] [cursor=pointer]: "\"initial bounded production smoke session start; exact first auth/market response receipt was not persisted\""
+            - generic [ref=f2e726]:
+              - generic [ref=f2e727]:
+                - generic [ref=f2e728]:
+                  - text: "\""
+                  - generic [ref=f2e729]: latest_persisted_timestamp_immediately_before_cutover
+                  - text: "\""
+                - generic [ref=f2e730]: ":"
+              - generic [ref=f2e731] [cursor=pointer]: "\"2026-10-16T09:56:47.226803+00:00\""
+            - generic [ref=f2e734]:
+              - generic [ref=f2e735]:
+                - generic [ref=f2e736]:
+                  - text: "\""
+                  - generic [ref=f2e737]: latest_persisted_observation_asia_bangkok
+                  - text: "\""
+                - generic [ref=f2e738]: ":"
+              - generic [ref=f2e739] [cursor=pointer]: "\"2026-10-16T16:56:47.226803+07:00\""
+            - generic [ref=f2e742]:
+              - generic [ref=f2e744] [cursor=pointer]:
+                - generic [ref=f2e749]:
+                  - generic [ref=f2e750]: "\"last_sandbox_observation_source\""
+                  - generic [ref=f2e751]: ":"
+                - generic [ref=f2e752]: "{"
+              - generic [ref=f2e754]:
+                - generic [ref=f2e755]:
+                  - generic [ref=f2e756]:
+                    - generic [ref=f2e757]:
+                      - text: "\""
+                      - generic [ref=f2e758]: path
+                      - text: "\""
+                    - generic [ref=f2e759]: ":"
+                  - generic [ref=f2e760] [cursor=pointer]: "\"data/pilot/settrade/raw/bid_offer/events.jsonl\""
+                - generic [ref=f2e763]:
+                  - generic [ref=f2e764]:
+                    - generic [ref=f2e765]:
+                      - text: "\""
+                      - generic [ref=f2e766]: symbol
+                      - text: "\""
+                    - generic [ref=f2e767]: ":"
+                  - generic [ref=f2e768] [cursor=pointer]: "\"PTTGC\""
+                - generic [ref=f2e771]:
+                  - generic [ref=f2e772]:
+                    - generic [ref=f2e773]:
+                      - text: "\""
+                      - generic [ref=f2e774]: timestamp_field
+                      - text: "\""
+                    - generic [ref=f2e775]: ":"
+                  - generic [ref=f2e776] [cursor=pointer]: "\"received_at\""
+                - generic [ref=f2e779]:
+                  - generic [ref=f2e780]:
+                    - generic [ref=f2e781]:
+                      - text: "\""
+                      - generic [ref=f2e782]: market_timestamp
+                      - text: "\""
+                    - generic [ref=f2e783]: ":"
+                  - generic [ref=f2e784] [cursor=pointer]: "\"UNKNOWN (payload omitted it)\""
+                - generic [ref=f2e787]:
+                  - generic [ref=f2e788]:
+                    - generic [ref=f2e789]:
+                      - text: "\""
+                      - generic [ref=f2e790]: provenance_basis
+                      - text: "\""
+                    - generic [ref=f2e791]: ":"
+                  - generic [ref=f2e792] [cursor=pointer]: "\"pre-cutover data root and prior SANDBOX configuration\""
+              - generic [ref=f2e795]: "}"
+          - generic [ref=f2e797]: "}"
+        - heading "Current-day coverage and session timeline" [level=3] [ref=f2e803]:
+          - text: Current-day coverage and session timeline
+          - generic [ref=f2e804]:
+            - link "Link to heading":
+              - /url: "#current-day-coverage-and-session-timeline"
+        - generic [ref=f2e806]:
+          - generic [ref=f2e811]:
+            - paragraph [ref=f2e815]: Trading day
+            - paragraph [ref=f2e818]: 2026-10-21
+          - generic [ref=f2e823]:
+            - paragraph [ref=f2e827]: Outage evidence
+            - paragraph [ref=f2e830]: UNKNOWN
+          - generic [ref=f2e835]:
+            - paragraph [ref=f2e839]: Current-day gaps
+            - paragraph [ref=f2e842]: "447"
+          - generic [ref=f2e847]:
+            - paragraph [ref=f2e851]: Rows backfilled
+            - paragraph [ref=f2e854]: "53"
+        - paragraph [ref=f2e859]: Absence of transport errors is not evidence that the user-reported internet outage did not occur; exact timing is not established.
+        - generic [ref=f2e862]:
+          - generic [ref=f2e864]:
+            - 'button "Show/hide columns: Current-day source coverage and timestamps by production dataset" [ref=f2e868] [cursor=pointer]'
+            - 'button "Download as CSV: Current-day source coverage and timestamps by production dataset" [ref=f2e874] [cursor=pointer]'
+            - 'button "Search: Current-day source coverage and timestamps by production dataset" [ref=f2e880] [cursor=pointer]'
+            - 'button "Fullscreen: Current-day source coverage and timestamps by production dataset" [ref=f2e886] [cursor=pointer]'
+          - region "Current-day source coverage and timestamps by production dataset" [ref=f2e890]
+        - generic [ref=f2e903]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: 10:00
+                  - generic: 12:00
+                  - generic: 14:00
+                  - generic: 16:00
+                - generic:
+                  - generic: Persisted 1m candle span
+                  - generic: Persisted raw BBO span
+                  - generic: Collector cycle 46
+                  - generic: Collector cycle 45
+                  - generic: Collector cycle 44
+                  - generic: Collector cycle 43
+                  - generic: Collector cycle 42
+                  - generic: Collector cycle 41
+                  - generic: Collector cycle 40
+                  - generic: Collector cycle 39
+                  - generic: Collector cycle 38
+                  - generic: Collector cycle 37
+                  - generic: Collector cycle 36
+                  - generic: Collector cycle 35
+                  - generic: Collector cycle 34
+                  - generic: Collector cycle 33
+                  - generic: Collector cycle 32
+                  - generic: Collector cycle 31
+                  - generic: Collector cycle 30
+                  - generic: Collector cycle 29
+                  - generic: Collector cycle 28
+                  - generic: Collector cycle 27
+                  - generic: Collector cycle 26
+                  - generic: Collector cycle 25
+                  - generic: Collector cycle 24
+                  - generic: Collector cycle 23
+                  - generic: Collector cycle 22
+                  - generic: Collector cycle 21
+                  - generic: Collector cycle 20
+                  - generic: Collector cycle 19
+                  - generic: Collector cycle 18
+                  - generic: Collector cycle 17
+                  - generic: Collector cycle 16
+                  - generic: Collector cycle 15
+                  - generic: Collector cycle 14
+                  - generic: Collector cycle 13
+                  - generic: Collector cycle 12
+                  - generic: Collector cycle 11
+                  - generic: Collector cycle 10
+                  - generic: Collector cycle 9
+                  - generic: Collector cycle 8
+                  - generic: Collector cycle 7
+                  - generic: Collector cycle 6
+                  - generic: Collector cycle 5
+                  - generic: Collector cycle 4
+                  - generic: Collector cycle 3
+                  - generic: Collector cycle 2
+                  - generic: Collector cycle 1
+                  - generic: Afternoon session (scheduled)
+                  - generic: Morning session (scheduled)
+          - img:
+            - generic: Asia/Bangkok
+          - toolbar [ref=f2e917]:
+            - button "Download plot as a PNG" [ref=f2e919] [cursor=pointer]
+            - generic [ref=f2e922]:
+              - button "Zoom" [ref=f2e923] [cursor=pointer]
+              - button "Pan" [ref=f2e926] [cursor=pointer]
+            - generic [ref=f2e929]:
+              - button "Zoom in" [ref=f2e930] [cursor=pointer]
+              - button "Zoom out" [ref=f2e933] [cursor=pointer]
+              - button "Autoscale" [ref=f2e936] [cursor=pointer]
+              - button "Reset axes" [ref=f2e939] [cursor=pointer]
+            - button "Fullscreen" [ref=f2e943] [cursor=pointer]
+        - paragraph [ref=f2e950]: Collector bars span SDK subscription timestamps to runner receipt of cycle diagnostics. Scheduled session bars are separate. BBO spans show event bounds only; quiet time alone is not classified as an outage.
+        - heading "Gap inspector" [level=3] [ref=f2e955]:
+          - text: Gap inspector
+          - generic [ref=f2e956]:
+            - link "Link to heading":
+              - /url: "#gap-inspector"
+        - generic [ref=f2e959]:
+          - generic [ref=f2e961]:
+            - 'button "Show/hide columns: Observed missing candle intervals and missing dataset evidence without invented outage causes" [ref=f2e965] [cursor=pointer]'
+            - 'button "Download as CSV: Observed missing candle intervals and missing dataset evidence without invented outage causes" [ref=f2e971] [cursor=pointer]'
+            - 'button "Search: Observed missing candle intervals and missing dataset evidence without invented outage causes" [ref=f2e977] [cursor=pointer]'
+            - 'button "Fullscreen: Observed missing candle intervals and missing dataset evidence without invented outage causes" [ref=f2e983] [cursor=pointer]'
+          - region "Observed missing candle intervals and missing dataset evidence without invented outage causes" [ref=f2e987]
+        - generic [ref=f2e996]:
+          - paragraph [ref=f2e1000]: Data source inspector
+          - group [ref=f2e1002]:
+            - combobox "Data source inspector" [ref=f2e1003]: raw_bbo
+            - button "Open" [ref=f2e1004] [cursor=pointer]
+        - generic [ref=f2e1009]:
+          - paragraph [ref=f2e1013]: Symbol provenance
+          - group [ref=f2e1015]:
+            - combobox "Symbol provenance" [ref=f2e1016]: ADVANC
+            - button "Open" [ref=f2e1017] [cursor=pointer]
+        - generic [ref=f2e1026]:
+          - generic [ref=f2e1027]: "{"
+          - generic [ref=f2e1035]:
+            - generic [ref=f2e1036]:
+              - generic [ref=f2e1037]:
+                - generic [ref=f2e1038]:
+                  - text: "\""
+                  - generic [ref=f2e1039]: dataset
+                  - text: "\""
+                - generic [ref=f2e1040]: ":"
+              - generic [ref=f2e1041] [cursor=pointer]: "\"raw_bbo\""
+            - generic [ref=f2e1044]:
+              - generic [ref=f2e1045]:
+                - generic [ref=f2e1046]:
+                  - text: "\""
+                  - generic [ref=f2e1047]: symbol
+                  - text: "\""
+                - generic [ref=f2e1048]: ":"
+              - generic [ref=f2e1049] [cursor=pointer]: "\"ADVANC\""
+            - generic [ref=f2e1052]:
+              - generic [ref=f2e1053]:
+                - generic [ref=f2e1054]:
+                  - text: "\""
+                  - generic [ref=f2e1055]: environment
+                  - text: "\""
+                - generic [ref=f2e1056]: ":"
+              - generic [ref=f2e1057] [cursor=pointer]: "\"PRODUCTION\""
+            - generic [ref=f2e1060]:
+              - generic [ref=f2e1061]:
+                - generic [ref=f2e1062]:
+                  - text: "\""
+                  - generic [ref=f2e1063]: source_file
+                  - text: "\""
+                - generic [ref=f2e1064]: ":"
+              - generic [ref=f2e1065] [cursor=pointer]: "\"data\\\\pilot\\\\settrade\\\\production\\\\raw\\\\bid_offer\\\\events.jsonl\""
+            - generic [ref=f2e1068]:
+              - generic [ref=f2e1069]:
+                - generic [ref=f2e1070]:
+                  - text: "\""
+                  - generic [ref=f2e1071]: rows
+                  - text: "\""
+                - generic [ref=f2e1072]: ":"
+              - generic [ref=f2e1073] [cursor=pointer]: "569"
+            - generic [ref=f2e1075]:
+              - generic [ref=f2e1076]:
+                - generic [ref=f2e1077]:
+                  - text: "\""
+                  - generic [ref=f2e1078]: first_timestamp_bangkok
+                  - text: "\""
+                - generic [ref=f2e1079]: ":"
+              - generic [ref=f2e1080] [cursor=pointer]: "\"2026-10-21T09:45:10.997907+07:00\""
+            - generic [ref=f2e1083]:
+              - generic [ref=f2e1084]:
+                - generic [ref=f2e1085]:
+                  - text: "\""
+                  - generic [ref=f2e1086]: last_timestamp_bangkok
+                  - text: "\""
+                - generic [ref=f2e1087]: ":"
+              - generic [ref=f2e1088] [cursor=pointer]: "\"2026-10-21T16:52:34.387422+07:00\""
+            - generic [ref=f2e1091]:
+              - generic [ref=f2e1092]:
+                - generic [ref=f2e1093]:
+                  - text: "\""
+                  - generic [ref=f2e1094]: backfill
+                  - text: "\""
+                - generic [ref=f2e1095]: ":"
+              - generic [ref=f2e1096] [cursor=pointer]: "NULL"
+          - generic [ref=f2e1098]: "}"
+        - heading "Production API capability smoke" [level=3] [ref=f2e1104]:
+          - text: Production API capability smoke
+          - generic [ref=f2e1105]:
+            - link "Link to heading":
+              - /url: "#production-api-capability-smoke"
+        - generic [ref=f2e1111]:
+          - generic [ref=f2e1112]: "{"
+          - generic [ref=f2e1120]:
+            - generic [ref=f2e1121]:
+              - generic [ref=f2e1122]:
+                - generic [ref=f2e1123]:
+                  - text: "\""
+                  - generic [ref=f2e1124]: environment
+                  - text: "\""
+                - generic [ref=f2e1125]: ":"
+              - generic [ref=f2e1126] [cursor=pointer]: "\"production\""
+            - generic [ref=f2e1129]:
+              - generic [ref=f2e1130]:
+                - generic [ref=f2e1131]:
+                  - text: "\""
+                  - generic [ref=f2e1132]: broker_id
+                  - text: "\""
+                - generic [ref=f2e1133]: ":"
+              - generic [ref=f2e1134] [cursor=pointer]: "\"013\""
+            - generic [ref=f2e1137]:
+              - generic [ref=f2e1138]:
+                - generic [ref=f2e1139]:
+                  - text: "\""
+                  - generic [ref=f2e1140]: app_code
+                  - text: "\""
+                - generic [ref=f2e1141]: ":"
+              - generic [ref=f2e1142] [cursor=pointer]: "\"ALGO_EQ\""
+            - generic [ref=f2e1145]:
+              - generic [ref=f2e1146]:
+                - generic [ref=f2e1147]:
+                  - text: "\""
+                  - generic [ref=f2e1148]: sdk_version
+                  - text: "\""
+                - generic [ref=f2e1149]: ":"
+              - generic [ref=f2e1150] [cursor=pointer]: "\"2.2.1\""
+            - generic [ref=f2e1153]:
+              - generic [ref=f2e1154]:
+                - generic [ref=f2e1155]:
+                  - text: "\""
+                  - generic [ref=f2e1156]: started_at
+                  - text: "\""
+                - generic [ref=f2e1157]: ":"
+              - generic [ref=f2e1158] [cursor=pointer]: "\"2026-10-19T18:45:30.552192+00:00\""
+            - generic [ref=f2e1161]:
+              - generic [ref=f2e1162]:
+                - generic [ref=f2e1163]:
+                  - text: "\""
+                  - generic [ref=f2e1164]: orders_placed
+                  - text: "\""
+                - generic [ref=f2e1165]: ":"
+              - generic [ref=f2e1166] [cursor=pointer]: "0"
+            - generic [ref=f2e1168]:
+              - generic [ref=f2e1169]:
+                - generic [ref=f2e1170]:
+                  - text: "\""
+                  - generic [ref=f2e1171]: account_access
+                  - text: "\""
+                - generic [ref=f2e1172]: ":"
+              - generic [ref=f2e1173] [cursor=pointer]: "\"NOT_ATTEMPTED\""
+            - generic [ref=f2e1176]:
+              - generic [ref=f2e1177]:
+                - generic [ref=f2e1178]:
+                  - text: "\""
+                  - generic [ref=f2e1179]: authentication
+                  - text: "\""
+                - generic [ref=f2e1180]: ":"
+              - generic [ref=f2e1181] [cursor=pointer]: "\"SUCCESS\""
+            - generic [ref=f2e1184]:
+              - generic [ref=f2e1186] [cursor=pointer]:
+                - generic [ref=f2e1191]:
+                  - generic [ref=f2e1192]: "\"candle_1m_PTT\""
+                  - generic [ref=f2e1193]: ":"
+                - generic [ref=f2e1194]: "{"
+              - generic [ref=f2e1196]:
+                - generic [ref=f2e1197]:
+                  - generic [ref=f2e1199] [cursor=pointer]:
+                    - generic [ref=f2e1204]:
+                      - generic [ref=f2e1205]: "\"fields\""
+                      - generic [ref=f2e1206]: ":"
+                    - generic [ref=f2e1207]: "["
+                  - generic [ref=f2e1209]:
+                    - generic [ref=f2e1210]:
+                      - generic [ref=f2e1211]:
+                        - text: "0"
+                        - generic [ref=f2e1212]: ":"
+                      - generic [ref=f2e1213] [cursor=pointer]: "\"close\""
+                    - generic [ref=f2e1216]:
+                      - generic [ref=f2e1217]:
+                        - text: "1"
+                        - generic [ref=f2e1218]: ":"
+                      - generic [ref=f2e1219] [cursor=pointer]: "\"high\""
+                    - generic [ref=f2e1222]:
+                      - generic [ref=f2e1223]:
+                        - text: "2"
+                        - generic [ref=f2e1224]: ":"
+                      - generic [ref=f2e1225] [cursor=pointer]: "\"lastSequence\""
+                    - generic [ref=f2e1228]:
+                      - generic [ref=f2e1229]:
+                        - text: "3"
+                        - generic [ref=f2e1230]: ":"
+                      - generic [ref=f2e1231] [cursor=pointer]: "\"low\""
+                    - generic [ref=f2e1234]:
+                      - generic [ref=f2e1235]:
+                        - text: "4"
+                        - generic [ref=f2e1236]: ":"
+                      - generic [ref=f2e1237] [cursor=pointer]: "\"open\""
+                    - generic [ref=f2e1240]:
+                      - generic [ref=f2e1241]:
+                        - text: "5"
+                        - generic [ref=f2e1242]: ":"
+                      - generic [ref=f2e1243] [cursor=pointer]: "\"time\""
+                    - generic [ref=f2e1246]:
+                      - generic [ref=f2e1247]:
+                        - text: "6"
+                        - generic [ref=f2e1248]: ":"
+                      - generic [ref=f2e1249] [cursor=pointer]: "\"value\""
+                    - generic [ref=f2e1252]:
+                      - generic [ref=f2e1253]:
+                        - text: "7"
+                        - generic [ref=f2e1254]: ":"
+                      - generic [ref=f2e1255] [cursor=pointer]: "\"volume\""
+                  - generic [ref=f2e1258]: "]"
+                - generic [ref=f2e1260]:
+                  - generic [ref=f2e1261]:
+                    - generic [ref=f2e1262]:
+                      - text: "\""
+                      - generic [ref=f2e1263]: rows
+                      - text: "\""
+                    - generic [ref=f2e1264]: ":"
+                  - generic [ref=f2e1265] [cursor=pointer]: "5"
+                - generic [ref=f2e1267]:
+                  - generic [ref=f2e1268]:
+                    - generic [ref=f2e1269]:
+                      - text: "\""
+                      - generic [ref=f2e1270]: first_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1271]: ":"
+                  - generic [ref=f2e1272] [cursor=pointer]: "\"1792401960\""
+                - generic [ref=f2e1275]:
+                  - generic [ref=f2e1276]:
+                    - generic [ref=f2e1277]:
+                      - text: "\""
+                      - generic [ref=f2e1278]: last_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1279]: ":"
+                  - generic [ref=f2e1280] [cursor=pointer]: "\"1792402560\""
+                - generic [ref=f2e1283]:
+                  - generic [ref=f2e1284]:
+                    - generic [ref=f2e1285]:
+                      - text: "\""
+                      - generic [ref=f2e1286]: status
+                      - text: "\""
+                    - generic [ref=f2e1287]: ":"
+                  - generic [ref=f2e1288] [cursor=pointer]: "\"SUCCESS\""
+                - generic [ref=f2e1291]:
+                  - generic [ref=f2e1292]:
+                    - generic [ref=f2e1293]:
+                      - text: "\""
+                      - generic [ref=f2e1294]: observed_at
+                      - text: "\""
+                    - generic [ref=f2e1295]: ":"
+                  - generic [ref=f2e1296] [cursor=pointer]: "\"2026-10-19T18:45:33.079960+00:00\""
+                - generic [ref=f2e1299]:
+                  - generic [ref=f2e1300]:
+                    - generic [ref=f2e1301]:
+                      - text: "\""
+                      - generic [ref=f2e1302]: last_timestamp_local
+                      - text: "\""
+                    - generic [ref=f2e1303]: ":"
+                  - generic [ref=f2e1304] [cursor=pointer]: "\"2026-10-19T16:36:00+07:00\""
+                - generic [ref=f2e1307]:
+                  - generic [ref=f2e1308]:
+                    - generic [ref=f2e1309]:
+                      - text: "\""
+                      - generic [ref=f2e1310]: data_freshness
+                      - text: "\""
+                    - generic [ref=f2e1311]: ":"
+                  - generic [ref=f2e1312] [cursor=pointer]: "\"STALE\""
+              - generic [ref=f2e1315]: "}"
+            - generic [ref=f2e1317]:
+              - generic [ref=f2e1319] [cursor=pointer]:
+                - generic [ref=f2e1324]:
+                  - generic [ref=f2e1325]: "\"historical_candle_1m_PTT\""
+                  - generic [ref=f2e1326]: ":"
+                - generic [ref=f2e1327]: "{"
+              - generic [ref=f2e1329]:
+                - generic [ref=f2e1330]:
+                  - generic [ref=f2e1332] [cursor=pointer]:
+                    - generic [ref=f2e1337]:
+                      - generic [ref=f2e1338]: "\"fields\""
+                      - generic [ref=f2e1339]: ":"
+                    - generic [ref=f2e1340]: "["
+                  - generic [ref=f2e1342]:
+                    - generic [ref=f2e1343]:
+                      - generic [ref=f2e1344]:
+                        - text: "0"
+                        - generic [ref=f2e1345]: ":"
+                      - generic [ref=f2e1346] [cursor=pointer]: "\"close\""
+                    - generic [ref=f2e1349]:
+                      - generic [ref=f2e1350]:
+                        - text: "1"
+                        - generic [ref=f2e1351]: ":"
+                      - generic [ref=f2e1352] [cursor=pointer]: "\"high\""
+                    - generic [ref=f2e1355]:
+                      - generic [ref=f2e1356]:
+                        - text: "2"
+                        - generic [ref=f2e1357]: ":"
+                      - generic [ref=f2e1358] [cursor=pointer]: "\"lastSequence\""
+                    - generic [ref=f2e1361]:
+                      - generic [ref=f2e1362]:
+                        - text: "3"
+                        - generic [ref=f2e1363]: ":"
+                      - generic [ref=f2e1364] [cursor=pointer]: "\"low\""
+                    - generic [ref=f2e1367]:
+                      - generic [ref=f2e1368]:
+                        - text: "4"
+                        - generic [ref=f2e1369]: ":"
+                      - generic [ref=f2e1370] [cursor=pointer]: "\"open\""
+                    - generic [ref=f2e1373]:
+                      - generic [ref=f2e1374]:
+                        - text: "5"
+                        - generic [ref=f2e1375]: ":"
+                      - generic [ref=f2e1376] [cursor=pointer]: "\"time\""
+                    - generic [ref=f2e1379]:
+                      - generic [ref=f2e1380]:
+                        - text: "6"
+                        - generic [ref=f2e1381]: ":"
+                      - generic [ref=f2e1382] [cursor=pointer]: "\"value\""
+                    - generic [ref=f2e1385]:
+                      - generic [ref=f2e1386]:
+                        - text: "7"
+                        - generic [ref=f2e1387]: ":"
+                      - generic [ref=f2e1388] [cursor=pointer]: "\"volume\""
+                  - generic [ref=f2e1391]: "]"
+                - generic [ref=f2e1393]:
+                  - generic [ref=f2e1394]:
+                    - generic [ref=f2e1395]:
+                      - text: "\""
+                      - generic [ref=f2e1396]: rows
+                      - text: "\""
+                    - generic [ref=f2e1397]: ":"
+                  - generic [ref=f2e1398] [cursor=pointer]: "0"
+                - generic [ref=f2e1400]:
+                  - generic [ref=f2e1401]:
+                    - generic [ref=f2e1402]:
+                      - text: "\""
+                      - generic [ref=f2e1403]: first_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1404]: ":"
+                  - generic [ref=f2e1405] [cursor=pointer]: "NULL"
+                - generic [ref=f2e1407]:
+                  - generic [ref=f2e1408]:
+                    - generic [ref=f2e1409]:
+                      - text: "\""
+                      - generic [ref=f2e1410]: last_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1411]: ":"
+                  - generic [ref=f2e1412] [cursor=pointer]: "NULL"
+                - generic [ref=f2e1414]:
+                  - generic [ref=f2e1415]:
+                    - generic [ref=f2e1416]:
+                      - text: "\""
+                      - generic [ref=f2e1417]: status
+                      - text: "\""
+                    - generic [ref=f2e1418]: ":"
+                  - generic [ref=f2e1419] [cursor=pointer]: "\"SUCCESS\""
+                - generic [ref=f2e1422]:
+                  - generic [ref=f2e1423]:
+                    - generic [ref=f2e1424]:
+                      - text: "\""
+                      - generic [ref=f2e1425]: observed_at
+                      - text: "\""
+                    - generic [ref=f2e1426]: ":"
+                  - generic [ref=f2e1427] [cursor=pointer]: "\"2026-10-19T18:45:34.065364+00:00\""
+              - generic [ref=f2e1430]: "}"
+            - generic [ref=f2e1432]:
+              - generic [ref=f2e1434] [cursor=pointer]:
+                - generic [ref=f2e1439]:
+                  - generic [ref=f2e1440]: "\"candle_1d_PTT\""
+                  - generic [ref=f2e1441]: ":"
+                - generic [ref=f2e1442]: "{"
+              - generic [ref=f2e1444]:
+                - generic [ref=f2e1445]:
+                  - generic [ref=f2e1447] [cursor=pointer]:
+                    - generic [ref=f2e1452]:
+                      - generic [ref=f2e1453]: "\"fields\""
+                      - generic [ref=f2e1454]: ":"
+                    - generic [ref=f2e1455]: "["
+                  - generic [ref=f2e1457]:
+                    - generic [ref=f2e1458]:
+                      - generic [ref=f2e1459]:
+                        - text: "0"
+                        - generic [ref=f2e1460]: ":"
+                      - generic [ref=f2e1461] [cursor=pointer]: "\"close\""
+                    - generic [ref=f2e1464]:
+                      - generic [ref=f2e1465]:
+                        - text: "1"
+                        - generic [ref=f2e1466]: ":"
+                      - generic [ref=f2e1467] [cursor=pointer]: "\"high\""
+                    - generic [ref=f2e1470]:
+                      - generic [ref=f2e1471]:
+                        - text: "2"
+                        - generic [ref=f2e1472]: ":"
+                      - generic [ref=f2e1473] [cursor=pointer]: "\"lastSequence\""
+                    - generic [ref=f2e1476]:
+                      - generic [ref=f2e1477]:
+                        - text: "3"
+                        - generic [ref=f2e1478]: ":"
+                      - generic [ref=f2e1479] [cursor=pointer]: "\"low\""
+                    - generic [ref=f2e1482]:
+                      - generic [ref=f2e1483]:
+                        - text: "4"
+                        - generic [ref=f2e1484]: ":"
+                      - generic [ref=f2e1485] [cursor=pointer]: "\"open\""
+                    - generic [ref=f2e1488]:
+                      - generic [ref=f2e1489]:
+                        - text: "5"
+                        - generic [ref=f2e1490]: ":"
+                      - generic [ref=f2e1491] [cursor=pointer]: "\"time\""
+                    - generic [ref=f2e1494]:
+                      - generic [ref=f2e1495]:
+                        - text: "6"
+                        - generic [ref=f2e1496]: ":"
+                      - generic [ref=f2e1497] [cursor=pointer]: "\"value\""
+                    - generic [ref=f2e1500]:
+                      - generic [ref=f2e1501]:
+                        - text: "7"
+                        - generic [ref=f2e1502]: ":"
+                      - generic [ref=f2e1503] [cursor=pointer]: "\"volume\""
+                  - generic [ref=f2e1506]: "]"
+                - generic [ref=f2e1508]:
+                  - generic [ref=f2e1509]:
+                    - generic [ref=f2e1510]:
+                      - text: "\""
+                      - generic [ref=f2e1511]: rows
+                      - text: "\""
+                    - generic [ref=f2e1512]: ":"
+                  - generic [ref=f2e1513] [cursor=pointer]: "7"
+                - generic [ref=f2e1515]:
+                  - generic [ref=f2e1516]:
+                    - generic [ref=f2e1517]:
+                      - text: "\""
+                      - generic [ref=f2e1518]: first_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1519]: ":"
+                  - generic [ref=f2e1520] [cursor=pointer]: "\"1735750800\""
+                - generic [ref=f2e1523]:
+                  - generic [ref=f2e1524]:
+                    - generic [ref=f2e1525]:
+                      - text: "\""
+                      - generic [ref=f2e1526]: last_timestamp
+                      - text: "\""
+                    - generic [ref=f2e1527]: ":"
+                  - generic [ref=f2e1528] [cursor=pointer]: "\"1736442000\""
+                - generic [ref=f2e1531]:
+                  - generic [ref=f2e1532]:
+                    - generic [ref=f2e1533]:
+                      - text: "\""
+                      - generic [ref=f2e1534]: status
+                      - text: "\""
+                    - generic [ref=f2e1535]: ":"
+                  - generic [ref=f2e1536] [cursor=pointer]: "\"SUCCESS\""
+                - generic [ref=f2e1539]:
+                  - generic [ref=f2e1540]:
+                    - generic [ref=f2e1541]:
+                      - text: "\""
+                      - generic [ref=f2e1542]: observed_at
+                      - text: "\""
+                    - generic [ref=f2e1543]: ":"
+                  - generic [ref=f2e1544] [cursor=pointer]: "\"2026-10-19T18:45:35.066413+00:00\""
+              - generic [ref=f2e1547]: "}"
+            - generic [ref=f2e1549]:
+              - generic [ref=f2e1551] [cursor=pointer]:
+                - generic [ref=f2e1556]:
+                  - generic [ref=f2e1557]: "\"bbo_PTT\""
+                  - generic [ref=f2e1558]: ":"
+                - generic [ref=f2e1559]: "{"
+              - generic [ref=f2e1561]:
+                - generic [ref=f2e1562]:
+                  - generic [ref=f2e1563]:
+                    - generic [ref=f2e1564]:
+                      - text: "\""
+                      - generic [ref=f2e1565]: status
+                      - text: "\""
+                    - generic [ref=f2e1566]: ":"
+                  - generic [ref=f2e1567] [cursor=pointer]: "\"SUCCESS\""
+                - generic [ref=f2e1570]:
+                  - generic [ref=f2e1571]:
+                    - generic [ref=f2e1572]:
+                      - text: "\""
+                      - generic [ref=f2e1573]: observation_seconds
+                      - text: "\""
+                    - generic [ref=f2e1574]: ":"
+                  - generic [ref=f2e1575] [cursor=pointer]: "5"
+                - generic [ref=f2e1577]:
+                  - generic [ref=f2e1578]:
+                    - generic [ref=f2e1579]:
+                      - text: "\""
+                      - generic [ref=f2e1580]: events
+                      - text: "\""
+                    - generic [ref=f2e1581]: ":"
+                  - generic [ref=f2e1582] [cursor=pointer]: "1"
+                - generic [ref=f2e1584]:
+                  - generic [ref=f2e1586] [cursor=pointer]:
+                    - generic [ref=f2e1591]:
+                      - generic [ref=f2e1592]: "\"wrapper_fields\""
+                      - generic [ref=f2e1593]: ":"
+                    - generic [ref=f2e1594]: "["
+                  - generic [ref=f2e1596]:
+                    - generic [ref=f2e1597]:
+                      - generic [ref=f2e1598]:
+                        - text: "0"
+                        - generic [ref=f2e1599]: ":"
+                      - generic [ref=f2e1600] [cursor=pointer]: "\"data\""
+                    - generic [ref=f2e1603]:
+                      - generic [ref=f2e1604]:
+                        - text: "1"
+                        - generic [ref=f2e1605]: ":"
+                      - generic [ref=f2e1606] [cursor=pointer]: "\"is_success\""
+                  - generic [ref=f2e1609]: "]"
+                - generic [ref=f2e1611]:
+                  - generic [ref=f2e1613] [cursor=pointer]:
+                    - generic [ref=f2e1618]:
+                      - generic [ref=f2e1619]: "\"payload_fields\""
+                      - generic [ref=f2e1620]: ":"
+                    - generic [ref=f2e1621]: "["
+                  - generic [ref=f2e1623]:
+                    - generic [ref=f2e1624]:
+                      - generic [ref=f2e1625]:
+                        - text: "0"
+                        - generic [ref=f2e1626]: ":"
+                      - generic [ref=f2e1627] [cursor=pointer]: "\"ask_flag\""
+                    - generic [ref=f2e1630]:
+                      - generic [ref=f2e1631]:
+                        - text: "1"
+                        - generic [ref=f2e1632]: ":"
+                      - generic [ref=f2e1633] [cursor=pointer]: "\"ask_price1\""
+                    - generic [ref=f2e1636]:
+                      - generic [ref=f2e1637]:
+                        - text: "2"
+                        - generic [ref=f2e1638]: ":"
+                      - generic [ref=f2e1639] [cursor=pointer]: "\"ask_price10\""
+                    - generic [ref=f2e1642]:
+                      - generic [ref=f2e1643]:
+                        - text: "3"
+                        - generic [ref=f2e1644]: ":"
+                      - generic [ref=f2e1645] [cursor=pointer]: "\"ask_price2\""
+                    - generic [ref=f2e1648]:
+                      - generic [ref=f2e1649]:
+                        - text: "4"
+                        - generic [ref=f2e1650]: ":"
+                      - generic [ref=f2e1651] [cursor=pointer]: "\"ask_price3\""
+                    - generic [ref=f2e1654]:
+                      - generic [ref=f2e1655]:
+                        - text: "5"
+                        - generic [ref=f2e1656]: ":"
+                      - generic [ref=f2e1657] [cursor=pointer]: "\"ask_price4\""
+                    - generic [ref=f2e1660]:
+                      - generic [ref=f2e1661]:
+                        - text: "6"
+                        - generic [ref=f2e1662]: ":"
+                      - generic [ref=f2e1663] [cursor=pointer]: "\"ask_price5\""
+                    - generic [ref=f2e1666]:
+                      - generic [ref=f2e1667]:
+                        - text: "7"
+                        - generic [ref=f2e1668]: ":"
+                      - generic [ref=f2e1669] [cursor=pointer]: "\"ask_price6\""
+                    - generic [ref=f2e1672]:
+                      - generic [ref=f2e1673]:
+                        - text: "8"
+                        - generic [ref=f2e1674]: ":"
+                      - generic [ref=f2e1675] [cursor=pointer]: "\"ask_price7\""
+                    - generic [ref=f2e1678]:
+                      - generic [ref=f2e1679]:
+                        - text: "9"
+                        - generic [ref=f2e1680]: ":"
+                      - generic [ref=f2e1681] [cursor=pointer]: "\"ask_price8\""
+                    - generic [ref=f2e1684]:
+                      - generic [ref=f2e1685]:
+                        - text: "10"
+                        - generic [ref=f2e1686]: ":"
+                      - generic [ref=f2e1687] [cursor=pointer]: "\"ask_price9\""
+                    - generic [ref=f2e1690]:
+                      - generic [ref=f2e1691]:
+                        - text: "11"
+                        - generic [ref=f2e1692]: ":"
+                      - generic [ref=f2e1693] [cursor=pointer]: "\"ask_volume1\""
+                    - generic [ref=f2e1696]:
+                      - generic [ref=f2e1697]:
+                        - text: "12"
+                        - generic [ref=f2e1698]: ":"
+                      - generic [ref=f2e1699] [cursor=pointer]: "\"ask_volume10\""
+                    - generic [ref=f2e1702]:
+                      - generic [ref=f2e1703]:
+                        - text: "13"
+                        - generic [ref=f2e1704]: ":"
+                      - generic [ref=f2e1705] [cursor=pointer]: "\"ask_volume2\""
+                    - generic [ref=f2e1708]:
+                      - generic [ref=f2e1709]:
+                        - text: "14"
+                        - generic [ref=f2e1710]: ":"
+                      - generic [ref=f2e1711] [cursor=pointer]: "\"ask_volume3\""
+                    - generic [ref=f2e1714]:
+                      - generic [ref=f2e1715]:
+                        - text: "15"
+                        - generic [ref=f2e1716]: ":"
+                      - generic [ref=f2e1717] [cursor=pointer]: "\"ask_volume4\""
+                    - generic [ref=f2e1720]:
+                      - generic [ref=f2e1721]:
+                        - text: "16"
+                        - generic [ref=f2e1722]: ":"
+                      - generic [ref=f2e1723] [cursor=pointer]: "\"ask_volume5\""
+                    - generic [ref=f2e1726]:
+                      - generic [ref=f2e1727]:
+                        - text: "17"
+                        - generic [ref=f2e1728]: ":"
+                      - generic [ref=f2e1729] [cursor=pointer]: "\"ask_volume6\""
+                    - generic [ref=f2e1732]:
+                      - generic [ref=f2e1733]:
+                        - text: "18"
+                        - generic [ref=f2e1734]: ":"
+                      - generic [ref=f2e1735] [cursor=pointer]: "\"ask_volume7\""
+                    - generic [ref=f2e1738]:
+                      - generic [ref=f2e1739]:
+                        - text: "19"
+                        - generic [ref=f2e1740]: ":"
+                      - generic [ref=f2e1741] [cursor=pointer]: "\"ask_volume8\""
+                    - generic [ref=f2e1744]:
+                      - generic [ref=f2e1745]:
+                        - text: "20"
+                        - generic [ref=f2e1746]: ":"
+                      - generic [ref=f2e1747] [cursor=pointer]: "\"ask_volume9\""
+                    - generic [ref=f2e1750]:
+                      - generic [ref=f2e1751]:
+                        - text: "21"
+                        - generic [ref=f2e1752]: ":"
+                      - generic [ref=f2e1753] [cursor=pointer]: "\"bid_flag\""
+                    - generic [ref=f2e1756]:
+                      - generic [ref=f2e1757]:
+                        - text: "22"
+                        - generic [ref=f2e1758]: ":"
+                      - generic [ref=f2e1759] [cursor=pointer]: "\"bid_price1\""
+                    - generic [ref=f2e1762]:
+                      - generic [ref=f2e1763]:
+                        - text: "23"
+                        - generic [ref=f2e1764]: ":"
+                      - generic [ref=f2e1765] [cursor=pointer]: "\"bid_price10\""
+                    - generic [ref=f2e1768]:
+                      - generic [ref=f2e1769]:
+                        - text: "24"
+                        - generic [ref=f2e1770]: ":"
+                      - generic [ref=f2e1771] [cursor=pointer]: "\"bid_price2\""
+                    - generic [ref=f2e1774]:
+                      - generic [ref=f2e1775]:
+                        - text: "25"
+                        - generic [ref=f2e1776]: ":"
+                      - generic [ref=f2e1777] [cursor=pointer]: "\"bid_price3\""
+                    - generic [ref=f2e1780]:
+                      - generic [ref=f2e1781]:
+                        - text: "26"
+                        - generic [ref=f2e1782]: ":"
+                      - generic [ref=f2e1783] [cursor=pointer]: "\"bid_price4\""
+                    - generic [ref=f2e1786]:
+                      - generic [ref=f2e1787]:
+                        - text: "27"
+                        - generic [ref=f2e1788]: ":"
+                      - generic [ref=f2e1789] [cursor=pointer]: "\"bid_price5\""
+                    - generic [ref=f2e1792]:
+                      - generic [ref=f2e1793]:
+                        - text: "28"
+                        - generic [ref=f2e1794]: ":"
+                      - generic [ref=f2e1795] [cursor=pointer]: "\"bid_price6\""
+                    - generic [ref=f2e1798]:
+                      - generic [ref=f2e1799]:
+                        - text: "29"
+                        - generic [ref=f2e1800]: ":"
+                      - generic [ref=f2e1801] [cursor=pointer]: "\"bid_price7\""
+                    - generic [ref=f2e1804]:
+                      - generic [ref=f2e1805]:
+                        - text: "30"
+                        - generic [ref=f2e1806]: ":"
+                      - generic [ref=f2e1807] [cursor=pointer]: "\"bid_price8\""
+                    - generic [ref=f2e1810]:
+                      - generic [ref=f2e1811]:
+                        - text: "31"
+                        - generic [ref=f2e1812]: ":"
+                      - generic [ref=f2e1813] [cursor=pointer]: "\"bid_price9\""
+                    - generic [ref=f2e1816]:
+                      - generic [ref=f2e1817]:
+                        - text: "32"
+                        - generic [ref=f2e1818]: ":"
+                      - generic [ref=f2e1819] [cursor=pointer]: "\"bid_volume1\""
+                    - generic [ref=f2e1822]:
+                      - generic [ref=f2e1823]:
+                        - text: "33"
+                        - generic [ref=f2e1824]: ":"
+                      - generic [ref=f2e1825] [cursor=pointer]: "\"bid_volume10\""
+                    - generic [ref=f2e1828]:
+                      - generic [ref=f2e1829]:
+                        - text: "34"
+                        - generic [ref=f2e1830]: ":"
+                      - generic [ref=f2e1831] [cursor=pointer]: "\"bid_volume2\""
+                    - generic [ref=f2e1834]:
+                      - generic [ref=f2e1835]:
+                        - text: "35"
+                        - generic [ref=f2e1836]: ":"
+                      - generic [ref=f2e1837] [cursor=pointer]: "\"bid_volume3\""
+                    - generic [ref=f2e1840]:
+                      - generic [ref=f2e1841]:
+                        - text: "36"
+                        - generic [ref=f2e1842]: ":"
+                      - generic [ref=f2e1843] [cursor=pointer]: "\"bid_volume4\""
+                    - generic [ref=f2e1846]:
+                      - generic [ref=f2e1847]:
+                        - text: "37"
+                        - generic [ref=f2e1848]: ":"
+                      - generic [ref=f2e1849] [cursor=pointer]: "\"bid_volume5\""
+                    - generic [ref=f2e1852]:
+                      - generic [ref=f2e1853]:
+                        - text: "38"
+                        - generic [ref=f2e1854]: ":"
+                      - generic [ref=f2e1855] [cursor=pointer]: "\"bid_volume6\""
+                    - generic [ref=f2e1858]:
+                      - generic [ref=f2e1859]:
+                        - text: "39"
+                        - generic [ref=f2e1860]: ":"
+                      - generic [ref=f2e1861] [cursor=pointer]: "\"bid_volume7\""
+                    - generic [ref=f2e1864]:
+                      - generic [ref=f2e1865]:
+                        - text: "40"
+                        - generic [ref=f2e1866]: ":"
+                      - generic [ref=f2e1867] [cursor=pointer]: "\"bid_volume8\""
+                    - generic [ref=f2e1870]:
+                      - generic [ref=f2e1871]:
+                        - text: "41"
+                        - generic [ref=f2e1872]: ":"
+                      - generic [ref=f2e1873] [cursor=pointer]: "\"bid_volume9\""
+                    - generic [ref=f2e1876]:
+                      - generic [ref=f2e1877]:
+                        - text: "42"
+                        - generic [ref=f2e1878]: ":"
+                      - generic [ref=f2e1879] [cursor=pointer]: "\"symbol\""
+                  - generic [ref=f2e1882]: "]"
+                - generic [ref=f2e1884]:
+                  - generic [ref=f2e1885]:
+                    - generic [ref=f2e1886]:
+                      - text: "\""
+                      - generic [ref=f2e1887]: observed_depth_levels
+                      - text: "\""
+                    - generic [ref=f2e1888]: ":"
+                  - generic [ref=f2e1889] [cursor=pointer]: "10"
+                - generic [ref=f2e1891]:
+                  - generic [ref=f2e1892]:
+                    - generic [ref=f2e1893]:
+                      - text: "\""
+                      - generic [ref=f2e1894]: event_schema
+                      - text: "\""
+                    - generic [ref=f2e1895]: ":"
+                  - generic [ref=f2e1896] [cursor=pointer]: "\"BID_OFFER\""
+              - generic [ref=f2e1899]: "}"
+            - generic [ref=f2e1901]:
+              - generic [ref=f2e1902]:
+                - generic [ref=f2e1903]:
+                  - text: "\""
+                  - generic [ref=f2e1904]: completed_at
+                  - text: "\""
+                - generic [ref=f2e1905]: ":"
+              - generic [ref=f2e1906] [cursor=pointer]: "\"2026-10-19T18:45:40.310385+00:00\""
+            - generic [ref=f2e1909]:
+              - generic [ref=f2e1910]:
+                - generic [ref=f2e1911]:
+                  - text: "\""
+                  - generic [ref=f2e1912]: backfill_status
+                  - text: "\""
+                - generic [ref=f2e1913]: ":"
+              - generic [ref=f2e1914] [cursor=pointer]: "\"NOT_ATTEMPTED_POLICY_UNVERIFIED\""
+            - generic [ref=f2e1917]:
+              - generic [ref=f2e1918]:
+                - generic [ref=f2e1919]:
+                  - text: "\""
+                  - generic [ref=f2e1920]: historical_candle_capability
+                  - text: "\""
+                - generic [ref=f2e1921]: ":"
+              - generic [ref=f2e1922] [cursor=pointer]: "\"UNKNOWN_OR_EMPTY\""
+            - generic [ref=f2e1925]:
+              - generic [ref=f2e1927] [cursor=pointer]:
+                - generic [ref=f2e1932]:
+                  - generic [ref=f2e1933]: "\"bbo_comparison\""
+                  - generic [ref=f2e1934]: ":"
+                - generic [ref=f2e1935]: "{"
+              - generic [ref=f2e1937]:
+                - generic [ref=f2e1938]:
+                  - generic [ref=f2e1939]:
+                    - generic [ref=f2e1940]:
+                      - text: "\""
+                      - generic [ref=f2e1941]: sandbox_persisted_shape
+                      - text: "\""
+                    - generic [ref=f2e1942]: ":"
+                  - generic [ref=f2e1943] [cursor=pointer]: "\"long-form bid/ask rows with side, level, price, volume; 10 levels observed\""
+                - generic [ref=f2e1946]:
+                  - generic [ref=f2e1947]:
+                    - generic [ref=f2e1948]:
+                      - text: "\""
+                      - generic [ref=f2e1949]: production_wrapper_fields_match
+                      - text: "\""
+                    - generic [ref=f2e1950]: ":"
+                  - generic [ref=f2e1951] [cursor=pointer]: "true"
+                - generic [ref=f2e1953]:
+                  - generic [ref=f2e1954]:
+                    - generic [ref=f2e1955]:
+                      - text: "\""
+                      - generic [ref=f2e1956]: production_depth_levels
+                      - text: "\""
+                    - generic [ref=f2e1957]: ":"
+                  - generic [ref=f2e1958] [cursor=pointer]: "10"
+                - generic [ref=f2e1960]:
+                  - generic [ref=f2e1962] [cursor=pointer]:
+                    - generic [ref=f2e1967]:
+                      - generic [ref=f2e1968]: "\"production_fields\""
+                      - generic [ref=f2e1969]: ":"
+                    - generic [ref=f2e1970]: "["
+                  - generic [ref=f2e1972]:
+                    - generic [ref=f2e1973]:
+                      - generic [ref=f2e1974]:
+                        - text: "0"
+                        - generic [ref=f2e1975]: ":"
+                      - generic [ref=f2e1976] [cursor=pointer]: "\"ask_flag\""
+                    - generic [ref=f2e1979]:
+                      - generic [ref=f2e1980]:
+                        - text: "1"
+                        - generic [ref=f2e1981]: ":"
+                      - generic [ref=f2e1982] [cursor=pointer]: "\"ask_price1\""
+                    - generic [ref=f2e1985]:
+                      - generic [ref=f2e1986]:
+                        - text: "2"
+                        - generic [ref=f2e1987]: ":"
+                      - generic [ref=f2e1988] [cursor=pointer]: "\"ask_price10\""
+                    - generic [ref=f2e1991]:
+                      - generic [ref=f2e1992]:
+                        - text: "3"
+                        - generic [ref=f2e1993]: ":"
+                      - generic [ref=f2e1994] [cursor=pointer]: "\"ask_price2\""
+                    - generic [ref=f2e1997]:
+                      - generic [ref=f2e1998]:
+                        - text: "4"
+                        - generic [ref=f2e1999]: ":"
+                      - generic [ref=f2e2000] [cursor=pointer]: "\"ask_price3\""
+                    - generic [ref=f2e2003]:
+                      - generic [ref=f2e2004]:
+                        - text: "5"
+                        - generic [ref=f2e2005]: ":"
+                      - generic [ref=f2e2006] [cursor=pointer]: "\"ask_price4\""
+                    - generic [ref=f2e2009]:
+                      - generic [ref=f2e2010]:
+                        - text: "6"
+                        - generic [ref=f2e2011]: ":"
+                      - generic [ref=f2e2012] [cursor=pointer]: "\"ask_price5\""
+                    - generic [ref=f2e2015]:
+                      - generic [ref=f2e2016]:
+                        - text: "7"
+                        - generic [ref=f2e2017]: ":"
+                      - generic [ref=f2e2018] [cursor=pointer]: "\"ask_price6\""
+                    - generic [ref=f2e2021]:
+                      - generic [ref=f2e2022]:
+                        - text: "8"
+                        - generic [ref=f2e2023]: ":"
+                      - generic [ref=f2e2024] [cursor=pointer]: "\"ask_price7\""
+                    - generic [ref=f2e2027]:
+                      - generic [ref=f2e2028]:
+                        - text: "9"
+                        - generic [ref=f2e2029]: ":"
+                      - generic [ref=f2e2030] [cursor=pointer]: "\"ask_price8\""
+                    - generic [ref=f2e2033]:
+                      - generic [ref=f2e2034]:
+                        - text: "10"
+                        - generic [ref=f2e2035]: ":"
+                      - generic [ref=f2e2036] [cursor=pointer]: "\"ask_price9\""
+                    - generic [ref=f2e2039]:
+                      - generic [ref=f2e2040]:
+                        - text: "11"
+                        - generic [ref=f2e2041]: ":"
+                      - generic [ref=f2e2042] [cursor=pointer]: "\"ask_volume1\""
+                    - generic [ref=f2e2045]:
+                      - generic [ref=f2e2046]:
+                        - text: "12"
+                        - generic [ref=f2e2047]: ":"
+                      - generic [ref=f2e2048] [cursor=pointer]: "\"ask_volume10\""
+                    - generic [ref=f2e2051]:
+                      - generic [ref=f2e2052]:
+                        - text: "13"
+                        - generic [ref=f2e2053]: ":"
+                      - generic [ref=f2e2054] [cursor=pointer]: "\"ask_volume2\""
+                    - generic [ref=f2e2057]:
+                      - generic [ref=f2e2058]:
+                        - text: "14"
+                        - generic [ref=f2e2059]: ":"
+                      - generic [ref=f2e2060] [cursor=pointer]: "\"ask_volume3\""
+                    - generic [ref=f2e2063]:
+                      - generic [ref=f2e2064]:
+                        - text: "15"
+                        - generic [ref=f2e2065]: ":"
+                      - generic [ref=f2e2066] [cursor=pointer]: "\"ask_volume4\""
+                    - generic [ref=f2e2069]:
+                      - generic [ref=f2e2070]:
+                        - text: "16"
+                        - generic [ref=f2e2071]: ":"
+                      - generic [ref=f2e2072] [cursor=pointer]: "\"ask_volume5\""
+                    - generic [ref=f2e2075]:
+                      - generic [ref=f2e2076]:
+                        - text: "17"
+                        - generic [ref=f2e2077]: ":"
+                      - generic [ref=f2e2078] [cursor=pointer]: "\"ask_volume6\""
+                    - generic [ref=f2e2081]:
+                      - generic [ref=f2e2082]:
+                        - text: "18"
+                        - generic [ref=f2e2083]: ":"
+                      - generic [ref=f2e2084] [cursor=pointer]: "\"ask_volume7\""
+                    - generic [ref=f2e2087]:
+                      - generic [ref=f2e2088]:
+                        - text: "19"
+                        - generic [ref=f2e2089]: ":"
+                      - generic [ref=f2e2090] [cursor=pointer]: "\"ask_volume8\""
+                    - generic [ref=f2e2093]:
+                      - generic [ref=f2e2094]:
+                        - text: "20"
+                        - generic [ref=f2e2095]: ":"
+                      - generic [ref=f2e2096] [cursor=pointer]: "\"ask_volume9\""
+                    - generic [ref=f2e2099]:
+                      - generic [ref=f2e2100]:
+                        - text: "21"
+                        - generic [ref=f2e2101]: ":"
+                      - generic [ref=f2e2102] [cursor=pointer]: "\"bid_flag\""
+                    - generic [ref=f2e2105]:
+                      - generic [ref=f2e2106]:
+                        - text: "22"
+                        - generic [ref=f2e2107]: ":"
+                      - generic [ref=f2e2108] [cursor=pointer]: "\"bid_price1\""
+                    - generic [ref=f2e2111]:
+                      - generic [ref=f2e2112]:
+                        - text: "23"
+                        - generic [ref=f2e2113]: ":"
+                      - generic [ref=f2e2114] [cursor=pointer]: "\"bid_price10\""
+                    - generic [ref=f2e2117]:
+                      - generic [ref=f2e2118]:
+                        - text: "24"
+                        - generic [ref=f2e2119]: ":"
+                      - generic [ref=f2e2120] [cursor=pointer]: "\"bid_price2\""
+                    - generic [ref=f2e2123]:
+                      - generic [ref=f2e2124]:
+                        - text: "25"
+                        - generic [ref=f2e2125]: ":"
+                      - generic [ref=f2e2126] [cursor=pointer]: "\"bid_price3\""
+                    - generic [ref=f2e2129]:
+                      - generic [ref=f2e2130]:
+                        - text: "26"
+                        - generic [ref=f2e2131]: ":"
+                      - generic [ref=f2e2132] [cursor=pointer]: "\"bid_price4\""
+                    - generic [ref=f2e2135]:
+                      - generic [ref=f2e2136]:
+                        - text: "27"
+                        - generic [ref=f2e2137]: ":"
+                      - generic [ref=f2e2138] [cursor=pointer]: "\"bid_price5\""
+                    - generic [ref=f2e2141]:
+                      - generic [ref=f2e2142]:
+                        - text: "28"
+                        - generic [ref=f2e2143]: ":"
+                      - generic [ref=f2e2144] [cursor=pointer]: "\"bid_price6\""
+                    - generic [ref=f2e2147]:
+                      - generic [ref=f2e2148]:
+                        - text: "29"
+                        - generic [ref=f2e2149]: ":"
+                      - generic [ref=f2e2150] [cursor=pointer]: "\"bid_price7\""
+                    - generic [ref=f2e2153]:
+                      - generic [ref=f2e2154]:
+                        - text: "30"
+                        - generic [ref=f2e2155]: ":"
+                      - generic [ref=f2e2156] [cursor=pointer]: "\"bid_price8\""
+                    - generic [ref=f2e2159]:
+                      - generic [ref=f2e2160]:
+                        - text: "31"
+                        - generic [ref=f2e2161]: ":"
+                      - generic [ref=f2e2162] [cursor=pointer]: "\"bid_price9\""
+                    - generic [ref=f2e2165]:
+                      - generic [ref=f2e2166]:
+                        - text: "32"
+                        - generic [ref=f2e2167]: ":"
+                      - generic [ref=f2e2168] [cursor=pointer]: "\"bid_volume1\""
+                    - generic [ref=f2e2171]:
+                      - generic [ref=f2e2172]:
+                        - text: "33"
+                        - generic [ref=f2e2173]: ":"
+                      - generic [ref=f2e2174] [cursor=pointer]: "\"bid_volume10\""
+                    - generic [ref=f2e2177]:
+                      - generic [ref=f2e2178]:
+                        - text: "34"
+                        - generic [ref=f2e2179]: ":"
+                      - generic [ref=f2e2180] [cursor=pointer]: "\"bid_volume2\""
+                    - generic [ref=f2e2183]:
+                      - generic [ref=f2e2184]:
+                        - text: "35"
+                        - generic [ref=f2e2185]: ":"
+                      - generic [ref=f2e2186] [cursor=pointer]: "\"bid_volume3\""
+                    - generic [ref=f2e2189]:
+                      - generic [ref=f2e2190]:
+                        - text: "36"
+                        - generic [ref=f2e2191]: ":"
+                      - generic [ref=f2e2192] [cursor=pointer]: "\"bid_volume4\""
+                    - generic [ref=f2e2195]:
+                      - generic [ref=f2e2196]:
+                        - text: "37"
+                        - generic [ref=f2e2197]: ":"
+                      - generic [ref=f2e2198] [cursor=pointer]: "\"bid_volume5\""
+                    - generic [ref=f2e2201]:
+                      - generic [ref=f2e2202]:
+                        - text: "38"
+                        - generic [ref=f2e2203]: ":"
+                      - generic [ref=f2e2204] [cursor=pointer]: "\"bid_volume6\""
+                    - generic [ref=f2e2207]:
+                      - generic [ref=f2e2208]:
+                        - text: "39"
+                        - generic [ref=f2e2209]: ":"
+                      - generic [ref=f2e2210] [cursor=pointer]: "\"bid_volume7\""
+                    - generic [ref=f2e2213]:
+                      - generic [ref=f2e2214]:
+                        - text: "40"
+                        - generic [ref=f2e2215]: ":"
+                      - generic [ref=f2e2216] [cursor=pointer]: "\"bid_volume8\""
+                    - generic [ref=f2e2219]:
+                      - generic [ref=f2e2220]:
+                        - text: "41"
+                        - generic [ref=f2e2221]: ":"
+                      - generic [ref=f2e2222] [cursor=pointer]: "\"bid_volume9\""
+                    - generic [ref=f2e2225]:
+                      - generic [ref=f2e2226]:
+                        - text: "42"
+                        - generic [ref=f2e2227]: ":"
+                      - generic [ref=f2e2228] [cursor=pointer]: "\"symbol\""
+                  - generic [ref=f2e2231]: "]"
+                - generic [ref=f2e2233]:
+                  - generic [ref=f2e2234]:
+                    - generic [ref=f2e2235]:
+                      - text: "\""
+                      - generic [ref=f2e2236]: classification
+                      - text: "\""
+                    - generic [ref=f2e2237]: ":"
+                  - generic [ref=f2e2238] [cursor=pointer]: "\"SCHEMA_MATCH\""
+              - generic [ref=f2e2241]: "}"
+            - generic [ref=f2e2243]:
+              - generic [ref=f2e2245] [cursor=pointer]:
+                - generic [ref=f2e2250]:
+                  - generic [ref=f2e2251]: "\"candle_comparison\""
+                  - generic [ref=f2e2252]: ":"
+                - generic [ref=f2e2253]: "{"
+              - generic [ref=f2e2255]:
+                - generic [ref=f2e2256]:
+                  - generic [ref=f2e2258] [cursor=pointer]:
+                    - generic [ref=f2e2263]:
+                      - generic [ref=f2e2264]: "\"sandbox_persisted\""
+                      - generic [ref=f2e2265]: ":"
+                    - generic [ref=f2e2266]: "{"
+                  - generic [ref=f2e2268]:
+                    - generic [ref=f2e2269]:
+                      - generic [ref=f2e2271] [cursor=pointer]:
+                        - generic [ref=f2e2276]:
+                          - generic [ref=f2e2277]: "\"1m\""
+                          - generic [ref=f2e2278]: ":"
+                        - generic [ref=f2e2279]: "{"
+                      - generic [ref=f2e2281]:
+                        - generic [ref=f2e2282]:
+                          - generic [ref=f2e2283]:
+                            - generic [ref=f2e2284]:
+                              - text: "\""
+                              - generic [ref=f2e2285]: rows
+                              - text: "\""
+                            - generic [ref=f2e2286]: ":"
+                          - generic [ref=f2e2287] [cursor=pointer]: "3237"
+                        - generic [ref=f2e2289]:
+                          - generic [ref=f2e2290]:
+                            - generic [ref=f2e2291]:
+                              - text: "\""
+                              - generic [ref=f2e2292]: symbols
+                              - text: "\""
+                            - generic [ref=f2e2293]: ":"
+                          - generic [ref=f2e2294] [cursor=pointer]: "47"
+                        - generic [ref=f2e2296]:
+                          - generic [ref=f2e2297]:
+                            - generic [ref=f2e2298]:
+                              - text: "\""
+                              - generic [ref=f2e2299]: latest_timestamp_bangkok
+                              - text: "\""
+                            - generic [ref=f2e2300]: ":"
+                          - generic [ref=f2e2301] [cursor=pointer]: "\"2026-10-14T16:35:00+07:00\""
+                        - generic [ref=f2e2304]:
+                          - generic [ref=f2e2306] [cursor=pointer]:
+                            - generic [ref=f2e2311]:
+                              - generic [ref=f2e2312]: "\"fields\""
+                              - generic [ref=f2e2313]: ":"
+                            - generic [ref=f2e2314]: "["
+                          - generic [ref=f2e2316]:
+                            - generic [ref=f2e2317]:
+                              - generic [ref=f2e2318]:
+                                - text: "0"
+                                - generic [ref=f2e2319]: ":"
+                              - generic [ref=f2e2320] [cursor=pointer]: "\"timestamp\""
+                            - generic [ref=f2e2323]:
+                              - generic [ref=f2e2324]:
+                                - text: "1"
+                                - generic [ref=f2e2325]: ":"
+                              - generic [ref=f2e2326] [cursor=pointer]: "\"symbol\""
+                            - generic [ref=f2e2329]:
+                              - generic [ref=f2e2330]:
+                                - text: "2"
+                                - generic [ref=f2e2331]: ":"
+                              - generic [ref=f2e2332] [cursor=pointer]: "\"interval\""
+                            - generic [ref=f2e2335]:
+                              - generic [ref=f2e2336]:
+                                - text: "3"
+                                - generic [ref=f2e2337]: ":"
+                              - generic [ref=f2e2338] [cursor=pointer]: "\"open\""
+                            - generic [ref=f2e2341]:
+                              - generic [ref=f2e2342]:
+                                - text: "4"
+                                - generic [ref=f2e2343]: ":"
+                              - generic [ref=f2e2344] [cursor=pointer]: "\"high\""
+                            - generic [ref=f2e2347]:
+                              - generic [ref=f2e2348]:
+                                - text: "5"
+                                - generic [ref=f2e2349]: ":"
+                              - generic [ref=f2e2350] [cursor=pointer]: "\"low\""
+                            - generic [ref=f2e2353]:
+                              - generic [ref=f2e2354]:
+                                - text: "6"
+                                - generic [ref=f2e2355]: ":"
+                              - generic [ref=f2e2356] [cursor=pointer]: "\"close\""
+                            - generic [ref=f2e2359]:
+                              - generic [ref=f2e2360]:
+                                - text: "7"
+                                - generic [ref=f2e2361]: ":"
+                              - generic [ref=f2e2362] [cursor=pointer]: "\"volume\""
+                            - generic [ref=f2e2365]:
+                              - generic [ref=f2e2366]:
+                                - text: "8"
+                                - generic [ref=f2e2367]: ":"
+                              - generic [ref=f2e2368] [cursor=pointer]: "\"turnover\""
+                            - generic [ref=f2e2371]:
+                              - generic [ref=f2e2372]:
+                                - text: "9"
+                                - generic [ref=f2e2373]: ":"
+                              - generic [ref=f2e2374] [cursor=pointer]: "\"source\""
+                            - generic [ref=f2e2377]:
+                              - generic [ref=f2e2378]:
+                                - text: "10"
+                                - generic [ref=f2e2379]: ":"
+                              - generic [ref=f2e2380] [cursor=pointer]: "\"retrieved_at\""
+                            - generic [ref=f2e2383]:
+                              - generic [ref=f2e2384]:
+                                - text: "11"
+                                - generic [ref=f2e2385]: ":"
+                              - generic [ref=f2e2386] [cursor=pointer]: "\"timezone\""
+                            - generic [ref=f2e2389]:
+                              - generic [ref=f2e2390]:
+                                - text: "12"
+                                - generic [ref=f2e2391]: ":"
+                              - generic [ref=f2e2392] [cursor=pointer]: "\"session\""
+                            - generic [ref=f2e2395]:
+                              - generic [ref=f2e2396]:
+                                - text: "13"
+                                - generic [ref=f2e2397]: ":"
+                              - generic [ref=f2e2398] [cursor=pointer]: "\"adjustment_status\""
+                          - generic [ref=f2e2401]: "]"
+                      - generic [ref=f2e2403]: "}"
+                    - generic [ref=f2e2405]:
+                      - generic [ref=f2e2407] [cursor=pointer]:
+                        - generic [ref=f2e2412]:
+                          - generic [ref=f2e2413]: "\"5m\""
+                          - generic [ref=f2e2414]: ":"
+                        - generic [ref=f2e2415]: "{"
+                      - generic [ref=f2e2417]:
+                        - generic [ref=f2e2418]:
+                          - generic [ref=f2e2419]:
+                            - generic [ref=f2e2420]:
+                              - text: "\""
+                              - generic [ref=f2e2421]: rows
+                              - text: "\""
+                            - generic [ref=f2e2422]: ":"
+                          - generic [ref=f2e2423] [cursor=pointer]: "1557"
+                        - generic [ref=f2e2425]:
+                          - generic [ref=f2e2426]:
+                            - generic [ref=f2e2427]:
+                              - text: "\""
+                              - generic [ref=f2e2428]: symbols
+                              - text: "\""
+                            - generic [ref=f2e2429]: ":"
+                          - generic [ref=f2e2430] [cursor=pointer]: "47"
+                        - generic [ref=f2e2432]:
+                          - generic [ref=f2e2433]:
+                            - generic [ref=f2e2434]:
+                              - text: "\""
+                              - generic [ref=f2e2435]: latest_timestamp_bangkok
+                              - text: "\""
+                            - generic [ref=f2e2436]: ":"
+                          - generic [ref=f2e2437] [cursor=pointer]: "\"2026-10-14T16:35:00+07:00\""
+                        - generic [ref=f2e2440]:
+                          - generic [ref=f2e2442] [cursor=pointer]:
+                            - generic [ref=f2e2447]:
+                              - generic [ref=f2e2448]: "\"fields\""
+                              - generic [ref=f2e2449]: ":"
+                            - generic [ref=f2e2450]: "["
+                          - generic [ref=f2e2452]:
+                            - generic [ref=f2e2453]:
+                              - generic [ref=f2e2454]:
+                                - text: "0"
+                                - generic [ref=f2e2455]: ":"
+                              - generic [ref=f2e2456] [cursor=pointer]: "\"timestamp\""
+                            - generic [ref=f2e2459]:
+                              - generic [ref=f2e2460]:
+                                - text: "1"
+                                - generic [ref=f2e2461]: ":"
+                              - generic [ref=f2e2462] [cursor=pointer]: "\"symbol\""
+                            - generic [ref=f2e2465]:
+                              - generic [ref=f2e2466]:
+                                - text: "2"
+                                - generic [ref=f2e2467]: ":"
+                              - generic [ref=f2e2468] [cursor=pointer]: "\"interval\""
+                            - generic [ref=f2e2471]:
+                              - generic [ref=f2e2472]:
+                                - text: "3"
+                                - generic [ref=f2e2473]: ":"
+                              - generic [ref=f2e2474] [cursor=pointer]: "\"open\""
+                            - generic [ref=f2e2477]:
+                              - generic [ref=f2e2478]:
+                                - text: "4"
+                                - generic [ref=f2e2479]: ":"
+                              - generic [ref=f2e2480] [cursor=pointer]: "\"high\""
+                            - generic [ref=f2e2483]:
+                              - generic [ref=f2e2484]:
+                                - text: "5"
+                                - generic [ref=f2e2485]: ":"
+                              - generic [ref=f2e2486] [cursor=pointer]: "\"low\""
+                            - generic [ref=f2e2489]:
+                              - generic [ref=f2e2490]:
+                                - text: "6"
+                                - generic [ref=f2e2491]: ":"
+                              - generic [ref=f2e2492] [cursor=pointer]: "\"close\""
+                            - generic [ref=f2e2495]:
+                              - generic [ref=f2e2496]:
+                                - text: "7"
+                                - generic [ref=f2e2497]: ":"
+                              - generic [ref=f2e2498] [cursor=pointer]: "\"volume\""
+                            - generic [ref=f2e2501]:
+                              - generic [ref=f2e2502]:
+                                - text: "8"
+                                - generic [ref=f2e2503]: ":"
+                              - generic [ref=f2e2504] [cursor=pointer]: "\"turnover\""
+                            - generic [ref=f2e2507]:
+                              - generic [ref=f2e2508]:
+                                - text: "9"
+                                - generic [ref=f2e2509]: ":"
+                              - generic [ref=f2e2510] [cursor=pointer]: "\"source\""
+                            - generic [ref=f2e2513]:
+                              - generic [ref=f2e2514]:
+                                - text: "10"
+                                - generic [ref=f2e2515]: ":"
+                              - generic [ref=f2e2516] [cursor=pointer]: "\"retrieved_at\""
+                            - generic [ref=f2e2519]:
+                              - generic [ref=f2e2520]:
+                                - text: "11"
+                                - generic [ref=f2e2521]: ":"
+                              - generic [ref=f2e2522] [cursor=pointer]: "\"timezone\""
+                            - generic [ref=f2e2525]:
+                              - generic [ref=f2e2526]:
+                                - text: "12"
+                                - generic [ref=f2e2527]: ":"
+                              - generic [ref=f2e2528] [cursor=pointer]: "\"session\""
+                            - generic [ref=f2e2531]:
+                              - generic [ref=f2e2532]:
+                                - text: "13"
+                                - generic [ref=f2e2533]: ":"
+                              - generic [ref=f2e2534] [cursor=pointer]: "\"adjustment_status\""
+                            - generic [ref=f2e2537]:
+                              - generic [ref=f2e2538]:
+                                - text: "14"
+                                - generic [ref=f2e2539]: ":"
+                              - generic [ref=f2e2540] [cursor=pointer]: "\"incomplete_bucket\""
+                            - generic [ref=f2e2543]:
+                              - generic [ref=f2e2544]:
+                                - text: "15"
+                                - generic [ref=f2e2545]: ":"
+                              - generic [ref=f2e2546] [cursor=pointer]: "\"observed_source_bars\""
+                          - generic [ref=f2e2549]: "]"
+                      - generic [ref=f2e2551]: "}"
+                    - generic [ref=f2e2553]:
+                      - generic [ref=f2e2555] [cursor=pointer]:
+                        - generic [ref=f2e2560]:
+                          - generic [ref=f2e2561]: "\"15m\""
+                          - generic [ref=f2e2562]: ":"
+                        - generic [ref=f2e2563]: "{"
+                      - generic [ref=f2e2565]:
+                        - generic [ref=f2e2566]:
+                          - generic [ref=f2e2567]:
+                            - generic [ref=f2e2568]:
+                              - text: "\""
+                              - generic [ref=f2e2569]: rows
+                              - text: "\""
+                            - generic [ref=f2e2570]: ":"
+                          - generic [ref=f2e2571] [cursor=pointer]: "1402"
+                        - generic [ref=f2e2573]:
+                          - generic [ref=f2e2574]:
+                            - generic [ref=f2e2575]:
+                              - text: "\""
+                              - generic [ref=f2e2576]: symbols
+                              - text: "\""
+                            - generic [ref=f2e2577]: ":"
+                          - generic [ref=f2e2578] [cursor=pointer]: "47"
+                        - generic [ref=f2e2580]:
+                          - generic [ref=f2e2581]:
+                            - generic [ref=f2e2582]:
+                              - text: "\""
+                              - generic [ref=f2e2583]: latest_timestamp_bangkok
+                              - text: "\""
+                            - generic [ref=f2e2584]: ":"
+                          - generic [ref=f2e2585] [cursor=pointer]: "\"2026-10-14T16:35:00+07:00\""
+                        - generic [ref=f2e2588]:
+                          - generic [ref=f2e2590] [cursor=pointer]:
+                            - generic [ref=f2e2595]:
+                              - generic [ref=f2e2596]: "\"fields\""
+                              - generic [ref=f2e2597]: ":"
+                            - generic [ref=f2e2598]: "["
+                          - generic [ref=f2e2600]:
+                            - generic [ref=f2e2601]:
+                              - generic [ref=f2e2602]:
+                                - text: "0"
+                                - generic [ref=f2e2603]: ":"
+                              - generic [ref=f2e2604] [cursor=pointer]: "\"timestamp\""
+                            - generic [ref=f2e2607]:
+                              - generic [ref=f2e2608]:
+                                - text: "1"
+                                - generic [ref=f2e2609]: ":"
+                              - generic [ref=f2e2610] [cursor=pointer]: "\"symbol\""
+                            - generic [ref=f2e2613]:
+                              - generic [ref=f2e2614]:
+                                - text: "2"
+                                - generic [ref=f2e2615]: ":"
+                              - generic [ref=f2e2616] [cursor=pointer]: "\"interval\""
+                            - generic [ref=f2e2619]:
+                              - generic [ref=f2e2620]:
+                                - text: "3"
+                                - generic [ref=f2e2621]: ":"
+                              - generic [ref=f2e2622] [cursor=pointer]: "\"open\""
+                            - generic [ref=f2e2625]:
+                              - generic [ref=f2e2626]:
+                                - text: "4"
+                                - generic [ref=f2e2627]: ":"
+                              - generic [ref=f2e2628] [cursor=pointer]: "\"high\""
+                            - generic [ref=f2e2631]:
+                              - generic [ref=f2e2632]:
+                                - text: "5"
+                                - generic [ref=f2e2633]: ":"
+                              - generic [ref=f2e2634] [cursor=pointer]: "\"low\""
+                            - generic [ref=f2e2637]:
+                              - generic [ref=f2e2638]:
+                                - text: "6"
+                                - generic [ref=f2e2639]: ":"
+                              - generic [ref=f2e2640] [cursor=pointer]: "\"close\""
+                            - generic [ref=f2e2643]:
+                              - generic [ref=f2e2644]:
+                                - text: "7"
+                                - generic [ref=f2e2645]: ":"
+                              - generic [ref=f2e2646] [cursor=pointer]: "\"volume\""
+                            - generic [ref=f2e2649]:
+                              - generic [ref=f2e2650]:
+                                - text: "8"
+                                - generic [ref=f2e2651]: ":"
+                              - generic [ref=f2e2652] [cursor=pointer]: "\"turnover\""
+                            - generic [ref=f2e2655]:
+                              - generic [ref=f2e2656]:
+                                - text: "9"
+                                - generic [ref=f2e2657]: ":"
+                              - generic [ref=f2e2658] [cursor=pointer]: "\"source\""
+                            - generic [ref=f2e2661]:
+                              - generic [ref=f2e2662]:
+                                - text: "10"
+                                - generic [ref=f2e2663]: ":"
+                              - generic [ref=f2e2664] [cursor=pointer]: "\"retrieved_at\""
+                            - generic [ref=f2e2667]:
+                              - generic [ref=f2e2668]:
+                                - text: "11"
+                                - generic [ref=f2e2669]: ":"
+                              - generic [ref=f2e2670] [cursor=pointer]: "\"timezone\""
+                            - generic [ref=f2e2673]:
+                              - generic [ref=f2e2674]:
+                                - text: "12"
+                                - generic [ref=f2e2675]: ":"
+                              - generic [ref=f2e2676] [cursor=pointer]: "\"session\""
+                            - generic [ref=f2e2679]:
+                              - generic [ref=f2e2680]:
+                                - text: "13"
+                                - generic [ref=f2e2681]: ":"
+                              - generic [ref=f2e2682] [cursor=pointer]: "\"adjustment_status\""
+                            - generic [ref=f2e2685]:
+                              - generic [ref=f2e2686]:
+                                - text: "14"
+                                - generic [ref=f2e2687]: ":"
+                              - generic [ref=f2e2688] [cursor=pointer]: "\"incomplete_bucket\""
+                            - generic [ref=f2e2691]:
+                              - generic [ref=f2e2692]:
+                                - text: "15"
+                                - generic [ref=f2e2693]: ":"
+                              - generic [ref=f2e2694] [cursor=pointer]: "\"observed_source_bars\""
+                          - generic [ref=f2e2697]: "]"
+                      - generic [ref=f2e2699]: "}"
+                  - generic [ref=f2e2701]: "}"
+                - generic [ref=f2e2703]:
+                  - generic [ref=f2e2705] [cursor=pointer]:
+                    - generic [ref=f2e2710]:
+                      - generic [ref=f2e2711]: "\"production_raw_fields\""
+                      - generic [ref=f2e2712]: ":"
+                    - generic [ref=f2e2713]: "["
+                  - generic [ref=f2e2715]:
+                    - generic [ref=f2e2716]:
+                      - generic [ref=f2e2717]:
+                        - text: "0"
+                        - generic [ref=f2e2718]: ":"
+                      - generic [ref=f2e2719] [cursor=pointer]: "\"close\""
+                    - generic [ref=f2e2722]:
+                      - generic [ref=f2e2723]:
+                        - text: "1"
+                        - generic [ref=f2e2724]: ":"
+                      - generic [ref=f2e2725] [cursor=pointer]: "\"high\""
+                    - generic [ref=f2e2728]:
+                      - generic [ref=f2e2729]:
+                        - text: "2"
+                        - generic [ref=f2e2730]: ":"
+                      - generic [ref=f2e2731] [cursor=pointer]: "\"lastSequence\""
+                    - generic [ref=f2e2734]:
+                      - generic [ref=f2e2735]:
+                        - text: "3"
+                        - generic [ref=f2e2736]: ":"
+                      - generic [ref=f2e2737] [cursor=pointer]: "\"low\""
+                    - generic [ref=f2e2740]:
+                      - generic [ref=f2e2741]:
+                        - text: "4"
+                        - generic [ref=f2e2742]: ":"
+                      - generic [ref=f2e2743] [cursor=pointer]: "\"open\""
+                    - generic [ref=f2e2746]:
+                      - generic [ref=f2e2747]:
+                        - text: "5"
+                        - generic [ref=f2e2748]: ":"
+                      - generic [ref=f2e2749] [cursor=pointer]: "\"time\""
+                    - generic [ref=f2e2752]:
+                      - generic [ref=f2e2753]:
+                        - text: "6"
+                        - generic [ref=f2e2754]: ":"
+                      - generic [ref=f2e2755] [cursor=pointer]: "\"value\""
+                    - generic [ref=f2e2758]:
+                      - generic [ref=f2e2759]:
+                        - text: "7"
+                        - generic [ref=f2e2760]: ":"
+                      - generic [ref=f2e2761] [cursor=pointer]: "\"volume\""
+                  - generic [ref=f2e2764]: "]"
+                - generic [ref=f2e2766]:
+                  - generic [ref=f2e2768] [cursor=pointer]:
+                    - generic [ref=f2e2773]:
+                      - generic [ref=f2e2774]: "\"production_normalized_fields_expected\""
+                      - generic [ref=f2e2775]: ":"
+                    - generic [ref=f2e2776]: "["
+                  - generic [ref=f2e2778]:
+                    - generic [ref=f2e2779]:
+                      - generic [ref=f2e2780]:
+                        - text: "0"
+                        - generic [ref=f2e2781]: ":"
+                      - generic [ref=f2e2782] [cursor=pointer]: "\"timestamp\""
+                    - generic [ref=f2e2785]:
+                      - generic [ref=f2e2786]:
+                        - text: "1"
+                        - generic [ref=f2e2787]: ":"
+                      - generic [ref=f2e2788] [cursor=pointer]: "\"symbol\""
+                    - generic [ref=f2e2791]:
+                      - generic [ref=f2e2792]:
+                        - text: "2"
+                        - generic [ref=f2e2793]: ":"
+                      - generic [ref=f2e2794] [cursor=pointer]: "\"interval\""
+                    - generic [ref=f2e2797]:
+                      - generic [ref=f2e2798]:
+                        - text: "3"
+                        - generic [ref=f2e2799]: ":"
+                      - generic [ref=f2e2800] [cursor=pointer]: "\"open\""
+                    - generic [ref=f2e2803]:
+                      - generic [ref=f2e2804]:
+                        - text: "4"
+                        - generic [ref=f2e2805]: ":"
+                      - generic [ref=f2e2806] [cursor=pointer]: "\"high\""
+                    - generic [ref=f2e2809]:
+                      - generic [ref=f2e2810]:
+                        - text: "5"
+                        - generic [ref=f2e2811]: ":"
+                      - generic [ref=f2e2812] [cursor=pointer]: "\"low\""
+                    - generic [ref=f2e2815]:
+                      - generic [ref=f2e2816]:
+                        - text: "6"
+                        - generic [ref=f2e2817]: ":"
+                      - generic [ref=f2e2818] [cursor=pointer]: "\"close\""
+                    - generic [ref=f2e2821]:
+                      - generic [ref=f2e2822]:
+                        - text: "7"
+                        - generic [ref=f2e2823]: ":"
+                      - generic [ref=f2e2824] [cursor=pointer]: "\"volume\""
+                    - generic [ref=f2e2827]:
+                      - generic [ref=f2e2828]:
+                        - text: "8"
+                        - generic [ref=f2e2829]: ":"
+                      - generic [ref=f2e2830] [cursor=pointer]: "\"value\""
+                  - generic [ref=f2e2833]: "]"
+                - generic [ref=f2e2835]:
+                  - generic [ref=f2e2836]:
+                    - generic [ref=f2e2837]:
+                      - text: "\""
+                      - generic [ref=f2e2838]: production_latest_1m_bangkok
+                      - text: "\""
+                    - generic [ref=f2e2839]: ":"
+                  - generic [ref=f2e2840] [cursor=pointer]: "\"2026-10-19T16:36:00+07:00\""
+                - generic [ref=f2e2843]:
+                  - generic [ref=f2e2844]:
+                    - generic [ref=f2e2845]:
+                      - text: "\""
+                      - generic [ref=f2e2846]: production_current_session_status
+                      - text: "\""
+                    - generic [ref=f2e2847]: ":"
+                  - generic [ref=f2e2848] [cursor=pointer]: "\"STALE\""
+                - generic [ref=f2e2851]:
+                  - generic [ref=f2e2852]:
+                    - generic [ref=f2e2853]:
+                      - text: "\""
+                      - generic [ref=f2e2854]: conclusion
+                      - text: "\""
+                    - generic [ref=f2e2855]: ":"
+                  - generic [ref=f2e2856] [cursor=pointer]: "\"Production returned a stale 1m response after market close; current-session behavior remains INSUFFICIENT_DATA. Historical sample windows are date/interval-specific.\""
+              - generic [ref=f2e2859]: "}"
+            - generic [ref=f2e2861]:
+              - generic [ref=f2e2863] [cursor=pointer]:
+                - generic [ref=f2e2868]:
+                  - generic [ref=f2e2869]: "\"sdk_capabilities\""
+                  - generic [ref=f2e2870]: ":"
+                - generic [ref=f2e2871]: "{"
+              - generic [ref=f2e2873]:
+                - generic [ref=f2e2874]:
+                  - generic [ref=f2e2875]:
+                    - generic [ref=f2e2876]:
+                      - text: "\""
+                      - generic [ref=f2e2877]: historical_candles
+                      - text: "\""
+                    - generic [ref=f2e2878]: ":"
+                  - generic [ref=f2e2879] [cursor=pointer]: "true"
+                - generic [ref=f2e2881]:
+                  - generic [ref=f2e2882]:
+                    - generic [ref=f2e2883]:
+                      - text: "\""
+                      - generic [ref=f2e2884]: realtime_quote
+                      - text: "\""
+                    - generic [ref=f2e2885]: ":"
+                  - generic [ref=f2e2886] [cursor=pointer]: "true"
+                - generic [ref=f2e2888]:
+                  - generic [ref=f2e2889]:
+                    - generic [ref=f2e2890]:
+                      - text: "\""
+                      - generic [ref=f2e2891]: realtime_bid_offer
+                      - text: "\""
+                    - generic [ref=f2e2892]: ":"
+                  - generic [ref=f2e2893] [cursor=pointer]: "true"
+                - generic [ref=f2e2895]:
+                  - generic [ref=f2e2896]:
+                    - generic [ref=f2e2897]:
+                      - text: "\""
+                      - generic [ref=f2e2898]: realtime_equity_market_status
+                      - text: "\""
+                    - generic [ref=f2e2899]: ":"
+                  - generic [ref=f2e2900] [cursor=pointer]: "true"
+                - generic [ref=f2e2902]:
+                  - generic [ref=f2e2904] [cursor=pointer]:
+                    - generic [ref=f2e2909]:
+                      - generic [ref=f2e2910]: "\"documented_realtime_candle_intervals\""
+                      - generic [ref=f2e2911]: ":"
+                    - generic [ref=f2e2912]: "["
+                  - generic [ref=f2e2914]:
+                    - generic [ref=f2e2915]:
+                      - generic [ref=f2e2916]:
+                        - text: "0"
+                        - generic [ref=f2e2917]: ":"
+                      - generic [ref=f2e2918] [cursor=pointer]: "\"1m\""
+                    - generic [ref=f2e2921]:
+                      - generic [ref=f2e2922]:
+                        - text: "1"
+                        - generic [ref=f2e2923]: ":"
+                      - generic [ref=f2e2924] [cursor=pointer]: "\"3m\""
+                    - generic [ref=f2e2927]:
+                      - generic [ref=f2e2928]:
+                        - text: "2"
+                        - generic [ref=f2e2929]: ":"
+                      - generic [ref=f2e2930] [cursor=pointer]: "\"5m\""
+                    - generic [ref=f2e2933]:
+                      - generic [ref=f2e2934]:
+                        - text: "3"
+                        - generic [ref=f2e2935]: ":"
+                      - generic [ref=f2e2936] [cursor=pointer]: "\"10m\""
+                    - generic [ref=f2e2939]:
+                      - generic [ref=f2e2940]:
+                        - text: "4"
+                        - generic [ref=f2e2941]: ":"
+                      - generic [ref=f2e2942] [cursor=pointer]: "\"15m\""
+                    - generic [ref=f2e2945]:
+                      - generic [ref=f2e2946]:
+                        - text: "5"
+                        - generic [ref=f2e2947]: ":"
+                      - generic [ref=f2e2948] [cursor=pointer]: "\"30m\""
+                    - generic [ref=f2e2951]:
+                      - generic [ref=f2e2952]:
+                        - text: "6"
+                        - generic [ref=f2e2953]: ":"
+                      - generic [ref=f2e2954] [cursor=pointer]: "\"60m\""
+                    - generic [ref=f2e2957]:
+                      - generic [ref=f2e2958]:
+                        - text: "7"
+                        - generic [ref=f2e2959]: ":"
+                      - generic [ref=f2e2960] [cursor=pointer]: "\"120m\""
+                    - generic [ref=f2e2963]:
+                      - generic [ref=f2e2964]:
+                        - text: "8"
+                        - generic [ref=f2e2965]: ":"
+                      - generic [ref=f2e2966] [cursor=pointer]: "\"240m\""
+                    - generic [ref=f2e2969]:
+                      - generic [ref=f2e2970]:
+                        - text: "9"
+                        - generic [ref=f2e2971]: ":"
+                      - generic [ref=f2e2972] [cursor=pointer]: "\"1d\""
+                    - generic [ref=f2e2975]:
+                      - generic [ref=f2e2976]:
+                        - text: "10"
+                        - generic [ref=f2e2977]: ":"
+                      - generic [ref=f2e2978] [cursor=pointer]: "\"1w\""
+                    - generic [ref=f2e2981]:
+                      - generic [ref=f2e2982]:
+                        - text: "11"
+                        - generic [ref=f2e2983]: ":"
+                      - generic [ref=f2e2984] [cursor=pointer]: "\"1M\""
+                  - generic [ref=f2e2987]: "]"
+                - generic [ref=f2e2989]:
+                  - generic [ref=f2e2990]:
+                    - generic [ref=f2e2991]:
+                      - text: "\""
+                      - generic [ref=f2e2992]: historical_candlestick_interval_parameter
+                      - text: "\""
+                    - generic [ref=f2e2993]: ":"
+                  - generic [ref=f2e2994] [cursor=pointer]: "\"string; SDK signature does not enumerate accepted values\""
+                - generic [ref=f2e2997]:
+                  - generic [ref=f2e2998]:
+                    - generic [ref=f2e2999]:
+                      - text: "\""
+                      - generic [ref=f2e3000]: equity_account_factory
+                      - text: "\""
+                    - generic [ref=f2e3001]: ":"
+                  - generic [ref=f2e3002] [cursor=pointer]: "true"
+                - generic [ref=f2e3004]:
+                  - generic [ref=f2e3005]:
+                    - generic [ref=f2e3006]:
+                      - text: "\""
+                      - generic [ref=f2e3007]: account_info
+                      - text: "\""
+                    - generic [ref=f2e3008]: ":"
+                  - generic [ref=f2e3009] [cursor=pointer]: "true"
+                - generic [ref=f2e3011]:
+                  - generic [ref=f2e3012]:
+                    - generic [ref=f2e3013]:
+                      - text: "\""
+                      - generic [ref=f2e3014]: portfolio
+                      - text: "\""
+                    - generic [ref=f2e3015]: ":"
+                  - generic [ref=f2e3016] [cursor=pointer]: "true"
+                - generic [ref=f2e3018]:
+                  - generic [ref=f2e3019]:
+                    - generic [ref=f2e3020]:
+                      - text: "\""
+                      - generic [ref=f2e3021]: orders
+                      - text: "\""
+                    - generic [ref=f2e3022]: ":"
+                  - generic [ref=f2e3023] [cursor=pointer]: "true"
+                - generic [ref=f2e3025]:
+                  - generic [ref=f2e3026]:
+                    - generic [ref=f2e3027]:
+                      - text: "\""
+                      - generic [ref=f2e3028]: deals
+                      - text: "\""
+                    - generic [ref=f2e3029]: ":"
+                  - generic [ref=f2e3030] [cursor=pointer]: "true"
+                - generic [ref=f2e3032]:
+                  - generic [ref=f2e3033]:
+                    - generic [ref=f2e3034]:
+                      - text: "\""
+                      - generic [ref=f2e3035]: place_order_method_present_not_invoked
+                      - text: "\""
+                    - generic [ref=f2e3036]: ":"
+                  - generic [ref=f2e3037] [cursor=pointer]: "true"
+                - generic [ref=f2e3039]:
+                  - generic [ref=f2e3040]:
+                    - generic [ref=f2e3041]:
+                      - text: "\""
+                      - generic [ref=f2e3042]: change_order_method_present_not_invoked
+                      - text: "\""
+                    - generic [ref=f2e3043]: ":"
+                  - generic [ref=f2e3044] [cursor=pointer]: "true"
+                - generic [ref=f2e3046]:
+                  - generic [ref=f2e3047]:
+                    - generic [ref=f2e3048]:
+                      - text: "\""
+                      - generic [ref=f2e3049]: cancel_order_method_present_not_invoked
+                      - text: "\""
+                    - generic [ref=f2e3050]: ":"
+                  - generic [ref=f2e3051] [cursor=pointer]: "true"
+                - generic [ref=f2e3053]:
+                  - generic [ref=f2e3055] [cursor=pointer]:
+                    - generic [ref=f2e3060]:
+                      - generic [ref=f2e3061]: "\"method_signatures\""
+                      - generic [ref=f2e3062]: ":"
+                    - generic [ref=f2e3063]: "{"
+                  - generic [ref=f2e3065]:
+                    - generic [ref=f2e3066]:
+                      - generic [ref=f2e3067]:
+                        - generic [ref=f2e3068]:
+                          - text: "\""
+                          - generic [ref=f2e3069]: Investor.Equity
+                          - text: "\""
+                        - generic [ref=f2e3070]: ":"
+                      - generic [ref=f2e3071] [cursor=pointer]: "\"(self, account_no: str)\""
+                    - generic [ref=f2e3074]:
+                      - generic [ref=f2e3075]:
+                        - generic [ref=f2e3076]:
+                          - text: "\""
+                          - generic [ref=f2e3077]: MarketData.get_candlestick
+                          - text: "\""
+                        - generic [ref=f2e3078]: ":"
+                      - generic [ref=f2e3079] [cursor=pointer]: "\"(self, symbol: str, interval: str, limit: int | None = None, start: str | None = None, end: str | None = None, normalized: bool | None = None)\""
+                    - generic [ref=f2e3082]:
+                      - generic [ref=f2e3083]:
+                        - generic [ref=f2e3084]:
+                          - text: "\""
+                          - generic [ref=f2e3085]: MarketData.get_quote_symbol
+                          - text: "\""
+                        - generic [ref=f2e3086]: ":"
+                      - generic [ref=f2e3087] [cursor=pointer]: "\"(self, symbol: str)\""
+                    - generic [ref=f2e3090]:
+                      - generic [ref=f2e3091]:
+                        - generic [ref=f2e3092]:
+                          - text: "\""
+                          - generic [ref=f2e3093]: RealtimeDataConnection.subscribe_bid_offer
+                          - text: "\""
+                        - generic [ref=f2e3094]: ":"
+                      - generic [ref=f2e3095] [cursor=pointer]: "\"(self, symbol: str, on_message: Callable, args: tuple = (), kwargs: dict = {}) -> settrade_v2.realtime.Subscriber\""
+                    - generic [ref=f2e3098]:
+                      - generic [ref=f2e3099]:
+                        - generic [ref=f2e3100]:
+                          - text: "\""
+                          - generic [ref=f2e3101]: RealtimeDataConnection.subscribe_price_info
+                          - text: "\""
+                        - generic [ref=f2e3102]: ":"
+                      - generic [ref=f2e3103] [cursor=pointer]: "\"(self, symbol: str, on_message: Callable, args: tuple = (), kwargs: dict = {}) -> settrade_v2.realtime.Subscriber\""
+                    - generic [ref=f2e3106]:
+                      - generic [ref=f2e3107]:
+                        - generic [ref=f2e3108]:
+                          - text: "\""
+                          - generic [ref=f2e3109]: RealtimeDataConnection.subscribe_equity_order
+                          - text: "\""
+                        - generic [ref=f2e3110]: ":"
+                      - generic [ref=f2e3111] [cursor=pointer]: "\"(self, account_no: str, on_message: Callable, args: tuple = (), kwargs: dict = {}) -> settrade_v2.realtime.Subscriber\""
+                    - generic [ref=f2e3114]:
+                      - generic [ref=f2e3115]:
+                        - generic [ref=f2e3116]:
+                          - text: "\""
+                          - generic [ref=f2e3117]: InvestorEquity.get_account_info
+                          - text: "\""
+                        - generic [ref=f2e3118]: ":"
+                      - generic [ref=f2e3119] [cursor=pointer]: "\"(self) -> Dict[str, Any]\""
+                    - generic [ref=f2e3122]:
+                      - generic [ref=f2e3123]:
+                        - generic [ref=f2e3124]:
+                          - text: "\""
+                          - generic [ref=f2e3125]: InvestorEquity.get_portfolios
+                          - text: "\""
+                        - generic [ref=f2e3126]: ":"
+                      - generic [ref=f2e3127] [cursor=pointer]: "\"(self) -> List[Dict[str, Any]]\""
+                    - generic [ref=f2e3130]:
+                      - generic [ref=f2e3131]:
+                        - generic [ref=f2e3132]:
+                          - text: "\""
+                          - generic [ref=f2e3133]: InvestorEquity.get_orders
+                          - text: "\""
+                        - generic [ref=f2e3134]: ":"
+                      - generic [ref=f2e3135] [cursor=pointer]: "\"(self) -> List[Dict[str, Any]]\""
+                    - generic [ref=f2e3138]:
+                      - generic [ref=f2e3139]:
+                        - generic [ref=f2e3140]:
+                          - text: "\""
+                          - generic [ref=f2e3141]: InvestorEquity.get_trades
+                          - text: "\""
+                        - generic [ref=f2e3142]: ":"
+                      - generic [ref=f2e3143] [cursor=pointer]: "\"(self) -> List[Dict[str, Any]]\""
+                    - generic [ref=f2e3146]:
+                      - generic [ref=f2e3147]:
+                        - generic [ref=f2e3148]:
+                          - text: "\""
+                          - generic [ref=f2e3149]: InvestorEquity.place_order
+                          - text: "\""
+                        - generic [ref=f2e3150]: ":"
+                      - generic [ref=f2e3151] [cursor=pointer]: "\"(self, pin: str, side: str, symbol: str, volume: int, price: float, qty_open: int = 0, trustee_id_type: str = 'Local', price_type: str = 'Limit', validity_type: str = 'Day', bypass_warning: bool | None = None, valid_till_date: str | None = None) -> Dict[str, Any]\""
+                    - generic [ref=f2e3154]:
+                      - generic [ref=f2e3155]:
+                        - generic [ref=f2e3156]:
+                          - text: "\""
+                          - generic [ref=f2e3157]: InvestorEquity.change_order
+                          - text: "\""
+                        - generic [ref=f2e3158]: ":"
+                      - generic [ref=f2e3159] [cursor=pointer]: "\"(self, order_no: str, pin: str, new_trustee_id_type: str | None = None, new_price: float | None = None, new_volume: int | None = None, new_iceberg_volume: int | None = None, bypass_warning: bool | None = None)\""
+                    - generic [ref=f2e3162]:
+                      - generic [ref=f2e3163]:
+                        - generic [ref=f2e3164]:
+                          - text: "\""
+                          - generic [ref=f2e3165]: InvestorEquity.cancel_order
+                          - text: "\""
+                        - generic [ref=f2e3166]: ":"
+                      - generic [ref=f2e3167] [cursor=pointer]: "\"(self, order_no: str, pin: str)\""
+                  - generic [ref=f2e3170]: "}"
+              - generic [ref=f2e3172]: "}"
+            - generic [ref=f2e3174]:
+              - generic [ref=f2e3176] [cursor=pointer]:
+                - generic [ref=f2e3181]:
+                  - generic [ref=f2e3182]: "\"capability_matrix\""
+                  - generic [ref=f2e3183]: ":"
+                - generic [ref=f2e3184]: "{"
+              - generic [ref=f2e3186]:
+                - generic [ref=f2e3187]:
+                  - generic [ref=f2e3188]:
+                    - generic [ref=f2e3189]:
+                      - text: "\""
+                      - generic [ref=f2e3190]: historical_candles
+                      - text: "\""
+                    - generic [ref=f2e3191]: ":"
+                  - generic [ref=f2e3192] [cursor=pointer]: "\"VERIFIED\""
+                - generic [ref=f2e3195]:
+                  - generic [ref=f2e3196]:
+                    - generic [ref=f2e3197]:
+                      - text: "\""
+                      - generic [ref=f2e3198]: realtime_price
+                      - text: "\""
+                    - generic [ref=f2e3199]: ":"
+                  - generic [ref=f2e3200] [cursor=pointer]: "\"VERIFIED\""
+                - generic [ref=f2e3203]:
+                  - generic [ref=f2e3204]:
+                    - generic [ref=f2e3205]:
+                      - text: "\""
+                      - generic [ref=f2e3206]: realtime_bbo
+                      - text: "\""
+                    - generic [ref=f2e3207]: ":"
+                  - generic [ref=f2e3208] [cursor=pointer]: "\"VERIFIED\""
+                - generic [ref=f2e3211]:
+                  - generic [ref=f2e3212]:
+                    - generic [ref=f2e3213]:
+                      - text: "\""
+                      - generic [ref=f2e3214]: account_info
+                      - text: "\""
+                    - generic [ref=f2e3215]: ":"
+                  - generic [ref=f2e3216] [cursor=pointer]: "\"REQUIRES_ACCOUNT_NUMBER\""
+                - generic [ref=f2e3219]:
+                  - generic [ref=f2e3220]:
+                    - generic [ref=f2e3221]:
+                      - text: "\""
+                      - generic [ref=f2e3222]: portfolio
+                      - text: "\""
+                    - generic [ref=f2e3223]: ":"
+                  - generic [ref=f2e3224] [cursor=pointer]: "\"REQUIRES_ACCOUNT_NUMBER\""
+                - generic [ref=f2e3227]:
+                  - generic [ref=f2e3228]:
+                    - generic [ref=f2e3229]:
+                      - text: "\""
+                      - generic [ref=f2e3230]: orders
+                      - text: "\""
+                    - generic [ref=f2e3231]: ":"
+                  - generic [ref=f2e3232] [cursor=pointer]: "\"REQUIRES_ACCOUNT_NUMBER\""
+                - generic [ref=f2e3235]:
+                  - generic [ref=f2e3236]:
+                    - generic [ref=f2e3237]:
+                      - text: "\""
+                      - generic [ref=f2e3238]: deals_fills
+                      - text: "\""
+                    - generic [ref=f2e3239]: ":"
+                  - generic [ref=f2e3240] [cursor=pointer]: "\"REQUIRES_ACCOUNT_NUMBER\""
+                - generic [ref=f2e3243]:
+                  - generic [ref=f2e3244]:
+                    - generic [ref=f2e3245]:
+                      - text: "\""
+                      - generic [ref=f2e3246]: order_status_subscription
+                      - text: "\""
+                    - generic [ref=f2e3247]: ":"
+                  - generic [ref=f2e3248] [cursor=pointer]: "\"REQUIRES_ACCOUNT_NUMBER\""
+                - generic [ref=f2e3251]:
+                  - generic [ref=f2e3252]:
+                    - generic [ref=f2e3253]:
+                      - text: "\""
+                      - generic [ref=f2e3254]: trading_methods_present_disabled
+                      - text: "\""
+                    - generic [ref=f2e3255]: ":"
+                  - generic [ref=f2e3256] [cursor=pointer]: "\"AVAILABLE_NOT_TESTED; NEVER_INVOKED\""
+              - generic [ref=f2e3259]: "}"
+            - generic [ref=f2e3261]:
+              - generic [ref=f2e3262]:
+                - generic [ref=f2e3263]:
+                  - text: "\""
+                  - generic [ref=f2e3264]: status
+                  - text: "\""
+                - generic [ref=f2e3265]: ":"
+              - generic [ref=f2e3266] [cursor=pointer]: "\"SUCCESS\""
+          - generic [ref=f2e3269]: "}"
+        - heading "Historical coverage and gaps by source" [level=3] [ref=f2e3275]:
+          - text: Historical coverage and gaps by source
+          - generic [ref=f2e3276]:
+            - link "Link to heading":
+              - /url: "#historical-coverage-and-gaps-by-source"
+        - paragraph [ref=f2e3281]: "Production rows: 1215549 · Backfill: NOT_ATTEMPTED_POLICY_UNVERIFIED"
+        - generic [ref=f2e3284]:
+          - generic [ref=f2e3286]:
+            - 'button "Show/hide columns: Persisted Settrade row counts, paths, symbols and timestamps by environment" [ref=f2e3290] [cursor=pointer]'
+            - 'button "Download as CSV: Persisted Settrade row counts, paths, symbols and timestamps by environment" [ref=f2e3296] [cursor=pointer]'
+            - 'button "Search: Persisted Settrade row counts, paths, symbols and timestamps by environment" [ref=f2e3302] [cursor=pointer]'
+            - 'button "Fullscreen: Persisted Settrade row counts, paths, symbols and timestamps by environment" [ref=f2e3308] [cursor=pointer]'
+          - region "Persisted Settrade row counts, paths, symbols and timestamps by environment" [ref=f2e3312]
+        - heading "Malformed, duplicate and timestamp integrity findings" [level=3] [ref=f2e3324]:
+          - text: Malformed, duplicate and timestamp integrity findings
+          - generic [ref=f2e3325]:
+            - link "Link to heading":
+              - /url: "#malformed-duplicate-and-timestamp-integrity-findings"
+        - generic [ref=f2e3331]:
+          - generic [ref=f2e3332]: "{"
+          - generic [ref=f2e3340]:
+            - generic [ref=f2e3341]:
+              - generic [ref=f2e3343] [cursor=pointer]:
+                - generic [ref=f2e3348]:
+                  - generic [ref=f2e3349]: "\"sandbox\""
+                  - generic [ref=f2e3350]: ":"
+                - generic [ref=f2e3351]: "["
+              - generic [ref=f2e3352]: "]"
+            - generic [ref=f2e3354]:
+              - generic [ref=f2e3356] [cursor=pointer]:
+                - generic [ref=f2e3361]:
+                  - generic [ref=f2e3362]: "\"production\""
+                  - generic [ref=f2e3363]: ":"
+                - generic [ref=f2e3364]: "["
+              - generic [ref=f2e3365]: "]"
+          - generic [ref=f2e3367]: "}"
+        - generic [ref=f2e3374]:
+          - generic [ref=f2e3375]: "{"
+          - generic [ref=f2e3383]:
+            - generic [ref=f2e3384]:
+              - generic [ref=f2e3386] [cursor=pointer]:
+                - generic [ref=f2e3391]:
+                  - generic [ref=f2e3392]: "\"missing_data_counts\""
+                  - generic [ref=f2e3393]: ":"
+                - generic [ref=f2e3394]: "{"
+              - generic [ref=f2e3396]:
+                - generic [ref=f2e3397]:
+                  - generic [ref=f2e3398]:
+                    - generic [ref=f2e3399]:
+                      - text: "\""
+                      - generic [ref=f2e3400]: missing_trading_dates_with_known_project_evidence
+                      - text: "\""
+                    - generic [ref=f2e3401]: ":"
+                  - generic [ref=f2e3402] [cursor=pointer]: "1"
+                - generic [ref=f2e3404]:
+                  - generic [ref=f2e3405]:
+                    - generic [ref=f2e3406]:
+                      - text: "\""
+                      - generic [ref=f2e3407]: missing_symbol_day_entries_sandbox
+                      - text: "\""
+                    - generic [ref=f2e3408]: ":"
+                  - generic [ref=f2e3409] [cursor=pointer]: "1278"
+                - generic [ref=f2e3411]:
+                  - generic [ref=f2e3412]:
+                    - generic [ref=f2e3413]:
+                      - text: "\""
+                      - generic [ref=f2e3414]: missing_interval_gap_segments
+                      - text: "\""
+                    - generic [ref=f2e3415]: ":"
+                  - generic [ref=f2e3416] [cursor=pointer]: "3679"
+                - generic [ref=f2e3418]:
+                  - generic [ref=f2e3419]:
+                    - generic [ref=f2e3420]:
+                      - text: "\""
+                      - generic [ref=f2e3421]: estimated_missing_candle_intervals
+                      - text: "\""
+                    - generic [ref=f2e3422]: ":"
+                  - generic [ref=f2e3423] [cursor=pointer]: "29128"
+                - generic [ref=f2e3425]:
+                  - generic [ref=f2e3426]:
+                    - generic [ref=f2e3427]:
+                      - text: "\""
+                      - generic [ref=f2e3428]: recoverable_from_api
+                      - text: "\""
+                    - generic [ref=f2e3429]: ":"
+                  - generic [ref=f2e3430] [cursor=pointer]: "0"
+                - generic [ref=f2e3432]:
+                  - generic [ref=f2e3433]:
+                    - generic [ref=f2e3434]:
+                      - text: "\""
+                      - generic [ref=f2e3435]: recoverable_from_existing_other_source
+                      - text: "\""
+                    - generic [ref=f2e3436]: ":"
+                  - generic [ref=f2e3437] [cursor=pointer]: "0"
+                - generic [ref=f2e3439]:
+                  - generic [ref=f2e3440]:
+                    - generic [ref=f2e3441]:
+                      - text: "\""
+                      - generic [ref=f2e3442]: not_recoverable_with_current_api
+                      - text: "\""
+                    - generic [ref=f2e3443]: ":"
+                  - generic [ref=f2e3444] [cursor=pointer]: "4"
+                - generic [ref=f2e3446]:
+                  - generic [ref=f2e3447]:
+                    - generic [ref=f2e3448]:
+                      - text: "\""
+                      - generic [ref=f2e3449]: historical_bbo_capability_limitations
+                      - text: "\""
+                    - generic [ref=f2e3450]: ":"
+                  - generic [ref=f2e3451] [cursor=pointer]: "1"
+                - generic [ref=f2e3453]:
+                  - generic [ref=f2e3454]:
+                    - generic [ref=f2e3455]:
+                      - text: "\""
+                      - generic [ref=f2e3456]: unknown_gap_records
+                      - text: "\""
+                    - generic [ref=f2e3457]: ":"
+                  - generic [ref=f2e3458] [cursor=pointer]: "4958"
+              - generic [ref=f2e3460]: "}"
+            - generic [ref=f2e3462]:
+              - generic [ref=f2e3463]:
+                - generic [ref=f2e3464]:
+                  - text: "\""
+                  - generic [ref=f2e3465]: recoverability_policy
+                  - text: "\""
+                - generic [ref=f2e3466]: ":"
+              - generic [ref=f2e3467] [cursor=pointer]: "\"UNKNOWN for absent candle rows until production API request returns data; historical BBO callbacks cannot be reconstructed from observed API capabilities\""
+            - generic [ref=f2e3470]:
+              - generic [ref=f2e3472] [cursor=pointer]:
+                - generic [ref=f2e3477]:
+                  - generic [ref=f2e3478]: "\"weekdays_without_artifacts\""
+                  - generic [ref=f2e3479]: ":"
+                - generic [ref=f2e3480]: "["
+              - generic [ref=f2e3483]:
+                - generic [ref=f2e3485] [cursor=pointer]:
+                  - generic [ref=f2e3490]:
+                    - text: "0"
+                    - generic [ref=f2e3491]: ":"
+                  - generic [ref=f2e3492]: "{"
+                - generic [ref=f2e3494]:
+                  - generic [ref=f2e3495]:
+                    - generic [ref=f2e3496]:
+                      - generic [ref=f2e3497]:
+                        - text: "\""
+                        - generic [ref=f2e3498]: date
+                        - text: "\""
+                      - generic [ref=f2e3499]: ":"
+                    - generic [ref=f2e3500] [cursor=pointer]: "\"2026-10-02\""
+                  - generic [ref=f2e3503]:
+                    - generic [ref=f2e3504]:
+                      - generic [ref=f2e3505]:
+                        - text: "\""
+                        - generic [ref=f2e3506]: evidence
+                        - text: "\""
+                      - generic [ref=f2e3507]: ":"
+                    - generic [ref=f2e3508] [cursor=pointer]: "\"no runtime/data/log artifact in prior audit\""
+                  - generic [ref=f2e3511]:
+                    - generic [ref=f2e3512]:
+                      - generic [ref=f2e3513]:
+                        - text: "\""
+                        - generic [ref=f2e3514]: classification
+                        - text: "\""
+                      - generic [ref=f2e3515]: ":"
+                    - generic [ref=f2e3516] [cursor=pointer]: "\"UNKNOWN\""
+                  - generic [ref=f2e3519]:
+                    - generic [ref=f2e3520]:
+                      - generic [ref=f2e3521]:
+                        - text: "\""
+                        - generic [ref=f2e3522]: recoverability
+                        - text: "\""
+                      - generic [ref=f2e3523]: ":"
+                    - generic [ref=f2e3524] [cursor=pointer]: "\"UNKNOWN\""
+                - generic [ref=f2e3527]: "}"
+              - generic [ref=f2e3529]: "]"
+            - generic [ref=f2e3531]:
+              - generic [ref=f2e3532]:
+                - generic [ref=f2e3533]:
+                  - text: "\""
+                  - generic [ref=f2e3534]: BBO_gap_recoverability
+                  - text: "\""
+                - generic [ref=f2e3535]: ":"
+              - generic [ref=f2e3536] [cursor=pointer]: "\"NOT_RECOVERABLE_FROM_HISTORICAL_CANDLE_API; event callbacks are not reconstructible\""
+            - generic [ref=f2e3539]:
+              - generic [ref=f2e3540]:
+                - generic [ref=f2e3541]:
+                  - text: "\""
+                  - generic [ref=f2e3542]: historical_1m_recoverability
+                  - text: "\""
+                - generic [ref=f2e3543]: ":"
+              - generic [ref=f2e3544] [cursor=pointer]: "\"UNKNOWN_OR_EMPTY\""
+          - generic [ref=f2e3547]: "}"
+        - generic [ref=f2e3550]:
+          - paragraph [ref=f2e3554]: Coverage dataset
+          - group [ref=f2e3556]:
+            - combobox "Coverage dataset" [ref=f2e3557]: raw_bbo
+            - button "Open" [ref=f2e3558] [cursor=pointer]
+        - generic [ref=f2e3563]:
+          - paragraph [ref=f2e3567]: Trading day / evidence date
+          - group [ref=f2e3569]:
+            - combobox "Trading day / evidence date" [ref=f2e3570]: 2026-09-19
+            - button "Open" [ref=f2e3571] [cursor=pointer]
+        - generic [ref=f2e3577]:
+          - generic [ref=f2e3579]:
+            - 'button "Show/hide columns: Per-environment collection coverage and missing symbols for the selected date" [ref=f2e3583] [cursor=pointer]'
+            - 'button "Download as CSV: Per-environment collection coverage and missing symbols for the selected date" [ref=f2e3589] [cursor=pointer]'
+            - 'button "Search: Per-environment collection coverage and missing symbols for the selected date" [ref=f2e3595] [cursor=pointer]'
+            - 'button "Fullscreen: Per-environment collection coverage and missing symbols for the selected date" [ref=f2e3601] [cursor=pointer]'
+          - region "Per-environment collection coverage and missing symbols for the selected date" [ref=f2e3605]
+        - heading "API capability matrix" [level=3] [ref=f2e3617]:
+          - text: API capability matrix
+          - generic [ref=f2e3618]:
+            - link "Link to heading":
+              - /url: "#api-capability-matrix"
+        - generic [ref=f2e3621]:
+          - generic [ref=f2e3623]:
+            - 'button "Show/hide columns: Verified and unverified Settrade API capabilities" [ref=f2e3627] [cursor=pointer]'
+            - 'button "Download as CSV: Verified and unverified Settrade API capabilities" [ref=f2e3633] [cursor=pointer]'
+            - 'button "Search: Verified and unverified Settrade API capabilities" [ref=f2e3639] [cursor=pointer]'
+            - 'button "Fullscreen: Verified and unverified Settrade API capabilities" [ref=f2e3645] [cursor=pointer]'
+          - region "Verified and unverified Settrade API capabilities" [ref=f2e3649]
+        - heading "Account, portfolio, orders and deals" [level=3] [ref=f2e3661]:
+          - text: Account, portfolio, orders and deals
+          - generic [ref=f2e3662]:
+            - link "Link to heading":
+              - /url: "#account-portfolio-orders-and-deals"
+        - status [ref=f2e3665]:
+          - paragraph [ref=f2e3669]: "READ ONLY — NO LIVE ORDER ACTIONS ENABLED. Account/private state: REQUIRES_ACCOUNT_NUMBER; this workspace has no account number configured, so account, holdings, orders and deals were not queried."

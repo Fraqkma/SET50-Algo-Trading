@@ -1,0 +1,27 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e11]:
+    - button [ref=f3e14] [cursor=pointer]:
+      - paragraph [ref=f3e19]: Refresh data
+    - heading "Research" [level=3] [ref=f3e24]
+    - group [ref=f3e28]:
+      - combobox "Workspace" [ref=f3e29]: Market Overview
+      - button "Open" [ref=f3e30] [cursor=pointer]
+    - paragraph [ref=f3e38]: Source data is read-only
+  - generic [ref=f3e3]:
+    - banner [ref=f3e41]:
+      - generic [ref=f3e44]:
+        - generic [ref=f3e46]:
+          - img "Running..." [ref=f3e47]
+          - button "Stop" [ref=f3e53] [cursor=pointer]
+        - button "Deploy" [ref=f3e55] [cursor=pointer]
+        - button "Main menu" [ref=f3e59] [cursor=pointer]
+    - generic [ref=f3e63]:
+      - heading "Market overview" [level=1] [ref=f3e68]:
+        - generic [ref=f3e70]: monitoring
+        - text: Market overview
+        - generic [ref=f3e72]:
+          - link "Link to heading":
+            - /url: "#market-overview"
+      - paragraph [ref=f3e77]: A read-only visual scan of current SET50 names using historical daily Yahoo OHLCV already stored in this repository.
+      - status [ref=f3e83]:
+        - paragraph [ref=f3e85]: Loading source-faithful historical bars…

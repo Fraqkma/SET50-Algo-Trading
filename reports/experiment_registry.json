@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "registry_status": "INITIALIZED_WITH_PRIOR_EVIDENCE_IMPORT",
+  "created_from_git_head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+  "created_while_dirty": true,
+  "engine_policy": {
+    "research": "RESEARCH_BACKTEST",
+    "official": "OFFICIAL_TRADESIM_0_2_6",
+    "cross_engine_results_are_not_interchangeable": true
+  },
+  "experiments": [
+    {
+      "experiment_id": "LEGACY_DESIGN_A_WALK_FORWARD",
+      "hypothesis_id": "LEGACY_DESIGN_A",
+      "status": "HISTORICAL_EVIDENCE_IMPORTED",
+      "engine": "RESEARCH_BACKTEST",
+      "source_data": "approved historical research data; see referenced report",
+      "universe_policy": "point-in-time eligibility gate in existing backtest pipeline",
+      "parameters": "preserved in original artifacts",
+      "costs_and_execution": "LIMIT/IOC, one tick, commission and VAT per original evaluation docs",
+      "metrics_artifacts": [
+        "docs/D0_WALK_FORWARD_EVALUATION.md",
+        "docs/WALK_FORWARD_RESEARCH.md"
+      ],
+      "notes": "Imported as historical evidence only. Do not reinterpret as current candidate approval."
+    },
+    {
+      "experiment_id": "LEGACY_DESIGN_C_DIAGNOSTIC",
+      "hypothesis_id": "LEGACY_DESIGN_C",
+      "status": "HISTORICAL_EVIDENCE_IMPORTED",
+      "engine": "RESEARCH_BACKTEST",
+      "source_data": "approved historical research data; see referenced report",
+      "universe_policy": "point-in-time eligibility gate in existing backtest pipeline",
+      "parameters": "preserved in original artifacts",
+      "costs_and_execution": "see original Design C and backtest reports",
+      "metrics_artifacts": [
+        "docs/DESIGN_C_COMPARISON.md",
+        "docs/DESIGN_A_C_DIAGNOSTIC.md"
+      ],
+      "notes": "Preserves prior conclusions; evidence is bounded by documented history and execution assumptions."
+    },
+    {
+      "experiment_id": "D0_TURNOVER_CONTROL_WALK_FORWARD",
+      "hypothesis_id": "REDUCE_TURNOVER_WITHOUT_DESTROYING_ALPHA",
+      "status": "MIXED_LOSS_MAKING",
+      "engine": "RESEARCH_BACKTEST",
+      "source_data": "approved historical research data; see original run artifacts",
+      "universe_policy": "point-in-time eligibility gate in existing backtest pipeline",
+      "parameters": "D0 turnover-control policy; see original run artifacts",
+      "costs_and_execution": "LIMIT/IOC, one tick, commission and VAT",
+      "metrics_artifacts": [
+        "docs/D0_WALK_FORWARD_EVALUATION.md",
+        "docs/D0_TURNOVER_CONTROL_RESEARCH.md"
+      ],
+      "notes": "Five-fold evidence reports lower turnover/costs, but net fold results are mixed and overall evidence is not a deployable edge."
+    },
+    {
+      "experiment_id": "TRADESIM_026_ORDER_FREE_OFFICIAL_SMOKE_20261021",
+      "hypothesis_id": null,
+      "status": "ENGINE_SMOKE_ONLY",
+      "engine": "OFFICIAL_TRADESIM_0_2_6",
+      "source_data": "TRADESIM_OFFICIAL_TICKS, 2026-10-21",
+      "universe_policy": "official tick files; 48 symbols in source archive",
+      "parameters": "no-order fixture",
+      "costs_and_execution": "official simulator defaults; no fills",
+      "metrics_artifacts": [
+        "artifacts/official_tradesim_runs/20261022T195659Z_e1a21723/normalized_result.json"
+      ],
+      "notes": "Zero orders/fills; starting and ending NAV both THB 10,000,000. Not strategy evidence."
+    },
+    {
+      "experiment_id": "TRADESIM_026_THREE_DAY_ORDER_FREE_SMOKE_20261019_21",
+      "hypothesis_id": null,
+      "status": "ENGINE_SMOKE_ONLY",
+      "engine": "OFFICIAL_TRADESIM_0_2_6",
+      "source_data": "TRADESIM_OFFICIAL_TICKS, 2026-10-19 through 2026-10-21",
+      "universe_policy": "official tick files; three consecutive available dates",
+      "parameters": "no-order fixture",
+      "costs_and_execution": "official simulator defaults; no fills",
+      "metrics_artifacts": [
+        "artifacts/official_tradesim_runs/20261022T195709Z_16624d6f/normalized_result.json"
+      ],
+      "notes": "Zero orders/fills; ending NAV THB 10,000,000. Not strategy evidence."
+    },
+    {
+      "experiment_id": "20261023T154742Z_candidate_discovery_CANDIDATE_TREND20",
+      "hypothesis_id": "H1",
+      "candidate_id": "CANDIDATE_TREND20",
+      "variation": "single predeclared fixed specification; no parameter tuning",
+      "engine": "RESEARCH_BACKTEST",
+      "data_source": "approved_market_data_manifest.csv; approved daily loader; PIT eligibility gate",
+      "universe": {
+        "symbols_loaded": [
+          "BDMS",
+          "BGRIM",
+          "CENTEL",
+          "COM7",
+          "GLOBAL",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KKP",
+          "KTB",
+          "LH",
+          "MRDIYT",
+          "MTC",
+          "OSP",
+          "PTTGC",
+          "RATCH",
+          "SCGP",
+          "THAI",
+          "TIDLOR",
+          "TOP"
+        ],
+        "policy": "PIT eligibility rechecked on signal and execution dates; approved-data coverage only"
+      },
+      "date_range": {
+        "start": "2023-01-03",
+        "end": "2026-09-04",
+        "observed_union_rows": 898
+      },
+      "configuration": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      },
+      "code_identity": {
+        "git_head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+        "worktree_dirty": true,
+        "sha256": {
+          "src/backtest/engine.py": "9366fa1d8fab21da78fd856befb7ed3fcc2edbb2b0b06baf81431fc31ea33354",
+          "src/strategies/research_candidates.py": "9e2a25a77d32b788e0fd18f07994aaaf5bdfe2103fd582207c1d412b0099c5b3",
+          "scripts/run_research_candidate_discovery.py": "344002cdc601745eb92595522f72bdf30332888586967d4e1b3c3663c6c68973"
+        }
+      },
+      "metrics": {
+        "net_return": "-0.6979821323765018298029415454",
+        "gross_return": "-0.5904267746646385015801399999",
+        "final_equity": "3020178.676234981701970584546",
+        "maximum_drawdown": "-0.746765928884244479322393911",
+        "volatility": "0.0776622268836916",
+        "turnover": "64.02485726046986619608402",
+        "commission": "1005190.258989376899278519114",
+        "vat": "70363.31812925638294949633798",
+        "total_fees": "1075553.577118633282228015455",
+        "slippage": "4256860.7300000000000000",
+        "filled_orders": 1523,
+        "non_fills": 696,
+        "unique_symbols_traded": 18,
+        "valuation_complete": true,
+        "gross_pnl": "-5904267.746646385015801399999",
+        "fees_as_fraction_of_gross_pnl": "NOT_MEANINGFUL_GROSS_PNL_NONPOSITIVE",
+        "slippage_model_cost": "4256860.7300000000000000",
+        "average_equity_exposure": 0.8467133593909801,
+        "maximum_equity_exposure": 0.9999859974704037,
+        "yearly_equity_change": {
+          "2023": {
+            "start_equity": "10000000",
+            "end_equity": "6122516.639461851302904426870",
+            "net_change": "-3877483.360538148697095573130"
+          },
+          "2024": {
+            "start_equity": "6226448.458996153057516426870",
+            "end_equity": "3723657.171507825505278360398",
+            "net_change": "-2502791.287488327552238066472"
+          },
+          "2025": {
+            "start_equity": "3767345.599284161915800360398",
+            "end_equity": "2545812.361386710174759558510",
+            "net_change": "-1221533.237897451741040801888"
+          },
+          "2026": {
+            "start_equity": "2557204.257805281631344558510",
+            "end_equity": "3020178.676234981701970584546",
+            "net_change": "462974.418429700070626026036"
+          }
+        },
+        "completed_fifo_round_trips": 1218,
+        "fifo_realized_net_pnl": "-7022779.494763327962922734030",
+        "profitable_symbols": 3,
+        "losing_symbols": 15,
+        "top_symbol_realized_pnl": [
+          {
+            "symbol": "KTB",
+            "net_pnl": "358175.7838210191493417556978"
+          },
+          {
+            "symbol": "KKP",
+            "net_pnl": "148507.216362725"
+          },
+          {
+            "symbol": "GULF",
+            "net_pnl": "828.950242525"
+          },
+          {
+            "symbol": "TIDLOR",
+            "net_pnl": "-46175.6347853713336882228683"
+          },
+          {
+            "symbol": "PTTGC",
+            "net_pnl": "-87806.7760425129155612510712"
+          }
+        ],
+        "fifo_trade_distribution": {
+          "winners": 556,
+          "losers": 662,
+          "mean_net_pnl": "-5765.828813434587818491571451",
+          "median_net_pnl": "-115.69748603797476",
+          "largest_loss": "-260399.070338900",
+          "mean_holding_calendar_days": 22.582101806239738
+        }
+      },
+      "status": "REJECTED_STAGE_1",
+      "evidence_classification": "REJECTED",
+      "artifact_path": "artifacts/research_runs/20261023T154742Z_candidate_discovery/candidate_discovery.json",
+      "notes": "Stage 1 rejection. Walk-forward and robustness not run after predeclared early-pruning gate; no official TradeSim candidate promotion.",
+      "candidate_specification_ref": "reports/research_hypothesis_specs.json",
+      "candidate_parameters": "positive momentum_20 and close > sma_20; momentum rank; top 10",
+      "cost_and_execution": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      }
+    },
+    {
+      "experiment_id": "20261023T154742Z_candidate_discovery_CANDIDATE_BREAKOUT20",
+      "hypothesis_id": "H2",
+      "candidate_id": "CANDIDATE_BREAKOUT20",
+      "variation": "single predeclared fixed specification; no parameter tuning",
+      "engine": "RESEARCH_BACKTEST",
+      "data_source": "approved_market_data_manifest.csv; approved daily loader; PIT eligibility gate",
+      "universe": {
+        "symbols_loaded": [
+          "BDMS",
+          "BGRIM",
+          "CENTEL",
+          "COM7",
+          "GLOBAL",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KKP",
+          "KTB",
+          "LH",
+          "MRDIYT",
+          "MTC",
+          "OSP",
+          "PTTGC",
+          "RATCH",
+          "SCGP",
+          "THAI",
+          "TIDLOR",
+          "TOP"
+        ],
+        "policy": "PIT eligibility rechecked on signal and execution dates; approved-data coverage only"
+      },
+      "date_range": {
+        "start": "2023-01-03",
+        "end": "2026-09-04",
+        "observed_union_rows": 898
+      },
+      "configuration": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      },
+      "code_identity": {
+        "git_head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+        "worktree_dirty": true,
+        "sha256": {
+          "src/backtest/engine.py": "9366fa1d8fab21da78fd856befb7ed3fcc2edbb2b0b06baf81431fc31ea33354",
+          "src/strategies/research_candidates.py": "9e2a25a77d32b788e0fd18f07994aaaf5bdfe2103fd582207c1d412b0099c5b3",
+          "scripts/run_research_candidate_discovery.py": "344002cdc601745eb92595522f72bdf30332888586967d4e1b3c3663c6c68973"
+        }
+      },
+      "metrics": {
+        "net_return": "-0.4397632261456675439232741621",
+        "gross_return": "-0.3394876295901822389703999995",
+        "final_equity": "5602367.738543324560767258379",
+        "maximum_drawdown": "-0.4824860903824544355249080520",
+        "volatility": "0.09236909033059335",
+        "turnover": "59.691408152559857701574",
+        "commission": "937155.10799518976591471180",
+        "vat": "65600.8575596632836140298260",
+        "total_fees": "1002755.965554853049528741626",
+        "slippage": "3701729.800000000000000",
+        "filled_orders": 148,
+        "non_fills": 66,
+        "unique_symbols_traded": 17,
+        "valuation_complete": true,
+        "gross_pnl": "-3394876.295901822389703999995",
+        "fees_as_fraction_of_gross_pnl": "NOT_MEANINGFUL_GROSS_PNL_NONPOSITIVE",
+        "slippage_model_cost": "3701729.800000000000000",
+        "average_equity_exposure": 0.1827036899351866,
+        "maximum_equity_exposure": 0.9999999170404015,
+        "yearly_equity_change": {
+          "2023": {
+            "start_equity": "10000000",
+            "end_equity": "7752306.719905382318329901312",
+            "net_change": "-2247693.280094617681670098688"
+          },
+          "2024": {
+            "start_equity": "7682466.219905382318329901312",
+            "end_equity": "6645405.519517886081140474148",
+            "net_change": "-1037060.700387496237189427164"
+          },
+          "2025": {
+            "start_equity": "6645405.519517886081140474148",
+            "end_equity": "5866129.180352011577689352906",
+            "net_change": "-779276.339165874503451121242"
+          },
+          "2026": {
+            "start_equity": "5866129.180352011577689352906",
+            "end_equity": "5602367.738543324560767258379",
+            "net_change": "-263761.441808687016922094527"
+          }
+        },
+        "completed_fifo_round_trips": 80,
+        "fifo_realized_net_pnl": "-4388220.873691675439232741626",
+        "profitable_symbols": 2,
+        "losing_symbols": 15,
+        "top_symbol_realized_pnl": [
+          {
+            "symbol": "KKP",
+            "net_pnl": "42259.542876475"
+          },
+          {
+            "symbol": "KTB",
+            "net_pnl": "5054.2403283449667096482009"
+          },
+          {
+            "symbol": "TOP",
+            "net_pnl": "-14428.643605350"
+          },
+          {
+            "symbol": "CENTEL",
+            "net_pnl": "-35914.817583800"
+          },
+          {
+            "symbol": "COM7",
+            "net_pnl": "-48700.7183118419435303084988"
+          }
+        ],
+        "fifo_trade_distribution": {
+          "winners": 37,
+          "losers": 43,
+          "mean_net_pnl": "-54852.76092114594299040927031",
+          "median_net_pnl": "-9554.186304508159",
+          "largest_loss": "-905815.153140200",
+          "mean_holding_calendar_days": 6.4
+        }
+      },
+      "status": "REJECTED_STAGE_1",
+      "evidence_classification": "REJECTED",
+      "artifact_path": "artifacts/research_runs/20261023T154742Z_candidate_discovery/candidate_discovery.json",
+      "notes": "Stage 1 rejection. Walk-forward and robustness not run after predeclared early-pruning gate; no official TradeSim candidate promotion.",
+      "candidate_specification_ref": "reports/research_hypothesis_specs.json",
+      "candidate_parameters": "close > prior 20 observed highs and volume_ratio_20 >= 1; breakout excess rank; top 10",
+      "cost_and_execution": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      }
+    },
+    {
+      "experiment_id": "20261023T154742Z_candidate_discovery_CANDIDATE_MEANREV5",
+      "hypothesis_id": "H5",
+      "candidate_id": "CANDIDATE_MEANREV5",
+      "variation": "single predeclared fixed specification; no parameter tuning",
+      "engine": "RESEARCH_BACKTEST",
+      "data_source": "approved_market_data_manifest.csv; approved daily loader; PIT eligibility gate",
+      "universe": {
+        "symbols_loaded": [
+          "BDMS",
+          "BGRIM",
+          "CENTEL",
+          "COM7",
+          "GLOBAL",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KKP",
+          "KTB",
+          "LH",
+          "MRDIYT",
+          "MTC",
+          "OSP",
+          "PTTGC",
+          "RATCH",
+          "SCGP",
+          "THAI",
+          "TIDLOR",
+          "TOP"
+        ],
+        "policy": "PIT eligibility rechecked on signal and execution dates; approved-data coverage only"
+      },
+      "date_range": {
+        "start": "2023-01-03",
+        "end": "2026-09-04",
+        "observed_union_rows": 898
+      },
+      "configuration": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      },
+      "code_identity": {
+        "git_head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+        "worktree_dirty": true,
+        "sha256": {
+          "src/backtest/engine.py": "9366fa1d8fab21da78fd856befb7ed3fcc2edbb2b0b06baf81431fc31ea33354",
+          "src/strategies/research_candidates.py": "9e2a25a77d32b788e0fd18f07994aaaf5bdfe2103fd582207c1d412b0099c5b3",
+          "scripts/run_research_candidate_discovery.py": "344002cdc601745eb92595522f72bdf30332888586967d4e1b3c3663c6c68973"
+        }
+      },
+      "metrics": {
+        "net_return": "-0.043714594719487136018886469",
+        "gross_return": "0.1126375174609797251695999992",
+        "final_equity": "9562854.05280512863981113531",
+        "maximum_drawdown": "-0.3933316362076170694421401656",
+        "volatility": "0.1456266029729726",
+        "turnover": "93.072273457031288284116",
+        "commission": "1461234.69327539122606062120",
+        "vat": "102286.4285292773858242434840",
+        "total_fees": "1563521.121804668611884864682",
+        "slippage": "6458230.360000000000000",
+        "filled_orders": 205,
+        "non_fills": 83,
+        "unique_symbols_traded": 18,
+        "valuation_complete": true,
+        "gross_pnl": "1126375.174609797251695999992",
+        "fees_as_fraction_of_gross_pnl": "1.388099770883452715835769961",
+        "slippage_model_cost": "6458230.360000000000000",
+        "average_equity_exposure": 0.26305325034479227,
+        "maximum_equity_exposure": 0.9999999618745965,
+        "yearly_equity_change": {
+          "2023": {
+            "start_equity": "10000000",
+            "end_equity": "8155254.808366388727186422045",
+            "net_change": "-1844745.191633611272813577955"
+          },
+          "2024": {
+            "start_equity": "8155254.808366388727186422045",
+            "end_equity": "6348549.368152500743874369954",
+            "net_change": "-1806705.440213887983312052091"
+          },
+          "2025": {
+            "start_equity": "6348549.368152500743874369954",
+            "end_equity": "7454793.123121505754173316839",
+            "net_change": "1106243.754969005010298946885"
+          },
+          "2026": {
+            "start_equity": "7454793.123121505754173316839",
+            "end_equity": "9562854.05280512863981113531",
+            "net_change": "2108060.929683622885637818471"
+          }
+        },
+        "completed_fifo_round_trips": 109,
+        "fifo_realized_net_pnl": "-437145.9471948713601888646866",
+        "profitable_symbols": 6,
+        "losing_symbols": 12,
+        "top_symbol_realized_pnl": [
+          {
+            "symbol": "SCGP",
+            "net_pnl": "2092791.995057811762842971405"
+          },
+          {
+            "symbol": "OSP",
+            "net_pnl": "816163.0077625507560450559015"
+          },
+          {
+            "symbol": "IVL",
+            "net_pnl": "457049.9351247486097789808142"
+          },
+          {
+            "symbol": "HMPRO",
+            "net_pnl": "377667.7356333319310892630219"
+          },
+          {
+            "symbol": "LH",
+            "net_pnl": "12511.3714267165390953390476"
+          }
+        ],
+        "fifo_trade_distribution": {
+          "winners": 46,
+          "losers": 63,
+          "mean_net_pnl": "-4010.513277017168442099676018",
+          "median_net_pnl": "-18076.11359028836",
+          "largest_loss": "-568215.757075350",
+          "mean_holding_calendar_days": 6.220183486238532
+        }
+      },
+      "status": "REJECTED_STAGE_1",
+      "evidence_classification": "REJECTED",
+      "artifact_path": "artifacts/research_runs/20261023T154742Z_candidate_discovery/candidate_discovery.json",
+      "notes": "Stage 1 rejection. Walk-forward and robustness not run after predeclared early-pruning gate; no official TradeSim candidate promotion.",
+      "candidate_specification_ref": "reports/research_hypothesis_specs.json",
+      "candidate_parameters": "5-observation adjusted close return < -5% and close > sma_50; pullback rank; top 10",
+      "cost_and_execution": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      }
+    },
+    {
+      "experiment_id": "20261023T154742Z_candidate_discovery_CANDIDATE_REL_STRENGTH",
+      "hypothesis_id": "H3",
+      "candidate_id": "CANDIDATE_REL_STRENGTH",
+      "variation": "single predeclared fixed specification; no parameter tuning",
+      "engine": "RESEARCH_BACKTEST",
+      "data_source": "approved_market_data_manifest.csv; approved daily loader; PIT eligibility gate",
+      "universe": {
+        "symbols_loaded": [
+          "BDMS",
+          "BGRIM",
+          "CENTEL",
+          "COM7",
+          "GLOBAL",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KKP",
+          "KTB",
+          "LH",
+          "MRDIYT",
+          "MTC",
+          "OSP",
+          "PTTGC",
+          "RATCH",
+          "SCGP",
+          "THAI",
+          "TIDLOR",
+          "TOP"
+        ],
+        "policy": "PIT eligibility rechecked on signal and execution dates; approved-data coverage only"
+      },
+      "date_range": {
+        "start": "2023-01-03",
+        "end": "2026-09-04",
+        "observed_union_rows": 898
+      },
+      "configuration": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      },
+      "code_identity": {
+        "git_head": "5c29ba0128155d50352ddd15a26cb0f9883d1627",
+        "worktree_dirty": true,
+        "sha256": {
+          "src/backtest/engine.py": "9366fa1d8fab21da78fd856befb7ed3fcc2edbb2b0b06baf81431fc31ea33354",
+          "src/strategies/research_candidates.py": "9e2a25a77d32b788e0fd18f07994aaaf5bdfe2103fd582207c1d412b0099c5b3",
+          "scripts/run_research_candidate_discovery.py": "344002cdc601745eb92595522f72bdf30332888586967d4e1b3c3663c6c68973"
+        }
+      },
+      "metrics": {
+        "net_return": "-0.6840838130043268985045922436",
+        "gross_return": "-0.5751973412870025525136099998",
+        "final_equity": "3159161.869956731014954077564",
+        "maximum_drawdown": "-0.7404815302683880730428403987",
+        "volatility": "0.08006566071963868",
+        "turnover": "64.81723419091871301326403",
+        "commission": "1017630.576797423794308245271",
+        "vat": "71234.14037581966560157716897",
+        "total_fees": "1088864.717173243459909822438",
+        "slippage": "4306868.3500000000000000",
+        "filled_orders": 1544,
+        "non_fills": 704,
+        "unique_symbols_traded": 18,
+        "valuation_complete": true,
+        "gross_pnl": "-5751973.412870025525136099998",
+        "fees_as_fraction_of_gross_pnl": "NOT_MEANINGFUL_GROSS_PNL_NONPOSITIVE",
+        "slippage_model_cost": "4306868.3500000000000000",
+        "average_equity_exposure": 0.8543195758657082,
+        "maximum_equity_exposure": 0.9999829694546393,
+        "yearly_equity_change": {
+          "2023": {
+            "start_equity": "10000000",
+            "end_equity": "6325612.442036953520647757466",
+            "net_change": "-3674387.557963046479352242534"
+          },
+          "2024": {
+            "start_equity": "6432711.962167110988052757466",
+            "end_equity": "3765459.807218200635206127154",
+            "net_change": "-2667252.154948910352846630312"
+          },
+          "2025": {
+            "start_equity": "3809638.435306197809419127154",
+            "end_equity": "2608991.158336546506460623811",
+            "net_change": "-1200647.276969651302958503343"
+          },
+          "2026": {
+            "start_equity": "2620666.454666044781505623811",
+            "end_equity": "3159161.869956731014954077564",
+            "net_change": "538495.415290686233448453753"
+          }
+        },
+        "completed_fifo_round_trips": 1240,
+        "fifo_realized_net_pnl": "-6869182.007870851224776045560",
+        "profitable_symbols": 3,
+        "losing_symbols": 15,
+        "top_symbol_realized_pnl": [
+          {
+            "symbol": "KTB",
+            "net_pnl": "315421.2708962129669650741143"
+          },
+          {
+            "symbol": "KKP",
+            "net_pnl": "136268.620618900"
+          },
+          {
+            "symbol": "GULF",
+            "net_pnl": "34314.221910725"
+          },
+          {
+            "symbol": "TIDLOR",
+            "net_pnl": "-22060.9991358391850048370585"
+          },
+          {
+            "symbol": "MTC",
+            "net_pnl": "-45574.555437850"
+          }
+        ],
+        "fifo_trade_distribution": {
+          "winners": 576,
+          "losers": 664,
+          "mean_net_pnl": "-5539.662909573267116754875458",
+          "median_net_pnl": "-81.7267761695351",
+          "largest_loss": "-268594.461900300",
+          "mean_holding_calendar_days": 23.63790322580645
+        }
+      },
+      "status": "REJECTED_STAGE_1",
+      "evidence_classification": "REJECTED",
+      "artifact_path": "artifacts/research_runs/20261023T154742Z_candidate_discovery/candidate_discovery.json",
+      "notes": "Stage 1 rejection. Walk-forward and robustness not run after predeclared early-pruning gate; no official TradeSim candidate promotion.",
+      "candidate_specification_ref": "reports/research_hypothesis_specs.json",
+      "candidate_parameters": "positive momentum_20; momentum rank; top 10",
+      "cost_and_execution": {
+        "version": "RESEARCH_EXECUTION_V1",
+        "order_type": "LIMIT",
+        "validity": "IOC",
+        "slippage_ticks": 1,
+        "commission_rate": "0.00157",
+        "vat_rate": "0.07",
+        "fill_rule": "requested open plus/minus one tick must be within observed bar range",
+        "status": "research assumption; not official execution fact"
+      }
+    },
+    {
+      "experiment_id": "R2_H6_SIGNAL_DIAGNOSTIC_20261024",
+      "hypothesis_id": "H6_REGIME_CONDITIONED_LOW_TURNOVER_MEAN_REVERSION",
+      "status": "SIGNAL_DIAGNOSTIC_NOT_CLEARLY_POOR",
+      "engine": "SIGNAL_DIAGNOSTIC_ONLY",
+      "source_data": "approved PIT daily market-data manifest + official TradeSim SET50 benchmark history",
+      "parameters": "reports/research_round2_summary.json preregistered_parameters",
+      "metrics_artifacts": [
+        "reports/research_round2_summary.json"
+      ],
+      "notes": "137 events / 17 symbols; descriptive approximate intervals cross zero at every horizon; overlapping events."
+    },
+    {
+      "experiment_id": "R2_H6_TOP3_PORTFOLIO_20261024",
+      "hypothesis_id": "H6_REGIME_CONDITIONED_LOW_TURNOVER_MEAN_REVERSION",
+      "status": "REJECTED_STAGE_1",
+      "engine": "RESEARCH_BACKTEST / RESEARCH_EXECUTION_V1",
+      "source_data": "approved PIT daily market-data manifest + official TradeSim SET50 benchmark history",
+      "parameters": "top 3, five-session selection cadence, persistent thesis, one-tick slippage, 0.157% commission + 7% VAT",
+      "metrics_artifacts": [
+        "reports/research_round2_summary.json"
+      ],
+      "notes": "Net -3.49%, gross +0.08%, drawdown -27.42%, turnover 21.23x; lower turnover than Round 1 MeanRev5 93.07x but costs erase edge. OOS/robustness stopped after stage-1 rejection."
+    }
+  ],
+  "unrun_hypotheses": [
+    "H1_MOVEMENT_LIQUIDITY_EFFICIENCY",
+    "H3_LEADERSHIP_POSITIVE_BREADTH_CONDITIONING",
+    "H4_MOVEMENT_WITHOUT_LIQUIDITY"
+  ],
+  "selection_bias_note": "Four fixed candidate specifications were predeclared. All failed Stage 1 on the approved-data partial universe. No in-sample tuning or OOS parameter selection performed.",
+  "latest_candidate_discovery_run": "20261023T154742Z_candidate_discovery",
+  "multiplicity_warning": "Round 1 and Round 2 share repeatedly inspected 2023-2026 history; these are descriptive exploratory results, not independent confirmation.",
+  "round2_status": "NO_ROUND2_CANDIDATE_PASSED_PROMOTION_GATE"
+}

@@ -1,0 +1,23 @@
+{
+  "view": "EXPLORATORY_CURRENT_SET50_DISPLAY_UNIVERSE",
+  "survivorship_safe": false,
+  "current_universe_expected": 50,
+  "current_universe_with_data": 50,
+  "current_universe_symbols_missing": [],
+  "first_date": "2010-01-04",
+  "last_date": "2026-10-15",
+  "rows": 161163,
+  "current_symbols_under_50_observed_closes": [
+    "BANPU"
+  ],
+  "invalid_ohlc_rows_retained_as_flagged_close_observations": 82,
+  "source_files": 260,
+  "conflicting_symbol_dates_excluded": 0,
+  "synthetic_rows": 0,
+  "orders_placed": 0,
+  "formal_eligibility_or_backtest_input": false,
+  "reports": [
+    "reports\\exploratory_market_source_catalog.csv",
+    "reports\\exploratory_market_source_conflicts.csv"
+  ]
+}

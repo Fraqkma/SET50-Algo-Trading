@@ -1,0 +1,1 @@
+{"interval": "1m", "request_end": "2026-10-02T00:00:00", "request_start": "2026-10-01T00:00:00", "response": {"close": [10], "high": [11], "low": [9], "open": [10], "time": ["1790821800"], "value": [20], "volume": [2]}, "retrieved_at": "2026-10-16T12:40:34.906574+00:00", "sdk": "settrade-v2", "source": "settrade", "source_environment": "unknown", "symbol": "PTT"}

@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 import os
 import socket
+import ctypes
+from ctypes import wintypes
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -59,6 +61,19 @@ def classify_market_window(now: datetime, api_status: str | None = None) -> Mark
 def _pid_alive(pid: int) -> bool:
     if pid <= 0:
         return False
+    if os.name == "nt":
+        # os.kill(pid, 0) is not a process-existence probe on Windows (it
+        # returns WinError 87). Query a handle instead and fail closed on
+        # access-denied or other uncertain errors.
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+        kernel32.OpenProcess.restype = wintypes.HANDLE
+        kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+        handle = kernel32.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+        if handle:
+            kernel32.CloseHandle(handle)
+            return True
+        return ctypes.get_last_error() != 87  # ERROR_INVALID_PARAMETER means no such PID.
     try:
         os.kill(pid, 0)
     except ProcessLookupError:
@@ -85,7 +100,10 @@ class SingleInstanceLock:
             except FileExistsError:
                 try:
                     existing = json.loads(self.path.read_text(encoding="utf-8"))
-                    active = _pid_alive(int(existing.get("pid", 0)))
+                    owner_host = str(existing.get("host") or "").casefold()
+                    active = owner_host != socket.gethostname().casefold() if owner_host else _pid_alive(int(existing.get("pid", 0)))
+                    if owner_host == socket.gethostname().casefold():
+                        active = _pid_alive(int(existing.get("pid", 0)))
                 except (OSError, ValueError, TypeError, json.JSONDecodeError):
                     active = False
                 if active:
@@ -125,6 +143,9 @@ def request_stop(lock_path: Path, stop_path: Path) -> bool:
     """Request graceful stop for the PID currently holding ``lock_path``."""
     try:
         lock = json.loads(lock_path.read_text(encoding="utf-8"))
+        owner_host = str(lock.get("host") or "").casefold()
+        if owner_host and owner_host != socket.gethostname().casefold():
+            return False
         pid = int(lock["pid"])
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError):
         return False

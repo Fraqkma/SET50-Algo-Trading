@@ -1,0 +1,37 @@
+- generic:
+  - generic [ref=f1e178]:
+    - log [ref=f1e179]:
+      - generic [ref=f1e429]: 18 options available.
+      - generic [ref=f1e430]: 1 option available.
+    - log
+  - generic [ref=f1e2]:
+    - generic [ref=f1e7]:
+      - button "keyboard_double_arrow_left" [ref=f1e224] [cursor=pointer]
+      - generic [ref=f1e11]:
+        - button [ref=f1e225] [cursor=pointer]:
+          - paragraph [ref=f1e19]: Refresh data
+        - heading "Research" [level=3] [ref=f1e226]
+        - group [ref=f1e28]:
+          - combobox "Workspace" [active] [ref=f1e29]: TradeSim Results
+          - button "Open" [ref=f1e227] [cursor=pointer]
+        - paragraph [ref=f1e38]: Source data is read-only
+    - generic [ref=f1e3]:
+      - banner [ref=f1e41]:
+        - generic [ref=f1e44]:
+          - button "Deploy" [ref=f1e236] [cursor=pointer]
+          - button "Main menu" [ref=f1e237] [cursor=pointer]
+      - generic [ref=f1e54]:
+        - heading "Official TradeSim Validation" [level=1] [ref=f1e431]:
+          - text: Official TradeSim Validation
+          - generic [ref=f1e242]:
+            - link "Link to heading":
+              - /url: "#official-trade-sim-validation"
+        - status [ref=f1e433]:
+          - paragraph [ref=f1e437]:
+            - strong [ref=f1e438]: Research Backtest
+            - text: explores historical data.
+            - strong [ref=f1e439]: Official TradeSim
+            - text: validates competition behavior using the official simulator and supplied ticks.
+        - alert [ref=f1e442]:
+          - paragraph [ref=f1e446]: "OFFICIAL_VENV_MISSING: Expected official interpreter at D:\\GitHub\\SET50-Algo-Trading.venv-kgi313\\Scripts\\python.exe."
+        - paragraph [ref=f1e450]: Set KGI_OFFICIAL_REPO in the environment used to launch Streamlit. Runs are CLI-only; this page is read-only.

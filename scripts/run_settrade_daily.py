@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import signal
 import subprocess
 import sys
@@ -27,12 +28,48 @@ from src.data.settrade.automation import (  # noqa: E402
     THAILAND,
 )
 from src.data.settrade.disk import check_disk  # noqa: E402
+from src.data.settrade.paths import resolve_data_root  # noqa: E402
+from src.data.settrade.resilience import (  # noqa: E402
+    CollectorState,
+    CollectorStateTracker,
+    FailureKind,
+    classify_failure,
+    retry_delay_seconds,
+)
+
+CONFIG_PATH = ROOT / "config" / "settrade_collection.yaml"
+
+
+def _data_root() -> Path:
+    import yaml
+
+    config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
+    return resolve_data_root(ROOT, config.get("storage_root", "data/pilot/settrade"))
+
+
+def _disk_status():
+    import yaml
+
+    config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
+    limits = config.get("disk", {})
+    return check_disk(_data_root(), float(limits.get("warning_gb", 10)), float(limits.get("critical_gb", 5)))
 
 LOCK_PATH = ROOT / ".settrade-runtime" / "daily.lock"
 STOP_PATH = ROOT / ".settrade-runtime" / "daily.stop"
 LOG_DIR = ROOT / "logs" / "settrade"
 SUMMARY_DIR = ROOT / "reports" / "runtime"
 LOGGER = logging.getLogger("settrade_daily")
+DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS = 60
+
+
+def _health_check_timeout_seconds() -> int:
+    """Return a bounded, configurable timeout for the deep health subprocess."""
+    raw = os.environ.get("SETTRADE_HEALTH_CHECK_TIMEOUT_SECONDS", "")
+    try:
+        value = int(raw) if raw else DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS
+    except ValueError:
+        value = DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS
+    return max(45, min(value, 300))
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -79,7 +116,7 @@ def _market_status() -> str | None:
 
 
 def _collector_cycle(rotation_generation: int = 0) -> tuple[bool, dict[str, Any]]:
-    command = [sys.executable, str(ROOT / "scripts" / "run_settrade_collector.py"), "--universe", "current_set50", "--mode", "combined", "--once", "--rotation-generation", str(rotation_generation)]
+    command = [sys.executable, str(ROOT / "scripts" / "run_settrade_collector.py"), "--universe", "current_set50", "--mode", "combined", "--once", "--probe-first", "--probe-symbol", "PTT", "--rotation-generation", str(rotation_generation)]
     process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     try:
         output, error_output = process.communicate(timeout=900)
@@ -106,11 +143,13 @@ def _collector_cycle(rotation_generation: int = 0) -> tuple[bool, dict[str, Any]
 
 
 def _health() -> dict[str, Any]:
-    completed = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_settrade_collector_health.py")], cwd=ROOT, capture_output=True, text=True, timeout=30)
+    completed = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_settrade_collector_health.py")], cwd=ROOT, capture_output=True, text=True, timeout=_health_check_timeout_seconds())
+    if completed.returncode != 0:
+        raise subprocess.CalledProcessError(completed.returncode, completed.args, output=completed.stdout, stderr=completed.stderr)
     try:
         return json.loads(completed.stdout)
-    except json.JSONDecodeError:
-        return {"status": "FAILED", "error": "health output was not valid JSON"}
+    except json.JSONDecodeError as error:
+        raise RuntimeError("health output was not valid JSON") from error
 
 
 def _sleep(seconds: int, stop_path: Path = STOP_PATH) -> bool:
@@ -136,8 +175,20 @@ def run(args: argparse.Namespace) -> int:
         "rotation_generations": 0, "api_requests": 0, "retries": 0, "reconnects": 0, "rate_limit_errors": 0,
         "validation_errors": 0, "conflicts": 0, "disk_free_start": None, "disk_free_end": None, "orders_placed": 0,
         "health_checks": 0,
+        "collector_state": "STARTING", "state_transitions": [], "pid": os.getpid(),
+        "last_successful_api_cycle": None, "last_disconnect_reason": None,
+        "last_successful_api_request": None, "last_successful_websocket_callback": None,
+        "last_candle_response": None, "last_bbo_callback": None,
+        "current_retry_delay_seconds": 0,
         "candle_status": "NOT_RUN",
     }
+    state_tracker = CollectorStateTracker()
+    summary["state_transitions"] = state_tracker.transitions
+
+    def set_state(state: CollectorState, reason: str) -> None:
+        state_tracker.transition(state, reason)
+        summary["collector_state"] = state.value
+
     lock = SingleInstanceLock(LOCK_PATH)
     try:
         lock.acquire()
@@ -158,7 +209,7 @@ def run(args: argparse.Namespace) -> int:
     if hasattr(signal, "SIGBREAK"):
         signal.signal(signal.SIGBREAK, signal_stop)
     try:
-        disk = check_disk(ROOT / "data" / "pilot" / "settrade")
+        disk = _disk_status()
         summary["disk_free_start"] = disk.free_bytes
         if disk.state == "CRITICAL":
             summary.update(startup_status="DISK_CRITICAL", shutdown_status="DISK_CRITICAL")
@@ -167,6 +218,7 @@ def run(args: argparse.Namespace) -> int:
         summary["startup_status"] = readiness.get("status", "NOT_READY")
         if readiness.get("status") != "READY":
             LOGGER.error("readiness failed reasons=%s", readiness.get("reasons", []))
+            set_state(CollectorState.ERROR, "READINESS_FAILED")
             summary["shutdown_status"] = "NOT_READY"
             return 1
 
@@ -175,6 +227,7 @@ def run(args: argparse.Namespace) -> int:
         summary["market_day"] = window.market_day
         LOGGER.info("market window state=%s reason=%s", window.state, window.reason)
         if not window.market_day or window.state == "CLOSED":
+            set_state(CollectorState.MARKET_CLOSED, window.reason)
             summary["shutdown_status"] = f"MARKET_CLOSED/{window.reason}"
             return 0
         if not window.collecting and args.once:
@@ -182,6 +235,7 @@ def run(args: argparse.Namespace) -> int:
             return 0
 
         cycles = 0
+        set_state(CollectorState.LIVE, "READINESS_SUCCEEDED")
         while not stop_event:
             if stop_requested(STOP_PATH, __import__("os").getpid()):
                 LOGGER.info("graceful stop requested by stop helper")
@@ -191,6 +245,7 @@ def run(args: argparse.Namespace) -> int:
             # status fetched at startup can remain PRE_OPEN for hours in UAT.
             current = classify_market_window(_now(args.now), None)
             if current.state == "CLOSED":
+                set_state(CollectorState.MARKET_CLOSED, current.reason)
                 summary["shutdown_status"] = f"MARKET_CLOSED/{current.reason}"
                 break
             if current.state == "MIDDAY_BREAK":
@@ -205,6 +260,8 @@ def run(args: argparse.Namespace) -> int:
                 try:
                     ok, result = (True, {"orders_placed": 0}) if args.dry_run else _collector_cycle(cycles)
                     if ok:
+                        if attempts > 1:
+                            set_state(CollectorState.RECOVERED, "COLLECTOR_CYCLE_SUCCEEDED_AFTER_RETRY")
                         summary["rotation_generations"] += 1
                         summary["api_requests"] += 50
                         summary["one_minute_rows_written"] += int(result.get("rows_1m", 0))
@@ -214,19 +271,43 @@ def run(args: argparse.Namespace) -> int:
                         summary["symbols_with_1m_data"] = max(summary["symbols_with_1m_data"], int(result.get("symbols", 0)))
                         bbo = result.get("realtime_rotation", result)
                         summary["bbo_events_written"] += int(bbo.get("events", 0)) if isinstance(bbo, dict) else 0
+                        if isinstance(bbo, dict):
+                            summary["last_bbo_callback"] = bbo.get("last_callback_at") or summary["last_bbo_callback"]
+                            summary["last_successful_websocket_callback"] = bbo.get("last_callback_at") or summary["last_successful_websocket_callback"]
+                        summary["last_candle_response"] = result.get("last_candle_response_at") or summary["last_candle_response"]
+                        summary["last_successful_api_request"] = result.get("last_candle_response_at") or datetime.now(timezone.utc).isoformat()
                         summary["validation_errors"] += int(result.get("validation_issues", 0))
                         summary["conflicts"] += int(result.get("conflicts", 0))
                         health = _health()
                         summary["health_checks"] += 1
+                        summary["last_successful_api_cycle"] = datetime.now(timezone.utc).isoformat()
+                        summary["current_retry_delay_seconds"] = 0
                         LOGGER.info("health check completed checkpoints=%s", len(health.get("checkpoints", {})))
+                        set_state(CollectorState.LIVE, "CYCLE_AND_HEALTH_SUCCEEDED")
                         break
                     raise RuntimeError(str(result.get("error", "collector cycle failed")))
                 except Exception as error:
-                    LOGGER.exception("collector attempt=%s failed", attempts)
+                    kind = classify_failure(error)
+                    summary["last_disconnect_reason"] = kind.value
+                    summary["current_retry_delay_seconds"] = retry_delay_seconds(attempts)
+                    LOGGER.exception("collector attempt=%s failed category=%s", attempts, kind.value)
+                    set_state(CollectorState.DEGRADED, kind.value)
+                    if kind == FailureKind.NETWORK_FAILURE:
+                        set_state(CollectorState.OFFLINE, "NETWORK_UNAVAILABLE")
+                    if kind == FailureKind.AUTH_FAILURE:
+                        set_state(CollectorState.ERROR, "AUTH_FAILURE_RETRIES_DISABLED")
+                        summary["shutdown_status"] = "AUTH_FAILURE"
+                        return 1
                     if attempts >= 3:
+                        set_state(CollectorState.ERROR, "RETRY_LIMIT_REACHED")
                         summary["shutdown_status"] = "FAILED"
                         return 1
-                    if _sleep(30 * (2 ** (attempts - 1))):
+                    delay = retry_delay_seconds(attempts)
+                    summary["retries"] += 1
+                    if kind == FailureKind.NETWORK_FAILURE:
+                        summary["reconnects"] += 1
+                    set_state(CollectorState.RECONNECTING, f"{kind.value}; new collector process will restore subscriptions")
+                    if _sleep(int(delay)):
                         summary["shutdown_status"] = "STOP_REQUESTED"
                         return 0
             cycles += 1
@@ -237,10 +318,11 @@ def run(args: argparse.Namespace) -> int:
                 summary["shutdown_status"] = "STOP_REQUESTED"
                 break
         if stop_event and summary["shutdown_status"] is None:
+            set_state(CollectorState.STOPPED, "GRACEFUL_STOP")
             summary["shutdown_status"] = "SIGINT"
         return 0
     finally:
-        disk = check_disk(ROOT / "data" / "pilot" / "settrade")
+        disk = _disk_status()
         summary["disk_free_end"] = disk.free_bytes
         end = _now(args.now).astimezone(timezone.utc)
         summary["end_time"] = end.isoformat()
@@ -248,6 +330,8 @@ def run(args: argparse.Namespace) -> int:
         summary["orders_placed"] = 0
         if summary["shutdown_status"] is None:
             summary["shutdown_status"] = "CLEAN_EXIT"
+        if summary["shutdown_status"] == "STOP_REQUESTED":
+            set_state(CollectorState.STOPPED, "STOP_REQUESTED")
         atomic_json_write(SUMMARY_DIR / f"settrade_daily_{summary['date']}.json", summary)
         try:
             _health()

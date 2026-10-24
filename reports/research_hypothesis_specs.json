@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "universe": "Approved daily rows only; PIT eligibility gate on signal and execution dates",
+  "data_limitations": [
+    "No approved long-history BBO/spread/depth data",
+    "Historical SET50 membership and approved prices are incomplete before 2023",
+    "Universe is partial where vendor/data approval coverage is absent",
+    "Research bar execution is RESEARCH_EXECUTION_V1, not an organizer-confirmed fill rule"
+  ],
+  "hypotheses": [
+    {
+      "id": "H1_MOVEMENT_LIQUIDITY_EFFICIENCY",
+      "rationale": "Movement quality may matter more than raw price movement when liquidity is adequate.",
+      "required_features": [
+        "directional_efficiency",
+        "historical_spread_or_depth"
+      ],
+      "testability": "NEEDS_MORE_DATA",
+      "rejection_criteria": "Do not infer liquidity from fabricated BBO or volume alone."
+    },
+    {
+      "id": "H2_ACTIVITY_TIGHT_SPREAD_BREAKOUT",
+      "rationale": "Breakouts accompanied by unusual reported activity may persist.",
+      "required_features": [
+        "prior_20_session_high",
+        "volume_ratio_20",
+        "historical_spread"
+      ],
+      "entry": "close exceeds prior 20 observed-session highs and volume_ratio_20 >= 1; signal executes next observed session",
+      "exit": "quarterly-like portfolio rebalance cadence in observed sessions; absent from target set exits",
+      "holding_horizon": "3 observed sessions between scheduled selections",
+      "sizing": "equal weight, top 10",
+      "risk": "long-only, available cash, approved PIT gate",
+      "expected_turnover": "moderate/high",
+      "failure_mode": "gap/reversal, volume is not executable liquidity",
+      "minimum_sample": "4 complete OOS folds preferred",
+      "engine": "RESEARCH_BACKTEST",
+      "metrics": [
+        "net_return",
+        "drawdown",
+        "turnover",
+        "fees",
+        "slippage",
+        "fills",
+        "symbol_concentration"
+      ],
+      "rejection_criteria": "negative net first pass or unstable OOS; spread condition remains untested"
+    },
+    {
+      "id": "H3_LEADERSHIP_POSITIVE_BREADTH",
+      "rationale": "Relative strength leadership may be more useful when market breadth confirms direction.",
+      "required_features": [
+        "momentum_20",
+        "cross_sectional_breadth"
+      ],
+      "testability": "PARTIAL: positive 20-session momentum rank tested; breadth-conditioned variant not tested because point-in-time eligible cross-section is incomplete and incomparable dates are sparse."
+    },
+    {
+      "id": "H4_MOVEMENT_WITHOUT_LIQUIDITY",
+      "rationale": "High movement alone may fail after realistic costs if execution quality is poor.",
+      "required_features": [
+        "movement",
+        "historical_spread_or_depth"
+      ],
+      "testability": "NEEDS_MORE_DATA: only candle-based cost sensitivity is measurable; no historical spread/depth."
+    },
+    {
+      "id": "H5_LOW_DIRECTIONALITY_MEAN_REVERSION",
+      "rationale": "Short pullbacks in established trends may revert when directional efficiency is low.",
+      "required_features": [
+        "5_observation_return",
+        "sma_50",
+        "directional_efficiency"
+      ],
+      "entry": "five-observation adjusted-close return below -5% while close is above SMA50",
+      "exit": "quarterly-like portfolio rebalance cadence; absent from target set exits",
+      "holding_horizon": "3 observed sessions between scheduled selections",
+      "sizing": "equal weight, top 10",
+      "risk": "long-only, available cash, approved PIT gate",
+      "expected_turnover": "moderate",
+      "failure_mode": "continued trend decline and gaps",
+      "minimum_sample": "4 complete OOS folds preferred",
+      "engine": "RESEARCH_BACKTEST",
+      "metrics": [
+        "net_return",
+        "drawdown",
+        "turnover",
+        "fees",
+        "slippage",
+        "fills",
+        "symbol_concentration"
+      ],
+      "rejection_criteria": "negative net first pass or unstable OOS; low-directionality condition unverified"
+    },
+    {
+      "id": "H6_REGIME_CONDITIONED_LOW_TURNOVER_MEAN_REVERSION",
+      "rationale": "Selective, shallow-to-moderate pullbacks may mean revert when both the stock trend and broad SET50 regime are not weak and recent directional efficiency is low. Lower portfolio churn should retain any signal edge after costs.",
+      "required_features": [
+        "adjusted 5-session return",
+        "SMA50",
+        "SMA100",
+        "10-session directional efficiency",
+        "SET50 benchmark close/SMA50/20-session return"
+      ],
+      "entry": "5-session adjusted return in [-8%,-3%], close>SMA50>=SMA100, 10-session directional efficiency<=0.35, SET50 above SMA50 and 20-session return>=-1%; decision at close, entry no earlier than next observed open.",
+      "exit": "Selection is re-evaluated every five observed sessions; retain unchanged holdings while stock trend and benchmark regime remain valid; otherwise exit at next observed open using RESEARCH_EXECUTION_V1.",
+      "portfolio": "Top 3 equal-weight positions; no leverage; unchanged names persist; candidate is diagnostic only.",
+      "minimum_sample": ">=100 events across >=10 symbols, plus chronological OOS evidence before any promotion consideration.",
+      "metrics": [
+        "next-open forward returns at 1/2/3/5/10 sessions",
+        "gross/net return",
+        "commission",
+        "VAT",
+        "slippage",
+        "turnover",
+        "max drawdown",
+        "exposure",
+        "fills/non-fills",
+        "FIFO roundtrips",
+        "symbol/year contribution"
+      ],
+      "rejection_criteria": "Reject signal if sample below threshold, fewer than 3 of 5 mean horizons positive, or all horizons negative. Reject portfolio if net<=0, drawdown>35%, or materially lower turnover is not achieved. No robustness/OOS after a failed stage.",
+      "engine": "RESEARCH_BACKTEST + SIGNAL_DIAGNOSTIC_ONLY",
+      "status": "PRE_REGISTERED_AND_EVALUATED"
+    }
+  ],
+  "candidate_ids": [
+    "CANDIDATE_TREND20",
+    "CANDIDATE_BREAKOUT20",
+    "CANDIDATE_MEANREV5",
+    "CANDIDATE_REL_STRENGTH",
+    "H6_TOP3_5SESSION_PERSIST_THESIS"
+  ],
+  "parameter_policy": "One fixed specification per candidate; no grid search or tuning on OOS.",
+  "multiplicity": {
+    "prior_hypotheses": 5,
+    "round2_hypotheses": 1,
+    "round2_variants_evaluated": 1,
+    "warning": "Research Round 1 and Round 2 share inspected 2023-2026 history; Round 2 is not independent confirmation. Overlapping signal events inflate naive precision; confidence intervals are descriptive."
+  }
+}

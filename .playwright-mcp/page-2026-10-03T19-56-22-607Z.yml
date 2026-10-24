@@ -1,0 +1,131 @@
+- generic:
+  - generic [ref=f4e366]:
+    - log
+    - log
+  - generic [ref=f4e2]:
+    - generic [ref=f4e7]:
+      - button "keyboard_double_arrow_left" [ref=f4e1136] [cursor=pointer]
+      - generic [ref=f4e11]:
+        - button [ref=f4e1137] [cursor=pointer]:
+          - paragraph [ref=f4e19]: Refresh data
+        - heading "Research" [level=3] [ref=f4e1138]
+        - group [ref=f4e28]:
+          - combobox "Workspace" [active] [ref=f4e757]: Correlation Lab
+          - button "Open" [ref=f4e1139] [cursor=pointer]
+        - paragraph [ref=f4e38]: Source data is read-only
+    - generic [ref=f4e3]:
+      - banner [ref=f4e41]:
+        - generic [ref=f4e44]:
+          - generic [ref=f4e1141]:
+            - img "Running..." [ref=f4e1142]
+            - button "Stop" [ref=f4e1147] [cursor=pointer]
+          - button "Deploy" [ref=f4e1148] [cursor=pointer]
+          - button "Main menu" [ref=f4e1149] [cursor=pointer]
+      - generic [ref=f4e62]:
+        - heading "Correlation lab" [level=1] [ref=f4e1150]:
+          - generic [ref=f4e1151]: hub
+          - text: Correlation lab
+          - generic [ref=f4e71]:
+            - link "Link to heading":
+              - /url: "#correlation-lab"
+        - paragraph [ref=f4e76]: Exploratory daily close-to-close return co-movement. Pairwise observations only; unavailable prices and returns are never forward-filled.
+        - alert [ref=f4e1155]:
+          - generic [ref=f4e1157]:
+            - generic [ref=f4e1158]: warning
+            - paragraph [ref=f4e1162]: Current SET50 display universe only — historical charts show each security’s genuine available history, not historical SET50 membership. Exploratory continuity is not survivorship-safe backtest evidence.
+        - generic [ref=f4e1168]:
+          - paragraph [ref=f4e1172]: Return window (trading observations)
+          - group [ref=f4e1174]:
+            - combobox "Return window (trading observations)" [ref=f4e1175]: 60 trading days
+            - button "Open" [ref=f4e1176] [cursor=pointer]
+        - generic [ref=f4e1183]:
+          - paragraph [ref=f4e1187]: Time range
+          - group [ref=f4e1189]:
+            - combobox "Time range" [ref=f4e1190]: Max available
+            - button "Open" [ref=f4e1191] [cursor=pointer]
+        - paragraph [ref=f4e893]: "Provenance: yahoo_staging, raw_yahoo, yahoo_historical_availability_staging. Approved scope is shown separately from exploratory rows; this panel is not a backtest input."
+        - generic [ref=f4e899]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: "0"
+                  - generic: "10"
+                  - generic: "20"
+                  - generic: "30"
+                  - generic: "40"
+                  - generic: "50"
+                  - generic: "60"
+                  - generic: "70"
+                  - generic: "80"
+              - generic:
+                - generic:
+                  - generic: "2012"
+                  - generic: "2014"
+                  - generic: "2016"
+                  - generic: "2018"
+                  - generic: "2020"
+                  - generic: "2022"
+                  - generic: "2024"
+                  - generic: "2026"
+                - generic:
+                  - generic: "0"
+                  - generic: 100M
+                  - generic: 200M
+                  - generic: 300M
+                  - generic: 400M
+          - img:
+            - generic:
+              - generic [ref=f4e928]:
+                - generic [ref=f4e929]:
+                  - generic [ref=f4e930]: AOT valid OHLC
+                  - generic [ref=f4e936] [cursor=pointer]
+                - generic [ref=f4e937]:
+                  - generic [ref=f4e938]: All observed closes
+                  - generic [ref=f4e939] [cursor=pointer]
+                - generic [ref=f4e940]:
+                  - generic [ref=f4e941]: SMA20
+                  - generic [ref=f4e942] [cursor=pointer]
+                - generic [ref=f4e943]:
+                  - generic [ref=f4e944]: SMA50
+                  - generic [ref=f4e945] [cursor=pointer]
+                - generic [ref=f4e946]:
+                  - generic [ref=f4e947]: Yahoo reported volume
+                  - generic [ref=f4e952] [cursor=pointer]
+              - generic: Price (THB)
+              - generic: Vendor volume
+          - toolbar [ref=f4e953]:
+            - button "Download plot as a PNG" [ref=f4e1195] [cursor=pointer]
+            - generic [ref=f4e958]:
+              - button "Zoom" [ref=f4e1196] [cursor=pointer]
+              - button "Pan" [ref=f4e1197] [cursor=pointer]
+            - generic [ref=f4e965]:
+              - button "Zoom in" [ref=f4e1198] [cursor=pointer]
+              - button "Zoom out" [ref=f4e1199] [cursor=pointer]
+              - button "Autoscale" [ref=f4e1200] [cursor=pointer]
+              - button "Reset axes" [ref=f4e1201] [cursor=pointer]
+            - button "Fullscreen" [ref=f4e1202] [cursor=pointer]
+        - generic [ref=f4e983]:
+          - generic [ref=f4e988]:
+            - paragraph [ref=f4e992]: 1D close return
+            - paragraph [ref=f4e995]: "-0.81%"
+          - generic [ref=f4e1000]:
+            - paragraph [ref=f4e1004]: 5D close return
+            - paragraph [ref=f4e1007]: "-0.41%"
+          - generic [ref=f4e1012]:
+            - paragraph [ref=f4e1016]: 20D close return
+            - paragraph [ref=f4e1019]: "-8.58%"
+          - generic [ref=f4e1024]:
+            - paragraph [ref=f4e1028]: 60D close return
+            - paragraph [ref=f4e1031]: "-1.61%"
+        - heading "Source provenance" [level=3] [ref=f4e1203]:
+          - text: Source provenance
+          - generic [ref=f4e1037]:
+            - link "Link to heading":
+              - /url: "#source-provenance"
+        - generic [ref=f4e1042]:
+          - button "Show/hide columns" [ref=f4e1204] [cursor=pointer]
+          - button "Download as CSV" [ref=f4e1205] [cursor=pointer]
+          - button "Search" [ref=f4e1206] [cursor=pointer]
+          - button "Fullscreen" [ref=f4e1207] [cursor=pointer]
+        - paragraph [ref=f4e1080]: 4075 source volume observations · no gaps filled · 1 invalid OHLC rows · 0 conflicting source dates excluded for this security.

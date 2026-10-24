@@ -8,6 +8,7 @@ to all SET50 names and never sends orders.
 .venv\Scripts\python.exe scripts/run_settrade_collector.py --mode candles --once
 .venv\Scripts\python.exe scripts/run_settrade_collector.py --mode realtime --once
 .venv\Scripts\python.exe scripts/run_settrade_collector.py --mode bid-offer --duration-seconds 30
+.venv\Scripts\python.exe scripts/run_settrade_collector.py --mode combined --probe-first --probe-symbol PTT --once
 .venv\Scripts\python.exe scripts/check_settrade_collector_health.py
 ```
 
@@ -29,3 +30,27 @@ No indefinite process is started by this task.
 
 Pilot data is unapproved and may not be consumed by production backtests until
 an explicit approval process exists.
+
+With KGI routing (`013` / `ALGO_EQ`), the collector writes under the separate
+`data/pilot/settrade/production` root. The sandbox root remains intact. Confirm
+the current mode and bounded read-only API access with:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\check_settrade_production_readiness.py
+.\.venv\Scripts\python.exe scripts\check_settrade_collector_health.py
+.\.venv\Scripts\python.exe scripts\audit_settrade_production_coverage.py
+```
+
+The readiness command never creates an Equity trading request. Account and
+portfolio state remain untested until an account number is configured in the
+runtime environment. The UI has no order actions. See
+`docs/SETTRADE_PRODUCTION_CUTOVER.md` for capability evidence and the cutover
+marker.
+
+The daily runner uses `--probe-first --probe-symbol PTT` before a full combined
+cycle. An authenticated `NO_DATA` or `STALE_RESPONSE` probe still allows the
+independent BBO rotation but skips 50 candle requests; the next scheduled cycle
+probes again. Once the probe has a current-session row, the full universe candle
+collection runs. This accommodates the pilot API exposing BBO/quotes before
+current-session candles. No stale response is promoted and no missing candle is
+fabricated.

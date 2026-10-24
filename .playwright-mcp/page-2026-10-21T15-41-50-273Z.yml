@@ -1,0 +1,48 @@
+- generic:
+  - generic [ref=f3e178]:
+    - log
+    - log
+  - generic [ref=f3e2]:
+    - generic [ref=f3e7]:
+      - button "keyboard_double_arrow_left" [ref=f3e225] [cursor=pointer]
+      - generic [ref=f3e11]:
+        - button [ref=f3e226] [cursor=pointer]:
+          - paragraph [ref=f3e19]: Refresh data
+        - heading "Research" [level=3] [ref=f3e227]
+        - group [ref=f3e28]:
+          - combobox "Workspace" [active] [ref=f3e29]: TradeSim Results
+          - button "Open" [ref=f3e228] [cursor=pointer]
+        - paragraph [ref=f3e38]: Source data is read-only
+    - generic [ref=f3e3]:
+      - banner [ref=f3e41]:
+        - generic [ref=f3e44]:
+          - generic [ref=f3e230]:
+            - img "Running..." [ref=f3e231]
+            - button "Stop" [ref=f3e236] [cursor=pointer]
+          - button "Deploy" [ref=f3e237] [cursor=pointer]
+          - button "Main menu" [ref=f3e238] [cursor=pointer]
+      - generic [ref=f3e54]:
+        - heading "TradeSim Results" [level=1] [ref=f3e242]:
+          - text: TradeSim Results
+          - generic [ref=f3e243]:
+            - link "Link to heading":
+              - /url: "#trade-sim-results"
+        - status [ref=f3e246]:
+          - paragraph [ref=f3e250]: Local archive and saved simulation evidence only. This page does not open the separate KGI submission repository or run simulations.
+        - generic [ref=f3e252]:
+          - generic [ref=f3e257]:
+            - paragraph [ref=f3e261]: Archive version
+            - paragraph [ref=f3e264]: 0.2.5
+          - generic [ref=f3e269]:
+            - paragraph [ref=f3e273]: Archive integrity
+            - paragraph [ref=f3e276]: PASS
+          - generic [ref=f3e281]:
+            - paragraph [ref=f3e285]: Runtime readiness
+            - paragraph [ref=f3e288]: BLOCKED
+          - generic [ref=f3e293]:
+            - paragraph [ref=f3e297]: Exact Python
+            - paragraph [ref=f3e300]: MISSING_EXACT_VERSION
+        - paragraph [ref=f3e304]: Current adapter requires Python 3.13.0 exactly. The installed 3.13.16 runtime is not substituted.
+        - generic [ref=f3e306]:
+          - paragraph [ref=f3e310]: Future archive
+          - paragraph [ref=f3e313]: NOT_AVAILABLE_YET

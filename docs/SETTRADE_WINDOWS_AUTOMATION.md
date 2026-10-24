@@ -11,8 +11,10 @@ account or submits orders.
 - The runner acquires a PID lock, runs readiness, checks Asia/Bangkok session
   state, and exits cleanly for weekends, holidays reported as closed, or outside
   session hours.
-- During continuous sessions it runs the existing `combined --once` collector
-  in bounded cycles and reads the existing health checkpoint after each cycle.
+- During continuous sessions it probes one liquid candle symbol first, then runs
+  the full `combined --once` collector only after current-session candle data is
+  available. BBO rotation continues independently during API-side candle delays.
+  The runner reads the existing health checkpoint after each cycle.
   The midday break pauses API work.
 - The fallback cutoff is the existing session classification at/after 17:00;
   Task Scheduler's one-day execution limit is only a secondary safety bound.
@@ -45,7 +47,9 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\uninstall_settrade_task.ps1
 
 The registration uses the current Windows user with `Interactive` logon and
 limited privileges, `IgnoreNew` duplicate policy, `StartWhenAvailable`, and
-`WakeToRun`. It does not embed credentials. If Windows requires elevation or a
+`WakeToRun`. It records the active repository as the task working directory;
+the BAT launcher also resolves the repository relative to its own location.
+It does not embed credentials. If Windows requires elevation or a
 password, stop at that prompt and run the registration manually with the exact
 command above.
 
