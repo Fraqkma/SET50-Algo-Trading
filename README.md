@@ -103,3 +103,6 @@ backtest, optimization, or paper-trading logic is implemented by the UI.
 
 For bounded recovery, reconnect evidence, and the local TradeSim archive upgrade
 procedure, see [operational recovery and TradeSim readiness](docs/FULL_OPERATIONAL_TRADESIM_READINESS.md).
+
+
+TradeSim 0.2.7 is the validated preferred competition simulator; 0.2.6 is deprecated for scoring and retained for historical reproduction. See [0.2.7 readiness](docs/TRADESIM_027_READINESS.md).

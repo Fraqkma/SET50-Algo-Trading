@@ -112,3 +112,8 @@ compliant.
 Older runtime-blocked statements above are historical and superseded. Exact Python 3.13.0 and the TradeSim 0.2.6 requirements/import checks pass. Official `Daily_Ticks.zip` is inventoried and integrated as an explicitly selected source. One-day and multi-day no-order simulations, a multi-fill limit order, and EOD cancellation were observed in the isolated official simulator. The official example strategy's Market orders are not competition-compliant; the smoke fixtures use valid limit orders and make no external broker calls.
 
 The official tick and history inventories, and quantified Settrade comparisons, are in `reports/tradesim_official_tick_inventory.json`, `reports/tradesim_official_history_inventory.json`, and `reports/tradesim_vs_settrade_data_comparison.json`. Practice data and official data have disjoint dates (practice through 2026-09-30, official ticks from 2026-10-01), classified as extended history. Source roles and the no-cross-source-fill policy are recorded in the comparison report.
+
+
+## TradeSim 0.2.7 migration update (2026-10-28)
+
+TradeSim 0.2.7 is the validated preferred competition simulator; 0.2.6 is deprecated for scoring and retained for historical reproduction. See [0.2.7 readiness](TRADESIM_027_READINESS.md) and `reports/tradesim_027_execution_semantics.json`. Runtime evidence covers IOC matching, volume caps, cancellations, fees, auctions, valid ticks, tick-table transition, FIFO and one-/multi-day smoke runs.

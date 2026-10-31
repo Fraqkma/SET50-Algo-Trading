@@ -5,7 +5,7 @@
   "created_while_dirty": true,
   "engine_policy": {
     "research": "RESEARCH_BACKTEST",
-    "official": "OFFICIAL_TRADESIM_0_2_6",
+    "official": "OFFICIAL_TRADESIM_0_2_7_PREFERRED_AFTER_RUNTIME_VALIDATION",
     "cross_engine_results_are_not_interchangeable": true
   },
   "experiments": [
@@ -705,6 +705,300 @@
         "reports/research_round2_summary.json"
       ],
       "notes": "Net -3.49%, gross +0.08%, drawdown -27.42%, turnover 21.23x; lower turnover than Round 1 MeanRev5 93.07x but costs erase edge. OOS/robustness stopped after stage-1 rejection."
+    },
+    {
+      "experiment_id": "SETTRADE_DAILY_HISTORY_RECOVERY_2024_2026",
+      "hypothesis_id": "DATA_RECOVERY_CAPABILITY",
+      "status": "COMPLETED_VALIDATED",
+      "engine": "SETTRADE_V2_READ_ONLY_MARKET_DATA",
+      "source_data": "Settrade daily candlestick API; raw responses append-only",
+      "parameters": "current 50-symbol SET50 snapshot; 2024-01-01 through 2026-10-28; 1d",
+      "metrics_artifacts": [
+        "reports/settrade_historical_recovery_manifest.json",
+        "reports/historical_data_capability.json",
+        "docs/HISTORICAL_DATA_CAPABILITY.md"
+      ],
+      "notes": "32,101 returned rows; 22,341 newly persisted; 9,760 pre-existing; 0 conflicts/errors; 32,101 validated rows for 50 symbols. Not historical point-in-time membership."
+    },
+    {
+      "experiment_id": "R2_H6_MATCHED_CONTROLS_20261028",
+      "hypothesis_id": "H6_REGIME_CONDITIONED_LOW_TURNOVER_MEAN_REVERSION",
+      "status": "DIAGNOSTIC_NO_PROMOTION",
+      "engine": "SIGNAL_DIAGNOSTIC_ONLY",
+      "source_data": "approved daily research rows; unchanged prior H6 events; deterministic controls seed 2701",
+      "parameters": "unconditional, same-symbol, same-regime, and equal-weight daily controls at 1/2/3/5/10 session horizons",
+      "metrics_artifacts": [
+        "reports/signal_discovery_summary.json",
+        "docs/SIGNAL_DISCOVERY_RESEARCH.md"
+      ],
+      "notes": "137 events, 17 symbols; event mean confidence intervals cross zero at all horizons; descriptive controls do not establish investable alpha; no candidate promoted."
+    },
+    {
+      "experiment_id": "EXECUTION_SENSITIVITY_TRADESIM_027_20261028",
+      "hypothesis_id": "EXECUTION_MODEL_SENSITIVITY",
+      "status": "NO_STRATEGY_PROMOTION",
+      "engine": "RESEARCH_EXECUTION_V2_SENSITIVITY_PLUS_TRADESIM_0_2_7_FIXTURES",
+      "source_data": "approved partial historical daily bars plus controlled TradeSim 0.2.7 fixtures",
+      "parameters": "conservative LIMIT/IOC and one adverse tick assumptions; no fabricated fills; no parameter search",
+      "metrics_artifacts": [
+        "reports/execution_sensitivity_summary.json",
+        "artifacts/tradesim_027_validation/20261028-r3/0.2.7/matrix.json",
+        "docs/EXECUTION_SENSITIVITY_RESEARCH.md"
+      ],
+      "notes": "No execution-model change supported by available bar data; 0.2.7 targeted fixture checks are semantic validation, not statistical fill-rate evidence. No strategy promoted."
+    },
+    {
+      "engine": "RESEARCH_DIAGNOSTIC",
+      "source_data": "approved PIT daily market-data panel; partial 18-symbol universe through 2026-09-04",
+      "parameters": "Frozen definitions in docs/RESEARCH_PHASE3_PRE_REGISTRATION.md; 5-session primary; same-date controls; no tuning",
+      "metrics_artifacts": [
+        "reports/phase3_signal_screen_summary.json",
+        "reports/phase3_signal_events.jsonl",
+        "reports/phase3_signal_controls.jsonl",
+        "docs/RESEARCH_PHASE3_SIGNAL_EVIDENCE.md",
+        "docs/RESEARCH_PHASE3_DECISION_REPORT.md"
+      ],
+      "notes": "45 events; 17 symbols; 37 dates; +0.913% paired 5-session uplift; clustered CI crosses zero. Reused previously inspected history; exploratory only. No hypothesis passed Stage B; no portfolio construction.",
+      "experiment_id": "PHASE3_S3A_20261030",
+      "hypothesis_id": "S3-A",
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY"
+    },
+    {
+      "engine": "RESEARCH_DIAGNOSTIC",
+      "source_data": "approved PIT daily market-data panel; partial 18-symbol universe through 2026-09-04",
+      "parameters": "Frozen definitions in docs/RESEARCH_PHASE3_PRE_REGISTRATION.md; 5-session primary; same-date controls; no tuning",
+      "metrics_artifacts": [
+        "reports/phase3_signal_screen_summary.json",
+        "reports/phase3_signal_events.jsonl",
+        "reports/phase3_signal_controls.jsonl",
+        "docs/RESEARCH_PHASE3_SIGNAL_EVIDENCE.md",
+        "docs/RESEARCH_PHASE3_DECISION_REPORT.md"
+      ],
+      "notes": "No approved official SET50 Price Index input; not tested. Reused previously inspected history; exploratory only. No hypothesis passed Stage B; no portfolio construction.",
+      "experiment_id": "PHASE3_S3B_20261030",
+      "hypothesis_id": "S3-B",
+      "status": "POSTPONED_OFFICIAL_BENCHMARK_SERIES_UNAVAILABLE"
+    },
+    {
+      "engine": "RESEARCH_DIAGNOSTIC",
+      "source_data": "approved PIT daily market-data panel; partial 18-symbol universe through 2026-09-04",
+      "parameters": "Frozen definitions in docs/RESEARCH_PHASE3_PRE_REGISTRATION.md; 5-session primary; same-date controls; no tuning",
+      "metrics_artifacts": [
+        "reports/phase3_signal_screen_summary.json",
+        "reports/phase3_signal_events.jsonl",
+        "reports/phase3_signal_controls.jsonl",
+        "docs/RESEARCH_PHASE3_SIGNAL_EVIDENCE.md",
+        "docs/RESEARCH_PHASE3_DECISION_REPORT.md"
+      ],
+      "notes": "2,269 raw gap events; matched subset 2,161; 18 symbols; 681 dates; direction-aligned uplift near zero; clustered CI crosses zero. Reused previously inspected history; exploratory only. No hypothesis passed Stage B; no portfolio construction.",
+      "experiment_id": "PHASE3_S3C_20261030",
+      "hypothesis_id": "S3-C",
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY"
+    },
+    {
+      "engine": "RESEARCH_DIAGNOSTIC",
+      "source_data": "approved PIT daily market-data panel; partial 18-symbol universe through 2026-09-04",
+      "parameters": "Frozen definitions in docs/RESEARCH_PHASE3_PRE_REGISTRATION.md; 5-session primary; same-date controls; no tuning",
+      "metrics_artifacts": [
+        "reports/phase3_signal_screen_summary.json",
+        "reports/phase3_signal_events.jsonl",
+        "reports/phase3_signal_controls.jsonl",
+        "docs/RESEARCH_PHASE3_SIGNAL_EVIDENCE.md",
+        "docs/RESEARCH_PHASE3_DECISION_REPORT.md"
+      ],
+      "notes": "485 events; 18 symbols; 316 dates; clustered CI crosses zero. Reused previously inspected history; exploratory only. No hypothesis passed Stage B; no portfolio construction.",
+      "experiment_id": "PHASE3_S3D_20261030",
+      "hypothesis_id": "S3-D",
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY"
+    },
+    {
+      "experiment_id": "EXECUTION_SENSITIVITY_027_FOLLOWUP_20261030",
+      "hypothesis_id": "EXECUTION_MODEL_SENSITIVITY",
+      "status": "NO_STRATEGY_PROMOTION",
+      "engine": "RESEARCH_EXECUTION_V1_PRESERVED_PLUS_0_2_7_FIXTURE_EVIDENCE",
+      "source_data": "Prior approved daily-bar candidate runs and local authentic TradeSim 0.2.7 validation fixtures",
+      "parameters": "MeanRev5 and H6 only; baseline, conservative-unavailable, idealized diagnostic and stress-cost frontier; no fill probability calibration",
+      "metrics_artifacts": [
+        "reports/execution_sensitivity_summary.json",
+        "docs/EXECUTION_SENSITIVITY_027_FOLLOWUP.md"
+      ],
+      "notes": "Daily bars cannot infer exact 0.2.7 fills. Existing strategy rejections unchanged."
+    },
+    {
+      "experiment_id": "PHASE3_FINAL_DIRECTION_ADDENDUM_20261030",
+      "hypothesis_id": "S3-A/S3-B/S3-C/S3-D",
+      "status": "NO_SIGNAL_PASSED_PROMOTION_GATE",
+      "engine": "RESEARCH_DIAGNOSTIC",
+      "generated_at_utc": "2026-10-30T17:05:38.956025+00:00",
+      "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+      "dirty_worktree": true,
+      "dirty_entries_at_run": 1939,
+      "dirty_status_sha256": "16095503a7ba39effd7de5a7547c2c8248a24689ad7bac05c48609ece03a850b",
+      "pre_registration_sha256": "34553c102210b21a4c7c7337934bafb51941525f79ddac2e9b14b87e90a14e60",
+      "hypothesis_config_sha256": "1b53ca03fcd0a940da3ba1407a0524b4b547e348559e4863fd6ae24003ef8919",
+      "source_hashes": {
+        "data\\processed\\approved_market_data_manifest.csv": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+        "data\\processed\\constituents\\historical_set50.csv": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+        "data\\official\\tradesim\\history\\benchmark\\SET50.csv": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+        "docs\\RESEARCH_PHASE3_PRE_REGISTRATION_FINAL.md": "34553c102210b21a4c7c7337934bafb51941525f79ddac2e9b14b87e90a14e60",
+        "config\\research_phase3_hypotheses_final.json": "1b53ca03fcd0a940da3ba1407a0524b4b547e348559e4863fd6ae24003ef8919",
+        "data\\raw\\market_data\\BDMS_BK.csv": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+        "data\\raw\\market_data\\BGRIM_BK.csv": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+        "data\\raw\\market_data\\CENTEL_BK.csv": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+        "data\\raw\\market_data\\COM7_BK.csv": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+        "data\\raw\\market_data\\GLOBAL_BK.csv": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+        "data\\raw\\market_data\\GULF_BK.csv": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+        "data\\raw\\market_data\\HMPRO_BK.csv": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+        "data\\raw\\market_data\\IVL_BK.csv": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+        "data\\raw\\market_data\\KKP_BK.csv": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+        "data\\raw\\market_data\\KTB_BK.csv": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+        "data\\raw\\market_data\\LH_BK.csv": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+        "data\\raw\\market_data\\MTC_BK.csv": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+        "data\\raw\\market_data\\OSP_BK.csv": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+        "data\\raw\\market_data\\PTTGC_BK.csv": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+        "data\\raw\\market_data\\RATCH_BK.csv": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+        "data\\raw\\market_data\\SCGP_BK.csv": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+        "data\\raw\\market_data\\TIDLOR_BK.csv": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+        "data\\raw\\market_data\\TOP_BK.csv": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+      },
+      "code_hashes": {
+        "scripts\\run_phase3_final_research.py": "25a15b9fe3a3343e677a84927a6b3b369e64e324dc9b3a2b9754a8069d4cde8a",
+        "scripts\\build_phase3_execution_sensitivity.py": "ce0aa46de564727dd85aa42aaf98b952fa2ff7241c3ea87809edff78dc44df82",
+        "src\\research\\phase3_final.py": "c496cdbf40af9f5dba0904f508d1b62907ad4265da708b80f5d4ac60a8ce3d10",
+        "src\\data\\research.py": "a5a3605c49a4924f93056c4aebb8607bdfa4b5aad55ff4235b854ef8ce7c5f2e",
+        "src\\data\\eligibility.py": "9e358ab62566823dcc0459153d41c52af3a0b7aadd9f662e67f72e825a579ef5"
+      },
+      "python_version": "3.13.0",
+      "period": {
+        "approved_symbols": [
+          "BDMS",
+          "BGRIM",
+          "CENTEL",
+          "COM7",
+          "GLOBAL",
+          "GULF",
+          "HMPRO",
+          "IVL",
+          "KKP",
+          "KTB",
+          "LH",
+          "MTC",
+          "OSP",
+          "PTTGC",
+          "RATCH",
+          "SCGP",
+          "TIDLOR",
+          "TOP"
+        ],
+        "partial_pit_panel": true,
+        "sample_start": "2023-01-03",
+        "sample_end": "2026-09-04",
+        "source_hashes": {
+          "data\\processed\\approved_market_data_manifest.csv": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+          "data\\processed\\constituents\\historical_set50.csv": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+          "data\\official\\tradesim\\history\\benchmark\\SET50.csv": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+          "docs\\RESEARCH_PHASE3_PRE_REGISTRATION_FINAL.md": "34553c102210b21a4c7c7337934bafb51941525f79ddac2e9b14b87e90a14e60",
+          "config\\research_phase3_hypotheses_final.json": "1b53ca03fcd0a940da3ba1407a0524b4b547e348559e4863fd6ae24003ef8919",
+          "data\\raw\\market_data\\BDMS_BK.csv": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+          "data\\raw\\market_data\\BGRIM_BK.csv": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+          "data\\raw\\market_data\\CENTEL_BK.csv": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+          "data\\raw\\market_data\\COM7_BK.csv": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+          "data\\raw\\market_data\\GLOBAL_BK.csv": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+          "data\\raw\\market_data\\GULF_BK.csv": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+          "data\\raw\\market_data\\HMPRO_BK.csv": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+          "data\\raw\\market_data\\IVL_BK.csv": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+          "data\\raw\\market_data\\KKP_BK.csv": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+          "data\\raw\\market_data\\KTB_BK.csv": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+          "data\\raw\\market_data\\LH_BK.csv": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+          "data\\raw\\market_data\\MTC_BK.csv": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+          "data\\raw\\market_data\\OSP_BK.csv": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+          "data\\raw\\market_data\\PTTGC_BK.csv": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+          "data\\raw\\market_data\\RATCH_BK.csv": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+          "data\\raw\\market_data\\SCGP_BK.csv": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+          "data\\raw\\market_data\\TIDLOR_BK.csv": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+          "data\\raw\\market_data\\TOP_BK.csv": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+        }
+      },
+      "costs": {
+        "commission_rate": 0.00157,
+        "vat_rate": 0.07,
+        "combined_side_rate": 0.0016799,
+        "baseline_slippage": "one adverse SET tick per filled side; prior V1 fills",
+        "stress": "1.5x baseline fees plus one additional adverse tick; fixed-fill arithmetic only"
+      },
+      "execution_model": "signal diagnostic; no fills; separate fixed-fill arithmetic sensitivity",
+      "metrics_artifacts": [
+        "reports/research_phase3_summary.json",
+        "reports/research_phase3_event_outcomes.jsonl",
+        "reports/competition_benchmark_risk_envelope.json",
+        "reports/execution_sensitivity_027_fixed_fill_arithmetic.json"
+      ],
+      "test_status": "PASS: full pytest 302 passed, 1 skipped; focused research and Competition Cockpit tests 6 passed; compileall passed",
+      "notes": "All four frozen signals failed G1 after clustered CI/Holm; no portfolio construction or TradeSim candidate replay.",
+      "benchmark_archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+      "execution_sensitivity_source_hashes": {
+        "artifacts\\research_runs\\20261024T065012Z_candidate_discovery\\candidate_discovery.json": "60f2afd0c99f760bc2174389e7c37d9d629b00189e271c99f70ec910d574cfed",
+        "reports/research_round2_summary.json": "cd81f06fdddffbee02b55546e68d8115fbc384deff816634da936bc40f13acbe",
+        "reports/execution_sensitivity_summary.json": "053b8ccc76f6cf0e8286341fb0e2c2203153f6777e7245b45c12d71e245ed574"
+      }
+    },
+    {
+      "experiment_id": "PHASE4_HOLDING_DISTRIBUTION_REUSED_PHASE3_20261031",
+      "hypothesis_id": "S3-A/S3-B/S3-C/S3-D_HOLDING_DISTRIBUTION",
+      "status": "EXPLORATORY_REUSED_HISTORY_NO_PROMOTION",
+      "engine": "PIT_DAILY_FIXED_HORIZON_DIAGNOSTIC",
+      "source_data": "Frozen final Phase 3 H5 event set and approved PIT-only daily bars; no provider mixing",
+      "parameters": "Fixed H=1,2,3,4,5,7,10,15; no exit-day selection; matched Phase 3 controls; 10,000 date/symbol bootstrap; Holm across 32 horizons per cost scenario",
+      "costs_and_execution": "Official commission+VAT both sides; separate one adverse tick per side proxy; no BBO, fills, or 0.2.7 replay inferred",
+      "metrics_artifacts": [
+        "reports/research_holding_horizon_curve.json",
+        "reports/research_time_to_outcome_distribution.json",
+        "docs/RESEARCH_HOLDING_PERIOD_DISTRIBUTIONS.md"
+      ],
+      "notes": "All price history previously inspected; descriptive reanalysis is not independent OOS. Phase 3 rejections remain unchanged. No signal passed promotion."
+    },
+    {
+      "experiment_id": "PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH_20261031",
+      "hypothesis_id": "PIT_UNLOCK_AND_MECHANICAL_READINESS",
+      "status": "DATA_GATED_NO_CANDIDATE",
+      "engine": "PHASE5_AUDIT_AND_0.2.7_MECHANICS",
+      "source_data": "Phase 3/4 evidence, source-specific archives and Oct 30 collector logs; no merged stock return panel",
+      "parameters": "No alpha hypothesis screened; preregistration frozen in config/phase5_preregistration.json",
+      "metrics_artifacts": [
+        "reports/phase5_pit_coverage_matrix.json",
+        "reports/phase5_data_holdout_audit.json",
+        "reports/phase5_reproducibility.json",
+        "reports/phase5_official_tick_mechanics.json",
+        "reports/phase5_competition_feasibility.json",
+        "reports/phase5_collector_diagnostics.json",
+        "reports/phase5_signal_screen.json"
+      ],
+      "source_hashes": {
+        "AGENTS.md": "1c35bfe88c95dca28d0f7d8f83ce6c8dfe606f875339c12c74e7da6acca4a4a0",
+        "TASK_PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH.md": "c7913720896e940d0e1700dbe1dc8906ed64e0c06df4e158980c797ce9a15b60",
+        "KGI_ALGO26_Performance_TH.pdf": "e2a7d549dfffd9691e077a09ba3e51d94a3da11da3da9433ba717039721d79f1",
+        "reports/phase4_pit_universe_eligibility.json": "577b3f18d8ee04936c7c2bcd127bcd90564169e2494f85b5aec179bad5f2a973",
+        "reports/phase3_run_reconciliation.json": "4e998f85d48a7736b2693aeca8f1855c3a768fabcd34a30bd84ed23011498b0f",
+        "reports/research_phase3_summary.json": "676993c09c229fe809afdd39ba6f398988798c588166f935150dce354dc968aa",
+        "reports/research_holding_horizon_curve.json": "ef3a410448d77a1d21eddbf903b088af9e683d79a0a09727cf46525b46a0d318",
+        "reports/phase4_nonpromotional_baselines.json": "9aa8c2f1009f2052408872fb7fbd09e82c76864302714f23c9617814827cc493",
+        "reports/competition_benchmark_risk_envelope.json": "f807d5c262a53aa36356b770aea3274e4a0148fff1c1836c57ef450577f9d068",
+        "reports/competition_calendar_verified.json": "c3111571dba84651d2d2e0977a05ca6f6df1acd8dc29c7773130dfbdc9dfb127",
+        "reports/tradesim_027_readiness.json": "3bf9ea05638383190a33c25b1c65b1dcc1e8323fb069bddec95fba36efb66816",
+        "reports/tradesim_027_execution_semantics.json": "96b8ae3f7eeaff820683c34dfd858219b7c691636b5b11f29c269a80c121807c",
+        "reports/settrade_scheduler_status.json": "926952323e4dc4a9b1ab00bbf7045838b88a8bd071479b64129a7fbb9af5c25f",
+        "reports/runtime/settrade_daily_2026-10-30.json": "d2981e86a80e42616fdc9c96f44dfb323b35fe47625f6082e23614bdd706c67b",
+        "logs/settrade/daily-2026-10-30.log": "855b54d0b6c0843247164403274025cd23f1160bb3e678b331236ac0e81b7d84",
+        "config/phase4_research_direction_lock.json": "40d357e7b2ad28f54b90b102704eeaa58df3d8dccf711471da442fd198da40bd",
+        "config/phase5_preregistration.json": "9c76a9753b1f98218d6fb4a6fbf2f8a5bbbd7472a59e9415da47fcf96ead84fb",
+        "scripts/phase5_tick_mechanics_strategy.py": "e96839db63293b1d70b0b59a47db1721cf0e10cd4f08e5168807798f06b044dc",
+        "data/official/tradesim/ticks/ticks/2026-10-21.csv": "21aa6aa24d8081962d62bc9aa79f96e18406259ad4dd9ec3dc0d403ed04fce9a",
+        "tests/test_phase5_evidence.py": "c3e2d6d2996e2c9aabde1cf16f8d55ae987744671cc9748d90945b550340e60e",
+        "tests/test_settrade_daily_health_timeout.py": "78ffd05477a9e2f42bc94df7fea08c3f414f374141ef923eb39e3e81461f5f5b",
+        "ui/app.py": "bce35f57d18e617d0ad8fb130ea42c5b51d403b4f3344f9cd2999ebc6ea575ff",
+        "scripts/build_phase5_evidence.py": "375a235e293e8c1331cefe9edee571d6b597c5696ea1967ab4380a52ac9e3f15"
+      },
+      "notes": "No new PIT approval or independent OOS. Mechanical evidence only; no strategy promotion."
     }
   ],
   "unrun_hypotheses": [
@@ -714,6 +1008,45 @@
   ],
   "selection_bias_note": "Four fixed candidate specifications were predeclared. All failed Stage 1 on the approved-data partial universe. No in-sample tuning or OOS parameter selection performed.",
   "latest_candidate_discovery_run": "20261023T154742Z_candidate_discovery",
-  "multiplicity_warning": "Round 1 and Round 2 share repeatedly inspected 2023-2026 history; these are descriptive exploratory results, not independent confirmation.",
-  "round2_status": "NO_ROUND2_CANDIDATE_PASSED_PROMOTION_GATE"
+  "multiplicity_warning": "Final Phase 3 addendum used Holm correction across four calculable primary five-session effects; all adjusted p-values were 1.000. Earlier screen adjusted only its three then-calculable hypotheses. All underlying historical data were previously inspected and are not independent OOS; overlapping windows also preclude independent confirmation.",
+  "round2_status": "NO_ROUND2_CANDIDATE_PASSED_PROMOTION_GATE",
+  "latest_phase3_run": {
+    "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+    "run_date": "2026-10-30",
+    "preregistration": "docs\\RESEARCH_PHASE3_PRE_REGISTRATION_FINAL.md",
+    "summary": "reports\\research_phase3_summary.json",
+    "promotion_summary": "NO_SIGNAL_PASSED_PROMOTION_GATE",
+    "experiment_id": "PHASE3_FINAL_DIRECTION_ADDENDUM_20261030",
+    "validation_status": "PASS: full pytest 302 passed, 1 skipped; focused tests 6 passed; compileall passed"
+  },
+  "phase4_direction_lock": {
+    "award_priority": {
+      "primary": "Best Alpha",
+      "secondary": "Best Risk Control",
+      "status": "USER_CONFIRMED"
+    },
+    "new_data_budget_thb": 0,
+    "holding_periods": {
+      "preferred_starting_sessions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "also_analyzed_sessions": [
+        7,
+        10,
+        15
+      ],
+      "no_single_historical_exit_day_selection": true
+    },
+    "status": "IMPLEMENTED_IN_DOCS_AND_RESEARCH_REGISTRY"
+  },
+  "phase5_status": {
+    "experiment_id": "PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH_20261031",
+    "status": "RESEARCH_ONLY_DATA_GATED",
+    "decision_report": "docs/PHASE5_DECISION_REPORT.md",
+    "candidate_shortlist_for_human_review": []
+  }
 }

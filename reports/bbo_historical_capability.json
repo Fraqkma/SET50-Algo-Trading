@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-28T16:44:01Z",
+  "classification": "HISTORICAL_BBO_NOT_EXPOSED_BY_CURRENT_API",
+  "sdk": "settrade-v2==2.2.1",
+  "evidence": {
+    "historical_rest_methods": [],
+    "current_quote_method": "MarketData.get_quote_symbol(symbol)",
+    "live_depth_method": "RealtimeDataConnection.subscribe_bid_offer(symbol)",
+    "live_topic": "proto/topic/bidofferv3/{symbol}",
+    "historical_trade_tape": "NOT_EXPOSED",
+    "account_trade_history": "Equity.get_trades() is own account trade history; not market-wide tape",
+    "historical_probe": "NOT_RUN: no historical endpoint or method exists in the inspected SDK surface; speculative endpoint was not called"
+  },
+  "limitations": [
+    "Live subscription capability does not establish remote historical retrieval.",
+    "Trade ticks and account fills cannot reconstruct past order-book snapshots.",
+    "No BBO has been synthesized."
+  ],
+  "orders_placed": 0
+}

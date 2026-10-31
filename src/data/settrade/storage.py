@@ -21,7 +21,7 @@ class PilotStorage:
 
     def __init__(self, root: Path) -> None:
         self.root = root
-        for relative in ("raw/candles", "raw/realtime", "raw/bid_offer", "normalized/bars_1m", "normalized/bars_5m", "normalized/bars_15m", "normalized/quotes", "metadata", "checkpoints"):
+        for relative in ("raw/candles", "raw/realtime", "raw/bid_offer", "normalized/bars_1m", "normalized/bars_5m", "normalized/bars_15m", "normalized/bars_1d", "normalized/quotes", "metadata", "checkpoints"):
             (root / relative).mkdir(parents=True, exist_ok=True)
 
     def append_jsonl(self, relative: str, record: dict[str, Any]) -> Path:

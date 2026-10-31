@@ -13,6 +13,8 @@ from src.data.settrade.automation import (
     classify_market_window,
     request_stop,
     stop_requested,
+    lock_state,
+    runner_status,
 )
 from src.data.settrade.resilience import (
     CollectorState,
@@ -55,6 +57,19 @@ def test_lock_blocks_live_owner_and_recovers_stale(tmp_path: Path) -> None:
     recovered.acquire()
     recovered.release()
     assert not path.exists()
+
+
+def test_runner_status_distinguishes_scheduled_waiting_and_unverifiable(tmp_path: Path, monkeypatch) -> None:
+    lock = tmp_path / "daily.lock"
+    assert runner_status(lock, {"installed": True, "enabled": True}) == "SCHEDULED_WAITING"
+    assert runner_status(lock, {"installed": True, "enabled": False}) == "NOT_RUNNING"
+    lock.write_text("{bad json", encoding="utf-8")
+    assert runner_status(lock) == "ERROR"
+    lock.write_text(json.dumps({"pid": os.getpid(), "host": os.environ.get("COMPUTERNAME", ""),
+                                "process_identity": {"unknown": True}}), encoding="utf-8")
+    assert lock_state(json.loads(lock.read_text(encoding="utf-8"))) == "UNVERIFIABLE"
+    monkeypatch.setattr("src.data.settrade.automation.process_identity", lambda _pid: {"unknown": True})
+    assert runner_status(lock) == "UNVERIFIABLE"
 
 
 def test_stop_request_targets_current_owner(tmp_path: Path) -> None:

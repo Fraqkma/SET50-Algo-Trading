@@ -1,0 +1,27 @@
+competition:
+  id: KGI_ALGO26
+  start_date: "2026-12-16"
+  end_date: "2027-01-15"
+  timezone: "Asia/Bangkok"
+  date_authority: "user-confirmed"
+  benchmark:
+    index: "SET50 Price Index"
+    return_type: "price index, no dividends"
+    close_source: "official daily close; exact scoring file/API remains unconfirmed"
+    start_date: "2026-12-16"
+    end_date: "2027-01-15"
+  metrics:
+    start_date: "2026-12-16"
+    end_date: "2027-01-15"
+    exposure_denominator: "confirmed SET trading dates inside the inclusive competition period"
+    round_trip_boundary_policy: "UNKNOWN_PENDING_ORGANIZER"
+  calendar:
+    timezone: "Asia/Bangkok"
+    status: "CONFIRMED_FROM_OFFICIAL_SET_HOLIDAY_PAGES_AS_OF_2026-10-30"
+    holidays:
+      - "2026-12-31"
+      - "2027-01-01"
+    source_urls:
+      - "https://www.set.or.th/en/about/event-calendar/holiday?year=2026"
+      - "https://www.set.or.th/th/about/event-calendar/holiday?year=2027"
+    note: "2026-12-31 and 2027-01-01 are SET holidays in the configured period. Recheck for later amendments before scoring."

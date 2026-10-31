@@ -1,0 +1,36 @@
+{
+  "acquisition_timestamp": "2026-10-30T17:56:21.409903+00:00",
+  "python_version": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "yfinance_version": "1.7.0",
+  "pandas_version": "3.0.6",
+  "requested_date_range": {
+    "start_inclusive": "2024-01-01",
+    "end_inclusive": "2024-01-10",
+    "yfinance_end_exclusive": "2024-01-11"
+  },
+  "historical_symbols": 2,
+  "verified_tickers": 2,
+  "unresolved_symbols": 0,
+  "source": "Yahoo Finance via yfinance",
+  "ticker_mapping_file": "reports/yahoo_ticker_audit.csv",
+  "raw_directory": "data/raw/market_data",
+  "interval": "1d",
+  "auto_adjust": false,
+  "actions": true,
+  "status_values": [
+    "SUCCESS",
+    "PARTIAL",
+    "PARTIAL_KNOWN_GAP",
+    "FAILED",
+    "NO_DATA"
+  ],
+  "ohlc_relative_tolerance": 0.001,
+  "rate_limit_seconds": 1.0,
+  "retries": 3,
+  "backoff_seconds": 2.0,
+  "script": "src/data/market_data_acquisition.py",
+  "script_version": "gate-2.3",
+  "git_commit": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+  "strategy_or_backtest": false
+}

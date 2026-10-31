@@ -27,11 +27,11 @@ def test_health_timeout_can_be_configured_and_is_bounded(monkeypatch) -> None:
     monkeypatch.setenv("SETTRADE_HEALTH_CHECK_TIMEOUT_SECONDS", "90")
     assert daily._health_check_timeout_seconds() == 90
     monkeypatch.setenv("SETTRADE_HEALTH_CHECK_TIMEOUT_SECONDS", "5")
-    assert daily._health_check_timeout_seconds() == 45
+    assert daily._health_check_timeout_seconds() == 90
     monkeypatch.setenv("SETTRADE_HEALTH_CHECK_TIMEOUT_SECONDS", "9999")
     assert daily._health_check_timeout_seconds() == 300
     monkeypatch.setenv("SETTRADE_HEALTH_CHECK_TIMEOUT_SECONDS", "bad")
-    assert daily._health_check_timeout_seconds() == 60
+    assert daily._health_check_timeout_seconds() == 180
 
 
 def test_health_preserves_nonzero_exit_even_with_valid_json(monkeypatch) -> None:

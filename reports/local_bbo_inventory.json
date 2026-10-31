@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-10-28T17:04:06Z",
+  "source": "reports/settrade_collection_audit.json and production Settrade files",
+  "earliest_observed_date": "2026-10-19",
+  "latest_observed_date": "2026-10-28",
+  "symbols": 50,
+  "observed_dates": 8,
+  "raw_events": 132784,
+  "normalized_depth_rows": 2655620,
+  "depth_levels": {
+    "bid": 10,
+    "ask": 10
+  },
+  "raw_file": {
+    "path": "data/pilot/settrade/production/raw/bid_offer/events.jsonl",
+    "bytes": 204273419
+  },
+  "normalized_file": {
+    "path": "data/pilot/settrade/production/normalized/bid_offer/data.csv",
+    "bytes": 826333814
+  },
+  "combined_bytes": 1030607233,
+  "approx_bytes_per_observed_date": 128825904,
+  "days": {
+    "2026-10-19": {
+      "events": 20215,
+      "depth_rows": 404300,
+      "symbols": 50,
+      "first": "2026-10-19T09:45:11+07:00",
+      "last": "2026-10-19T16:57:28+07:00"
+    },
+    "2026-10-20": {
+      "events": 19233,
+      "depth_rows": 384640,
+      "symbols": 50,
+      "first": "2026-10-20T02:47:02+07:00",
+      "last": "2026-10-20T16:58:26+07:00"
+    },
+    "2026-10-21": {
+      "events": 20249,
+      "depth_rows": 404980,
+      "symbols": 50,
+      "first": "2026-10-21T09:45:10+07:00",
+      "last": "2026-10-21T16:59:37+07:00"
+    },
+    "2026-10-22": {
+      "events": 20488,
+      "depth_rows": 409760,
+      "symbols": 50,
+      "first": "2026-10-22T09:45:11+07:00",
+      "last": "2026-10-22T16:56:02+07:00"
+    },
+    "2026-10-23": {
+      "events": 485,
+      "depth_rows": 9700,
+      "symbols": 50,
+      "first": "2026-10-23T02:06:20+07:00",
+      "last": "2026-10-23T04:09:35+07:00",
+      "classification": "PARTIAL"
+    },
+    "2026-10-26": {
+      "events": 16995,
+      "depth_rows": 339880,
+      "symbols": 50,
+      "first": "2026-10-26T00:59:03+07:00",
+      "last": "2026-10-26T16:56:38+07:00"
+    },
+    "2026-10-27": {
+      "events": 17629,
+      "depth_rows": 352560,
+      "symbols": 50,
+      "first": "2026-10-27T09:45:12+07:00",
+      "last": "2026-10-27T17:00:22+07:00"
+    },
+    "2026-10-28": {
+      "events": 17490,
+      "depth_rows": 349800,
+      "symbols": 50,
+      "first": "2026-10-28T09:45:13+07:00",
+      "last": "2026-10-28T16:56:26+07:00"
+    }
+  },
+  "timestamp_semantics": "callback receipt/retrieval time; not verified exchange event time",
+  "gap_policy": "event silence alone is not a collector outage",
+  "source_files_modified": false,
+  "orders_placed": 0,
+  "quality_observations": {
+    "raw_malformed_records": 0,
+    "normalized_duplicate_keys": 0,
+    "normalized_conflicting_keys": 0,
+    "crossed_top_of_book_rows": 0,
+    "negative_price_or_volume_rows": 0,
+    "zero_price_depth_rows": 5348,
+    "zero_price_depth_interpretation": "preserved; likely empty depth levels, not synthesized or removed",
+    "reconnect_intervals": "not determinable from event quiet alone; do not infer outage"
+  }
+}

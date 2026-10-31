@@ -17,6 +17,33 @@ class RuntimeErrorDetail(RuntimeError):
     pass
 
 
+SUPPORTED_VERSIONS = ("0.2.5", "0.2.6", "0.2.7")
+
+
+def preferred_version(root: Path | None = None) -> str:
+    """Promote 0.2.7 only with validation bound to the current package bytes."""
+    root = root or repository_root()
+    try:
+        gate = json.loads((root / "reports/tradesim_027_readiness.json").read_text(encoding="utf-8"))
+        archive = archive_path(root, "0.2.7")
+        if (gate.get("runtime_validated") is True
+                and gate.get("archive_sha256") == hashlib.sha256(archive.read_bytes()).hexdigest()
+                and gate.get("runtime_source_sha256") == runtime_source_hash(root / "tools/kgi_tradesim/0.2.7")):
+            return "0.2.7"
+    except (OSError, ValueError, RuntimeErrorDetail):
+        pass
+    return "0.2.6" if (root / "tools/kgi_tradesim/0.2.6/tradeSim/TradeSim.py").is_file() else "0.2.5"
+
+
+def runtime_source_hash(path: Path) -> str:
+    digest = hashlib.sha256()
+    for item in sorted((path / "tradeSim").rglob("*")):
+        if item.is_file() and item.suffix in {".py", ".json"}:
+            digest.update(item.relative_to(path).as_posix().encode())
+            digest.update(item.read_bytes())
+    return digest.hexdigest()
+
+
 def repository_root() -> Path:
     return Path(__file__).resolve().parents[3]
 
@@ -25,9 +52,9 @@ def archive_path(root: Path | None = None, version: str | None = None) -> Path:
     root = (root or repository_root()).resolve()
     matches = sorted(p for p in root.glob("*.zip") if p.is_file()
                      and "tradesim" in p.name.lower()
-                     and (version is None or version in p.name))
+                     and (version is None or re.findall(r"\d+\.\d+\.\d+", p.name) == [version]))
     if version is None and len(matches) > 1:
-        designated = [p for p in matches if "0.2.6" in p.name]
+        designated = [p for p in matches if preferred_version(root) in p.name]
         if len(designated) == 1:
             matches = designated
     if len(matches) != 1:
@@ -38,8 +65,12 @@ def archive_path(root: Path | None = None, version: str | None = None) -> Path:
 def runtime_root(root: Path | None = None, version: str | None = None) -> Path:
     base = (root or repository_root()) / "tools" / "kgi_tradesim"
     if version:
+        if version not in SUPPORTED_VERSIONS:
+            raise RuntimeErrorDetail(f"Unsupported TradeSim version: {version}")
+        if version == "0.2.5" and not (base / version).exists():
+            return base
         return base / version
-    return base / "0.2.6" if (base / "0.2.6" / "tradeSim" / "TradeSim.py").is_file() else base
+    return runtime_root(root, preferred_version(root))
 
 
 def inspect_archive(path: Path | None = None) -> dict[str, Any]:
@@ -107,17 +138,17 @@ def discover_python3130(launcher: str = "py") -> Path:
     raise RuntimeErrorDetail("Python 3.13.0 is unavailable; side-by-side candidates were checked and other versions must not be substituted.")
 
 
-def runtime_diagnostic(root: Path | None = None) -> dict[str, Any]:
+def runtime_diagnostic(root: Path | None = None, version: str | None = None) -> dict[str, Any]:
     """Report archive, extraction, exact interpreter and dependency readiness."""
     root = (root or repository_root()).resolve()
     archives = sorted(p for p in root.glob("*.zip") if "tradesim" in p.name.lower())
-    preferred_archive = next((p for p in archives if "0.2.6" in p.name.lower()), None)
-    preferred_archive = preferred_archive or next((p for p in archives if "0.2.5" in p.name.lower()), None)
-    if preferred_archive is None:
-        raise RuntimeErrorDetail("No identifiable local TradeSim archive is available.")
-    archive = inspect_archive(preferred_archive)
-    version = archive["version"]
+    version = version or preferred_version(root)
     extracted = runtime_root(root, version)
+    try:
+        archive = inspect_archive(archive_path(root, version) if version != preferred_version(root) else archive_path(root))
+    except RuntimeErrorDetail:
+        archive = {"version": version, "integrity": "ARCHIVE_ABSENT", "sha256": None,
+                   "version_evidence": "preserved extraction", "required_missing": []}
     required_runtime_files = ["TradingSimulation.ipynb", "requirements.txt",
                               "tradeSim/TradeSim.py", "strategy/Strategies_template.py",
                               "strategy/Example_strategy.py"]
@@ -190,7 +221,7 @@ def runtime_diagnostic(root: Path | None = None) -> dict[str, Any]:
 
     tick_dir = extracted / "marketInfo" / "ticks"
     template_files = sorted(str(path.relative_to(extracted)) for path in (extracted / "strategy").glob("*.py")) if (extracted / "strategy").is_dir() else []
-    adapter_status = "SUPPORTED" if version == "0.2.5" else "SUPPORTED_WITH_WARNINGS" if version == "0.2.6" else "NEEDS_ADAPTER_UPDATE"
+    adapter_status = "SUPPORTED_WITH_WARNINGS" if version in SUPPORTED_VERSIONS else "NEEDS_ADAPTER_UPDATE"
     ready = (python_status == "AVAILABLE" and adapter_status in {"SUPPORTED", "SUPPORTED_WITH_WARNINGS"} and not missing_runtime_files
              and dependencies_status == "PASS" and import_status == "PASS"
              and notebook_imports_status == "PASS")
@@ -198,7 +229,8 @@ def runtime_diagnostic(root: Path | None = None) -> dict[str, Any]:
         "status": "READY" if ready else "BLOCKED",
         "repository_root": str(root),
         "archive": archive,
-        "preferred_competition_version": "0.2.6",
+        "preferred_competition_version": preferred_version(root),
+        "organizer_designated_version": "0.2.7",
         "validated_runtime_version": version if ready else None,
         "adapter_status": adapter_status,
         "extracted_runtime": str(extracted),
@@ -215,8 +247,8 @@ def runtime_diagnostic(root: Path | None = None) -> dict[str, Any]:
     return result
 
 
-def inventory_ticks(root: Path | None = None) -> dict[str, Any]:
-    base = runtime_root(root)
+def inventory_ticks(root: Path | None = None, version: str | None = None) -> dict[str, Any]:
+    base = runtime_root(root, version)
     folder = base / "marketInfo" / "ticks"
     if not folder.is_dir():
         raise RuntimeErrorDetail(f"TradeSim tick directory is missing: {folder}")
@@ -264,7 +296,7 @@ def inventory_ticks(root: Path | None = None) -> dict[str, Any]:
             outside_universe = sorted(symbol for symbol in symbols if universe and symbol.upper() not in universe)
             file_hash = hashlib.sha256(path.read_bytes()).hexdigest()
             files.append({"file": path.name, "path": str(path.resolve()), "size_bytes": path.stat().st_size,
-                          "sha256": file_hash, "source": f"TRADESIM_{'0_2_6' if base.name == '0.2.6' else '0_2_5'}_PRACTICE",
+                          "sha256": file_hash, "source": f"TRADESIM_{base.name.replace('.', '_') if base.name in SUPPORTED_VERSIONS else '0_2_5'}_PRACTICE",
                           "timestamp_timezone": "naive local exchange time (Asia/Bangkok assumed from organizer tick workflow)",
                           "dates": days, "rows": count,
                           "first_timestamp": first.isoformat() if first else None,

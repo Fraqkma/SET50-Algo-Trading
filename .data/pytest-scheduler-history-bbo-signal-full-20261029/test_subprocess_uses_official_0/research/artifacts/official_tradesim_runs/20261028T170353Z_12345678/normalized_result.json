@@ -1,0 +1,163 @@
+{
+  "schema_version": 5,
+  "engine": "OFFICIAL_TRADESIM_UNKNOWN",
+  "run_id": "20261028T170353Z_12345678",
+  "status": "success",
+  "strategy": "Example_strategy",
+  "strategy_version": null,
+  "strategy_sha256": "d224e889a17649039ec1403fef78c2b6b9e0968cf45c7a55532e47dd5d293420",
+  "dates": [
+    "2026-09-09"
+  ],
+  "trading_dates": [
+    "2026-09-09"
+  ],
+  "tradesim_version": null,
+  "python_version": "3.13.0",
+  "tradesim_archive_sha256": null,
+  "runtime_seconds": 0.0007123000104911625,
+  "starting_nav": null,
+  "ending_nav": 11,
+  "portfolio_total_return": 1,
+  "benchmark_return": 0,
+  "excess_return": 1,
+  "portfolio_max_drawdown": null,
+  "benchmark_max_drawdown": null,
+  "calmar_ratio": null,
+  "round_trips": null,
+  "simulator_round_trips": null,
+  "average_portfolio_exposure": null,
+  "win_rate": null,
+  "simulator_win_rate": null,
+  "expected_payoff": null,
+  "simulator_expected_payoff": null,
+  "qualification": {
+    "drawdown_vs_benchmark": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": "< None (% of NAV)",
+      "margin": null,
+      "explanation": "Required metric or comparison value is unavailable.",
+      "source_evidence": "TASK_SPECIFICATION_PDF_NOT_VERIFIED"
+    },
+    "minimum_roundtrips": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": ">= 5",
+      "margin": null,
+      "explanation": "Required metric or comparison value is unavailable.",
+      "source_evidence": "TASK_SPECIFICATION_PDF_NOT_VERIFIED"
+    },
+    "average_exposure": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": ">= 0.50",
+      "margin": null,
+      "explanation": "Required metric or comparison value is unavailable.",
+      "source_evidence": "TASK_SPECIFICATION_PDF_NOT_VERIFIED"
+    },
+    "expected_payoff": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": "> 0",
+      "margin": null,
+      "explanation": "Required metric or comparison value is unavailable.",
+      "source_evidence": "TASK_SPECIFICATION_PDF_NOT_VERIFIED"
+    }
+  },
+  "award_readiness": {
+    "best_alpha": {
+      "criteria": {
+        "portfolio_total_return_nonnegative": "PASS",
+        "excess_return_nonnegative": "PASS"
+      },
+      "award_eligible": "PASS",
+      "ranking_metrics": {
+        "excess_return": 1,
+        "calmar_ratio": null,
+        "portfolio_total_return": 1
+      }
+    },
+    "best_risk_control_ranking_metrics": {
+      "calmar_ratio": null,
+      "excess_return": 1,
+      "portfolio_max_drawdown": null
+    },
+    "most_active_trader_roundtrips": null,
+    "precision_trader_win_rate": null
+  },
+  "start_cash": null,
+  "end_cash": 10,
+  "final_portfolio_value": 11,
+  "gross_return": null,
+  "net_return": 1,
+  "order_count": 0,
+  "fill_count": 0,
+  "fifo_roundtrip_count": null,
+  "fifo_roundtrips": [],
+  "non_fill_count": null,
+  "rejected_order_count": null,
+  "buy_value": null,
+  "sell_value": null,
+  "partial_fill_count": 0,
+  "commission": null,
+  "vat": null,
+  "total_fees": null,
+  "slippage_cost": 0.0,
+  "orders": [],
+  "fills": [],
+  "non_fills": null,
+  "rejected_orders": null,
+  "pending_orders": [],
+  "canceled_orders": [],
+  "ending_positions": null,
+  "errors": [],
+  "warnings": [],
+  "daily": [
+    {
+      "Cash Balance": 10,
+      "Net Asset Value": 11,
+      "Portfolio Total Return": 1,
+      "Benchmark Return": 0
+    }
+  ],
+  "raw": {
+    "official_result": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\official_result.json"
+  },
+  "metadata": {
+    "research_git": {
+      "commit": "research-commit",
+      "dirty": true
+    },
+    "official_git": {
+      "commit": null,
+      "dirty": null,
+      "status": "NOT_A_GIT_ROOT"
+    },
+    "python_version": "3.13.0",
+    "tradesim_version": null,
+    "duration_seconds": 0.0007123000104911625,
+    "raw_artifacts": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\raw_official",
+    "raw_result": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\official_result.json",
+    "stdout": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\stdout.log",
+    "stderr": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\stderr.log",
+    "official_root": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\official",
+    "strategy_artifact": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\research\\artifacts\\official_tradesim_runs\\20261028T170353Z_12345678\\Example_strategy.py",
+    "run_started_at_utc": "2026-10-28T17:03:53.413927+00:00",
+    "tradesim_archive": null,
+    "tradesim_source_tree_sha256": null,
+    "tick_data": [
+      {
+        "date": "2026-09-09",
+        "path": "D:\\GitHub\\SET50-Algo-Trading\\.data\\pytest-scheduler-history-bbo-signal-full-20261029\\test_subprocess_uses_official_0\\official\\marketInfo\\ticks\\2026-09-09.csv",
+        "size_bytes": null,
+        "sha256": null
+      }
+    ],
+    "simulation_dates": [
+      "2026-09-09"
+    ],
+    "strategy_sha256": "d224e889a17649039ec1403fef78c2b6b9e0968cf45c7a55532e47dd5d293420",
+    "data_source": "TRADESIM_UNKNOWN_PRACTICE"
+  }
+}

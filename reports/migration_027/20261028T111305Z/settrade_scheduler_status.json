@@ -1,0 +1,13 @@
+{
+    "checked_at":  "2026-10-16T13:57:22.5739698Z",
+    "installed":  false,
+    "task_name":  "SET50 Settrade Daily Collector",
+    "enabled":  false,
+    "state":  "NOT_INSTALLED",
+    "next_run":  null,
+    "last_run":  null,
+    "last_result":  null,
+    "actions":  [
+
+                ]
+}

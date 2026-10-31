@@ -1,0 +1,14 @@
+{
+    "owner": "market_sell",
+    "cashbalance_start": 10000000.0,
+    "cashbalance": 10000000.0,
+    "realized": 0.0,
+    "stocksList": [],
+    "round_trips": [],
+    "buy_order_count": 0,
+    "sell_order_count": 0,
+    "daily_snapshots": [],
+    "prevousDay_maxDD": null,
+    "max_nav": null,
+    "min_nav": null
+}

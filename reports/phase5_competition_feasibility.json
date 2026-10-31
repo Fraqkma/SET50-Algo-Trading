@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "classification": "NON-PROMOTIONAL_DIAGNOSTIC_ONLY",
+  "panel_id": "expanded_20",
+  "source": "approved_market_data_manifest.csv; raw Yahoo-adjusted close field where present",
+  "source_hashes": {
+    "AGENTS.md": "1c35bfe88c95dca28d0f7d8f83ce6c8dfe606f875339c12c74e7da6acca4a4a0",
+    "TASK_PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH.md": "c7913720896e940d0e1700dbe1dc8906ed64e0c06df4e158980c797ce9a15b60",
+    "KGI_ALGO26_Performance_TH.pdf": "e2a7d549dfffd9691e077a09ba3e51d94a3da11da3da9433ba717039721d79f1",
+    "reports/phase4_pit_universe_eligibility.json": "577b3f18d8ee04936c7c2bcd127bcd90564169e2494f85b5aec179bad5f2a973",
+    "reports/phase3_run_reconciliation.json": "4e998f85d48a7736b2693aeca8f1855c3a768fabcd34a30bd84ed23011498b0f",
+    "reports/research_phase3_summary.json": "676993c09c229fe809afdd39ba6f398988798c588166f935150dce354dc968aa",
+    "reports/research_holding_horizon_curve.json": "ef3a410448d77a1d21eddbf903b088af9e683d79a0a09727cf46525b46a0d318",
+    "reports/phase4_nonpromotional_baselines.json": "9aa8c2f1009f2052408872fb7fbd09e82c76864302714f23c9617814827cc493",
+    "reports/competition_benchmark_risk_envelope.json": "f807d5c262a53aa36356b770aea3274e4a0148fff1c1836c57ef450577f9d068",
+    "reports/competition_calendar_verified.json": "c3111571dba84651d2d2e0977a05ca6f6df1acd8dc29c7773130dfbdc9dfb127",
+    "reports/tradesim_027_readiness.json": "3bf9ea05638383190a33c25b1c65b1dcc1e8323fb069bddec95fba36efb66816",
+    "reports/tradesim_027_execution_semantics.json": "96b8ae3f7eeaff820683c34dfd858219b7c691636b5b11f29c269a80c121807c",
+    "reports/settrade_scheduler_status.json": "926952323e4dc4a9b1ab00bbf7045838b88a8bd071479b64129a7fbb9af5c25f",
+    "reports/runtime/settrade_daily_2026-10-30.json": "d2981e86a80e42616fdc9c96f44dfb323b35fe47625f6082e23614bdd706c67b",
+    "logs/settrade/daily-2026-10-30.log": "855b54d0b6c0843247164403274025cd23f1160bb3e678b331236ac0e81b7d84",
+    "config/phase4_research_direction_lock.json": "40d357e7b2ad28f54b90b102704eeaa58df3d8dccf711471da442fd198da40bd",
+    "config/phase5_preregistration.json": "9c76a9753b1f98218d6fb4a6fbf2f8a5bbbd7472a59e9415da47fcf96ead84fb",
+    "scripts/phase5_tick_mechanics_strategy.py": "e96839db63293b1d70b0b59a47db1721cf0e10cd4f08e5168807798f06b044dc",
+    "data/official/tradesim/ticks/ticks/2026-10-21.csv": "21aa6aa24d8081962d62bc9aa79f96e18406259ad4dd9ec3dc0d403ed04fce9a",
+    "tests/test_phase5_evidence.py": "c3e2d6d2996e2c9aabde1cf16f8d55ae987744671cc9748d90945b550340e60e",
+    "tests/test_settrade_daily_health_timeout.py": "78ffd05477a9e2f42bc94df7fea08c3f414f374141ef923eb39e3e81461f5f5b",
+    "ui/app.py": "bce35f57d18e617d0ad8fb130ea42c5b51d403b4f3344f9cd2999ebc6ea575ff",
+    "scripts/build_phase5_evidence.py": "375a235e293e8c1331cefe9edee571d6b597c5696ea1967ab4380a52ac9e3f15"
+  },
+  "dates": {
+    "first_available": "2023-01-03",
+    "last_available": "2026-09-04",
+    "date_count": 898,
+    "official_approved_to_cap": "2026-09-04"
+  },
+  "symbols": [
+    "BDMS",
+    "BGRIM",
+    "CENTEL",
+    "COM7",
+    "GLOBAL",
+    "GULF",
+    "HMPRO",
+    "IVL",
+    "KKP",
+    "KTB",
+    "LH",
+    "MRDIYT",
+    "MTC",
+    "OSP",
+    "PTTGC",
+    "RATCH",
+    "SCGP",
+    "THAI",
+    "TIDLOR",
+    "TOP"
+  ],
+  "cash_only": {
+    "net_return": 0.0,
+    "eod_exposure": 0.0,
+    "roundtrips": 0,
+    "common_criteria": "fails exposure, roundtrips, and expected-payoff evidence by construction"
+  },
+  "equal_weight_buy_hold_scenarios": {
+    "3": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.005340431051241268,
+      "net_return_median_after_two_side_fees": -0.008679481278023427,
+      "net_return_q10_q90": [
+        -0.08619154215606584,
+        0.08789253936461172
+      ],
+      "max_drawdown_median": 0.05339262808864655,
+      "excess_vs_official_tradesim_history_price_series_median": -0.0049230343843598146,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.009246840627603135,
+      "win_rate_median_excluding_zero_pnl_lots": 0.3333333333333333,
+      "profitable_roundtrips_median_per_window": 1,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.45933014354066987,
+        "median_portfolio_mdd": 0.06026260546886929,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 3,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    },
+    "5": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.00649644790179138,
+      "net_return_median_after_two_side_fees": -0.009831617405512638,
+      "net_return_q10_q90": [
+        -0.08381319491249861,
+        0.08499997507197654
+      ],
+      "max_drawdown_median": 0.05052661814168258,
+      "excess_vs_official_tradesim_history_price_series_median": -0.00451444475021201,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.009899086326725403,
+      "win_rate_median_excluding_zero_pnl_lots": 0.4,
+      "profitable_roundtrips_median_per_window": 2,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.4960127591706539,
+        "median_portfolio_mdd": 0.05446816196769155,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 5,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    },
+    "8": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.007585432328278574,
+      "net_return_median_after_two_side_fees": -0.01091694613530747,
+      "net_return_q10_q90": [
+        -0.08399170407579537,
+        0.07663464645824725
+      ],
+      "max_drawdown_median": 0.046208348388422596,
+      "excess_vs_official_tradesim_history_price_series_median": -0.005188801267574483,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.011272544710692542,
+      "win_rate_median_excluding_zero_pnl_lots": 0.375,
+      "profitable_roundtrips_median_per_window": 3,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.5311004784688995,
+        "median_portfolio_mdd": 0.052084256291523405,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 8,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    }
+  },
+  "21_session_mechanics": {
+    "average_eod_exposure_requirement": 0.5,
+    "five_fifo_roundtrips": "order-count is mechanically schedulable in 21 sessions with 1-5 session lots if five actual buy/sell pairs fill; OHLC data cannot establish such fills or positive payoff",
+    "known_completed_roundtrips_in_baseline": 0
+  },
+  "benchmark_reference": {
+    "file": "data/official/tradesim/history/benchmark/SET50.csv",
+    "sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+    "observations": 747,
+    "first_date": "2023-09-21",
+    "last_date": "2026-10-21",
+    "quality": "unique date-only rows with positive closes; no intraday timestamp, source-revision metadata or scoring-feed identity embedded in this CSV",
+    "type": "TradeSim-history SET50 daily index series; evidence supports use as a regime/benchmark research proxy only, exact organizer-scored feed/revision policy unconfirmed"
+  },
+  "limitations": [
+    "Overlapping windows are not independent observations.",
+    "This is a retrospective feasibility baseline, not a signal study or promotion candidate.",
+    "Random baskets use only membership known for the entry date; outcome windows with missing future prices are censored and counted.",
+    "No authentic tick/IOC execution, liquidity constraint, or slippage calibration is represented.",
+    "The exact organizer scoring benchmark remains unconfirmed."
+  ],
+  "phase5_generated_at_utc": "2026-10-30T19:05:45.609259+00:00",
+  "competition_period": "2026-12-16 through 2027-01-15",
+  "expected_sessions": 21,
+  "award_objective": {
+    "primary": "Best Alpha",
+    "secondary": "Best Risk Control"
+  },
+  "common_criteria_status": "CONDITIONAL_OR_UNKNOWN",
+  "unknown_fields": [
+    "organizer scoring benchmark/revisions",
+    "actual tick-level fills and volume",
+    "boundary-day NAV/fills",
+    "cross-boundary FIFO eligibility",
+    "expected payoff from completed FIFO lots"
+  ],
+  "source_specific_benchmark_21_session_rolling_mdd": {
+    "window_count": 727,
+    "window_sessions": 21,
+    "mdd_scenarios": [
+      {
+        "quantile": 0.0,
+        "benchmark_mdd": 0.010553019947640352,
+        "strict_portfolio_mdd_threshold": 0.015829529921460528,
+        "provisional_research_buffer": 0.007914764960730264,
+        "remaining_threshold_margin_after_buffer": 0.007914764960730264,
+        "representative_window_start": "2024-08-05",
+        "representative_window_end": "2024-09-03",
+        "representative_benchmark_return": 0.06732427569948496
+      },
+      {
+        "quantile": 0.05,
+        "benchmark_mdd": 0.013188415401948483,
+        "strict_portfolio_mdd_threshold": 0.019782623102922725,
+        "provisional_research_buffer": 0.009891311551461363,
+        "remaining_threshold_margin_after_buffer": 0.009891311551461363,
+        "representative_window_start": "2024-08-14",
+        "representative_window_end": "2024-09-11",
+        "representative_benchmark_return": 0.0909890217245295
+      },
+      {
+        "quantile": 0.1,
+        "benchmark_mdd": 0.015412121441696793,
+        "strict_portfolio_mdd_threshold": 0.02311818216254519,
+        "provisional_research_buffer": 0.011559091081272595,
+        "remaining_threshold_margin_after_buffer": 0.011559091081272595,
+        "representative_window_start": "2026-07-23",
+        "representative_window_end": "2026-08-25",
+        "representative_benchmark_return": -0.011124526493331732
+      },
+      {
+        "quantile": 0.25,
+        "benchmark_mdd": 0.021731520914765823,
+        "strict_portfolio_mdd_threshold": 0.032597281372148734,
+        "provisional_research_buffer": 0.016298640686074367,
+        "remaining_threshold_margin_after_buffer": 0.016298640686074367,
+        "representative_window_start": "2026-06-05",
+        "representative_window_end": "2026-07-03",
+        "representative_benchmark_return": 0.032131447717001826
+      },
+      {
+        "quantile": 0.5,
+        "benchmark_mdd": 0.03192578760315645,
+        "strict_portfolio_mdd_threshold": 0.04788868140473468,
+        "provisional_research_buffer": 0.02394434070236734,
+        "remaining_threshold_margin_after_buffer": 0.02394434070236734,
+        "representative_window_start": "2025-07-17",
+        "representative_window_end": "2025-08-19",
+        "representative_benchmark_return": 0.026441847097145033
+      },
+      {
+        "quantile": 0.75,
+        "benchmark_mdd": 0.04911123734765083,
+        "strict_portfolio_mdd_threshold": 0.07366685602147624,
+        "provisional_research_buffer": 0.03683342801073812,
+        "remaining_threshold_margin_after_buffer": 0.03683342801073812,
+        "representative_window_start": "2024-05-23",
+        "representative_window_end": "2024-06-21",
+        "representative_benchmark_return": -0.04123198027314112
+      },
+      {
+        "quantile": 0.9,
+        "benchmark_mdd": 0.07891550625774525,
+        "strict_portfolio_mdd_threshold": 0.11837325938661789,
+        "provisional_research_buffer": 0.05918662969330894,
+        "remaining_threshold_margin_after_buffer": 0.05918662969330894,
+        "representative_window_start": "2025-01-09",
+        "representative_window_end": "2025-02-06",
+        "representative_benchmark_return": -0.0739822929104057
+      },
+      {
+        "quantile": 0.95,
+        "benchmark_mdd": 0.10042550361822687,
+        "strict_portfolio_mdd_threshold": 0.1506382554273403,
+        "provisional_research_buffer": 0.07531912771367015,
+        "remaining_threshold_margin_after_buffer": 0.07531912771367015,
+        "representative_window_start": "2025-05-21",
+        "representative_window_end": "2025-06-20",
+        "representative_benchmark_return": -0.09902521445282031
+      },
+      {
+        "quantile": 1.0,
+        "benchmark_mdd": 0.12684530972607788,
+        "strict_portfolio_mdd_threshold": 0.19026796458911682,
+        "provisional_research_buffer": 0.09513398229455841,
+        "remaining_threshold_margin_after_buffer": 0.09513398229455841,
+        "representative_window_start": "2025-02-13",
+        "representative_window_end": "2025-03-13",
+        "representative_benchmark_return": -0.12684530972607788
+      }
+    ],
+    "regime_sensitivity": {
+      "BEAR": {
+        "windows": 300,
+        "mdd_mean": 0.04783123510191854,
+        "mdd_median": 0.0343494142839148,
+        "mdd_p90": 0.09964970501474923,
+        "mdd_max": 0.12684530972607788
+      },
+      "NONNEGATIVE": {
+        "windows": 363,
+        "mdd_mean": 0.032238026059323244,
+        "mdd_median": 0.026823718062089497,
+        "mdd_p90": 0.052898346425314144,
+        "mdd_max": 0.10490151168117268
+      },
+      "UNKNOWN": {
+        "windows": 64,
+        "mdd_mean": 0.040923166329102506,
+        "mdd_median": 0.041931468953445905,
+        "mdd_p90": 0.06137902195902045,
+        "mdd_max": 0.08107616018164487
+      }
+    },
+    "overlapping_windows_are_not_independent": true,
+    "risk_buffer_policy": "50% of 1.5x historical benchmark MDD; provisional research reference only",
+    "status": "BENCHMARK_AWARE_RISK_ENVELOPE",
+    "source": "data\\official\\tradesim\\history\\benchmark\\SET50.csv",
+    "benchmark_sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+    "exploratory_pre_freeze_calculation_disclosed": true,
+    "official_scoring_feed_and_revision_policy": "UNCONFIRMED",
+    "benchmark_archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+    "source_provenance": {
+      "archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+      "benchmark_member_sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267"
+    }
+  },
+  "no_strategy_portfolio": "No signal passed G1; no strategy-specific 3/5/8 position optimization or official replay was run.",
+  "run_provenance": {
+    "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+    "branch": "main",
+    "dirty_worktree_status_sha256_at_report_build": "ec859282c468bd1cfabf6cd6a98a8ead523c884e30ec12aee4d12205f34b9837",
+    "observed_pre_edit_porcelain_entry_count": 201,
+    "pre_edit_status_fingerprint": "NOT_CAPTURED_BEFORE_EDITS",
+    "python_version": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]"
+  }
+}

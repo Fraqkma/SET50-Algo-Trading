@@ -34,7 +34,8 @@ def test_date_inventory_uses_csv_timestamps_and_symbols(tmp_path):
 def test_normalizer_preserves_unknown_fields_as_null(tmp_path):
     repo=OfficialRepo(tmp_path,tmp_path/'python.exe','3.13.1','abc',True)
     normalized=normalize_result({'start_cash':10,'daily':[{'Cash Balance':9,'Net Asset Value':11,'Portfolio Total Return':10,'Benchmark Return':3}],'transactions':[]},'r1','S',['2026-01-01'],'hash',tmp_path,tmp_path,repo,1.2,tmp_path)
-    assert normalized['excess_return']==7
+    assert normalized['excess_return'] is None
+    assert normalized['simulator_metrics']['excess_return']==7
     assert normalized['commission'] is None
     assert normalized['final_portfolio_value']==11
     assert normalized['metadata']['official_git']['status']=='NOT_A_GIT_ROOT'
@@ -74,7 +75,7 @@ def test_normalizer_keeps_multiple_fills_and_eod_canceled_residual(tmp_path):
                    'remaining_quantity':200,'status':'PARTIALLY_FILLED_EOD_CANCELED'}],
         'daily':[]}
     result=normalize_result(raw,'r1','S',[],'hash',tmp_path,root,repo,1.0,tmp_path)
-    assert result['schema_version']==4
+    assert result['schema_version']==6
     assert result['fill_count']==2
     assert result['partial_fill_count']==1
     assert result['orders'][0]['requested_quantity']==500
@@ -83,6 +84,24 @@ def test_normalizer_keeps_multiple_fills_and_eod_canceled_residual(tmp_path):
     assert result['orders'][0]['remaining_quantity']==0
     assert result['canceled_orders'][0]['status']=='PARTIALLY_FILLED_EOD_CANCELED'
     assert [fill['fill_timestamp'] for fill in result['fills']]==['t1','t2']
+    assert result['competition_period']['scope']['status']=='NO_COMPETITION_DATES'
+    assert result['portfolio_total_return'] is None
+
+
+def test_complete_calendar_does_not_authorize_per_day_reset_simulation(tmp_path):
+    from src.competition.period import load_competition_period
+    root=tmp_path/'official'; (root/'tradeSim').mkdir(parents=True)
+    (root/'tradeSim'/'CommissionService.py').write_text(
+        'class commissionService:\n    comm = 0.00157\n    vat = 0.07\n', encoding='utf-8')
+    repo=OfficialRepo(root,Path('python.exe'),'3.13.0','unknown',False,'0.2.7')
+    dates=[day.isoformat() for day in load_competition_period().trading_dates]
+    result=normalize_result({'daily':[{'Portfolio Total Return':2,'Benchmark Return':1}],
+                             'transactions':[]},'r1','S',dates,'hash',tmp_path,root,repo,1.0,tmp_path)
+    assert result['competition_period']['scope']['status']=='COMPLETE_COMPETITION_PERIOD'
+    assert result['competition_period']['continuous_portfolio_validated'] is False
+    assert result['competition_period']['scoring_metrics_authorized'] is False
+    assert result['portfolio_total_return'] is None
+    assert result['simulator_metrics']['portfolio_total_return'] == 2
 
 
 def test_normalized_qualification_prefers_fifo_rebuilt_completed_lots(tmp_path):
@@ -101,12 +120,13 @@ def test_normalized_qualification_prefers_fifo_rebuilt_completed_lots(tmp_path):
             {'Order Number':'sell-1','Side':'Sell','Symbol':'AOT','Volume':100,'Price':11,'Timestamp':'d2'}],
     }
     result=normalize_result(raw,'r1','S',[],'strategy-hash',tmp_path,root,repo,1.0,tmp_path)
-    assert result['round_trips']==1
+    assert result['round_trips'] is None
     assert result['simulator_round_trips']==99
-    assert result['win_rate']==100
-    assert result['expected_payoff']>0
-    assert result['qualification']['minimum_roundtrips']['status']=='FAIL'
-    assert result['qualification']['expected_payoff']['status']=='PASS'
+    assert result['simulator_metrics']['round_trips']==1
+    assert result['simulator_metrics']['win_rate']==100
+    assert result['simulator_metrics']['expected_payoff']>0
+    assert result['qualification']['minimum_roundtrips']['status']=='UNKNOWN'
+    assert result['qualification']['expected_payoff']['status']=='UNKNOWN'
     assert any('differs from TradeSim' in warning for warning in result['warnings'])
 
 

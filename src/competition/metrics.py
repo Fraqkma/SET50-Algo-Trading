@@ -1,9 +1,8 @@
 """Deterministic FIFO trade accounting and competition metric calculations.
 
-Metric conventions here follow the supplied task brief and the inspected
-TradeSim 0.2.5 source. The two named 2026 competition PDFs were not present in
-the workspace, so formulas that need PDF confirmation are marked provisional
-in the returned report and integration documentation.
+Competition dates and metric scoping come from the canonical period config.
+Metric thresholds remain UNKNOWN unless verified from the organizer's supplied
+performance criteria and a continuous, complete scored-period portfolio run.
 """
 from __future__ import annotations
 
@@ -11,6 +10,8 @@ from collections import defaultdict, deque
 from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import Any, Iterable
+
+from src.competition.period import boundary_fill_status, competition_scope
 
 
 @dataclass
@@ -179,19 +180,86 @@ def competition_metrics(portfolio_closes: Iterable[float] | None,
     return metrics
 
 
-def qualification_report(metrics: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    """Evaluate the four supplied Common Criteria; missing inputs stay UNKNOWN."""
-    checks: dict[str, tuple[Any, str, Any]] = {
-        "drawdown_vs_benchmark": (metrics.get("portfolio_max_drawdown"), "< 1.5 × benchmark max DD",
-                                  metrics.get("benchmark_max_drawdown")),
-        "minimum_roundtrips": (metrics.get("round_trips"), ">= 5", 5),
-        "average_exposure": (metrics.get("average_portfolio_exposure"), ">= 0.50", 0.50),
-        "expected_payoff": (metrics.get("expected_payoff"), "> 0", 0),
+def competition_metrics_for_period(
+    daily_records: Iterable[dict[str, Any]],
+    fills: Iterable[dict[str, Any]],
+    *,
+    expected_trading_dates: Iterable[str],
+    starting_nav: float | None = None,
+    commission_rate: float = 0.00157,
+    vat_rate: float = 0.07,
+    evidence_classification: str = "RESEARCH_ESTIMATE",
+) -> dict[str, Any]:
+    """Calculate official-window estimates only when calendar and boundaries are complete.
+
+    Daily rows require date, nav_close, benchmark_close, and invested_value. The caller
+    must pass the canonical SET trading-date list. Cross-boundary FIFO treatment is
+    deliberately UNKNOWN until the organizer resolves it.
+    """
+    from src.competition.period import filter_daily_records, load_competition_period
+
+    period = load_competition_period()
+    daily = filter_daily_records(daily_records, "date", period)
+    dates = [str(row["date"])[:10] for row in daily]
+    scope = competition_scope(dates, period)
+    expected = sorted(str(value)[:10] for value in expected_trading_dates)
+    calendar_matches = expected == scope["expected_trading_dates"]
+    values_present = all(all(row.get(key) is not None for key in ("nav_close", "benchmark_close", "invested_value")) for row in daily)
+    complete = scope["status"] == "COMPLETE_COMPETITION_PERIOD" and calendar_matches and values_present
+    boundary = boundary_fill_status(fills, period)
+    result: dict[str, Any] = {
+        "period_scope": scope,
+        "calendar_matches_canonical": calendar_matches,
+        "boundary_status": boundary,
+        "classification": evidence_classification if complete and boundary["status"] != "UNKNOWN" else "UNKNOWN_OR_INCOMPLETE",
+    }
+    if not complete:
+        result["metrics"] = competition_metrics(None, None, None, None, starting_nav)
+        result["qualification"] = qualification_report(result["metrics"], "CANONICAL_COMPETITION_WINDOW_INCOMPLETE")
+        return result
+
+    daily.sort(key=lambda row: str(row["date"])[:10])
+    ledger, fifo = fifo_metrics_from_fills(fills, commission_rate, vat_rate)
+    metrics = competition_metrics(
+        [float(row["nav_close"]) for row in daily],
+        [float(row["benchmark_close"]) for row in daily],
+        [float(row["invested_value"]) for row in daily],
+        ledger.completed_roundtrips if boundary["status"] != "UNKNOWN" else None,
+        starting_nav=starting_nav,
+    )
+    if boundary["status"] == "UNKNOWN":
+        for key in ("round_trips", "win_rate", "average_win", "average_loss", "expected_payoff"):
+            metrics[key] = None
+    result["metrics"] = metrics
+    result["qualification"] = qualification_report(
+        metrics,
+        "CANONICAL_COMPETITION_WINDOW; FIFO boundary treatment unresolved" if boundary["status"] == "UNKNOWN"
+        else "CANONICAL_COMPETITION_WINDOW",
+    )
+    result["fifo_fill_metrics"] = fifo
+    return result
+
+
+def qualification_report(metrics: dict[str, Any], source_evidence: str = "TASK_SPECIFICATION_PDF_NOT_VERIFIED") -> dict[str, dict[str, Any]]:
+    """Evaluate supplied Common Criteria; preserve evidence and threshold margin."""
+    drawdown_limit = (None if metrics.get("benchmark_max_drawdown") is None
+                      else 1.5 * metrics["benchmark_max_drawdown"])
+    checks: dict[str, tuple[Any, str, Any, Any]] = {
+        "drawdown_vs_benchmark": (metrics.get("portfolio_max_drawdown"),
+                                  f"< {drawdown_limit} (% of NAV)", drawdown_limit,
+                                  None if drawdown_limit is None or metrics.get("portfolio_max_drawdown") is None
+                                  else drawdown_limit - metrics["portfolio_max_drawdown"]),
+        "minimum_roundtrips": (metrics.get("round_trips"), ">= 5", 5,
+                               None if metrics.get("round_trips") is None else metrics["round_trips"] - 5),
+        "average_exposure": (metrics.get("average_portfolio_exposure"), ">= 0.50", 0.50,
+                             None if metrics.get("average_portfolio_exposure") is None else metrics["average_portfolio_exposure"] - 0.50),
+        "expected_payoff": (metrics.get("expected_payoff"), "> 0", 0,
+                            metrics.get("expected_payoff")),
     }
     result = {}
-    for name, (value, threshold, comparator) in checks.items():
+    for name, (value, threshold, comparator, margin) in checks.items():
         passed = None if value is None or comparator is None else (
-            value < 1.5 * comparator if name == "drawdown_vs_benchmark" else
+            value < comparator if name == "drawdown_vs_benchmark" else
             value >= comparator if name in {"minimum_roundtrips", "average_exposure"} else value > comparator
         )
         status = "UNKNOWN" if passed is None else "PASS" if passed else "FAIL"
@@ -203,7 +271,8 @@ def qualification_report(metrics: dict[str, Any]) -> dict[str, dict[str, Any]]:
             "Measured value does not satisfy the stated threshold."
         )
         result[name] = {"status": status, "value": value,
-                        "threshold": threshold, "explanation": explanation}
+                        "threshold": threshold, "margin": margin,
+                        "explanation": explanation, "source_evidence": source_evidence}
     return result
 
 
@@ -231,10 +300,44 @@ def fifo_metrics_from_fills(fills: Iterable[dict[str, Any]], commission_rate: fl
 def award_readiness(metrics: dict[str, Any]) -> dict[str, Any]:
     """Expose descriptive award criteria and ranking inputs without scoring."""
     total, excess = metrics.get("portfolio_total_return"), metrics.get("excess_return")
-    return {"best_alpha": {"criteria": {
+    alpha_criteria = {
                 "portfolio_total_return_nonnegative": "UNKNOWN" if total is None else "PASS" if total >= 0 else "FAIL",
-                "excess_return_nonnegative": "UNKNOWN" if excess is None else "PASS" if excess >= 0 else "FAIL"},
+                "excess_return_nonnegative": "UNKNOWN" if excess is None else "PASS" if excess >= 0 else "FAIL"}
+    return {"best_alpha": {"criteria": alpha_criteria,
+            "award_eligible": "UNKNOWN" if "UNKNOWN" in alpha_criteria.values() else "PASS" if all(value == "PASS" for value in alpha_criteria.values()) else "FAIL",
             "ranking_metrics": {k: metrics.get(k) for k in ("excess_return", "calmar_ratio", "portfolio_total_return")}},
             "best_risk_control_ranking_metrics": {k: metrics.get(k) for k in ("calmar_ratio", "excess_return", "portfolio_max_drawdown")},
             "most_active_trader_roundtrips": metrics.get("round_trips"),
             "precision_trader_win_rate": metrics.get("win_rate")}
+
+
+def rank_award_candidates(candidates: dict[str, dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    """Rank only supplied candidate records; unknown inputs remain unranked."""
+    def value(item: tuple[str, dict[str, Any]], key: str) -> float | None:
+        raw = item[1].get(key)
+        return None if raw is None else float(raw)
+
+    def rows(names: list[tuple[str, dict[str, Any]]], fields: tuple[str, ...], order: tuple[bool, ...]) -> list[dict[str, Any]]:
+        names.sort(key=lambda item: tuple((-value(item, field) if descending else value(item, field)) for field, descending in zip(fields, order)))
+        return [{"rank": index, "candidate": name,
+                 "metrics": {field: candidate.get(field) for field in fields}}
+                for index, (name, candidate) in enumerate(names, start=1)]
+
+    items = list(candidates.items())
+    alpha_eligible = [item for item in items
+                      if value(item, "portfolio_total_return") is not None
+                      and value(item, "excess_return") is not None
+                      and value(item, "calmar_ratio") is not None
+                      and value(item, "portfolio_total_return") >= 0
+                      and value(item, "excess_return") >= 0]
+    risk_ready = [item for item in items
+                  if all(value(item, key) is not None
+                         for key in ("calmar_ratio", "excess_return", "portfolio_max_drawdown"))]
+    activity_ready = [item for item in items if value(item, "round_trips") is not None]
+    precision_ready = [item for item in items if value(item, "win_rate") is not None]
+    return {
+        "best_alpha": rows(alpha_eligible, ("excess_return", "calmar_ratio", "portfolio_total_return"), (True, True, True)),
+        "best_risk_control": rows(risk_ready, ("calmar_ratio", "excess_return", "portfolio_max_drawdown"), (True, True, False)),
+        "most_active_trader": rows(activity_ready, ("round_trips",), (True,)),
+        "precision_trader": rows(precision_ready, ("win_rate",), (True,)),
+    }

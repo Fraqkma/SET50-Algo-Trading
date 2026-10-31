@@ -219,3 +219,8 @@ The earlier `BLOCKED` runtime assessment and statements that official history/ti
 One-day and multi-day official-data smoke runs succeeded; partial fills and end-of-day cancellation were also observed using isolated simulator fixtures. This validates the bridge/runtime path, not strategy profitability or full compliance of the package example strategy. Official tick duplicate rows remain untouched. The original archives are unchanged.
 
 Current commands: `scripts/run_official_tradesim.py --check`, `--list-official-data`, and explicit `--data-source official`. See the current status and source-selection details in [the integration guide](OFFICIAL_TRADESIM_INTEGRATION.md).
+
+
+## TradeSim 0.2.7 migration update (2026-10-28)
+
+TradeSim 0.2.7 is the validated preferred competition simulator; 0.2.6 is deprecated for scoring and retained for historical reproduction. See [0.2.7 readiness](TRADESIM_027_READINESS.md) and `reports/tradesim_027_execution_semantics.json`. Runtime evidence covers IOC matching, volume caps, cancellations, fees, auctions, valid ticks, tick-table transition, FIFO and one-/multi-day smoke runs.

@@ -7,6 +7,7 @@ import os
 import sys
 import time
 from dataclasses import replace
+from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
@@ -790,7 +791,7 @@ def _official_tradesim_page() -> None:
 
 
 def _tradesim_results_page() -> None:
-    st.title("OFFICIAL TRADESIM 0.2.6 · Results")
+    st.title("OFFICIAL TRADESIM · Results")
     st.info("Local archive and saved simulation evidence only. This page does not open the separate KGI submission repository or run simulations.")
     diagnostic = runtime_diagnostic(ROOT)
     archive = diagnostic.get("archive", {})
@@ -810,12 +811,13 @@ def _tradesim_results_page() -> None:
         comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         comparison = {"future_status": "NOT_AVAILABLE_YET"}
-    st.info(f"0.2.6 version status: {comparison.get('version_statuses', {}).get('0.2.6', comparison.get('future_status', 'NOT_AVAILABLE_YET'))}")
-    diff = comparison.get("archive_diff") or {}
+    st.warning("TradeSim 0.2.6 is deprecated for competition scoring; retained runs are historical evidence.")
+    st.info("TradeSim 0.2.7: LIMIT and Market-to-Limit IOC, one matching attempt, tick-volume cap, immediate residual cancellation, one adverse price tick. Cross-symbol limits wait for that symbol's next tick.")
+    diff = comparison.get("comparison_026_to_027") or {}
     if diff:
         st.caption(f"Version review · changed files {len(diff.get('changed_files', []))} · added {len(diff.get('added_files', []))} · removed {len(diff.get('removed_files', []))} · requirements {diff.get('requirements', {}).get('status', 'UNKNOWN')}")
     try:
-        inventory_path = ROOT / "reports" / "tradesim_026_practice_data_inventory.json"
+        inventory_path = ROOT / "reports" / f"tradesim_{str(archive.get('version', '')).replace('.', '')}_practice_data_inventory.json"
         if inventory_path.is_file():
             inventory_report = json.loads(inventory_path.read_text(encoding="utf-8"))
             inventory = inventory_report["tick_inventory"]
@@ -1024,13 +1026,17 @@ def _production_api_status(paths: DataPaths) -> None:
 def _competition_cockpit(paths: DataPaths) -> None:
     """Central read-only overview; no broker, order, or simulation side effects."""
     from src.competition.state import CompetitionSnapshot, derive_competition_state
+    from src.competition.period import competition_calendar, load_competition_period
+
+    period = load_competition_period(paths.root / "config" / "competition.yaml")
+    competition_days = competition_calendar(period)
 
     readiness_path = paths.root / "reports" / "settrade_production_readiness.json"
     try:
         readiness = json.loads(readiness_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         readiness = {}
-    report_path = paths.root / "reports" / "tradesim_026_final_readiness.json"
+    report_path = paths.root / "reports" / "tradesim_027_readiness.json"
     try:
         tradesim = json.loads(report_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
@@ -1045,14 +1051,112 @@ def _competition_cockpit(paths: DataPaths) -> None:
     ))
     st.markdown('<div class="hero"><div class="eyebrow">Competition operations · read only</div><h1>Competition Cockpit</h1><p>Source health, official simulator readiness, market attention, and explicit unknowns.</p></div>', unsafe_allow_html=True)
     st.warning(f"State: {state.value} · no portfolio snapshot or active-session source was provided. This cockpit has no order controls.")
+    st.info(f"Official competition period: {period.start:%d %b %Y} to {period.end:%d %b %Y} (Asia/Bangkok) - {period.state_at(datetime.now().astimezone())} - calendar {competition_days['status']} ({competition_days['trading_day_count']} expected SET trading days).")
+    st.caption(f"Benchmark: {period.benchmark['index']}, {period.benchmark['return_type']}; configured window {period.benchmark['start_date']} to {period.benchmark['end_date']}. Scoring close source: {period.benchmark['close_source']}.")
     cards = st.columns(5)
     cards[0].metric("Settrade readiness", readiness.get("status", "UNKNOWN"))
     cards[1].metric("Authentication", readiness.get("authentication", "UNKNOWN"))
     cards[2].metric("Account state", readiness.get("account_private_state", "UNKNOWN"))
-    cards[3].metric("TradeSim", tradesim.get("organizer_designated_version", "0.2.6"))
+    from src.competition.tradesim_bridge.runtime import preferred_version
+    cards[3].metric("Preferred TradeSim", preferred_version(paths.root))
     cards[4].metric("Real orders", "0")
     if readiness.get("warnings"):
         st.warning("Settrade warnings: " + "; ".join(readiness["warnings"]))
+    st.caption(f"0.2.7 validation: {tradesim.get('status', 'NOT_VALIDATED')}")
+    st.warning("TradeSim 0.2.6 is deprecated for competition scoring. Earlier results retain their original engine version.")
+    st.info("0.2.7: all orders IOC; one attempt; tick-volume cap; unfilled quantity canceled immediately; execution at latest price plus/minus one valid tick. Cross-symbol limits wait for the next tick of that symbol.")
+    try:
+        current_data = json.loads((paths.root / "reports/current_market_data_status.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        current_data = {}
+    if current_data:
+        collector = current_data.get("collector", {})
+        st.subheader("Current collection and source coverage")
+        st.caption(f"Audited through {current_data.get('audit_end')} · snapshot {current_data.get('generated_at')} · pipeline {current_data.get('status')}")
+        st.metric("Unattended collector", collector.get("status", "UNKNOWN"))
+        st.caption(f"Scheduled task: {current_data.get('scheduler', {}).get('state', 'UNKNOWN')} — logged-out readiness {collector.get('logged_out_readiness', 'UNKNOWN')}; last Task Scheduler result {current_data.get('scheduler', {}).get('last_result', 'UNKNOWN')}. Logged-out runtime has not been directly validated.")
+        if collector.get("status") == "STALE_LOCK":
+            st.warning("Stale runner lock: no matching live process identity.")
+        st.caption(collector.get("unattended_assessment", "UNKNOWN"))
+        st.dataframe(pd.DataFrame([{"dataset": name, "latest Bangkok timestamp": item.get("latest"), "symbols": item.get("symbols"), "rows": item.get("rows")} for name, item in current_data.get("datasets", {}).items()]), hide_index=True, width="stretch")
+        official = current_data.get("official", {})
+        st.caption(f"Official history: {official.get('latest_history')} · official ticks: {official.get('latest_tick')} · Settrade daily: {current_data.get('settrade_daily')}")
+        st.dataframe(pd.DataFrame([{"date": day, "source coverage": status} for day, status in current_data.get("source_coverage", {}).items()]), hide_index=True, width="stretch")
+    try:
+        oct29 = json.loads((paths.root / "reports/oct29_collection_audit.json").read_text(encoding="utf-8"))
+        st.subheader("2026-10-29 collector verification")
+        finished = oct29.get("runner", {}).get("finish", [])
+        finish_time = finished[-1].get("timestamp", "UNKNOWN") if finished else "UNKNOWN"
+        st.caption(f"{oct29.get('classification', 'UNKNOWN')}; {oct29.get('runner', {}).get('collector_cycles_exit_0', 0)} successful collector cycles; runner finish {finish_time}.")
+        st.dataframe(pd.DataFrame([{"dataset": name, "rows/events": value.get("rows", value.get("events")), "symbols": value.get("symbols"), "first": value.get("first_local_timestamp"), "last": value.get("last_local_timestamp"), "duplicates": value.get("duplicate_keys")} for name, value in oct29.get("datasets", {}).items()]), hide_index=True, width="stretch")
+    except (OSError, ValueError):
+        st.info("Oct 29 collection reconciliation report is not available.")
+    st.subheader("Competition scoring and research readiness")
+    try:
+        phase5 = json.loads((paths.root / "reports/phase5_signal_screen.json").read_text(encoding="utf-8"))
+        st.info(f"Phase 5: {phase5.get('status', 'UNKNOWN')} · no candidate promoted. Evidence: reports/phase5_pit_coverage_matrix.json and docs/PHASE5_DECISION_REPORT.md")
+    except (OSError, json.JSONDecodeError):
+        st.caption("Phase 5 readiness evidence is not available.")
+    try:
+        scoring = json.loads((paths.root / "reports/competition_metric_readiness.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        scoring = {}
+    if scoring:
+        st.warning("Official competition metrics remain UNKNOWN until a complete scored-period result uses continuous portfolio state and the unresolved boundary rules are confirmed. No team ranks are inferred.")
+        criteria = scoring.get("common_criteria", {})
+        st.dataframe(pd.DataFrame([{"criterion": name, "status": item.get("status"), "threshold": item.get("threshold")} for name, item in criteria.items()]), hide_index=True, width="stretch")
+        awards = scoring.get("awards", {})
+        st.dataframe(pd.DataFrame([{"award": name, "eligibility": item.get("eligibility"), "ranking": " → ".join(item.get("ranking", []))} for name, item in awards.items()]), hide_index=True, width="stretch")
+    try:
+        bbo_capability = json.loads((paths.root / "reports/bbo_historical_capability.json").read_text(encoding="utf-8"))
+        signal_status = json.loads((paths.root / "reports/signal_discovery_summary.json").read_text(encoding="utf-8"))
+        execution_status = json.loads((paths.root / "reports/execution_sensitivity_summary.json").read_text(encoding="utf-8"))
+        history_status = json.loads((paths.root / "reports/historical_data_capability.json").read_text(encoding="utf-8"))
+        scheduler_status = json.loads((paths.root / "reports/settrade_scheduler_status.json").read_text(encoding="utf-8"))
+        st.json({
+            "scheduler_logon_type": scheduler_status.get("logon_type", "UNKNOWN"),
+            "scheduler_logged_out_capable": scheduler_status.get("logged_out_capable", False),
+            "historical_daily_recovery": "IN_PROGRESS",
+            "historical_BBO": bbo_capability.get("classification", "UNKNOWN"),
+            "execution_sensitivity": execution_status.get("comparison", {}).get("v1_vs_v2", "UNKNOWN"),
+            "signal_discovery": signal_status.get("promotion_result", "UNKNOWN"),
+            "signal_evidence_classification": signal_status.get("evidence_classification", "UNKNOWN"),
+            "historical_data_capability": "reports/historical_data_capability.json",
+        })
+    except (OSError, json.JSONDecodeError):
+        st.info("Data and research capability summaries are not available.")
+    st.subheader("Phase 3 pre-registered signal screen")
+    try:
+        final_summary_path = paths.root / "reports/research_phase3_summary.json"
+        phase3 = json.loads(final_summary_path.read_text(encoding="utf-8"))
+        phase3_rows = []
+        for hypothesis, result in phase3.get("hypothesis_summaries", {}).items():
+            primary = result.get("horizons", {}).get("5", {})
+            interval = primary.get("ci95")
+            phase3_rows.append({
+                "hypothesis": hypothesis,
+                "status": result.get("status", "UNKNOWN"),
+                "events": result.get("raw_event_count_h5", 0),
+                "matched": result.get("matched_event_count_h5", 0),
+                "symbols": result.get("unique_symbols_h5", 0),
+                "dates": result.get("unique_dates_h5", 0),
+                "5-session uplift": primary.get("mean_uplift"),
+                "clustered 95% CI": "UNKNOWN" if interval is None else f"{interval[0]:.2%} to {interval[1]:.2%}",
+                "Holm p": result.get("holm_adjusted_p_h5", "UNKNOWN"),
+            })
+        st.dataframe(pd.DataFrame(phase3_rows), hide_index=True, width="stretch")
+        st.caption(f"Locked direction: balanced risk-adjusted net returns; 1–5 sessions; historical SET50-derived provisional drawdown scenarios; 3/5/8 positions only after promotion. Promotion status: {phase3.get('promotion_summary', 'UNKNOWN')}.")
+        envelope_path = paths.root / phase3.get("risk_envelope", "reports/competition_benchmark_risk_envelope.json")
+        envelope = json.loads(envelope_path.read_text(encoding="utf-8"))
+        scenario_rows = [{"quantile": f"P{int(item['quantile'] * 100)}", "benchmark MDD": item["benchmark_mdd"],
+                          "1.5× threshold": item["strict_portfolio_mdd_threshold"],
+                          "provisional buffer": item["provisional_research_buffer"],
+                          "window": f"{item['representative_window_start']} to {item['representative_window_end']}"}
+                         for item in envelope.get("mdd_scenarios", [])]
+        st.dataframe(pd.DataFrame(scenario_rows), hide_index=True, width="stretch")
+        st.warning("Research diagnostics only; approved stock history is partial and previously seen. No signal passed promotion, so portfolio counts and strategy TradeSim replay were not run. Daily bars cannot establish 0.2.7 fills, queue position, or historical BBO.")
+    except (OSError, json.JSONDecodeError):
+        st.info("Final Phase 3 signal or benchmark risk evidence is not available.")
     st.caption("Competition portfolio, qualification, award readiness, and round-trip metrics remain UNKNOWN until a saved official TradeSim run exists. Current-market analytics below are descriptive, current-universe exploratory data, not a competition strategy signal.")
     candidate_path = paths.root / "reports" / "research_candidate_summary.json"
     try:

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "USER_CONFIRMED",
+  "confirmed_for_phase": 4,
+  "award_priority": {
+    "primary": "Best Alpha",
+    "secondary": "Best Risk Control",
+    "apply_award_ranking_only_after_common_qualification": true
+  },
+  "new_data_purchase_budget_thb": 0,
+  "holding_period_research": {
+    "preferred_starting_sessions": [1, 2, 3, 4, 5],
+    "additional_fixed_descriptive_sessions": [7, 10, 15],
+    "select_historical_best_exit_day": false,
+    "first_passage_net_thresholds": {
+      "positive_objectives": [0.01, 0.02],
+      "adverse_boundaries": [-0.01, -0.02],
+      "first_positive": 0.0,
+      "competing_risk_boundary_for_positive_targets": -0.01
+    },
+    "required_views": [
+      "full fixed-horizon outcome curve",
+      "matched-control uplift",
+      "two-way date and symbol clustered uncertainty",
+      "multiplicity-adjusted inference",
+      "net costs and adverse tick sensitivity",
+      "first-passage with competing adverse boundary and censoring"
+    ]
+  },
+  "research_safeguards": {
+    "existing_phase3_rejections_remain": true,
+    "reused_history_is_not_independent_oos": true,
+    "final_strategy_selection": "NOT_AUTHORIZED",
+    "candidate_specific_tradesim_replay": "ONLY_AFTER_PROMOTION_AND_EVIDENCE_GATE"
+  }
+}

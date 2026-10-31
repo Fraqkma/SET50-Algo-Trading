@@ -1,0 +1,27 @@
+{
+    "owner": "sell_band_edge",
+    "cashbalance_start": 10000000.0,
+    "cashbalance": 9798662.3401,
+    "realized": 0.0,
+    "stocksList": [
+        {
+            "symbol": "PTT",
+            "buy_price": 100.66882995,
+            "actual_vol": 2000,
+            "start_vol": 2000,
+            "buy_time": 1792551600.0,
+            "amount_cost": 201337.6599,
+            "market_value": 200000.0,
+            "unrealized": -1337.6598999999987,
+            "realized": 0.0,
+            "order_opened_at": "20261021-ORD00011"
+        }
+    ],
+    "round_trips": [],
+    "buy_order_count": 1,
+    "sell_order_count": 0,
+    "daily_snapshots": [],
+    "prevousDay_maxDD": null,
+    "max_nav": null,
+    "min_nav": null
+}

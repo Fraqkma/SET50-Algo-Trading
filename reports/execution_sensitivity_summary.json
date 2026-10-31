@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-10-28T16:44:01Z",
+  "evidence_classification": "RESEARCH_ESTIMATE",
+  "reference_simulator": "TradeSim 0.2.7",
+  "v1": {"version": "RESEARCH_EXECUTION_V1", "order_type": "LIMIT", "validity": "IOC", "adverse_ticks": 1, "fill_rule": "daily bar contains requested price", "preserved": true},
+  "v2": {"version": "V2_CONSERVATIVE_027_APPROX", "order_type": "LIMIT", "validity": "IOC", "adverse_ticks": 1, "tick_rounding": "official 0.2.7 tick_size.json effective for historical timestamp", "persistent_orders": false, "no_same_bar_lookahead": true, "exact_tick_volume_cap": "NOT_MODELED_DAILY_DATA_DOES_NOT_SUPPORT_IT", "historical_sample": "2023-01-03 through 2026-09-04", "tick_schedule_difference_in_sample": false},
+  "comparison": {"v1_vs_v2": "NO_OBSERVABLE_DIFFERENCE_ON_AVAILABLE_BAR_DATA", "conclusion_changes": 0, "reason": "V1 already uses one-tick LIMIT/IOC and the official 0.2.7 historical tick ladder is unchanged over the sample; tick-level partial fills and daily-cap behavior cannot be inferred."},
+  "official_027_fixture_calibration": {"cases": 13, "checks": 22, "all_checks_pass": true, "sampled_cases_are_statistical_fill_rates": false, "examples": {"limit_requested_1000_tick_volume_350_filled": 300, "market_to_limit_requested_1000_tick_volume_350_filled": 300, "daily_cap_250_clipped_to_board_lot": 200, "close_limit_fill": 0, "invalid_tick_rejected": true, "ioc_second_match": false}, "source": "artifacts/tradesim_027_validation/20261028-r3/0.2.7/matrix.json"},
+  "candidates": {
+    "Trend20": {"classification": "ALPHA_FAILURE", "gross_return": -0.5904267747, "net_return": -0.6979821324, "v2_conclusion_change": false},
+    "Breakout20": {"classification": "ALPHA_FAILURE", "gross_return": -0.3394876296, "net_return": -0.4397632261, "v2_conclusion_change": false},
+    "RelativeStrength": {"classification": "ALPHA_FAILURE", "gross_return": -0.5751973413, "net_return": -0.6840838130, "v2_conclusion_change": false},
+    "MeanRev5": {"classification": "MIXED", "gross_return": 0.1126375175, "net_return": -0.0437145947, "maximum_drawdown": 0.3933316362, "average_exposure": 0.2630532503, "completed_fifo_roundtrips": 109, "v2_conclusion_change": false},
+    "Round2_H6": {"classification": "MIXED", "gross_return": 0.0008153565, "net_return": -0.0348551385, "maximum_drawdown": 0.2741974655, "average_exposure": 0.2193639065, "completed_fifo_roundtrips": 23, "turnover_reduction_vs_meanrev5": 0.7718579269, "v2_conclusion_change": false}
+  },
+  "final_strategy_selected": false,
+  "orders_placed": 0
+}

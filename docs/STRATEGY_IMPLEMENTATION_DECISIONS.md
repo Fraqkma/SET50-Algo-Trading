@@ -48,8 +48,13 @@ The only fixed policy is that a signal at `t` cannot execute before the next obs
 
 ## Evaluation metrics
 
-At minimum, the Backtest should report gross/net return, final equity, volatility, drawdown, turnover, commission, VAT, total fees, trade count, and `unique_symbols_traded`. Human approval is still required for the primary comparison metric, research date range, and minimum acceptance criteria. Performance must not be judged on return alone.
+At minimum, the Backtest should report gross/net return, final equity, volatility, drawdown, turnover, commission, VAT, total fees, trade count, and `unique_symbols_traded`. The canonical official score window is 2026-12-16 through 2027-01-15; pre-competition history may support warm-up/research only. Research validation ranges and minimum acceptance criteria still require human approval. Performance must not be judged on return alone.
 
 ## Current implementation boundary
 
 `BaselineStrategy`, `rank_time_series_candidates`, `rebalance_dates`, and `next_trading_session` remain reusable signal/schedule components. `BacktestEngine` now provides the first event-ordered harness with equal-weight accounting and explicit `ExecutionPolicy`; it does not claim that the historical fill/tick assumptions are official until `docs/BACKTEST_EXECUTION_DECISIONS.md` is approved. Raw data and eligibility policies are unchanged.
+
+
+## Organizer execution update (2026-10-28)
+
+TradeSim 0.2.7 documents LIMIT and Market-to-Limit IOC and its runtime confirms those paths; prior 0.2.6 API mismatch is resolved. Historical bar fills remain a research approximation. `RESEARCH_EXECUTION_V1` remains unchanged. No V2 was created because daily data do not expose event-level tick volume. A bounded, pre-registered sensitivity run is a human choice. The organizer performance criteria are recorded in the metrics implementation; qualification is still UNKNOWN until a complete, continuous portfolio score-period run exists, and unresolved boundary handling remains with the organizer.

@@ -3,10 +3,10 @@
 Generated from persisted pilot artifacts; no source data were modified.
 
 ## Collection summary
-- Collection dates with persisted BBO: 2026-10-19 to 2026-10-23
-- Valid raw BBO events: 80670; malformed raw records: 0; normalized depth rows: 1613380
-- Candle rows: 1m=28558 (50 symbols), 5m=8463 (50 symbols), 15m=5511 (50 symbols)
-- Runtime summaries: 23; failed terminations: 3; completed/closed runs: 19
+- Collection dates with persisted BBO: 2026-10-19 to 2026-10-28
+- Valid raw BBO events: 132784; malformed raw records: 0; normalized depth rows: 2655620
+- Candle rows: 1m=67870 (50 symbols), 5m=20856 (50 symbols), 15m=14135 (50 symbols)
+- Runtime summaries: 26; failed terminations: 3; completed/closed runs: 22
 
 Weekdays with no Settrade log/runtime/data artifact in the evidence window: ['2026-10-02', '2026-10-09']. A calendar weekday alone is not proof the market was open.
 ## Daily collection evidence
@@ -38,35 +38,47 @@ Weekdays with no Settrade log/runtime/data artifact in the evidence window: ['20
 - **2026-10-22** — runner/log 2026-10-22T09:45:08.908000+07:00 to 2026-10-22T17:29:47.141000+07:00; BBO 20488 raw events / 409760 depth rows / 50 symbols; morning 2026-10-22T09:45:11.790282+07:00–2026-10-22T12:29:43.380647+07:00, afternoon 2026-10-22T14:30:58.451705+07:00–2026-10-22T16:56:02.674240+07:00; candle rows {'1m': 13384, '5m': 4351, '15m': 3007}; retries/errors 0/0; termination MARKET_CLOSED/OUTSIDE_SET_SESSION; summary/log clock conflict True; quality **RUNTIME_MARKET_DAY_CONFLICT_WITH_DATA**; gap No downtime inferred from event silence alone; event-driven silence is normal and other gaps remain UNKNOWN.
 - **2026-10-23** — runner/log 2026-10-23T02:06:16.158000+07:00 to 2026-10-23T09:45:54.016000+07:00; BBO 485 raw events / 9700 depth rows / 50 symbols; morning 2026-10-23T02:06:20.388852+07:00–2026-10-23T04:09:35.460993+07:00, afternoon no observed event–no observed event; candle rows {'1m': 0, '5m': 0, '15m': 0}; retries/errors 0/13; termination MARKET_CLOSED/API_CLOSED_OR_HOLIDAY; summary/log clock conflict True; quality **PARTIAL_SESSION_PROBABLE_COLLECTOR_OR_LOG_GAP**; gap PROBABLE_COLLECTOR_OR_LOG_GAP_AFTER_LAST_LOG; exact cause UNKNOWN.
 - **2026-10-24** — runner/log 2026-10-24T13:04:26.056000+07:00 to 2026-10-24T13:05:19.183000+07:00; BBO 0 raw events / 0 depth rows / 0 symbols; morning no observed event–no observed event, afternoon no observed event–no observed event; candle rows {'1m': 0, '5m': 0, '15m': 0}; retries/errors 0/0; termination MARKET_CLOSED/WEEKEND; summary/log clock conflict False; quality **NON_TRADING_DAY**; gap No downtime inferred from event silence alone; event-driven silence is normal and other gaps remain UNKNOWN.
+- **2026-10-26** — runner/log 2026-10-26T00:58:59.186000+07:00 to 2026-10-26T17:04:15.563000+07:00; BBO 16995 raw events / 339880 depth rows / 50 symbols; morning 2026-10-26T00:59:03.393633+07:00–2026-10-26T12:23:52.476160+07:00, afternoon 2026-10-26T14:31:05.042400+07:00–2026-10-26T16:56:38.125349+07:00; candle rows {'1m': 13237, '5m': 4153, '15m': 2872}; retries/errors 0/13; termination MARKET_CLOSED/OUTSIDE_SET_SESSION; summary/log clock conflict True; quality **VALID_DATA**; gap No downtime inferred from event silence alone; event-driven silence is normal and other gaps remain UNKNOWN.
+- **2026-10-27** — runner/log 2026-10-27T09:45:08.667000+07:00 to 2026-10-27T17:08:05.836000+07:00; BBO 17629 raw events / 352560 depth rows / 50 symbols; morning 2026-10-27T09:45:12.589639+07:00–2026-10-27T12:28:22.316106+07:00, afternoon 2026-10-27T14:31:24.446110+07:00–2026-10-27T17:00:22.872857+07:00; candle rows {'1m': 13251, '5m': 4132, '15m': 2849}; retries/errors 0/0; termination MARKET_CLOSED/OUTSIDE_SET_SESSION; summary/log clock conflict False; quality **VALID_DATA**; gap No downtime inferred from event silence alone; event-driven silence is normal and other gaps remain UNKNOWN.
+- **2026-10-28** — runner/log 2026-10-28T09:45:09.231000+07:00 to 2026-10-28T18:12:30.923000+07:00; BBO 17490 raw events / 349800 depth rows / 50 symbols; morning 2026-10-28T09:45:13.724814+07:00–2026-10-28T12:23:40.275045+07:00, afternoon 2026-10-28T14:31:42.067929+07:00–2026-10-28T16:56:26.839638+07:00; candle rows {'1m': 12824, '5m': 4108, '15m': 2903}; retries/errors 0/0; termination MARKET_CLOSED/OUTSIDE_SET_SESSION; summary/log clock conflict True; quality **RUNTIME_MARKET_DAY_CONFLICT_WITH_DATA**; gap No downtime inferred from event silence alone; event-driven silence is normal and other gaps remain UNKNOWN.
 
 ## Readiness
 - **universe:** READY
 - **bbo:** READY_FOR_EXPLORATORY_RESEARCH
 - **bbo_raw_events:** READY_FOR_EXPLORATORY_RESEARCH
 - **bbo_normalized_depth:** READY_FOR_EXPLORATORY_RESEARCH
-- **candles:** {'1m': 'PARTIAL', '5m': 'PARTIAL', '15m': 'READY_FOR_EXPLORATORY_RESEARCH'}
+- **candles:** {'1m': 'PARTIAL', '5m': 'READY_FOR_EXPLORATORY_RESEARCH', '15m': 'READY_FOR_EXPLORATORY_RESEARCH'}
 - **orders:** 0 (read-only audit)
 
 ## Candle audit
-### 1m: 28558 rows, 50 symbols; direct Settrade API 1m candles
+### 1m: 67870 rows, 50 symbols; direct Settrade API 1m candles
 - 2026-10-19: SPARSE — observed 5000 / expected 16500, coverage 30.3%, first 2026-10-19T09:58:00+07:00, last 2026-10-19T16:00:00+07:00
 - 2026-10-20: SPARSE — observed 5000 / expected 16500, coverage 30.3%, first 2026-10-20T09:57:00+07:00, last 2026-10-20T16:14:00+07:00
 - 2026-10-21: SPARSE — observed 5174 / expected 16500, coverage 31.36%, first 2026-10-21T09:57:00+07:00, last 2026-10-21T16:37:00+07:00
 - 2026-10-22: SPARSE — observed 13384 / expected 16500, coverage 81.12%, first 2026-10-22T09:58:00+07:00, last 2026-10-22T16:35:00+07:00
-### 5m: 8463 rows, 50 symbols; locally aggregated from contiguous observed 1m candles; missing minutes are not filled
+- 2026-10-26: SPARSE — observed 13237 / expected 16500, coverage 80.22%, first 2026-10-26T09:57:00+07:00, last 2026-10-26T16:38:00+07:00
+- 2026-10-27: SPARSE — observed 13251 / expected 16500, coverage 80.31%, first 2026-10-27T09:58:00+07:00, last 2026-10-27T16:39:00+07:00
+- 2026-10-28: SPARSE — observed 12824 / expected 16500, coverage 77.72%, first 2026-10-28T09:57:00+07:00, last 2026-10-28T16:36:00+07:00
+### 5m: 20856 rows, 50 symbols; locally aggregated from contiguous observed 1m candles; missing minutes are not filled
 - 2026-10-19: SPARSE — observed 1375 / expected 3300, coverage 41.67%, first 2026-10-19T09:58:00+07:00, last 2026-10-19T16:00:00+07:00
 - 2026-10-20: SPARSE — observed 1448 / expected 3300, coverage 43.88%, first 2026-10-20T09:55:00+07:00, last 2026-10-20T16:14:00+07:00
 - 2026-10-21: SPARSE — observed 1289 / expected 3300, coverage 39.06%, first 2026-10-21T09:55:00+07:00, last 2026-10-21T14:24:00+07:00
 - 2026-10-22: PARTIAL — observed 4351 / expected 3300, coverage 131.85%, first 2026-10-22T09:58:00+07:00, last 2026-10-22T16:35:00+07:00
-### 15m: 5511 rows, 50 symbols; locally aggregated from contiguous observed 1m candles; missing minutes are not filled
+- 2026-10-26: PARTIAL — observed 4153 / expected 3300, coverage 125.85%, first 2026-10-26T09:57:00+07:00, last 2026-10-26T16:38:00+07:00
+- 2026-10-27: PARTIAL — observed 4132 / expected 3300, coverage 125.21%, first 2026-10-27T09:58:00+07:00, last 2026-10-27T16:39:00+07:00
+- 2026-10-28: PARTIAL — observed 4108 / expected 3300, coverage 124.48%, first 2026-10-28T09:57:00+07:00, last 2026-10-28T16:36:00+07:00
+### 15m: 14135 rows, 50 symbols; locally aggregated from contiguous observed 1m candles; missing minutes are not filled
 - 2026-10-19: PARTIAL — observed 848 / expected 1100, coverage 77.09%, first 2026-10-19T09:58:00+07:00, last 2026-10-19T16:00:00+07:00
 - 2026-10-20: PARTIAL — observed 936 / expected 1100, coverage 85.09%, first 2026-10-20T09:45:00+07:00, last 2026-10-20T16:14:00+07:00
 - 2026-10-21: PARTIAL — observed 720 / expected 1100, coverage 65.45%, first 2026-10-21T09:45:00+07:00, last 2026-10-21T14:24:00+07:00
 - 2026-10-22: COMPLETE — observed 3007 / expected 1100, coverage 273.36%, first 2026-10-22T09:58:00+07:00, last 2026-10-22T16:35:00+07:00
+- 2026-10-26: COMPLETE — observed 2872 / expected 1100, coverage 261.09%, first 2026-10-26T09:57:00+07:00, last 2026-10-26T16:38:00+07:00
+- 2026-10-27: COMPLETE — observed 2849 / expected 1100, coverage 259.0%, first 2026-10-27T09:58:00+07:00, last 2026-10-27T16:39:00+07:00
+- 2026-10-28: COMPLETE — observed 2903 / expected 1100, coverage 263.91%, first 2026-10-28T09:57:00+07:00, last 2026-10-28T16:36:00+07:00
 
 ## BBO audit
 - Status: READY
-- Raw genuine events: 80670; normalized depth rows: 1613380; trading days: 5; symbols: 50
+- Raw genuine events: 132784; normalized depth rows: 2655620; trading days: 8; symbols: 50
 - Exact duplicate normalized keys: 0; negative prices/sizes: 0/0; malformed timestamps: 0; file-order timestamp regressions: 0
 - Locked/crossed best quotes: 18; unexpected symbols: []
 
@@ -87,11 +99,20 @@ BBO is event-driven: absence of callbacks is not itself a gap. Collection window
 ### 2026-10-23: 9700 normalized depth rows, 50 symbols, 485 raw events; 2026-10-23T02:06:20.388852+07:00 to 2026-10-23T04:09:35.460993+07:00
 - Group 0: 35/35 symbols observed; missing none
 - Group 1: 15/15 symbols observed; missing none
+### 2026-10-26: 339880 normalized depth rows, 50 symbols, 16995 raw events; 2026-10-26T00:59:03.393633+07:00 to 2026-10-26T16:56:38.125349+07:00
+- Group 0: 35/35 symbols observed; missing none
+- Group 1: 15/15 symbols observed; missing none
+### 2026-10-27: 352560 normalized depth rows, 50 symbols, 17629 raw events; 2026-10-27T09:45:12.589639+07:00 to 2026-10-27T17:00:22.872857+07:00
+- Group 0: 35/35 symbols observed; missing none
+- Group 1: 15/15 symbols observed; missing none
+### 2026-10-28: 349800 normalized depth rows, 50 symbols, 17490 raw events; 2026-10-28T09:45:13.724814+07:00 to 2026-10-28T16:56:26.839638+07:00
+- Group 0: 35/35 symbols observed; missing none
+- Group 1: 15/15 symbols observed; missing none
 35/15 rotation: all 50 symbols observed=True; opportunity dwell time=UNKNOWN; retained artifacts do not record per-symbol subscribe/unsubscribe timestamps for every generation
-- Group 0: 35/35 expected symbols observed in 56553 callbacks across 5 days; missing observed symbols []
-- Group 1: 15/15 expected symbols observed in 24117 callbacks across 5 days; missing observed symbols []
+- Group 0: 35/35 expected symbols observed in 93627 callbacks across 8 days; missing observed symbols []
+- Group 1: 15/15 expected symbols observed in 39157 callbacks across 8 days; missing observed symbols []
 Current-session candle delays: Persisted responses demonstrate continued symbol/date-specific delayed availability. Earlier empty responses were not converted into candles; exact upstream first-availability times are unknown.
-Non-empty raw candle response counts by date: 2026-10-19 (50 symbols), 2026-10-20 (50 symbols), 2026-10-21 (50 symbols), 2026-10-22 (50 symbols)
+Non-empty raw candle response counts by date: 2026-10-19 (50 symbols), 2026-10-20 (50 symbols), 2026-10-21 (50 symbols), 2026-10-22 (50 symbols), 2026-10-26 (50 symbols), 2026-10-27 (50 symbols), 2026-10-28 (50 symbols)
 
 ## Runtime summaries
 
@@ -599,6 +620,72 @@ Non-empty raw candle response counts by date: 2026-10-19 (50 symbols), 2026-10-2
     "orders_placed": 0,
     "market_day": false,
     "runtime_seconds": 4.903453,
+    "reconnects": 0,
+    "validation_errors": 0,
+    "conflicts": 0
+  },
+  {
+    "summary_file": "settrade_daily_2026-10-26.json",
+    "date": "2026-10-26",
+    "start_time": "2026-10-26T02:45:02.559199+00:00",
+    "end_time": "2026-10-26T10:03:26.377461+00:00",
+    "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+    "startup_status": "READY",
+    "rotation_generations": 43,
+    "bbo_events_written": 16656,
+    "one_minute_rows_written": 13237,
+    "symbols_with_1m_data": 50,
+    "candle_status": "NO_DATA",
+    "api_requests": 2150,
+    "retries": 0,
+    "rate_limit_errors": 0,
+    "orders_placed": 0,
+    "market_day": true,
+    "runtime_seconds": 26303.818262,
+    "reconnects": 0,
+    "validation_errors": 0,
+    "conflicts": 0
+  },
+  {
+    "summary_file": "settrade_daily_2026-10-27.json",
+    "date": "2026-10-27",
+    "start_time": "2026-10-27T02:45:04.926859+00:00",
+    "end_time": "2026-10-27T10:07:14.369947+00:00",
+    "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+    "startup_status": "READY",
+    "rotation_generations": 42,
+    "bbo_events_written": 17626,
+    "one_minute_rows_written": 13251,
+    "symbols_with_1m_data": 50,
+    "candle_status": "NO_DATA",
+    "api_requests": 2100,
+    "retries": 0,
+    "rate_limit_errors": 0,
+    "orders_placed": 0,
+    "market_day": true,
+    "runtime_seconds": 26529.443088,
+    "reconnects": 0,
+    "validation_errors": 0,
+    "conflicts": 0
+  },
+  {
+    "summary_file": "settrade_daily_2026-10-28.json",
+    "date": "2026-10-28",
+    "start_time": "2026-10-28T11:11:26.698907+00:00",
+    "end_time": "2026-10-28T11:11:31.297496+00:00",
+    "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+    "startup_status": "READY",
+    "rotation_generations": 0,
+    "bbo_events_written": 0,
+    "one_minute_rows_written": 0,
+    "symbols_with_1m_data": 0,
+    "candle_status": "NOT_RUN",
+    "api_requests": 0,
+    "retries": 0,
+    "rate_limit_errors": 0,
+    "orders_placed": 0,
+    "market_day": false,
+    "runtime_seconds": 4.598589,
     "reconnects": 0,
     "validation_errors": 0,
     "conflicts": 0

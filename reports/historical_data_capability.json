@@ -1,0 +1,153 @@
+{
+  "generated_at": "2026-10-28T17:04:06Z",
+  "settrade_sdk": {
+    "package": "settrade-v2",
+    "version": "2.2.1"
+  },
+  "capabilities": {
+    "daily_1d": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "50-symbol 2024-01-01 through 2026-10-28 recovery returned 32,101 rows; 22,341 newly persisted and 9,760 matched existing rows"
+    },
+    "weekly_1w": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "bounded SDK probe returned data"
+    },
+    "monthly_1mo": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "bounded SDK probe returned data"
+    },
+    "intraday_1m": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "bounded historical PTT probes returned 53 and 121 rows and were append-only persisted"
+    },
+    "intraday_5m": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "SDK and production probes; sampled historical windows may be empty"
+    },
+    "intraday_15m": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "SDK and production probes; sampled historical windows may be empty"
+    },
+    "intraday_30m": {
+      "status": "UNVERIFIED",
+      "evidence": "not exercised"
+    },
+    "intraday_60m": {
+      "status": "UNVERIFIED",
+      "evidence": "not exercised"
+    },
+    "public_trade_tick_history": {
+      "status": "NOT_EXPOSED",
+      "evidence": "no market-wide historical trade tape method in installed SDK"
+    },
+    "historical_bbo": {
+      "status": "NOT_EXPOSED",
+      "evidence": "see reports/bbo_historical_capability.json"
+    },
+    "current_quote": {
+      "status": "CURRENT_ONLY",
+      "evidence": "MarketData.get_quote_symbol"
+    },
+    "historical_set50_membership": {
+      "status": "NOT_EXPOSED",
+      "evidence": "no constituent history/security-master method"
+    },
+    "account_orders_and_trades": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "evidence": "account-scoped; not a market-wide execution tape; not invoked"
+    }
+  },
+  "historical_window_observations": {
+    "recovered_1d_current_set50": {
+      "status": "SUCCESS",
+      "symbols": 50,
+      "requested_start": "2024-01-01T00:00:00+07:00",
+      "requested_end": "2026-10-28T23:59:59+07:00",
+      "rows_returned": 32101,
+      "rows_persisted": 22341,
+      "rows_already_present": 9760,
+      "conflicts": 0,
+      "api_no_data": 0,
+      "errors": 0,
+      "dataset_local_date_range": [
+        "2024-01-02",
+        "2026-10-28"
+      ],
+      "raw_responses": 50,
+      "manifest": "reports/settrade_historical_recovery_manifest.json"
+    },
+    "ptt_1d_2026_full_year_to_oct28": {
+      "status": "SUCCESS",
+      "rows": 198,
+      "first_utc": "2026-01-04T17:00:00+00:00",
+      "last_utc": "2026-10-27T17:00:00+00:00",
+      "persisted": false,
+      "note": "single-symbol capability probe preceding append-only recovery"
+    },
+    "ptt_1d_2024_to_oct28_2026": {
+      "status": "SUCCESS",
+      "rows": 684,
+      "first_utc": "2024-01-01T17:00:00+00:00",
+      "last_utc": "2026-10-27T17:00:00+00:00",
+      "persisted": false,
+      "note": "single-symbol capability probe preceding append-only recovery"
+    },
+    "ptt_1d_january_2026": {
+      "status": "SUCCESS",
+      "rows": 5
+    },
+    "ptt_1d_january_2025": {
+      "status": "SUCCESS",
+      "rows": 7
+    },
+    "ptt_1d_january_2024": {
+      "status": "SUCCESS",
+      "rows": 7
+    },
+    "ptt_1d_january_2023_2022_2020_2018_2016_2010": {
+      "status": "API_NO_DATA",
+      "rows": 0,
+      "scope": "requested Jan 1-10 windows only"
+    }
+  },
+  "other_sources": {
+    "official_tradesim_history": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "symbols": 48,
+      "rows": 603513,
+      "files": 492,
+      "date_start": "2023-09-21",
+      "date_end": "2026-10-21"
+    },
+    "official_tradesim_ticks": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "symbols": 48,
+      "rows": 2417570,
+      "files": 13,
+      "date_start": "2026-10-01",
+      "date_end": "2026-10-21",
+      "is_bbo": false
+    },
+    "approved_daily_research": {
+      "status": "AVAILABLE_WITH_LIMITS",
+      "symbols": 20,
+      "date_start": "2023-01-03",
+      "date_end": "2026-09-04",
+      "pit_complete": false
+    }
+  },
+  "survivorship_policy": "Current SET50 used for present-day recovery only; historical PIT universe is incomplete.",
+  "orders_placed": 0,
+  "recovered_dataset_validation": {
+    "rows": 32101,
+    "symbols": 50,
+    "date_range": [
+      "2024-01-02",
+      "2026-10-28"
+    ],
+    "duplicate_keys": 0,
+    "invalid_ohlcv": 0,
+    "bad_timestamps": 0
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "engine": "RESEARCH_DIAGNOSTIC",
+  "pre_registration": "docs/RESEARCH_PHASE3_PRE_REGISTRATION.md",
+  "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+  "dirty_before_run": true,
+  "sample_window": {
+    "start": "2023-01-03",
+    "end": "2026-09-04"
+  },
+  "data_policy": "approved PIT daily data only; partial universe; not independent OOS; October collection inspection means later period not untouched",
+  "source_hashes": {
+    "data\\processed\\approved_market_data_manifest.csv": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+    "data\\processed\\constituents\\historical_set50.csv": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+    "data\\raw\\market_data\\BDMS_BK.csv": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+    "data\\raw\\market_data\\BGRIM_BK.csv": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+    "data\\raw\\market_data\\CENTEL_BK.csv": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+    "data\\raw\\market_data\\COM7_BK.csv": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+    "data\\raw\\market_data\\GLOBAL_BK.csv": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+    "data\\raw\\market_data\\GULF_BK.csv": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+    "data\\raw\\market_data\\HMPRO_BK.csv": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+    "data\\raw\\market_data\\IVL_BK.csv": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+    "data\\raw\\market_data\\KKP_BK.csv": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+    "data\\raw\\market_data\\KTB_BK.csv": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+    "data\\raw\\market_data\\LH_BK.csv": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+    "data\\raw\\market_data\\MTC_BK.csv": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+    "data\\raw\\market_data\\OSP_BK.csv": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+    "data\\raw\\market_data\\PTTGC_BK.csv": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+    "data\\raw\\market_data\\RATCH_BK.csv": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+    "data\\raw\\market_data\\SCGP_BK.csv": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+    "data\\raw\\market_data\\TIDLOR_BK.csv": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+    "data\\raw\\market_data\\TOP_BK.csv": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+  },
+  "code_hashes": {
+    "scripts\\run_phase3_signal_screen.py": "d95894705eae31b49d97f448df7187dab72532c97cbef17fd16f6560450be3b5",
+    "src\\data\\research.py": "a5a3605c49a4924f93056c4aebb8607bdfa4b5aad55ff4235b854ef8ce7c5f2e",
+    "src\\data\\eligibility.py": "9e358ab62566823dcc0459153d41c52af3a0b7aadd9f662e67f72e825a579ef5"
+  },
+  "loaded_symbols": [
+    "BDMS",
+    "BGRIM",
+    "CENTEL",
+    "COM7",
+    "GLOBAL",
+    "GULF",
+    "HMPRO",
+    "IVL",
+    "KKP",
+    "KTB",
+    "LH",
+    "MTC",
+    "OSP",
+    "PTTGC",
+    "RATCH",
+    "SCGP",
+    "TIDLOR",
+    "TOP"
+  ],
+  "summaries": {
+    "S3-A": {
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY",
+      "event_count": 45,
+      "unique_symbols": 17,
+      "unique_dates": 37,
+      "unique_symbol_date_pairs": 45,
+      "effective_symbol_clusters_kish": 13.06451612903226,
+      "effective_date_clusters_kish": 27.739726027397253,
+      "conservative_independent_cluster_proxy": 13.06451612903226,
+      "adjacent_events_within_7_calendar_days_same_symbol": 9,
+      "control_count": 12261,
+      "same_symbol_date_overlap": 0,
+      "horizons": {
+        "1": {
+          "event_n": 45,
+          "event_mean": -0.00040908843697485696,
+          "event_median": 0.0,
+          "event_hit_rate": 0.28888888888888886,
+          "control_n": 45,
+          "control_mean": -0.0011617242076461694,
+          "mean_uplift": 0.0007526357706713126,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.007618013027305956,
+            0.009197540858934447
+          ],
+          "bootstrap_p_two_sided_centered": 0.8581141885811419,
+          "event_q10_q90": [
+            -0.022087562490531763,
+            0.020725642531191784
+          ]
+        },
+        "3": {
+          "event_n": 45,
+          "event_mean": 0.0061215726902811496,
+          "event_median": 0.0,
+          "event_hit_rate": 0.4,
+          "control_n": 45,
+          "control_mean": -0.0007501779447107709,
+          "mean_uplift": 0.00687175063499192,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.011084604870301456,
+            0.026160231742628607
+          ],
+          "bootstrap_p_two_sided_centered": 0.46835316468353166,
+          "event_q10_q90": [
+            -0.028633540372670782,
+            0.04298247506246114
+          ]
+        },
+        "5": {
+          "event_n": 45,
+          "event_mean": 0.007918539151066077,
+          "event_median": -0.007751893856784764,
+          "event_hit_rate": 0.37777777777777777,
+          "control_n": 45,
+          "control_mean": -0.0012115478343918149,
+          "mean_uplift": 0.00913008698545789,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.011504932008579489,
+            0.035969103918643004
+          ],
+          "bootstrap_p_two_sided_centered": 0.44155584441555845,
+          "event_q10_q90": [
+            -0.03298701298701297,
+            0.05580993657740808
+          ],
+          "holm_adjusted_p": 1.0
+        }
+      }
+    },
+    "S3-B": {
+      "status": "POSTPONED_OFFICIAL_BENCHMARK_SERIES_UNAVAILABLE",
+      "event_count": 0,
+      "unique_symbols": 0,
+      "unique_dates": 0,
+      "unique_symbol_date_pairs": 0,
+      "effective_symbol_clusters_kish": 0.0,
+      "effective_date_clusters_kish": 0.0,
+      "conservative_independent_cluster_proxy": 0.0,
+      "adjacent_events_within_7_calendar_days_same_symbol": 0,
+      "control_count": 0,
+      "same_symbol_date_overlap": 0,
+      "horizons": {
+        "1": {
+          "event_n": 0,
+          "event_mean": null,
+          "event_median": null,
+          "event_hit_rate": null,
+          "control_n": 0,
+          "control_mean": null,
+          "mean_uplift": null,
+          "two_way_cluster_bootstrap_95pct_ci": null,
+          "bootstrap_p_two_sided_centered": null,
+          "event_q10_q90": null
+        },
+        "3": {
+          "event_n": 0,
+          "event_mean": null,
+          "event_median": null,
+          "event_hit_rate": null,
+          "control_n": 0,
+          "control_mean": null,
+          "mean_uplift": null,
+          "two_way_cluster_bootstrap_95pct_ci": null,
+          "bootstrap_p_two_sided_centered": null,
+          "event_q10_q90": null
+        },
+        "5": {
+          "event_n": 0,
+          "event_mean": null,
+          "event_median": null,
+          "event_hit_rate": null,
+          "control_n": 0,
+          "control_mean": null,
+          "mean_uplift": null,
+          "two_way_cluster_bootstrap_95pct_ci": null,
+          "bootstrap_p_two_sided_centered": null,
+          "event_q10_q90": null
+        }
+      }
+    },
+    "S3-C": {
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY",
+      "event_count": 2269,
+      "unique_symbols": 18,
+      "unique_dates": 681,
+      "unique_symbol_date_pairs": 2269,
+      "effective_symbol_clusters_kish": 14.795118642898814,
+      "effective_date_clusters_kish": 390.53030417962526,
+      "conservative_independent_cluster_proxy": 14.795118642898814,
+      "adjacent_events_within_7_calendar_days_same_symbol": 1552,
+      "control_count": 10037,
+      "same_symbol_date_overlap": 0,
+      "horizons": {
+        "1": {
+          "event_n": 2161,
+          "event_mean": 0.00043682572618138706,
+          "event_median": 0.0,
+          "event_hit_rate": 0.3956501619620546,
+          "control_n": 2161,
+          "control_mean": 0.0006140088277911147,
+          "mean_uplift": -0.0001771831016097278,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.002533675041211191,
+            0.0022392614162564297
+          ],
+          "bootstrap_p_two_sided_centered": 0.8767123287671232,
+          "event_q10_q90": [
+            -0.02597404205893583,
+            0.029126213592232997
+          ]
+        },
+        "3": {
+          "event_n": 2161,
+          "event_mean": -0.0009413881518419618,
+          "event_median": 0.0,
+          "event_hit_rate": 0.4340583063396576,
+          "control_n": 2161,
+          "control_mean": -0.0001620734861901531,
+          "mean_uplift": -0.0007793146656518091,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.0037728360796060686,
+            0.002314644030702524
+          ],
+          "bootstrap_p_two_sided_centered": 0.6184381561843816,
+          "event_q10_q90": [
+            -0.04716980962322126,
+            0.04705882352941182
+          ]
+        },
+        "5": {
+          "event_n": 2161,
+          "event_mean": -0.0020388700269952575,
+          "event_median": -0.004716981132075526,
+          "event_hit_rate": 0.4396112910689496,
+          "control_n": 2161,
+          "control_mean": -0.0022068687367169967,
+          "mean_uplift": 0.0001679987097217391,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.0038545376020241912,
+            0.004469658502504539
+          ],
+          "bootstrap_p_two_sided_centered": 0.932906709329067,
+          "event_q10_q90": [
+            -0.0625,
+            0.05726872246696035
+          ],
+          "holm_adjusted_p": 1.0
+        }
+      }
+    },
+    "S3-D": {
+      "status": "STAGE_B_REJECTED_REUSED_HISTORY",
+      "event_count": 485,
+      "unique_symbols": 18,
+      "unique_dates": 316,
+      "unique_symbol_date_pairs": 485,
+      "effective_symbol_clusters_kish": 16.210116463372614,
+      "effective_date_clusters_kish": 228.15227934044614,
+      "conservative_independent_cluster_proxy": 16.210116463372614,
+      "adjacent_events_within_7_calendar_days_same_symbol": 132,
+      "control_count": 11821,
+      "same_symbol_date_overlap": 0,
+      "horizons": {
+        "1": {
+          "event_n": 485,
+          "event_mean": -0.0004182199758976432,
+          "event_median": 0.0,
+          "event_hit_rate": 0.3463917525773196,
+          "control_n": 485,
+          "control_mean": -0.00046044954250600673,
+          "mean_uplift": 4.2229566608363234e-05,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.002761189401918423,
+            0.0028040160910946573
+          ],
+          "bootstrap_p_two_sided_centered": 0.9756024397560243,
+          "event_q10_q90": [
+            -0.019380619380619368,
+            0.0232198976385023
+          ]
+        },
+        "3": {
+          "event_n": 485,
+          "event_mean": -0.002899014449428793,
+          "event_median": -0.004385898134529276,
+          "event_hit_rate": 0.3917525773195876,
+          "control_n": 485,
+          "control_mean": -0.002506050113584695,
+          "mean_uplift": -0.0003929643358440976,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.005244145323314032,
+            0.004458171302503233
+          ],
+          "bootstrap_p_two_sided_centered": 0.8715128487151285,
+          "event_q10_q90": [
+            -0.03861043795920842,
+            0.03738317757009346
+          ]
+        },
+        "5": {
+          "event_n": 485,
+          "event_mean": -0.0006287392507331023,
+          "event_median": 0.0,
+          "event_hit_rate": 0.4515463917525773,
+          "control_n": 485,
+          "control_mean": -0.0022298985491330295,
+          "mean_uplift": 0.001601159298399927,
+          "two_way_cluster_bootstrap_95pct_ci": [
+            -0.004940648629178702,
+            0.008793262262304457
+          ],
+          "bootstrap_p_two_sided_centered": 0.6439356064393561,
+          "event_q10_q90": [
+            -0.054179761156505336,
+            0.05502007063088009
+          ],
+          "holm_adjusted_p": 1.0
+        }
+      }
+    }
+  },
+  "uncertainty": {
+    "method": "two-way date/symbol pigeonhole bootstrap",
+    "replications": 10000,
+    "seed": 20261030,
+    "multiplicity": "Holm across calculable 5-session primary hypotheses",
+    "holm_adjusted_p_values": {
+      "S3-A": 1.0,
+      "S3-D": 1.0,
+      "S3-C": 1.0
+    }
+  },
+  "limitations": [
+    "Prior inspected history reused; no independent OOS claim",
+    "Official benchmark price-index daily source unavailable in approved inputs",
+    "Daily bars do not establish executable fills, spread, depth, queue, or exact signal-time auction semantics",
+    "Matched controls use same-symbol non-event observations and can still carry time/regime confounding",
+    "Holm adjustment is not used for promotion because the historical window is reused and there is no untouched confirmation period"
+  ],
+  "promotion_summary": "NO_SIGNAL_PASSED_PROMOTION_GATE"
+}

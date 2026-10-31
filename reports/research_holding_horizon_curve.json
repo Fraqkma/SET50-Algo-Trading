@@ -1,0 +1,2452 @@
+{
+  "schema_version": 1,
+  "experiment_id": "PHASE4_HOLDING_DISTRIBUTION_REUSED_PHASE3_20261031",
+  "run_timestamp_utc": "2026-10-30T18:36:02.031113+00:00",
+  "classification": "EXPLORATORY_REUSED_HISTORY_NOT_CONFIRMATORY",
+  "frozen_phase3_event_source": "reports/research_phase3_event_outcomes.jsonl",
+  "canonical_event_rule": "unique hypothesis/symbol/date rows present at H=5; Phase 3 final event cohort",
+  "horizons_trading_sessions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    10,
+    15
+  ],
+  "session_counting": "entry session is H=1; observed eligible rows, no calendar-day arithmetic",
+  "entry_exit": {
+    "S3-A/S3-D": "signal at close t; hypothetical adjusted next-session open entry; close at t+H; H=1 exits entry-session close",
+    "S3-B": "signal at close t; next-session open entry; close at t+H; H=1 exits next-session close; outcome subtracts official TradeSim-history SET50 price-index close-to-close return from t through t+H",
+    "S3-C": "gap observed after open; hypothetical entry at gap-session close (not an open fill); close H observed sessions later"
+  },
+  "source": "approved PIT daily stock rows only; no Settrade/TradeSim stock OHLCV blended; official TradeSim price-index series used as S3-B relative-return baseline",
+  "source_hashes": {
+    "phase3_event_outcomes": "83c378d7acb9fab15c4782df8d8dde0c57d506504595fbea88db1f93aae5be4b",
+    "approved_manifest": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+    "constituents": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+    "benchmark": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+    "phase3_preregistration": "34553c102210b21a4c7c7337934bafb51941525f79ddac2e9b14b87e90a14e60",
+    "hypothesis_config": "1b53ca03fcd0a940da3ba1407a0524b4b547e348559e4863fd6ae24003ef8919",
+    "phase4_direction_lock": "40d357e7b2ad28f54b90b102704eeaa58df3d8dccf711471da442fd198da40bd"
+  },
+  "costs": {
+    "commission_rate": 0.00157,
+    "vat_rate_on_commission": 0.07,
+    "two_sided_fee_rate": 0.0033598,
+    "one_tick_each_side": "adverse one SET tick at raw entry and exit, using scripts/run_design_a_backtest.py tick schedule; OHLC proxy only, not a fill model",
+    "returns_are": "daily-bar adjusted-price estimates; no BBO, queue, executable volume, or IOC fill probabilities"
+  },
+  "controls": {
+    "S3-A/S3-B/S3-D": "same-date PIT-eligible non-event securities; exact frozen events retained",
+    "S3-C": "same symbol and calendar year, eligible non-gap observations; control returns direction-aligned to event gap"
+  },
+  "uncertainty": "10,000 two-way date/symbol pigeonhole bootstrap; seed=20261101 plus horizon/cost offsets; small symbol-cluster count limits reliability; Holm across 32 horizon tests within each cost scenario",
+  "reuse_and_oos": "Every source observation used here has been inspected in prior research; no independent OOS. Chronological slices and horizon reanalysis do not create new confirmation.",
+  "promotion": "No Phase 3 rejection is reopened; this distribution cannot pass G1 or promote a signal.",
+  "promotion_status": "NO_SIGNAL_PASSED_PROMOTION_GATE",
+  "candidate_shortlist_for_human_review": [],
+  "new_data_purchases_thb": 0,
+  "real_orders_placed": 0,
+  "horizon_curve": {
+    "S3-A": {
+      "canonical_frozen_h5_event_count": 45,
+      "events_with_any_horizon": 45,
+      "unique_symbols": 17,
+      "unique_dates": 37,
+      "horizons": {
+        "1": {
+          "sessions": 1,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": -0.00040908843697485696,
+              "net_mean": -0.0037688884369748554,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.025447362490531762,
+                -0.011906808547008516,
+                -0.0033598,
+                0.006118818577014819,
+                0.017365842531191784
+              ],
+              "net_std": 0.017523614917902008,
+              "fraction_positive_net": 0.28888888888888886,
+              "net_mean_ci95_two_way_cluster": [
+                -0.012031225924386612,
+                0.004213500986568322
+              ],
+              "matched_control_mean_uplift": 0.0007526357706713126,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007658482053874695,
+                0.009503482439409228
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8555144485551445,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": -0.00040908843697485696,
+              "net_mean": -0.016579055175336574,
+              "net_median": -0.0189848,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.03649332625051678,
+                -0.026319283264826788,
+                -0.0189848,
+                -0.00423332787018239,
+                0.0071937041629741225
+              ],
+              "net_std": 0.018062774328616076,
+              "fraction_positive_net": 0.15555555555555556,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02505167852057639,
+                -0.00827059016406878
+              ],
+              "matched_control_mean_uplift": 0.000732012007603066,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007761037251326932,
+                0.009802016720764714
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8673132686731326,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "2": {
+          "sessions": 2,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.002292384809828121,
+              "net_mean": -0.001067415190171879,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.035893905002066996,
+                -0.021993340372670842,
+                -0.0033598,
+                0.017216332333265163,
+                0.03476698361973432
+              ],
+              "net_std": 0.028068303562041926,
+              "fraction_positive_net": 0.4888888888888889,
+              "net_mean_ci95_two_way_cluster": [
+                -0.015214290512051705,
+                0.01334127851592423
+              ],
+              "matched_control_mean_uplift": 0.0010168020432976441,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01302572438977333,
+                0.01543231505228778
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8872112788721128,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.002292384809828121,
+              "net_mean": -0.013856807410051521,
+              "net_median": -0.012534111926605505,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05119655632019985,
+                -0.03448961572183162,
+                -0.012534111926605505,
+                0.005478217965807119,
+                0.021318926884791936
+              ],
+              "net_std": 0.028038686605940128,
+              "fraction_positive_net": 0.3111111111111111,
+              "net_mean_ci95_two_way_cluster": [
+                -0.027846938276292137,
+                0.0005392870378011551
+              ],
+              "matched_control_mean_uplift": 0.000998008343972761,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01318001396857045,
+                0.015723963367506165
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8864113588641136,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "3": {
+          "sessions": 3,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.0061215726902811496,
+              "net_mean": 0.0027617726902811482,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.031993340372670785,
+                -0.015859768210856082,
+                -0.0033598,
+                0.027477152954365505,
+                0.039622675062461137
+              ],
+              "net_std": 0.03269210931521886,
+              "fraction_positive_net": 0.4,
+              "net_mean_ci95_two_way_cluster": [
+                -0.013352717867846097,
+                0.020803537850426698
+              ],
+              "matched_control_mean_uplift": 0.006871750634991922,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.011581769472107335,
+                0.026142802099725877
+              ],
+              "matched_control_uplift_p_unadjusted": 0.46685331466853314,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.0061215726902811496,
+              "net_mean": -0.010009321559854718,
+              "net_median": -0.017544197163120567,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.046318339045495545,
+                -0.02782532243300212,
+                -0.017544197163120567,
+                0.018081305505593323,
+                0.02574671525225867
+              ],
+              "net_std": 0.03299132744161671,
+              "fraction_positive_net": 0.3111111111111111,
+              "net_mean_ci95_two_way_cluster": [
+                -0.026424212483850882,
+                0.008209843364608534
+              ],
+              "matched_control_mean_uplift": 0.00687925889677962,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.011756366561876223,
+                0.0264900384984027
+              ],
+              "matched_control_uplift_p_unadjusted": 0.47435256474352566,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "4": {
+          "sessions": 4,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.004222334992209017,
+              "net_mean": 0.0008625349922090156,
+              "net_median": -0.009457360975609761,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.03824462320599105,
+                -0.020026466666666718,
+                -0.009457360975609761,
+                0.023071849953980064,
+                0.0447796701899978
+              ],
+              "net_std": 0.03466152180115356,
+              "fraction_positive_net": 0.4,
+              "net_mean_ci95_two_way_cluster": [
+                -0.015173276806106223,
+                0.02009600317337666
+              ],
+              "matched_control_mean_uplift": 0.004865924226338678,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.014557796453080593,
+                0.026018855750714744
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6307369263073692,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.004222334992209017,
+              "net_mean": -0.011924792178485678,
+              "net_median": -0.020453817094017095,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05101521347650273,
+                -0.03683437627118649,
+                -0.020453817094017095,
+                0.014374718124332725,
+                0.033610846303519355
+              ],
+              "net_std": 0.03517150505264086,
+              "fraction_positive_net": 0.3333333333333333,
+              "net_mean_ci95_two_way_cluster": [
+                -0.028219934398013763,
+                0.0075845864417019345
+              ],
+              "matched_control_mean_uplift": 0.004863716551462064,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01500279668086264,
+                0.026118189194799794
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6404359564043596,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "5": {
+          "sessions": 5,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.007918539151066077,
+              "net_mean": 0.0045587391510660755,
+              "net_median": -0.011111693856784764,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.03634681298701297,
+                -0.02835981589457179,
+                -0.011111693856784764,
+                0.03172791929824572,
+                0.052450136577408074
+              ],
+              "net_std": 0.047842734154728575,
+              "fraction_positive_net": 0.37777777777777777,
+              "net_mean_ci95_two_way_cluster": [
+                -0.016308693250496137,
+                0.03130832374665639
+              ],
+              "matched_control_mean_uplift": 0.00913008698545789,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01172948501420488,
+                0.03581154761965016
+              ],
+              "matched_control_uplift_p_unadjusted": 0.4413558644135586,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.007918539151066077,
+              "net_mean": -0.008069075909197851,
+              "net_median": -0.026676131954100433,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.04861767514447544,
+                -0.04051885270529662,
+                -0.026676131954100433,
+                0.0167200098149091,
+                0.04235793884344932
+              ],
+              "net_std": 0.04788848711479924,
+              "fraction_positive_net": 0.35555555555555557,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02912687109995082,
+                0.018777578531664053
+              ],
+              "matched_control_mean_uplift": 0.00930328029800909,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01181384135728037,
+                0.036270438749154046
+              ],
+              "matched_control_uplift_p_unadjusted": 0.43895610438956106,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "7": {
+          "sessions": 7,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.008656504861581548,
+              "net_mean": 0.005296704861581548,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05427203911914713,
+                -0.015554921951219523,
+                -0.0033598,
+                0.025541916973660286,
+                0.049608276686307295
+              ],
+              "net_std": 0.050006973639840184,
+              "fraction_positive_net": 0.4888888888888889,
+              "net_mean_ci95_two_way_cluster": [
+                -0.018182082224274664,
+                0.03036989562742871
+              ],
+              "matched_control_mean_uplift": 0.006839664759220271,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.017605017630507338,
+                0.03487357098312914
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6020397960203979,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.008656504861581548,
+              "net_mean": -0.0074546416990494465,
+              "net_median": -0.012838472814415795,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.06879600361020041,
+                -0.032868633236264766,
+                -0.012838472814415795,
+                0.012775793372937057,
+                0.03686776161943572
+              ],
+              "net_std": 0.049867953557176346,
+              "fraction_positive_net": 0.4,
+              "net_mean_ci95_two_way_cluster": [
+                -0.03061683346191837,
+                0.017635969692253495
+              ],
+              "matched_control_mean_uplift": 0.006907993167708499,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.017571608880350614,
+                0.03518837789870162
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6036396360363964,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "10": {
+          "sessions": 10,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.00909776126213804,
+              "net_mean": 0.0057379612621380385,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05912239489302969,
+                -0.028783528813559365,
+                -0.0033598,
+                0.04962033245033117,
+                0.07617654284143212
+              ],
+              "net_std": 0.055489511508830004,
+              "fraction_positive_net": 0.4888888888888889,
+              "net_mean_ci95_two_way_cluster": [
+                -0.024762401651861318,
+                0.03502224373143333
+              ],
+              "matched_control_mean_uplift": 0.002927825956578068,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.023923780025654724,
+                0.036036393332962845
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8472152784721528,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.00909776126213804,
+              "net_mean": -0.007004125171727152,
+              "net_median": -0.014870663065577086,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07137163478730929,
+                -0.04352786722689077,
+                -0.014870663065577086,
+                0.036421607921024696,
+                0.06462108128799648
+              ],
+              "net_std": 0.055044848584402756,
+              "fraction_positive_net": 0.4222222222222222,
+              "net_mean_ci95_two_way_cluster": [
+                -0.03710456589827113,
+                0.021978313855043466
+              ],
+              "matched_control_mean_uplift": 0.0029639897405780054,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.023904937156551734,
+                0.03637009954243409
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8477152284771523,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "15": {
+          "sessions": 15,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.015270660141535816,
+              "net_mean": 0.011910860141535815,
+              "net_median": 0.0007723682218389277,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07004166221437118,
+                -0.032166338171541776,
+                0.0007723682218389277,
+                0.06526765098039214,
+                0.09442177116798403
+              ],
+              "net_std": 0.0646987161614098,
+              "fraction_positive_net": 0.5333333333333333,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02019260003385916,
+                0.04372279403024667
+              ],
+              "matched_control_mean_uplift": 0.007070653698694775,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.02225625902584239,
+                0.04224468752680692
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6586341365863414,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 45,
+              "matched_n": 45,
+              "symbols": 17,
+              "event_dates": 37,
+              "effective_date_clusters_kish": 27.739726027397253,
+              "effective_symbol_clusters_kish": 13.06451612903226,
+              "gross_mean": 0.015270660141535816,
+              "net_mean": -0.0009326324213374117,
+              "net_median": -0.00740838299595134,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.08329303582655086,
+                -0.040540615108150296,
+                -0.00740838299595134,
+                0.046289417485159176,
+                0.08134563486370822
+              ],
+              "net_std": 0.06438729153649672,
+              "fraction_positive_net": 0.4444444444444444,
+              "net_mean_ci95_two_way_cluster": [
+                -0.03279763987316784,
+                0.030695776154289513
+              ],
+              "matched_control_mean_uplift": 0.006988623604377155,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.02239563767375552,
+                0.04265114290574865
+              ],
+              "matched_control_uplift_p_unadjusted": 0.664933506649335,
+              "control_observations_used": 587,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        }
+      }
+    },
+    "S3-B": {
+      "canonical_frozen_h5_event_count": 724,
+      "events_with_any_horizon": 724,
+      "unique_symbols": 18,
+      "unique_dates": 319,
+      "horizons": {
+        "1": {
+          "sessions": 1,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 713,
+              "matched_n": 713,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.9572933998891,
+              "effective_symbol_clusters_kish": 12.692407559983023,
+              "gross_mean": -0.0014962587306951726,
+              "net_mean": -0.004856058730695171,
+              "net_median": -0.005975454889712937,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.026995869722297058,
+                -0.01613604191502702,
+                -0.005975454889712937,
+                0.005102674834964207,
+                0.019062525168983387
+              ],
+              "net_std": 0.019791721114450628,
+              "fraction_positive_net": 0.35624123422159887,
+              "net_mean_ci95_two_way_cluster": [
+                -0.007544543049595854,
+                -0.0021677774790753693
+              ],
+              "matched_control_mean_uplift": -0.0003448974072376957,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0026923858812288553,
+                0.0018953610324246232
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7674232576742326,
+              "control_observations_used": 8735,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 713,
+              "matched_n": 713,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.9572933998891,
+              "effective_symbol_clusters_kish": 12.692407559983023,
+              "gross_mean": -0.0014962587306951726,
+              "net_mean": -0.017553163174828707,
+              "net_median": -0.01952669956451518,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.040087384005540544,
+                -0.029817489099510205,
+                -0.01952669956451518,
+                -0.006022496581851635,
+                0.006492951510170158
+              ],
+              "net_std": 0.020164817180784906,
+              "fraction_positive_net": 0.16549789621318373,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02055485522765657,
+                -0.014560582444533402
+              ],
+              "matched_control_mean_uplift": -0.00043253247981631153,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.003095792871668194,
+                0.002142112363975653
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7461253874612539,
+              "control_observations_used": 8735,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "2": {
+          "sessions": 2,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 710,
+              "matched_n": 710,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9921962095875,
+              "effective_symbol_clusters_kish": 12.674108714235432,
+              "gross_mean": -0.0031477611156443368,
+              "net_mean": -0.0065075611156443355,
+              "net_median": -0.007856679464980896,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.037817710406679965,
+                -0.023273981283988613,
+                -0.007856679464980896,
+                0.008111512940090267,
+                0.02592916199706614
+              ],
+              "net_std": 0.02724417274191086,
+              "fraction_positive_net": 0.3732394366197183,
+              "net_mean_ci95_two_way_cluster": [
+                -0.010821494208220773,
+                -0.0022706861086502312
+              ],
+              "matched_control_mean_uplift": -0.0019469439757377504,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.006054668993366633,
+                0.0019348258577775678
+              ],
+              "matched_control_uplift_p_unadjusted": 0.3297670232976702,
+              "control_observations_used": 8695,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 710,
+              "matched_n": 710,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9921962095875,
+              "effective_symbol_clusters_kish": 12.674108714235432,
+              "gross_mean": -0.0031477611156443368,
+              "net_mean": -0.01919248057239736,
+              "net_median": -0.020633042586642975,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05030126432236061,
+                -0.03668479917933547,
+                -0.020633042586642975,
+                -0.0038204439522401927,
+                0.01397425449954037
+              ],
+              "net_std": 0.027521261799370256,
+              "fraction_positive_net": 0.2056338028169014,
+              "net_mean_ci95_two_way_cluster": [
+                -0.023874810683870963,
+                -0.01460600315651432
+              ],
+              "matched_control_mean_uplift": -0.0020289067165595665,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.006552639642576333,
+                0.0022818954919142168
+              ],
+              "matched_control_uplift_p_unadjusted": 0.36066393360663934,
+              "control_observations_used": 8695,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "3": {
+          "sessions": 3,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 709,
+              "matched_n": 709,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9843487982112,
+              "effective_symbol_clusters_kish": 12.654021397105097,
+              "gross_mean": -0.003126927566568385,
+              "net_mean": -0.0064867275665683845,
+              "net_median": -0.007868787064191453,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.04487374151651257,
+                -0.027403118970034203,
+                -0.007868787064191453,
+                0.012204584761084238,
+                0.033953920337627425
+              ],
+              "net_std": 0.03260134284812264,
+              "fraction_positive_net": 0.3991537376586742,
+              "net_mean_ci95_two_way_cluster": [
+                -0.011849915715256584,
+                -0.0011288151945042279
+              ],
+              "matched_control_mean_uplift": -0.0016438790331136455,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007056980811701402,
+                0.003614420392132096
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5428457154284572,
+              "control_observations_used": 8685,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 709,
+              "matched_n": 709,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9843487982112,
+              "effective_symbol_clusters_kish": 12.654021397105097,
+              "gross_mean": -0.003126927566568385,
+              "net_mean": -0.01920551158236607,
+              "net_median": -0.020189452350452997,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05677946273205422,
+                -0.03967200540407067,
+                -0.020189452350452997,
+                -0.0003641590794521733,
+                0.02195518540680723
+              ],
+              "net_std": 0.03293263527125574,
+              "fraction_positive_net": 0.24259520451339917,
+              "net_mean_ci95_two_way_cluster": [
+                -0.024957404408096857,
+                -0.013429536764292144
+              ],
+              "matched_control_mean_uplift": -0.0017607166759579433,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007561493555721952,
+                0.003949946868716818
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5463453654634537,
+              "control_observations_used": 8685,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "4": {
+          "sessions": 4,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 711,
+              "matched_n": 711,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.941438929169,
+              "effective_symbol_clusters_kish": 12.652892148274224,
+              "gross_mean": -0.003945392200950292,
+              "net_mean": -0.0073051922009502905,
+              "net_median": -0.01025464549543129,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05196231206311483,
+                -0.031040583341480278,
+                -0.01025464549543129,
+                0.012567505459391694,
+                0.04317163176630103
+              ],
+              "net_std": 0.038203191387764394,
+              "fraction_positive_net": 0.37412095639943743,
+              "net_mean_ci95_two_way_cluster": [
+                -0.013812155534764886,
+                -0.0010973188410858883
+              ],
+              "matched_control_mean_uplift": -0.002069539488787014,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.008543147693035076,
+                0.004406608401609304
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5245475452454754,
+              "control_observations_used": 8712,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 711,
+              "matched_n": 711,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.941438929169,
+              "effective_symbol_clusters_kish": 12.652892148274224,
+              "gross_mean": -0.003945392200950292,
+              "net_mean": -0.0200549971835254,
+              "net_median": -0.022803734736618265,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.06434903823050418,
+                -0.04357990926662483,
+                -0.022803734736618265,
+                -0.00058407356660483,
+                0.031324146588461145
+              ],
+              "net_std": 0.038563844091180854,
+              "fraction_positive_net": 0.24753867791842477,
+              "net_mean_ci95_two_way_cluster": [
+                -0.026921235341033398,
+                -0.013311056575692924
+              ],
+              "matched_control_mean_uplift": -0.0022177761381595184,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.009116777859676333,
+                0.004684173394240791
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5245475452454754,
+              "control_observations_used": 8712,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "5": {
+          "sessions": 5,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 711,
+              "matched_n": 711,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.941438929169,
+              "effective_symbol_clusters_kish": 12.671287128712871,
+              "gross_mean": -0.0045141601345303935,
+              "net_mean": -0.007873960134530393,
+              "net_median": -0.00907943623324223,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.058231161303684865,
+                -0.03537767721005389,
+                -0.00907943623324223,
+                0.016172784250957053,
+                0.04809086865379211
+              ],
+              "net_std": 0.044107099931820624,
+              "fraction_positive_net": 0.3853727144866385,
+              "net_mean_ci95_two_way_cluster": [
+                -0.01559740130419324,
+                -0.0007278355480158451
+              ],
+              "matched_control_mean_uplift": -0.0020963833442863445,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.009783145735201896,
+                0.005430862523170995
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5778422157784222,
+              "control_observations_used": 8710,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 711,
+              "matched_n": 711,
+              "symbols": 18,
+              "event_dates": 314,
+              "effective_date_clusters_kish": 281.941438929169,
+              "effective_symbol_clusters_kish": 12.671287128712871,
+              "gross_mean": -0.0045141601345303935,
+              "net_mean": -0.020640867507560307,
+              "net_median": -0.02178039221138487,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07125519225693462,
+                -0.048572267846642404,
+                -0.02178039221138487,
+                0.002504873401769246,
+                0.035871992221056026
+              ],
+              "net_std": 0.044477420811962355,
+              "fraction_positive_net": 0.279887482419128,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02869888918434463,
+                -0.012998497144326963
+              ],
+              "matched_control_mean_uplift": -0.0022597152847148813,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.010334443495455004,
+                0.0057406956280116935
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5672432756724327,
+              "control_observations_used": 8710,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "7": {
+          "sessions": 7,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 708,
+              "matched_n": 708,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9775784753363,
+              "effective_symbol_clusters_kish": 12.647961243439644,
+              "gross_mean": -0.004330296267085024,
+              "net_mean": -0.007690096267085024,
+              "net_median": -0.010640830783874875,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.0699292214042129,
+                -0.040178367080944445,
+                -0.010640830783874875,
+                0.01997954223901576,
+                0.05916954775207572
+              ],
+              "net_std": 0.05178567629960318,
+              "fraction_positive_net": 0.3983050847457627,
+              "net_mean_ci95_two_way_cluster": [
+                -0.016727186209996515,
+                0.0004632342719541644
+              ],
+              "matched_control_mean_uplift": -0.0014579846901497993,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.010544490232725464,
+                0.006954318904704015
+              ],
+              "matched_control_uplift_p_unadjusted": 0.74002599740026,
+              "control_observations_used": 8667,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 708,
+              "matched_n": 708,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9775784753363,
+              "effective_symbol_clusters_kish": 12.647961243439644,
+              "gross_mean": -0.004330296267085024,
+              "net_mean": -0.020526869621173102,
+              "net_median": -0.02457606944384435,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.08135004367088351,
+                -0.0540615906407508,
+                -0.02457606944384435,
+                0.0078042653652833855,
+                0.04632522228432768
+              ],
+              "net_std": 0.05225438912166714,
+              "fraction_positive_net": 0.3022598870056497,
+              "net_mean_ci95_two_way_cluster": [
+                -0.029807165350448143,
+                -0.011987112092446997
+              ],
+              "matched_control_mean_uplift": -0.001703224638048709,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.011161883248597244,
+                0.0072224624633087636
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7132286771322868,
+              "control_observations_used": 8667,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "10": {
+          "sessions": 10,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 707,
+              "matched_n": 707,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9718943226532,
+              "effective_symbol_clusters_kish": 12.611939545328386,
+              "gross_mean": -0.005900480821136065,
+              "net_mean": -0.009260280821136065,
+              "net_median": -0.01137319006934132,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.09003532470922417,
+                -0.050259083865575954,
+                -0.01137319006934132,
+                0.024452887734320777,
+                0.07202572874927061
+              ],
+              "net_std": 0.06380501562370837,
+              "fraction_positive_net": 0.4200848656294201,
+              "net_mean_ci95_two_way_cluster": [
+                -0.019913564926587045,
+                0.00047607045137546266
+              ],
+              "matched_control_mean_uplift": -0.0023209777218774663,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.013270908427908675,
+                0.00800446492357902
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6668333166683331,
+              "control_observations_used": 8647,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 707,
+              "matched_n": 707,
+              "symbols": 18,
+              "event_dates": 313,
+              "effective_date_clusters_kish": 280.9718943226532,
+              "effective_symbol_clusters_kish": 12.611939545328386,
+              "gross_mean": -0.005900480821136065,
+              "net_mean": -0.022112471111636906,
+              "net_median": -0.024259253444626715,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.10260926228991255,
+                -0.06314574660893185,
+                -0.024259253444626715,
+                0.01246664759539601,
+                0.058157305473866196
+              ],
+              "net_std": 0.06425522206046144,
+              "fraction_positive_net": 0.32390381895332393,
+              "net_mean_ci95_two_way_cluster": [
+                -0.03309934748656564,
+                -0.012026763405880237
+              ],
+              "matched_control_mean_uplift": -0.0025895728131735763,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.013830009715393754,
+                0.008128234974188088
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6399360063993601,
+              "control_observations_used": 8647,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "15": {
+          "sessions": 15,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 696,
+              "matched_n": 696,
+              "symbols": 18,
+              "event_dates": 310,
+              "effective_date_clusters_kish": 277.76146788990826,
+              "effective_symbol_clusters_kish": 12.441339634271625,
+              "gross_mean": -0.0075581659353949225,
+              "net_mean": -0.010917965935394921,
+              "net_median": -0.012775245358792908,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.1061485393531382,
+                -0.05821397247985472,
+                -0.012775245358792908,
+                0.03982324285752584,
+                0.083260404365987
+              ],
+              "net_std": 0.07600686157063,
+              "fraction_positive_net": 0.42528735632183906,
+              "net_mean_ci95_two_way_cluster": [
+                -0.023874114242222823,
+                0.0008930937082991868
+              ],
+              "matched_control_mean_uplift": -0.0011494029716857324,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.014070635222199288,
+                0.010605394304908464
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8483151684831517,
+              "control_observations_used": 8504,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 696,
+              "matched_n": 696,
+              "symbols": 18,
+              "event_dates": 310,
+              "effective_date_clusters_kish": 277.76146788990826,
+              "effective_symbol_clusters_kish": 12.441339634271625,
+              "gross_mean": -0.0075581659353949225,
+              "net_mean": -0.02380233919425776,
+              "net_median": -0.0255235387231953,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.11776785090253315,
+                -0.07052182428096285,
+                -0.0255235387231953,
+                0.027586381642762357,
+                0.0702612009136851
+              ],
+              "net_std": 0.07648028487192865,
+              "fraction_positive_net": 0.3577586206896552,
+              "net_mean_ci95_two_way_cluster": [
+                -0.03686293735988299,
+                -0.011548776966970724
+              ],
+              "matched_control_mean_uplift": -0.0014307151317449107,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.01457029252655732,
+                0.010738217153060982
+              ],
+              "matched_control_uplift_p_unadjusted": 0.821017898210179,
+              "control_observations_used": 8504,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        }
+      }
+    },
+    "S3-C": {
+      "canonical_frozen_h5_event_count": 2269,
+      "events_with_any_horizon": 2269,
+      "unique_symbols": 18,
+      "unique_dates": 682,
+      "horizons": {
+        "1": {
+          "sessions": 1,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": 0.000614634639786194,
+              "net_mean": -0.0027451653602138053,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.02967558947368418,
+                -0.015264561904761862,
+                -0.0033598,
+                0.00854491649169922,
+                0.026402576237623803
+              ],
+              "net_std": 0.026216290741161944,
+              "fraction_positive_net": 0.3988541207580432,
+              "net_mean_ci95_two_way_cluster": [
+                -0.004927522431904878,
+                -0.0004361775373503427
+              ],
+              "matched_control_mean_uplift": 0.0005902093475905945,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0016799514099961055,
+                0.0028594683295908034
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6113388661133886,
+              "control_observations_used": 361378,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": 0.000614634639786194,
+              "net_mean": -0.015334531232589422,
+              "net_median": -0.01644125054110489,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.04261314761834879,
+                -0.028087588699057572,
+                -0.01644125054110489,
+                -0.0033942038655597646,
+                0.014007916173239534
+              ],
+              "net_std": 0.02635234378089997,
+              "fraction_positive_net": 0.20758043190832967,
+              "net_mean_ci95_two_way_cluster": [
+                -0.017546624884910666,
+                -0.012978746826687391
+              ],
+              "matched_control_mean_uplift": 0.0006224600908487119,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.001661368964711567,
+                0.00288492317853212
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5903409659034097,
+              "control_observations_used": 361378,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "2": {
+          "sessions": 2,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": 0.0002930998056417473,
+              "net_mean": -0.003066700194358252,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.041348250938181064,
+                -0.022227705855434186,
+                -0.0033598,
+                0.014184014641410194,
+                0.036388497882431016
+              ],
+              "net_std": 0.035055315249436114,
+              "fraction_positive_net": 0.4292639929484354,
+              "net_mean_ci95_two_way_cluster": [
+                -0.005980512475967796,
+                -9.287973271182824e-05
+              ],
+              "matched_control_mean_uplift": 0.00020651617670863244,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.002662720985697326,
+                0.0032153132713203685
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8909109089091091,
+              "control_observations_used": 360948,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": 0.0002930998056417473,
+              "net_mean": -0.0156664618913355,
+              "net_median": -0.017018337093689603,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.054038872321805854,
+                -0.034720615602836916,
+                -0.017018337093689603,
+                0.0022069545790959766,
+                0.024048305344532693
+              ],
+              "net_std": 0.035180866970996906,
+              "fraction_positive_net": 0.27633318642573823,
+              "net_mean_ci95_two_way_cluster": [
+                -0.01863057142278588,
+                -0.01259096064239236
+              ],
+              "matched_control_mean_uplift": 0.00022534307523317933,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0026609249591641204,
+                0.003226848643281352
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8815118488151185,
+              "control_observations_used": 360948,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "3": {
+          "sessions": 3,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.000499441410391707,
+              "net_mean": -0.003859241410391707,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05044082074817371,
+                -0.026615613953488413,
+                -0.0033598,
+                0.01791679574468077,
+                0.04471712484037409
+              ],
+              "net_std": 0.04235123555629628,
+              "fraction_positive_net": 0.43895989422653153,
+              "net_mean_ci95_two_way_cluster": [
+                -0.007204194996188415,
+                -0.00028018479477181374
+              ],
+              "matched_control_mean_uplift": -0.0006600926728289629,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.004027349454700136,
+                0.0029010987540968422
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6970302969703029,
+              "control_observations_used": 360515,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.000499441410391707,
+              "net_mean": -0.016455182593083637,
+              "net_median": -0.018089849010976093,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.06311113809132464,
+                -0.0397115977263585,
+                -0.018089849010976093,
+                0.005716404169662112,
+                0.032694702845957685
+              ],
+              "net_std": 0.04246608285966372,
+              "fraction_positive_net": 0.29440282062582634,
+              "net_mean_ci95_two_way_cluster": [
+                -0.019951196500277168,
+                -0.012756585070597853
+              ],
+              "matched_control_mean_uplift": -0.0006374018041424358,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.003991005634098444,
+                0.0029069835462466817
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7055294470552945,
+              "control_observations_used": 360515,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "4": {
+          "sessions": 4,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.0012860570354979164,
+              "net_mean": -0.004645857035497916,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.0594937289362085,
+                -0.031585561174410005,
+                -0.0033598,
+                0.02195659049815282,
+                0.05247769975717633
+              ],
+              "net_std": 0.049784307840091614,
+              "fraction_positive_net": 0.44468929043631555,
+              "net_mean_ci95_two_way_cluster": [
+                -0.008551562959082649,
+                -0.0005329320533571165
+              ],
+              "matched_control_mean_uplift": -0.0015255432389768198,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005621387054685857,
+                0.00260669819531523
+              ],
+              "matched_control_uplift_p_unadjusted": 0.45325467453254675,
+              "control_observations_used": 360063,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.0012860570354979164,
+              "net_mean": -0.017243088451820085,
+              "net_median": -0.017444307042253523,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07305269735837348,
+                -0.04407325985045775,
+                -0.017444307042253523,
+                0.009550116675606977,
+                0.03927372453453328
+              ],
+              "net_std": 0.04985996887716586,
+              "fraction_positive_net": 0.32304980167474656,
+              "net_mean_ci95_two_way_cluster": [
+                -0.021215165805986008,
+                -0.012991269578944416
+              ],
+              "matched_control_mean_uplift": -0.0015045914400600956,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005596086263067274,
+                0.0026312165969369196
+              ],
+              "matched_control_uplift_p_unadjusted": 0.45945405459454053,
+              "control_observations_used": 360063,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "5": {
+          "sessions": 5,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.0007929228010299054,
+              "net_mean": -0.004152722801029905,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.0658598,
+                -0.03441569988528656,
+                -0.0033598,
+                0.02521162857142847,
+                0.05732017071973076
+              ],
+              "net_std": 0.05435069178268795,
+              "fraction_positive_net": 0.4482150727192596,
+              "net_mean_ci95_two_way_cluster": [
+                -0.00853643812557825,
+                0.00047266405527603367
+              ],
+              "matched_control_mean_uplift": -0.0010693770109831378,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005496761825066884,
+                0.0034779361377222802
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6265373462653735,
+              "control_observations_used": 359565,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2269,
+              "matched_n": 2269,
+              "symbols": 18,
+              "event_dates": 682,
+              "effective_date_clusters_kish": 390.5895607313558,
+              "effective_symbol_clusters_kish": 14.795118642898814,
+              "gross_mean": -0.0007929228010299054,
+              "net_mean": -0.016753023671785668,
+              "net_median": -0.01838494479795514,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07801795665571941,
+                -0.04759108164135363,
+                -0.01838494479795514,
+                0.013021248387096746,
+                0.04553131976377331
+              ],
+              "net_std": 0.054426654647935606,
+              "fraction_positive_net": 0.34640810929925075,
+              "net_mean_ci95_two_way_cluster": [
+                -0.021201481722041476,
+                -0.012024963206910443
+              ],
+              "matched_control_mean_uplift": -0.001052460909830907,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0054527441704029156,
+                0.003497050232200905
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6347365263473652,
+              "control_observations_used": 359565,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "7": {
+          "sessions": 7,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2263,
+              "matched_n": 2263,
+              "symbols": 18,
+              "event_dates": 680,
+              "effective_date_clusters_kish": 389.4721271579588,
+              "effective_symbol_clusters_kish": 14.786493657984469,
+              "gross_mean": -0.0012528040621246634,
+              "net_mean": -0.004612604062124663,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07514546148280621,
+                -0.03961045705489228,
+                -0.0033598,
+                0.029815500613054404,
+                0.0674366727243545
+              ],
+              "net_std": 0.0625301179183862,
+              "fraction_positive_net": 0.4582412726469289,
+              "net_mean_ci95_two_way_cluster": [
+                -0.009395965277211885,
+                0.0005554776338855887
+              ],
+              "matched_control_mean_uplift": -0.0016921719385215516,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.006434153388345991,
+                0.003384425395414043
+              ],
+              "matched_control_uplift_p_unadjusted": 0.49265073492650735,
+              "control_observations_used": 357807,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2263,
+              "matched_n": 2263,
+              "symbols": 18,
+              "event_dates": 680,
+              "effective_date_clusters_kish": 389.4721271579588,
+              "effective_symbol_clusters_kish": 14.786493657984469,
+              "gross_mean": -0.0012528040621246634,
+              "net_mean": -0.01718905011479677,
+              "net_median": -0.018174614814814815,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.0872579362462676,
+                -0.05225086619121935,
+                -0.018174614814814815,
+                0.016853570066717914,
+                0.05508453594523113
+              ],
+              "net_std": 0.06260369898577879,
+              "fraction_positive_net": 0.3641184268669907,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02210809429289438,
+                -0.011932911440454812
+              ],
+              "matched_control_mean_uplift": -0.0016381454650190046,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.006402778604605794,
+                0.0034516763399382987
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5071492850714928,
+              "control_observations_used": 357807,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "10": {
+          "sessions": 10,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2260,
+              "matched_n": 2260,
+              "symbols": 18,
+              "event_dates": 678,
+              "effective_date_clusters_kish": 388.82460414129105,
+              "effective_symbol_clusters_kish": 14.78304158562564,
+              "gross_mean": 0.0005601201999346676,
+              "net_mean": -0.002799679800065332,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.09190146666666663,
+                -0.047333087150378046,
+                -0.0033598,
+                0.04113424761904765,
+                0.08621157567624581
+              ],
+              "net_std": 0.0746176502018843,
+              "fraction_positive_net": 0.4743362831858407,
+              "net_mean_ci95_two_way_cluster": [
+                -0.008428705166049965,
+                0.0027727967244328567
+              ],
+              "matched_control_mean_uplift": -2.3176810056046305e-05,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005429557488151853,
+                0.0055916836143041606
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9935006499350065,
+              "control_observations_used": 355580,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2260,
+              "matched_n": 2260,
+              "symbols": 18,
+              "event_dates": 678,
+              "effective_date_clusters_kish": 388.82460414129105,
+              "effective_symbol_clusters_kish": 14.78304158562564,
+              "gross_mean": 0.0005601201999346676,
+              "net_mean": -0.015393240230921099,
+              "net_median": -0.01612130618849134,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.10447201201212708,
+                -0.05966476776542147,
+                -0.01612130618849134,
+                0.028847667339617057,
+                0.07444718781085984
+              ],
+              "net_std": 0.07466065282238342,
+              "fraction_positive_net": 0.3995575221238938,
+              "net_mean_ci95_two_way_cluster": [
+                -0.021068632301608894,
+                -0.00971443926838436
+              ],
+              "matched_control_mean_uplift": 1.4919524048416228e-05,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005393026379650499,
+                0.005628923567198836
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9948005199480052,
+              "control_observations_used": 355580,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "15": {
+          "sessions": 15,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 2248,
+              "matched_n": 2248,
+              "symbols": 18,
+              "event_dates": 674,
+              "effective_date_clusters_kish": 386.4126013151858,
+              "effective_symbol_clusters_kish": 14.762169615105977,
+              "gross_mean": -0.0003287983927660811,
+              "net_mean": -0.0036885983927660818,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.11326717222509913,
+                -0.05804728428393178,
+                -0.0033598,
+                0.05084649788739392,
+                0.10697864897646905
+              ],
+              "net_std": 0.09089433721338622,
+              "fraction_positive_net": 0.476423487544484,
+              "net_mean_ci95_two_way_cluster": [
+                -0.010486277164398459,
+                0.0033555613920992385
+              ],
+              "matched_control_mean_uplift": -0.0012055153042726363,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.00815799623653173,
+                0.005718215050893254
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7337266273372662,
+              "control_observations_used": 351497,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 2248,
+              "matched_n": 2248,
+              "symbols": 18,
+              "event_dates": 674,
+              "effective_date_clusters_kish": 386.4126013151858,
+              "effective_symbol_clusters_kish": 14.762169615105977,
+              "gross_mean": -0.0003287983927660811,
+              "net_mean": -0.01630145958187585,
+              "net_median": -0.017592758208803294,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.1261435068663555,
+                -0.07035897729329496,
+                -0.017592758208803294,
+                0.03816098676757133,
+                0.09406116547571261
+              ],
+              "net_std": 0.0908692768981465,
+              "fraction_positive_net": 0.41147686832740216,
+              "net_mean_ci95_two_way_cluster": [
+                -0.0231090884465597,
+                -0.009226298167539428
+              ],
+              "matched_control_mean_uplift": -0.001176495068357482,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.00813580075251572,
+                0.005776648820945298
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7405259474052595,
+              "control_observations_used": 351497,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        }
+      }
+    },
+    "S3-D": {
+      "canonical_frozen_h5_event_count": 486,
+      "events_with_any_horizon": 486,
+      "unique_symbols": 18,
+      "unique_dates": 317,
+      "horizons": {
+        "1": {
+          "sessions": 1,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.00039174606457726086,
+              "net_mean": -0.00375154606457726,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.022715444355644352,
+                -0.013199900950312874,
+                -0.0033598,
+                0.005161334289899868,
+                0.019851118559755767
+              ],
+              "net_std": 0.018426585240159946,
+              "fraction_positive_net": 0.3477366255144033,
+              "net_mean_ci95_two_way_cluster": [
+                -0.006714977356662136,
+                -0.0008705615745576189
+              ],
+              "matched_control_mean_uplift": -1.155240430562658e-05,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.002874861201085984,
+                0.0027687139658724397
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9938006199380062,
+              "control_observations_used": 6168,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.00039174606457726086,
+              "net_mean": -0.01664774463264056,
+              "net_median": -0.018372864720557422,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.03683437627118649,
+                -0.027099235652642273,
+                -0.018372864720557422,
+                -0.00873664025780757,
+                0.007332173992065043
+              ],
+              "net_std": 0.01872526780694408,
+              "fraction_positive_net": 0.16049382716049382,
+              "net_mean_ci95_two_way_cluster": [
+                -0.01954218277794777,
+                -0.013811686334153887
+              ],
+              "matched_control_mean_uplift": -6.77091944634499e-05,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.00283614452679425,
+                0.0026820990819601243
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9641035896410359,
+              "control_observations_used": 6168,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "2": {
+          "sessions": 2,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.00294229365154609,
+              "net_mean": -0.00630209365154609,
+              "net_median": -0.007875065182060024,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.03296401552584253,
+                -0.020878147745067247,
+                -0.007875065182060024,
+                0.007509765217391353,
+                0.026567540699557825
+              ],
+              "net_std": 0.02676185295251529,
+              "fraction_positive_net": 0.3662551440329218,
+              "net_mean_ci95_two_way_cluster": [
+                -0.010447620242206948,
+                -0.0022601951755988497
+              ],
+              "matched_control_mean_uplift": -0.0010873923424392876,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005279788946012529,
+                0.0028941941476831015
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5941405859414058,
+              "control_observations_used": 6165,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.00294229365154609,
+              "net_mean": -0.01921874650570879,
+              "net_median": -0.021000669357185614,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.047456528307254595,
+                -0.0333879969073073,
+                -0.021000669357185614,
+                -0.003310744573598003,
+                0.017836805213083486
+              ],
+              "net_std": 0.027171374022946285,
+              "fraction_positive_net": 0.19547325102880658,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02344372466996512,
+                -0.014815672669242462
+              ],
+              "matched_control_mean_uplift": -0.0011724927277274731,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0054582071805764,
+                0.0030438756870231677
+              ],
+              "matched_control_uplift_p_unadjusted": 0.5763423657634237,
+              "control_observations_used": 6165,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "3": {
+          "sessions": 3,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.002816209107103796,
+              "net_mean": -0.006176009107103795,
+              "net_median": -0.007680408641732726,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.04194542809417182,
+                -0.02363280986619815,
+                -0.007680408641732726,
+                0.013112968958165796,
+                0.03402337757009346
+              ],
+              "net_std": 0.032963753640434766,
+              "fraction_positive_net": 0.3868312757201646,
+              "net_mean_ci95_two_way_cluster": [
+                -0.011856975710470095,
+                -0.0008872023198198189
+              ],
+              "matched_control_mean_uplift": -0.00035421045710540413,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005198211339545157,
+                0.004505769623988179
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8838116188381162,
+              "control_observations_used": 6162,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.002816209107103796,
+              "net_mean": -0.019099980275126046,
+              "net_median": -0.020116072142774624,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05544692210366951,
+                -0.038357971289502794,
+                -0.020116072142774624,
+                0.001225505565112933,
+                0.021314267795285446
+              ],
+              "net_std": 0.03338905071700389,
+              "fraction_positive_net": 0.2613168724279835,
+              "net_mean_ci95_two_way_cluster": [
+                -0.024885969259029334,
+                -0.013575935719594463
+              ],
+              "matched_control_mean_uplift": -0.00045484235927069274,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005385826599132822,
+                0.004595760651956149
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8544145585441456,
+              "control_observations_used": 6162,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "4": {
+          "sessions": 4,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.0025370497844543565,
+              "net_mean": -0.005896849784454357,
+              "net_median": -0.008122109040324208,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05156150738110613,
+                -0.027122454668166488,
+                -0.008122109040324208,
+                0.017136067280065694,
+                0.04226823608605137
+              ],
+              "net_std": 0.03996148184761704,
+              "fraction_positive_net": 0.411522633744856,
+              "net_mean_ci95_two_way_cluster": [
+                -0.013368186831252054,
+                0.0004810980348656663
+              ],
+              "matched_control_mean_uplift": 0.0007150376262679793,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.004977961145080213,
+                0.006674293769464094
+              ],
+              "matched_control_uplift_p_unadjusted": 0.7996200379962004,
+              "control_observations_used": 6159,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.0025370497844543565,
+              "net_mean": -0.01880874803230296,
+              "net_median": -0.020905009546663564,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.06607264436077677,
+                -0.04048763355194562,
+                -0.020905009546663564,
+                0.004679845906251558,
+                0.030133636800274866
+              ],
+              "net_std": 0.04038996117445505,
+              "fraction_positive_net": 0.29218106995884774,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02625910894899339,
+                -0.012179830229483117
+              ],
+              "matched_control_mean_uplift": 0.0006374033347814593,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005120497325512377,
+                0.0067810173461299444
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8265173482651735,
+              "control_observations_used": 6159,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "5": {
+          "sessions": 5,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.0005079161873387338,
+              "net_mean": -0.0038677161873387333,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.05751860997276346,
+                -0.029166608134394343,
+                -0.0033598,
+                0.023130651793199866,
+                0.052455360955347884
+              ],
+              "net_std": 0.04530918784004935,
+              "fraction_positive_net": 0.45267489711934156,
+              "net_mean_ci95_two_way_cluster": [
+                -0.011601444544288433,
+                0.0033367325270167608
+              ],
+              "matched_control_mean_uplift": 0.0017192359319850375,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.004958641832678987,
+                0.008675241365975615
+              ],
+              "matched_control_uplift_p_unadjusted": 0.6180381961803819,
+              "control_observations_used": 6152,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 486,
+              "matched_n": 486,
+              "symbols": 18,
+              "event_dates": 317,
+              "effective_date_clusters_kish": 228.87209302325587,
+              "effective_symbol_clusters_kish": 16.19777808256755,
+              "gross_mean": -0.0005079161873387338,
+              "net_mean": -0.016802869957001688,
+              "net_median": -0.018385321704677163,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07013331380214913,
+                -0.041971127828755644,
+                -0.018385321704677163,
+                0.008540126745399449,
+                0.03881437884345845
+              ],
+              "net_std": 0.04556925423420558,
+              "fraction_positive_net": 0.31893004115226337,
+              "net_mean_ci95_two_way_cluster": [
+                -0.0245467375557216,
+                -0.009300296508324538
+              ],
+              "matched_control_mean_uplift": 0.0016209549576264711,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.005273135397127747,
+                0.0088912583297328
+              ],
+              "matched_control_uplift_p_unadjusted": 0.647035296470353,
+              "control_observations_used": 6152,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "7": {
+          "sessions": 7,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 485,
+              "matched_n": 485,
+              "symbols": 18,
+              "event_dates": 316,
+              "effective_date_clusters_kish": 228.15227934044614,
+              "effective_symbol_clusters_kish": 16.210116463372614,
+              "gross_mean": 0.0003118570222896745,
+              "net_mean": -0.0030479429777103256,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.06335980000000005,
+                -0.030632527272727226,
+                -0.0033598,
+                0.025375814897064555,
+                0.05973178723580608
+              ],
+              "net_std": 0.053855883726105794,
+              "fraction_positive_net": 0.4824742268041237,
+              "net_mean_ci95_two_way_cluster": [
+                -0.01286381654820101,
+                0.005856687214165061
+              ],
+              "matched_control_mean_uplift": 0.001141817801236354,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007400053651045927,
+                0.009940894401788601
+              ],
+              "matched_control_uplift_p_unadjusted": 0.801019898010199,
+              "control_observations_used": 6134,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 485,
+              "matched_n": 485,
+              "symbols": 18,
+              "event_dates": 316,
+              "effective_date_clusters_kish": 228.15227934044614,
+              "effective_symbol_clusters_kish": 16.210116463372614,
+              "gross_mean": 0.0003118570222896745,
+              "net_mean": -0.01590578487942946,
+              "net_median": -0.01465923454119862,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.07722068866020385,
+                -0.04631976401259561,
+                -0.01465923454119862,
+                0.012682049831186579,
+                0.050314388407012876
+              ],
+              "net_std": 0.054124156362568135,
+              "fraction_positive_net": 0.36082474226804123,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02587224129269507,
+                -0.006680915181070052
+              ],
+              "matched_control_mean_uplift": 0.0011350446550897901,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.007671075871209462,
+                0.010237302135884972
+              ],
+              "matched_control_uplift_p_unadjusted": 0.8091190880911909,
+              "control_observations_used": 6134,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "10": {
+          "sessions": 10,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 484,
+              "matched_n": 484,
+              "symbols": 18,
+              "event_dates": 315,
+              "effective_date_clusters_kish": 227.43300970873776,
+              "effective_symbol_clusters_kish": 16.18013537781462,
+              "gross_mean": 0.0018040439515980688,
+              "net_mean": -0.001555756048401932,
+              "net_median": -0.0033598,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.08411142870834004,
+                -0.038451183057898776,
+                -0.0033598,
+                0.03478824946018851,
+                0.07298635384615378
+              ],
+              "net_std": 0.06360538635647736,
+              "fraction_positive_net": 0.49173553719008267,
+              "net_mean_ci95_two_way_cluster": [
+                -0.012887413401369088,
+                0.008619802816850316
+              ],
+              "matched_control_mean_uplift": -0.00026713608849144736,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.009120664710565739,
+                0.008928744731959013
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9554044595540446,
+              "control_observations_used": 6113,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 484,
+              "matched_n": 484,
+              "symbols": 18,
+              "event_dates": 315,
+              "effective_date_clusters_kish": 227.43300970873776,
+              "effective_symbol_clusters_kish": 16.18013537781462,
+              "gross_mean": 0.0018040439515980688,
+              "net_mean": -0.014464553738448724,
+              "net_median": -0.01316466398154378,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.09741864314613798,
+                -0.0501507838255892,
+                -0.01316466398154378,
+                0.02181508847755332,
+                0.06198364968485595
+              ],
+              "net_std": 0.06373078786237478,
+              "fraction_positive_net": 0.4049586776859504,
+              "net_mean_ci95_two_way_cluster": [
+                -0.02573789601138791,
+                -0.004295473928638368
+              ],
+              "matched_control_mean_uplift": -0.00034485906836371783,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.00925648796037762,
+                0.00903053901852309
+              ],
+              "matched_control_uplift_p_unadjusted": 0.9398060193980602,
+              "control_observations_used": 6113,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        },
+        "15": {
+          "sessions": 15,
+          "cost_scenarios": {
+            "fee_only": {
+              "n_observed": 476,
+              "matched_n": 476,
+              "symbols": 18,
+              "event_dates": 312,
+              "effective_date_clusters_kish": 225.67330677290838,
+              "effective_symbol_clusters_kish": 16.184,
+              "gross_mean": 0.00943813693652635,
+              "net_mean": 0.006078336936526345,
+              "net_median": 0.005479797666486454,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.09515803508320439,
+                -0.04164237520217274,
+                0.005479797666486454,
+                0.052726919092075185,
+                0.1049365473752806
+              ],
+              "net_std": 0.08529578561313764,
+              "fraction_positive_net": 0.5357142857142857,
+              "net_mean_ci95_two_way_cluster": [
+                -0.00876412971729501,
+                0.020127622202619082
+              ],
+              "matched_control_mean_uplift": 0.005714337458101193,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.006470167171552434,
+                0.019091817020240844
+              ],
+              "matched_control_uplift_p_unadjusted": 0.37296270372962703,
+              "control_observations_used": 6012,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            },
+            "one_tick_each_side": {
+              "n_observed": 476,
+              "matched_n": 476,
+              "symbols": 18,
+              "event_dates": 312,
+              "effective_date_clusters_kish": 225.67330677290838,
+              "effective_symbol_clusters_kish": 16.184,
+              "gross_mean": 0.00943813693652635,
+              "net_mean": -0.006805398115525688,
+              "net_median": -0.007809780131076396,
+              "net_quantiles_p10_p25_p50_p75_p90": [
+                -0.11059627244427896,
+                -0.053884710739753094,
+                -0.007809780131076396,
+                0.04062283944003552,
+                0.09020141925218148
+              ],
+              "net_std": 0.08552459633107119,
+              "fraction_positive_net": 0.4495798319327731,
+              "net_mean_ci95_two_way_cluster": [
+                -0.021561441492429622,
+                0.007478558089150691
+              ],
+              "matched_control_mean_uplift": 0.005672890974810664,
+              "matched_control_uplift_ci95_two_way_cluster": [
+                -0.0066169582181845555,
+                0.01939915803285901
+              ],
+              "matched_control_uplift_p_unadjusted": 0.3842615738426157,
+              "control_observations_used": 6012,
+              "adjustment": "none yet; Holm will be applied across all 32 horizons per cost scenario",
+              "matched_control_uplift_p_holm_32_tests": 1.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+  "python_version": "3.13.0",
+  "code_hashes": {
+    "scripts/analyze_research_holding_distributions.py": "9458c70049f01d8462754ae77906dd2db4e3567eafc06bd0a2966e80be486d2e",
+    "scripts/rebuild_research_time_to_outcome.py": "865af99fbe4687a82c7893842cb1004ab62b0bcca80fea1a80a234465ed7ea9e",
+    "src/research/holding_period.py": "2c046b189e4f537489e44b77466447a1ce9f8fbeed83b85e9ff5f86ddb7f8595"
+  },
+  "confirmed_user_directions": {
+    "award_priority": [
+      "Best Alpha",
+      "Best Risk Control"
+    ],
+    "new_data_purchase_budget_thb": 0,
+    "preferred_horizons_sessions": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "additional_descriptive_horizons_sessions": [
+      7,
+      10,
+      15
+    ],
+    "select_historical_best_exit_day": false
+  },
+  "competition_award_interpretation": {
+    "candidate_gate": "common qualification first",
+    "best_alpha_ranking": [
+      "excess_return",
+      "calmar",
+      "total_return"
+    ],
+    "best_risk_control_ranking": [
+      "calmar",
+      "excess_return",
+      "drawdown"
+    ],
+    "portfolio_ranking_run": "NOT_RUN_NO_SIGNAL_PASSED_G1"
+  },
+  "h5_reconciliation_to_phase3": {
+    "canonical_phase3_run": "PHASE3_FINAL_DIRECTION_ADDENDUM_20261030; same frozen H5 event cohort and original controls",
+    "S3-A": {
+      "phase3_matched_uplift": 0.00913008698545789,
+      "distribution_fee_only_h5_uplift": 0.00913008698545789,
+      "match": "EXACT_POINT_ESTIMATE; bootstrap interval uses new fixed seed"
+    },
+    "S3-B": {
+      "phase3_matched_uplift": -0.002686703600340895,
+      "distribution_fee_only_h5_uplift": -0.0020963833442863445,
+      "match": "NOT_DIRECTLY_COMPARABLE: distribution entry is next-session open; Phase 3 primary was close-to-close benchmark-relative"
+    },
+    "S3-C": {
+      "phase3_matched_uplift": -0.0010643735648697048,
+      "distribution_fee_only_h5_uplift": -0.0010693770109831378,
+      "match": "REPRODUCED_TO_ROUNDING: direction aligned, every qualifying gap excluded from same-symbol/year controls"
+    },
+    "S3-D": {
+      "phase3_matched_uplift": 0.0017192359319850364,
+      "distribution_fee_only_h5_uplift": 0.0017192359319850375,
+      "match": "EXACT_POINT_ESTIMATE; bootstrap interval uses new fixed seed"
+    }
+  },
+  "limitations": [
+    "Every daily source row has already been seen in prior research; independent OOS observations eligible: 0.",
+    "Partial PIT panel: 18 names; effective symbol-cluster Kish H5 values are reported per hypothesis and remain small.",
+    "Daily bars do not prove fills, spreads, depth, tick-level queue position, or 0.2.7 IOC behavior.",
+    "Prior signal-family multiplicity beyond this 4-hypothesis by 8-horizon Holm family is not corrected; results remain exploratory.",
+    "S3-C direction-aligned negative-gap findings are diagnostic and not a long-only implementable strategy.",
+    "Competition scoring benchmark revision policy and boundary valuation/FIFO rules remain organizer questions."
+  ],
+  "approved_raw_source_hashes": {
+    "BDMS": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+    "BGRIM": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+    "CENTEL": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+    "COM7": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+    "GLOBAL": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+    "GULF": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+    "HMPRO": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+    "IVL": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+    "KKP": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+    "KTB": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+    "LH": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+    "MTC": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+    "OSP": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+    "PTTGC": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+    "RATCH": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+    "SCGP": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+    "TIDLOR": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+    "TOP": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+  },
+  "user_direction_lock_config": "config/phase4_research_direction_lock.json",
+  "independent_oos_observations_eligible": 0
+}

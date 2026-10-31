@@ -1,0 +1,131 @@
+{
+  "window_count": 727,
+  "window_sessions": 21,
+  "mdd_scenarios": [
+    {
+      "quantile": 0.0,
+      "benchmark_mdd": 0.010553019947640352,
+      "strict_portfolio_mdd_threshold": 0.015829529921460528,
+      "provisional_research_buffer": 0.007914764960730264,
+      "remaining_threshold_margin_after_buffer": 0.007914764960730264,
+      "representative_window_start": "2024-08-05",
+      "representative_window_end": "2024-09-03",
+      "representative_benchmark_return": 0.06732427569948496
+    },
+    {
+      "quantile": 0.05,
+      "benchmark_mdd": 0.013188415401948483,
+      "strict_portfolio_mdd_threshold": 0.019782623102922725,
+      "provisional_research_buffer": 0.009891311551461363,
+      "remaining_threshold_margin_after_buffer": 0.009891311551461363,
+      "representative_window_start": "2024-08-14",
+      "representative_window_end": "2024-09-11",
+      "representative_benchmark_return": 0.0909890217245295
+    },
+    {
+      "quantile": 0.1,
+      "benchmark_mdd": 0.015412121441696793,
+      "strict_portfolio_mdd_threshold": 0.02311818216254519,
+      "provisional_research_buffer": 0.011559091081272595,
+      "remaining_threshold_margin_after_buffer": 0.011559091081272595,
+      "representative_window_start": "2026-07-23",
+      "representative_window_end": "2026-08-25",
+      "representative_benchmark_return": -0.011124526493331732
+    },
+    {
+      "quantile": 0.25,
+      "benchmark_mdd": 0.021731520914765823,
+      "strict_portfolio_mdd_threshold": 0.032597281372148734,
+      "provisional_research_buffer": 0.016298640686074367,
+      "remaining_threshold_margin_after_buffer": 0.016298640686074367,
+      "representative_window_start": "2026-06-05",
+      "representative_window_end": "2026-07-03",
+      "representative_benchmark_return": 0.032131447717001826
+    },
+    {
+      "quantile": 0.5,
+      "benchmark_mdd": 0.03192578760315645,
+      "strict_portfolio_mdd_threshold": 0.04788868140473468,
+      "provisional_research_buffer": 0.02394434070236734,
+      "remaining_threshold_margin_after_buffer": 0.02394434070236734,
+      "representative_window_start": "2025-07-17",
+      "representative_window_end": "2025-08-19",
+      "representative_benchmark_return": 0.026441847097145033
+    },
+    {
+      "quantile": 0.75,
+      "benchmark_mdd": 0.04911123734765083,
+      "strict_portfolio_mdd_threshold": 0.07366685602147624,
+      "provisional_research_buffer": 0.03683342801073812,
+      "remaining_threshold_margin_after_buffer": 0.03683342801073812,
+      "representative_window_start": "2024-05-23",
+      "representative_window_end": "2024-06-21",
+      "representative_benchmark_return": -0.04123198027314112
+    },
+    {
+      "quantile": 0.9,
+      "benchmark_mdd": 0.07891550625774525,
+      "strict_portfolio_mdd_threshold": 0.11837325938661789,
+      "provisional_research_buffer": 0.05918662969330894,
+      "remaining_threshold_margin_after_buffer": 0.05918662969330894,
+      "representative_window_start": "2025-01-09",
+      "representative_window_end": "2025-02-06",
+      "representative_benchmark_return": -0.0739822929104057
+    },
+    {
+      "quantile": 0.95,
+      "benchmark_mdd": 0.10042550361822687,
+      "strict_portfolio_mdd_threshold": 0.1506382554273403,
+      "provisional_research_buffer": 0.07531912771367015,
+      "remaining_threshold_margin_after_buffer": 0.07531912771367015,
+      "representative_window_start": "2025-05-21",
+      "representative_window_end": "2025-06-20",
+      "representative_benchmark_return": -0.09902521445282031
+    },
+    {
+      "quantile": 1.0,
+      "benchmark_mdd": 0.12684530972607788,
+      "strict_portfolio_mdd_threshold": 0.19026796458911682,
+      "provisional_research_buffer": 0.09513398229455841,
+      "remaining_threshold_margin_after_buffer": 0.09513398229455841,
+      "representative_window_start": "2025-02-13",
+      "representative_window_end": "2025-03-13",
+      "representative_benchmark_return": -0.12684530972607788
+    }
+  ],
+  "regime_sensitivity": {
+    "BEAR": {
+      "windows": 300,
+      "mdd_mean": 0.04783123510191854,
+      "mdd_median": 0.0343494142839148,
+      "mdd_p90": 0.09964970501474923,
+      "mdd_max": 0.12684530972607788
+    },
+    "NONNEGATIVE": {
+      "windows": 363,
+      "mdd_mean": 0.032238026059323244,
+      "mdd_median": 0.026823718062089497,
+      "mdd_p90": 0.052898346425314144,
+      "mdd_max": 0.10490151168117268
+    },
+    "UNKNOWN": {
+      "windows": 64,
+      "mdd_mean": 0.040923166329102506,
+      "mdd_median": 0.041931468953445905,
+      "mdd_p90": 0.06137902195902045,
+      "mdd_max": 0.08107616018164487
+    }
+  },
+  "overlapping_windows_are_not_independent": true,
+  "risk_buffer_policy": "50% of 1.5x historical benchmark MDD; provisional research reference only",
+  "status": "BENCHMARK_AWARE_RISK_ENVELOPE",
+  "source": "data\\official\\tradesim\\history\\benchmark\\SET50.csv",
+  "benchmark_sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+  "exploratory_pre_freeze_calculation_disclosed": true,
+  "official_scoring_feed_and_revision_policy": "UNCONFIRMED",
+  "benchmark_archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+  "source_provenance": {
+    "archive_sha256": "7c505a024bf75d2beba09d4edae3544b71ccbece76154085830ee9d4a5ce588d",
+    "benchmark_member_sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267"
+  }
+}

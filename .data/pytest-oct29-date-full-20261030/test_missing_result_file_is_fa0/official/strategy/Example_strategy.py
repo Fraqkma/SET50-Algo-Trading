@@ -1,0 +1,1 @@
+class Example_strategy: pass

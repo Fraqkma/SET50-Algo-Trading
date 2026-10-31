@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_FINAL_TASK_SIGNAL_RUN",
+  "frozen_at_utc": "2026-10-30T16:42:53Z",
+  "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+  "worktree_dirty": true,
+  "worktree_porcelain_entries_at_freeze": 2169,
+  "worktree_porcelain_sha256_at_freeze": "ccf8ecb5ea3aafc46c21ea96ce8e6ab3558cd28e90d2a2cbaa78fd26b2b2b799",
+  "direction": {
+    "objective": "balanced risk-adjusted net returns",
+    "drawdown": "derive provisional research buffer from historical SET50 benchmark MDD; not a user max or official result",
+    "holding_sessions": [1, 2, 3, 5],
+    "primary_horizon_sessions": 5,
+    "position_counts_if_g4": [3, 5, 8],
+    "six_to_seven_percent": "aspirational_only"
+  },
+  "stock_source": {
+    "loader": "src.data.research.load_approved_market_data",
+    "eligibility": "src.data.eligibility.MarketDataEligibilityGate",
+    "pit_required": true,
+    "expected_panel": "partial approved panel; do not call complete SET50 PIT",
+    "latest_approved_date": "2026-09-04"
+  },
+  "benchmark_source": {
+    "path": "data/official/tradesim/history/benchmark/SET50.csv",
+    "archive": "Daily_Ticks.zip nested tradeSim_history.zip",
+    "field": "Close",
+    "interpretation": "official TradeSim SET50 benchmark price-index close; exact future scoring feed/revision policy remains unconfirmed",
+    "start": "2023-09-21",
+    "end": "2026-10-21",
+    "observations": 747,
+    "sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267"
+  },
+  "calendar": {
+    "competition_start": "2026-12-16",
+    "competition_end": "2027-01-15",
+    "timezone": "Asia/Bangkok",
+    "expected_sessions": 21,
+    "verified_as_of": "2026-10-30"
+  },
+  "hypotheses": [
+    {
+      "id": "S3-A",
+      "definition": "prior 10-observation mean true range / close <= 0.8 * preceding 20-observation mean; close_t > max(high[t-20:t]); volume_t >= 1.5 * mean(volume[t-20:t])",
+      "known_at": "completed session close; daily source provides date only",
+      "primary_control": "same-date PIT-eligible non-event symbols",
+      "primary_endpoint": "adjusted next-session open to adjusted close after 5 observed sessions",
+      "secondary_horizons": [1, 2, 3],
+      "regime": "official SET50 price-index regime descriptive; no current-value proxy"
+    },
+    {
+      "id": "S3-B",
+      "definition": "on dates with >=10 approved PIT names, positive adjusted-close 20-observation return in top quintile, conditional on official SET50 close above trailing SMA50 and 20-session index return >=0",
+      "known_at": "completed session close; daily source provides date only",
+      "primary_control": "same-date PIT-eligible non-event symbols",
+      "primary_endpoint": "5-session official-index-relative close-to-close excess return from signal date",
+      "secondary_horizons": [1, 2, 3],
+      "regime": "official SET50 close above trailing SMA50 and 20-session return >=0"
+    },
+    {
+      "id": "S3-C",
+      "definition": "next observed raw open / prior raw close - 1 >= +1% or <= -1%; direction-align post-gap returns",
+      "known_at": "after the next-session open print; exact time unavailable",
+      "primary_control": "same-symbol, same-calendar-year non-gap observations; same-date non-gap cross-section separately diagnostic",
+      "primary_endpoint": "direction-aligned adjusted close-to-close from gap-session close through 5 subsequent observed sessions",
+      "secondary_horizons": [1, 2, 3],
+      "execution": "no open-price fill assumption"
+    },
+    {
+      "id": "S3-D",
+      "definition": "volume_t >= 2 * mean(volume[t-20:t]) and adjusted close-to-close return_t > +0.5%",
+      "known_at": "completed session close; daily source provides date only",
+      "primary_control": "same-date PIT-eligible non-event symbols",
+      "primary_endpoint": "adjusted next-session open to adjusted close after 5 observed sessions",
+      "secondary_horizons": [1, 2, 3],
+      "volume_semantics": "reported activity only, not liquidity"
+    }
+  ],
+  "chronological_slices_seen_not_oos": [
+    ["2023-09-21", "2024-12-31"],
+    ["2025-01-01", "2025-12-31"],
+    ["2026-01-01", "2026-09-04"]
+  ],
+  "inference": {
+    "minimum_events": 30,
+    "minimum_symbols": 10,
+    "minimum_dates": 20,
+    "bootstrap": "two-way date/symbol pigeonhole, 10000 replications, seed 20261030, percentile 95% interval",
+    "multiplicity": "Holm across calculable S3-A/B/C/D primary five-session matched-control mean effects",
+    "g1": "positive primary matched-control uplift and Holm-adjusted clustered evidence excluding zero; otherwise reject/postpone",
+    "g2": "chronological slices descriptive only because source data already seen",
+    "g3": "transaction-cost sensitivity only after g2; do not infer fill probabilities from daily bars",
+    "g4": "portfolio / position count / TradeSim only after g3"
+  },
+  "benchmark_risk": {
+    "window_sessions": 21,
+    "mdd": "max(0, 1-min(close / running_max(close within each 21-close window)))",
+    "market_regime": "sign of prior 63 close-to-close returns, ending strictly before the window start",
+    "risk_buffer_fraction_of_organizer_threshold": 0.5,
+    "organizer_threshold_multiple": 1.5,
+    "note": "exploratory only; initial descriptive calculation preceded this freeze; no candidate DD forecast"
+  },
+  "execution_sensitivity": {
+    "prior_candidates": ["MeanRev5", "Round2 H6"],
+    "v1": "preserve unchanged",
+    "approximate_v2": "no-resting IOC, official tick ladder, one adverse tick, fees/VAT; no volume-cap or fill quantity invented from daily bars",
+    "idealized": "zero-slippage add-back on fixed prior fills; not portfolio forecast",
+    "stress": "1.5x fees and second adverse tick on fixed prior fills; not official",
+    "real_tick_fixture_max_sim_orders": 1
+  },
+  "stop_if_no_promotion": "NO_SIGNAL_PASSED_PROMOTION_GATE; no portfolio construction"
+}

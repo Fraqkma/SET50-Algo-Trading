@@ -1,0 +1,2 @@
+set_symbol,yahoo_ticker,raw_file,approval_status,approved_from,approved_to,issue_classification,reason
+AAA,AAA.BK,data/raw/market_data/AAA.csv,APPROVED,2024-01-01,2024-12-31,NONE,No acquisition validation findings were recorded.

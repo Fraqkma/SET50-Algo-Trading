@@ -1,7 +1,9 @@
 [CmdletBinding(SupportsShouldProcess)]
 param(
     [switch]$DryRun,
-    [string]$TaskName = 'SET50 Settrade Daily Collector'
+    [string]$TaskName = 'SET50 Settrade Daily Collector',
+    [ValidateSet('Interactive', 'S4U', 'Password')]
+    [string]$LogonType = 'Interactive'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -17,7 +19,7 @@ Write-Output "Trigger: Monday-Friday at 09:45 local Windows time"
 Write-Output "Action: $launcher"
 Write-Output "Working directory: $repoRoot"
 Write-Output "Instance policy: IgnoreNew"
-Write-Output "Run identity: $userId (interactive, limited)"
+Write-Output "Run identity: $userId ($LogonType, limited)"
 Write-Output "WakeToRun: enabled where supported"
 
 if ($DryRun) {
@@ -28,9 +30,9 @@ if ($DryRun) {
 $action = New-ScheduledTaskAction -Execute $env:ComSpec -Argument "/d /c `"$launcher`"" -WorkingDirectory $repoRoot
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At '09:45'
 $settings = New-ScheduledTaskSettingsSet -MultipleInstances IgnoreNew -StartWhenAvailable -WakeToRun -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Days 1)
-$principal = New-ScheduledTaskPrincipal -UserId $userId -LogonType Interactive -RunLevel Limited
+$principal = New-ScheduledTaskPrincipal -UserId $userId -LogonType $LogonType -RunLevel Limited
 
 if ($PSCmdlet.ShouldProcess($TaskName, 'Register or update scheduled task')) {
-    Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Force | Out-Null
+    Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Force -ErrorAction Stop | Out-Null
     Write-Output "INSTALLED: $TaskName"
 }

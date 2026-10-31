@@ -3,7 +3,7 @@
   "broker_id": "013",
   "app_code": "ALGO_EQ",
   "sdk_version": "2.2.1",
-  "started_at": "2026-10-24T06:04:05.139365+00:00",
+  "started_at": "2026-10-28T11:10:59.816763+00:00",
   "orders_placed": 0,
   "account_access": "NOT_ATTEMPTED",
   "authentication": "SUCCESS",
@@ -44,7 +44,7 @@
       "underlyingPrice"
     ],
     "status": "SUCCESS",
-    "observed_at": "2026-10-24T06:04:06.807591+00:00"
+    "observed_at": "2026-10-28T11:11:01.390049+00:00"
   },
   "candle_1m_PTT": {
     "fields": [
@@ -58,12 +58,12 @@
       "volume"
     ],
     "rows": 5,
-    "first_timestamp": "1792661160",
-    "last_timestamp": "1792661700",
+    "first_timestamp": "1793179560",
+    "last_timestamp": "1793180160",
     "status": "SUCCESS",
-    "observed_at": "2026-10-24T06:04:07.870264+00:00",
-    "last_timestamp_local": "2026-10-22T16:35:00+07:00",
-    "data_freshness": "STALE"
+    "observed_at": "2026-10-28T11:11:02.384246+00:00",
+    "last_timestamp_local": "2026-10-28T16:36:00+07:00",
+    "data_freshness": "FRESH"
   },
   "historical_candle_1m_PTT": {
     "fields": [
@@ -80,7 +80,7 @@
     "first_timestamp": null,
     "last_timestamp": null,
     "status": "SUCCESS",
-    "observed_at": "2026-10-24T06:04:08.842941+00:00"
+    "observed_at": "2026-10-28T11:11:03.332655+00:00"
   },
   "candle_1d_PTT": {
     "fields": [
@@ -97,7 +97,7 @@
     "first_timestamp": "1735750800",
     "last_timestamp": "1736442000",
     "status": "SUCCESS",
-    "observed_at": "2026-10-24T06:04:09.849765+00:00"
+    "observed_at": "2026-10-28T11:11:04.321066+00:00"
   },
   "bbo_PTT": {
     "status": "SUCCESS",
@@ -155,7 +155,7 @@
     "observed_depth_levels": 10,
     "event_schema": "BID_OFFER"
   },
-  "completed_at": "2026-10-24T06:04:15.391278+00:00",
+  "completed_at": "2026-10-28T11:11:09.844989+00:00",
   "backfill_status": "NOT_ATTEMPTED_POLICY_UNVERIFIED",
   "historical_candle_capability": "UNKNOWN_OR_EMPTY",
   "bbo_comparison": {
@@ -300,8 +300,8 @@
       "volume",
       "value"
     ],
-    "production_latest_1m_bangkok": "2026-10-22T16:35:00+07:00",
-    "production_current_session_status": "STALE",
+    "production_latest_1m_bangkok": "2026-10-28T16:36:00+07:00",
+    "production_current_session_status": "FRESH",
     "conclusion": "Production returned a stale 1m response after market close; current-session behavior remains INSUFFICIENT_DATA. Historical sample windows are date/interval-specific."
   },
   "sdk_capabilities": {

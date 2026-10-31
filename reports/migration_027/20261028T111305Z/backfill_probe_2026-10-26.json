@@ -1,0 +1,70 @@
+{
+  "requested_at_utc": "2026-10-28T11:27:08.082944+00:00",
+  "symbol": "ADVANC",
+  "timeframe": "1m",
+  "requested_start_bangkok": "2026-10-26T10:12:00+07:00",
+  "requested_end_bangkok": "2026-10-26T10:14:00+07:00",
+  "environment": "PRODUCTION",
+  "broker_id": "013",
+  "app_code": "ALGO_EQ",
+  "api_source": "Settrade Open API MarketData.get_candlestick",
+  "api_schema_fields": [
+    "close",
+    "high",
+    "lastSequence",
+    "low",
+    "open",
+    "time",
+    "value",
+    "volume"
+  ],
+  "raw_rows": 2,
+  "in_range_rows": 2,
+  "returned_first_bangkok": "2026-10-26T10:12:00+07:00",
+  "returned_last_bangkok": "2026-10-26T10:14:00+07:00",
+  "validation_issues": [],
+  "rows": [
+    {
+      "timestamp": "2026-10-26T03:12:00+00:00",
+      "symbol": "ADVANC",
+      "interval": "1m",
+      "open": "335.0",
+      "high": "335.0",
+      "low": "335.0",
+      "close": "335.0",
+      "volume": "1200",
+      "turnover": "0",
+      "source": "settrade",
+      "retrieved_at": "2026-10-28 11:27:08.082944+00:00",
+      "timezone": "UTC",
+      "session": null,
+      "adjustment_status": "UNKNOWN"
+    },
+    {
+      "timestamp": "2026-10-26T03:14:00+00:00",
+      "symbol": "ADVANC",
+      "interval": "1m",
+      "open": "336.0",
+      "high": "337.0",
+      "low": "336.0",
+      "close": "336.0",
+      "volume": "252700",
+      "turnover": "0",
+      "source": "settrade",
+      "retrieved_at": "2026-10-28 11:27:08.082944+00:00",
+      "timezone": "UTC",
+      "session": null,
+      "adjustment_status": "UNKNOWN"
+    }
+  ],
+  "orders_placed": 0,
+  "merge_preview": {
+    "existing_rows_in_requested_range": 2,
+    "proposed_rows": 2,
+    "would_append": 0,
+    "identical_duplicates": 2,
+    "conflicts": [],
+    "blocked": false
+  },
+  "backfill_applied": false
+}

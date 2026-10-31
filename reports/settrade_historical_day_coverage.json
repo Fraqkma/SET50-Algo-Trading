@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T13:53:25.952245+07:00",
+  "generated_at": "2026-10-28T18:24:02.851685+07:00",
   "historical_days": [
     {
       "date": "2026-09-22",
@@ -1394,6 +1394,744 @@
         "timezone": "Asia/Bangkok",
         "validation_errors": 0
       }
+    },
+    {
+      "date": "2026-10-26",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 16995,
+        "production:normalized_bbo": 339880,
+        "production:candles_1m": 13237,
+        "production:candles_5m": 4153,
+        "production:candles_15m": 2872,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-26T00:59:03.393633+07:00",
+          "last": "2026-10-26T16:56:38.125349+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-26T00:59:03.393633+07:00",
+          "last": "2026-10-26T16:56:38.125349+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-26T09:57:00+07:00",
+          "last": "2026-10-26T16:38:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-26T09:57:00+07:00",
+          "last": "2026-10-26T16:38:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-26T09:57:00+07:00",
+          "last": "2026-10-26T16:38:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2150,
+        "bbo_events_written": 16656,
+        "candle_status": "NO_DATA",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-26",
+        "disk_free_end": 981747474432,
+        "disk_free_start": 981885558784,
+        "end_time": "2026-10-26T10:03:26.377461+00:00",
+        "health_checks": 43,
+        "last_bbo_callback": "2026-10-26T09:56:38.125349+00:00",
+        "last_candle_response": "2026-10-26T09:56:36.565083+00:00",
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": "2026-10-26T09:58:26.232576+00:00",
+        "last_successful_api_request": "2026-10-26T09:56:36.565083+00:00",
+        "last_successful_websocket_callback": "2026-10-26T09:56:38.125349+00:00",
+        "market_day": true,
+        "one_minute_rows_written": 13237,
+        "orders_placed": 0,
+        "pid": 19748,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 43,
+        "runtime_seconds": 26303.818262,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-26T02:45:02.559199+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-26T02:45:02.559593+00:00"
+          },
+          {
+            "reason": "READINESS_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T02:45:08.314210+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T02:46:57.089131+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T02:53:46.853206+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:01:13.857906+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:08:40.328612+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:16:07.742606+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:23:36.045251+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:31:05.349354+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:38:35.011026+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:46:03.173735+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T03:53:47.848263+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:01:18.572765+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:08:48.155203+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:16:18.009636+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:23:50.866834+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:31:21.954361+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:38:57.799173+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:46:29.683941+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T04:54:24.258876+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T05:02:02.739329+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T05:09:34.970429+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T05:17:07.239269+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T05:24:40.290552+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T05:32:16.197824+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T07:32:53.486498+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T07:40:26.825668+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T07:48:02.271433+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T07:55:44.385073+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:03:20.113691+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:10:58.044095+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:18:34.212507+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:26:11.507198+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:34:04.249396+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:41:41.493404+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:49:23.987612+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T08:57:00.635114+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:04:38.375625+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:12:15.952516+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:19:55.040572+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:27:38.779457+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:35:33.621885+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:43:12.256421+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:50:48.907475+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-26T09:58:26.232930+00:00"
+          },
+          {
+            "reason": "OUTSIDE_SET_SESSION",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-26T10:03:26.352326+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 50,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 17629,
+        "production:normalized_bbo": 352560,
+        "production:candles_1m": 13251,
+        "production:candles_5m": 4132,
+        "production:candles_15m": 2849,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-27T09:45:12.589639+07:00",
+          "last": "2026-10-27T17:00:22.872857+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-27T09:45:12.589639+07:00",
+          "last": "2026-10-27T17:00:22.872857+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-27T09:58:00+07:00",
+          "last": "2026-10-27T16:39:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-27T09:58:00+07:00",
+          "last": "2026-10-27T16:39:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-27T09:58:00+07:00",
+          "last": "2026-10-27T16:39:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 2100,
+        "bbo_events_written": 17626,
+        "candle_status": "NO_DATA",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-27",
+        "disk_free_end": 981601964032,
+        "disk_free_start": 981747490816,
+        "end_time": "2026-10-27T10:07:14.369947+00:00",
+        "health_checks": 42,
+        "last_bbo_callback": "2026-10-27T10:00:22.872857+00:00",
+        "last_candle_response": "2026-10-27T10:00:21.210881+00:00",
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": "2026-10-27T10:02:14.229155+00:00",
+        "last_successful_api_request": "2026-10-27T10:00:21.210881+00:00",
+        "last_successful_websocket_callback": "2026-10-27T10:00:22.872857+00:00",
+        "market_day": true,
+        "one_minute_rows_written": 13251,
+        "orders_placed": 0,
+        "pid": 30004,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 42,
+        "runtime_seconds": 26529.443088,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-27T02:45:04.926859+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-27T02:45:04.927351+00:00"
+          },
+          {
+            "reason": "READINESS_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T02:45:09.065394+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T02:47:05.490735+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T02:53:57.652616+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:01:36.547535+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:09:34.746015+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:17:16.151634+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:24:56.185932+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:32:38.462793+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:40:21.042972+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:48:06.134905+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T03:55:47.644669+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:03:28.332578+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:11:33.446493+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:19:15.991128+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:26:58.542297+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:34:42.203779+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:42:25.423995+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:50:08.900227+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T04:57:53.130480+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T05:05:42.081714+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T05:13:43.465609+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T05:21:28.486916+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T05:29:13.416317+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T07:33:14.514306+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T07:40:58.940395+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T07:48:44.592849+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T07:56:31.139450+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:04:18.280375+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:12:06.679331+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:19:54.664411+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:27:42.330770+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:35:43.806000+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:43:31.383867+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:51:20.914286+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T08:59:18.066550+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:07:06.679783+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:14:56.646878+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:22:46.863989+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:30:39.527036+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:38:43.013898+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:46:34.220006+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T09:54:24.240710+00:00"
+          },
+          {
+            "reason": "CYCLE_AND_HEALTH_SUCCEEDED",
+            "state": "LIVE",
+            "timestamp_utc": "2026-10-27T10:02:14.229472+00:00"
+          },
+          {
+            "reason": "OUTSIDE_SET_SESSION",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-27T10:07:14.344481+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 50,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "classification": "PARTIAL",
+      "environment_provenance": [
+        "PRODUCTION"
+      ],
+      "rows_by_dataset": {
+        "production:raw_bbo": 17490,
+        "production:normalized_bbo": 349800,
+        "production:candles_1m": 12824,
+        "production:candles_5m": 4108,
+        "production:candles_15m": 2903,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "symbols_by_dataset": {
+        "production:raw_bbo": 50,
+        "production:normalized_bbo": 50,
+        "production:candles_1m": 50,
+        "production:candles_5m": 50,
+        "production:candles_15m": 50,
+        "sandbox:raw_bbo": 0,
+        "sandbox:normalized_bbo": 0,
+        "sandbox:candles_1m": 0,
+        "sandbox:candles_5m": 0,
+        "sandbox:candles_15m": 0
+      },
+      "first_last_by_dataset": {
+        "production:raw_bbo": {
+          "first": "2026-10-28T09:45:13.724814+07:00",
+          "last": "2026-10-28T16:56:26.839638+07:00"
+        },
+        "production:normalized_bbo": {
+          "first": "2026-10-28T09:45:13.724814+07:00",
+          "last": "2026-10-28T16:56:26.839638+07:00"
+        },
+        "production:candles_1m": {
+          "first": "2026-10-28T09:57:00+07:00",
+          "last": "2026-10-28T16:36:00+07:00"
+        },
+        "production:candles_5m": {
+          "first": "2026-10-28T09:57:00+07:00",
+          "last": "2026-10-28T16:36:00+07:00"
+        },
+        "production:candles_15m": {
+          "first": "2026-10-28T09:57:00+07:00",
+          "last": "2026-10-28T16:36:00+07:00"
+        }
+      },
+      "runtime_evidence": true,
+      "runtime_summary": {
+        "api_requests": 0,
+        "bbo_events_written": 0,
+        "candle_status": "NOT_RUN",
+        "collector_state": "MARKET_CLOSED",
+        "conflicts": 0,
+        "current_retry_delay_seconds": 0,
+        "date": "2026-10-28",
+        "disk_free_end": 981441400832,
+        "disk_free_start": 981441400832,
+        "end_time": "2026-10-28T11:11:31.297496+00:00",
+        "health_checks": 0,
+        "last_bbo_callback": null,
+        "last_candle_response": null,
+        "last_disconnect_reason": null,
+        "last_successful_api_cycle": null,
+        "last_successful_api_request": null,
+        "last_successful_websocket_callback": null,
+        "market_day": false,
+        "one_minute_rows_written": 0,
+        "orders_placed": 0,
+        "pid": 14232,
+        "rate_limit_errors": 0,
+        "reconnects": 0,
+        "retries": 0,
+        "rotation_generations": 0,
+        "runtime_seconds": 4.598589,
+        "shutdown_status": "MARKET_CLOSED/OUTSIDE_SET_SESSION",
+        "start_time": "2026-10-28T11:11:26.698907+00:00",
+        "startup_status": "READY",
+        "state_transitions": [
+          {
+            "reason": "RUNNER_STARTED",
+            "state": "STARTING",
+            "timestamp_utc": "2026-10-28T11:11:26.699279+00:00"
+          },
+          {
+            "reason": "OUTSIDE_SET_SESSION",
+            "state": "MARKET_CLOSED",
+            "timestamp_utc": "2026-10-28T11:11:31.285086+00:00"
+          }
+        ],
+        "symbols_expected": 50,
+        "symbols_with_1m_data": 0,
+        "timezone": "Asia/Bangkok",
+        "validation_errors": 0
+      }
     }
   ],
   "incomplete_dates": [
@@ -1412,6 +2150,9 @@
     "2026-10-16",
     "2026-10-21",
     "2026-10-22",
-    "2026-10-23"
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28"
   ]
 }

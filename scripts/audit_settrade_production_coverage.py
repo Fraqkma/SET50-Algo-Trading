@@ -55,7 +55,8 @@ def _dataset_day_rows(root: Path, relative: str, fmt: str) -> dict[str, list[dic
         else:
             with path.open(encoding="utf-8", newline="") as handle:
                 for row in csv.DictReader(handle):
-                    stamp = _local_stamp(row.get("event_timestamp") or row.get("retrieved_at") or row.get("timestamp"))
+                    # Candles are keyed by market time, never retrieval/cycle time.
+                    stamp = _local_stamp(row.get("timestamp") or row.get("event_timestamp") or row.get("retrieved_at"))
                     if stamp:
                         groups[stamp[:10]].append({**row, "symbol": row.get("symbol"), "timestamp": stamp})
     except (OSError, csv.Error, UnicodeDecodeError):

@@ -1,0 +1,202 @@
+{
+  "period_start": "2026-12-16",
+  "period_end": "2027-01-15",
+  "timezone": "Asia/Bangkok",
+  "status": "CONFIRMED_FROM_OFFICIAL_SET_HOLIDAY_PAGES_AS_OF_2026-10-30",
+  "verified_as_of": "2026-10-30",
+  "source_urls": [
+    "https://www.set.or.th/en/about/event-calendar/holiday?year=2026",
+    "https://www.set.or.th/th/about/event-calendar/holiday?year=2027"
+  ],
+  "trading_day_count": 21,
+  "rows": [
+    {
+      "date": "2026-12-16",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 1
+    },
+    {
+      "date": "2026-12-17",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 2
+    },
+    {
+      "date": "2026-12-18",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 3
+    },
+    {
+      "date": "2026-12-19",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2026-12-20",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2026-12-21",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 4
+    },
+    {
+      "date": "2026-12-22",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 5
+    },
+    {
+      "date": "2026-12-23",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 6
+    },
+    {
+      "date": "2026-12-24",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 7
+    },
+    {
+      "date": "2026-12-25",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 8
+    },
+    {
+      "date": "2026-12-26",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2026-12-27",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2026-12-28",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 9
+    },
+    {
+      "date": "2026-12-29",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 10
+    },
+    {
+      "date": "2026-12-30",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 11
+    },
+    {
+      "date": "2026-12-31",
+      "status": "SET_HOLIDAY",
+      "reason": "Listed on official SET holiday calendar",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-01",
+      "status": "SET_HOLIDAY",
+      "reason": "Listed on official SET holiday calendar",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-02",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-03",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-04",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 12
+    },
+    {
+      "date": "2027-01-05",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 13
+    },
+    {
+      "date": "2027-01-06",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 14
+    },
+    {
+      "date": "2027-01-07",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 15
+    },
+    {
+      "date": "2027-01-08",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 16
+    },
+    {
+      "date": "2027-01-09",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-10",
+      "status": "WEEKEND",
+      "reason": "Saturday/Sunday",
+      "trading_day_ordinal": null
+    },
+    {
+      "date": "2027-01-11",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 17
+    },
+    {
+      "date": "2027-01-12",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 18
+    },
+    {
+      "date": "2027-01-13",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 19
+    },
+    {
+      "date": "2027-01-14",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 20
+    },
+    {
+      "date": "2027-01-15",
+      "status": "EXPECTED_TRADING_DAY",
+      "reason": "Weekday not listed as SET holiday as of calendar verification",
+      "trading_day_ordinal": 21
+    }
+  ],
+  "note": "Calendar is verified against official SET holiday pages, not inferred from weekdays alone; refresh if SET publishes an amendment.",
+  "generated_at": "2026-10-30T15:20:18.112319+00:00"
+}

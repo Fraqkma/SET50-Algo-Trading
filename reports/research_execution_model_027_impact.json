@@ -1,0 +1,40 @@
+{
+  "research_model_preserved": "RESEARCH_EXECUTION_V1",
+  "v2_created": false,
+  "reason": "Daily OHLCV lacks executable volume at the exact event; do not substitute daily volume or fabricate BBO.",
+  "historical_artifacts_rewritten": false,
+  "parameter_tuning": false,
+  "candidate_impact": {
+    "Trend20": {
+      "classification": "ALPHA_FAILURE",
+      "action": "Remain rejected; gross -59.04% under V1; no automatic retest."
+    },
+    "Breakout20": {
+      "classification": "ALPHA_FAILURE",
+      "action": "Remain rejected; gross -33.95% under V1; no automatic retest."
+    },
+    "RelativeStrength": {
+      "classification": "ALPHA_FAILURE",
+      "action": "Remain rejected; gross -57.52% under V1; no automatic retest."
+    },
+    "MeanRev5": {
+      "classification": "MIXED",
+      "factors": [
+        "COST_SENSITIVE",
+        "EXECUTION_MODEL_SENSITIVE"
+      ],
+      "action": "Remain rejected; possible predeclared sensitivity only, not promotion."
+    },
+    "Round2_H6": {
+      "classification": "MIXED",
+      "factors": [
+        "COST_SENSITIVE",
+        "EXECUTION_MODEL_SENSITIVE"
+      ],
+      "action": "Remain rejected; near-zero gross and negative net; no OOS survivor."
+    }
+  },
+  "comparability": "0.2.6 fills are not 0.2.7 scoring results; changed resting, tick cap, slippage, auctions and validation alter realized paths. V1 results remain valid only under their original declared assumptions.",
+  "next_research": "Pre-register a bounded execution-sensitivity study on observed official ticks with unchanged signals and parameters; require human choice before V2 adoption or candidate reruns.",
+  "final_strategy_selected": false
+}

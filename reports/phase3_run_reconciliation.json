@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "comparison_id": "PHASE3_RECONCILIATION_v1",
+  "as_of": "2026-10-31",
+  "classification": "RETROSPECTIVE_RECONCILIATION_NOT_NEW_EXPERIMENT",
+  "git_head_at_runs": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+  "worktree_state": {
+    "first_screen_dirty": true,
+    "final_run_dirty": true,
+    "final_run_porcelain_entries": 1939,
+    "current_dirty_work_preserved": true
+  },
+  "runs": [
+    {
+      "id": "P3_FIRST_SCREEN",
+      "artifact": "reports\\phase3_signal_screen_summary.json",
+      "preregistration": "docs/RESEARCH_PHASE3_PRE_REGISTRATION.md",
+      "sample": {
+        "start": "2023-01-03",
+        "end": "2026-09-04"
+      },
+      "seed": 20261030,
+      "bootstrap": {
+        "method": "two-way date/symbol pigeonhole bootstrap",
+        "replications": 10000,
+        "seed": 20261030,
+        "multiplicity": "Holm across calculable 5-session primary hypotheses",
+        "holm_adjusted_p_values": {
+          "S3-A": 1.0,
+          "S3-D": 1.0,
+          "S3-C": 1.0
+        }
+      },
+      "controls": "same-date PIT non-event; for C direction oriented",
+      "benchmark": "S3-B postponed: no official series in approved inputs",
+      "source_hashes": {
+        "data\\processed\\approved_market_data_manifest.csv": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+        "data\\processed\\constituents\\historical_set50.csv": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+        "data\\raw\\market_data\\BDMS_BK.csv": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+        "data\\raw\\market_data\\BGRIM_BK.csv": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+        "data\\raw\\market_data\\CENTEL_BK.csv": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+        "data\\raw\\market_data\\COM7_BK.csv": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+        "data\\raw\\market_data\\GLOBAL_BK.csv": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+        "data\\raw\\market_data\\GULF_BK.csv": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+        "data\\raw\\market_data\\HMPRO_BK.csv": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+        "data\\raw\\market_data\\IVL_BK.csv": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+        "data\\raw\\market_data\\KKP_BK.csv": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+        "data\\raw\\market_data\\KTB_BK.csv": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+        "data\\raw\\market_data\\LH_BK.csv": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+        "data\\raw\\market_data\\MTC_BK.csv": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+        "data\\raw\\market_data\\OSP_BK.csv": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+        "data\\raw\\market_data\\PTTGC_BK.csv": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+        "data\\raw\\market_data\\RATCH_BK.csv": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+        "data\\raw\\market_data\\SCGP_BK.csv": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+        "data\\raw\\market_data\\TIDLOR_BK.csv": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+        "data\\raw\\market_data\\TOP_BK.csv": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+      },
+      "code_hashes": {
+        "scripts\\run_phase3_signal_screen.py": "d95894705eae31b49d97f448df7187dab72532c97cbef17fd16f6560450be3b5",
+        "src\\data\\research.py": "a5a3605c49a4924f93056c4aebb8607bdfa4b5aad55ff4235b854ef8ce7c5f2e",
+        "src\\data\\eligibility.py": "9e358ab62566823dcc0459153d41c52af3a0b7aadd9f662e67f72e825a579ef5"
+      },
+      "raw_events": {
+        "S3-A": 45,
+        "S3-B": 0,
+        "S3-C": 2269,
+        "S3-D": 485
+      }
+    },
+    {
+      "id": "P3_FINAL_ADDED_RUN",
+      "artifact": "reports\\research_phase3_summary.json",
+      "preregistration": "docs/RESEARCH_PHASE3_PRE_REGISTRATION_FINAL.md",
+      "sample": {
+        "start": "2023-01-03",
+        "end": "2026-09-04"
+      },
+      "seed": 20261030,
+      "bootstrap": "two-way date/symbol pigeonhole bootstrap, 10,000 replications; final code uses numpy generator and weighted event rows; intervals percentile",
+      "controls": {
+        "A_B_D": "same-date PIT-eligible non-event names",
+        "C": "same-symbol same-calendar-year non-gap controls; same-date controls separately diagnostic"
+      },
+      "benchmark": "Daily_Ticks.zip official history SET50.csv; 747 closes 2023-09-21..2026-10-21; distinct from confirmed exact scoring feed",
+      "source_hashes": {
+        "data\\processed\\approved_market_data_manifest.csv": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb",
+        "data\\processed\\constituents\\historical_set50.csv": "e36242bfbf3ed06e0836b68fd2446984361b14ca53a66ea9f160ee17df162b87",
+        "data\\official\\tradesim\\history\\benchmark\\SET50.csv": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+        "docs\\RESEARCH_PHASE3_PRE_REGISTRATION_FINAL.md": "34553c102210b21a4c7c7337934bafb51941525f79ddac2e9b14b87e90a14e60",
+        "config\\research_phase3_hypotheses_final.json": "1b53ca03fcd0a940da3ba1407a0524b4b547e348559e4863fd6ae24003ef8919",
+        "data\\raw\\market_data\\BDMS_BK.csv": "09ec74853b2f83a0ea4553adb37a8717171b0942286894442314c4cbfcfd7a8c",
+        "data\\raw\\market_data\\BGRIM_BK.csv": "4365eca0eb95560c71b3bdbd4eab70bd903b507f3017ea59a6a10d8530afba3b",
+        "data\\raw\\market_data\\CENTEL_BK.csv": "85ae5dccc2cd6ee9de872ff62a29e077611ad8ad80d71aaa9d1c6472bd3343bd",
+        "data\\raw\\market_data\\COM7_BK.csv": "8647840edfa30439c1d583b22a21a4807a281e017488ff8cf57d6164f8282746",
+        "data\\raw\\market_data\\GLOBAL_BK.csv": "a80c4975dcd1c199913a725c883d9767e7f9864ac56ccb75ef680f57af884228",
+        "data\\raw\\market_data\\GULF_BK.csv": "616c4f7a42b099eea9947e359c1b7aec939e1ed6eef03f159464a0c4c898a25a",
+        "data\\raw\\market_data\\HMPRO_BK.csv": "5603a87abc354e12962d5f1f668c5a44fa3a772bd9384c5d7b6324141535b8cd",
+        "data\\raw\\market_data\\IVL_BK.csv": "fcdf865515072903b3c0d8d9732c878fd58a45ee9fb84c09a65fae2ce5c254bd",
+        "data\\raw\\market_data\\KKP_BK.csv": "f9c10f487c106c97c9f809ae9fff16069069f44427583cfdd6b532e00420db7d",
+        "data\\raw\\market_data\\KTB_BK.csv": "e4f776aaef5a65cf16f87513ed81b7c201c8e2a3ae4800b8949ed4d90096cf3c",
+        "data\\raw\\market_data\\LH_BK.csv": "aa13af57d89446af02e74329f8eead5a0513e3b7e9e21e6fe7da11ab952f5265",
+        "data\\raw\\market_data\\MTC_BK.csv": "c88ff97ea4289c8584f7a7751f9a9e9cd1189e2346c1159eed91025821b4d601",
+        "data\\raw\\market_data\\OSP_BK.csv": "d8b18abe3cf56285fae5593f2c65b229dc529fda399218b7f2379987c42d1184",
+        "data\\raw\\market_data\\PTTGC_BK.csv": "229bba9bbef99d52018273d33474d387be78e715d4bfc64bc5dbcede74211022",
+        "data\\raw\\market_data\\RATCH_BK.csv": "5fadbb43b9cdb051748ea3cd8d29770cc5c8daaa066aa5096f92db5a5afed7f9",
+        "data\\raw\\market_data\\SCGP_BK.csv": "e34e8b6bc4c5dc75a2b6c3c48090da71505ba003807ad7e7839c94efa0302f64",
+        "data\\raw\\market_data\\TIDLOR_BK.csv": "eb0482556d410ed6102802b334348a6fee7851a41d7a8cc4c9a2de2a1ea03a2b",
+        "data\\raw\\market_data\\TOP_BK.csv": "e3fc73bd4c308a8e6571b85377aba63da6a9ca375b6f02ac9002ec724532b915"
+      },
+      "code_hashes": {
+        "scripts\\run_phase3_final_research.py": "25a15b9fe3a3343e677a84927a6b3b369e64e324dc9b3a2b9754a8069d4cde8a",
+        "scripts\\build_phase3_execution_sensitivity.py": "ce0aa46de564727dd85aa42aaf98b952fa2ff7241c3ea87809edff78dc44df82",
+        "src\\research\\phase3_final.py": "c496cdbf40af9f5dba0904f508d1b62907ad4265da708b80f5d4ac60a8ce3d10",
+        "src\\data\\research.py": "a5a3605c49a4924f93056c4aebb8607bdfa4b5aad55ff4235b854ef8ce7c5f2e",
+        "src\\data\\eligibility.py": "9e358ab62566823dcc0459153d41c52af3a0b7aadd9f662e67f72e825a579ef5"
+      },
+      "raw_events": {
+        "S3-A": 45,
+        "S3-B": 724,
+        "S3-C": 2269,
+        "S3-D": 486
+      }
+    },
+    {
+      "id": "P3_DECISION_REPORT",
+      "artifact": "docs/RESEARCH_PHASE3_DECISION_REPORT.md",
+      "classification": "NARRATIVE_RESTATEMENT_OF_FIRST_SCREEN_PLUS_FINAL_ADDENDUM_NOT_AN_INDEPENDENT_RUN",
+      "promotion": "NO_SIGNAL_PASSED_PROMOTION_GATE"
+    }
+  ],
+  "comparison": {
+    "S3-A": {
+      "events": [
+        45,
+        45
+      ],
+      "matched": [
+        45,
+        45
+      ],
+      "event_identity_check": {
+        "first_count": 45,
+        "final_count": 45,
+        "same_events": true,
+        "only_first": [],
+        "only_final": []
+      },
+      "uplift": [
+        0.00913008698545789,
+        0.00913008698545789
+      ],
+      "ci": [
+        [
+          -0.011504932008579489,
+          0.035969103918643004
+        ],
+        [
+          -0.011865013338306533,
+          0.03565653296065547
+        ]
+      ],
+      "comparability": {
+        "definition_endpoint_data_controls_event_set": "SAME",
+        "effective_clusters_first": {
+          "dates": 27.739726027397253,
+          "symbols": 13.06451612903226
+        },
+        "effective_clusters_final": {
+          "dates": 27.739726027397253,
+          "symbols": 13.06451612903226
+        },
+        "uncertainty": "NON_COMPARABLE_MONTE_CARLO_GENERATION_DIFFERS (integer multinomial resampling vs multinomial batch draws), point estimate unchanged"
+      }
+    },
+    "S3-B": {
+      "events": [
+        0,
+        724
+      ],
+      "matched": [
+        0,
+        711
+      ],
+      "uplift": [
+        null,
+        -0.002686703600340895
+      ],
+      "status": "NON_COMPARABLE_FIRST_RUN_POSTPONED_MISSING_INDEX_FINAL_RUN_USED_OFFICIAL_TRADESIM_SET50_SERIES"
+    },
+    "S3-C": {
+      "events": [
+        2269,
+        2269
+      ],
+      "matched": [
+        2161,
+        2269
+      ],
+      "event_identity_check": {
+        "first_count": 2269,
+        "final_count": 2269,
+        "same_events": true,
+        "only_first": [],
+        "only_final": []
+      },
+      "uplift": [
+        0.0001679987097217391,
+        -0.0010643735648697048
+      ],
+      "comparability": {
+        "definition_endpoint_source_event_set": "SAME (event identity matches after aligning first-run entry_date to final gap-session date)",
+        "control": "NON_COMPARABLE: same-date cross-section vs same-symbol/same-year non-gap controls",
+        "effective_clusters_first": {
+          "dates": 390.53030417962526,
+          "symbols": 14.795118642898814
+        },
+        "effective_clusters_final": {
+          "dates": 390.5895607313558,
+          "symbols": 14.795118642898814
+        },
+        "matching": "final same-symbol/year control matched all 2269; first same-date control matched 2161"
+      }
+    },
+    "S3-D": {
+      "events": [
+        485,
+        486
+      ],
+      "matched": [
+        485,
+        486
+      ],
+      "event_identity_check": {
+        "first_count": 485,
+        "final_count": 486,
+        "same_events": false,
+        "only_first": [],
+        "only_final": [
+          [
+            "IVL",
+            "2026-08-28"
+          ]
+        ]
+      },
+      "uplift": [
+        0.001601159298399927,
+        0.0017192359319850364
+      ],
+      "comparability": {
+        "definition_endpoint_control_source": "SAME for shared events",
+        "extra_final_event": "IVL 2026-08-28",
+        "cause": "EVENT-SET DIFFERENCE IDENTIFIED; root cause in first-screen versus final sample eligibility remains unreconciled",
+        "effective_clusters_first": {
+          "dates": 228.15227934044614,
+          "symbols": 16.210116463372614
+        },
+        "effective_clusters_final": {
+          "dates": 228.87209302325587,
+          "symbols": 16.19777808256755
+        }
+      }
+    }
+  },
+  "event_identity_checks": {
+    "S3-A": {
+      "first_count": 45,
+      "final_count": 45,
+      "same_events": true,
+      "only_first": [],
+      "only_final": []
+    },
+    "S3-C": {
+      "first_count": 2269,
+      "final_count": 2269,
+      "same_events": true,
+      "only_first": [],
+      "only_final": []
+    },
+    "S3-D": {
+      "first_count": 485,
+      "final_count": 486,
+      "same_events": false,
+      "only_first": [],
+      "only_final": [
+        [
+          "IVL",
+          "2026-08-28"
+        ]
+      ]
+    }
+  },
+  "statistical_interpretation": {
+    "first_screen_calculable_hypotheses": "S3-A/C/D all CI cross zero; Holm p=1.0",
+    "final_hypotheses": "S3-A/B/C/D all CI cross zero; Holm p=1.0; all REJECTED_G1_NOT_MET",
+    "power_vs_negative_evidence": "Sparse effective symbol clusters (about 13-16) and overlapping endpoints limit power; S3-A/B/D intervals are inconclusive, while S3-C has near-zero/negative point estimate under final control but still not proof of no effect. Coverage is incomplete (18 names) and does not imply a negative signal over all SET50.",
+    "independent_oos": "NONE; all analyzed history previously inspected."
+  },
+  "reproducers": [
+    ".\\.venv\\Scripts\\python.exe scripts\\run_phase3_signal_screen.py",
+    ".\\.venv\\Scripts\\python.exe scripts\\run_phase3_final_research.py"
+  ],
+  "promotion": "NO_SIGNAL_PASSED_PROMOTION_GATE",
+  "do_not_select_strategy": true
+}

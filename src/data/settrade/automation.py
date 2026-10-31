@@ -83,6 +83,63 @@ def _pid_alive(pid: int) -> bool:
     return True
 
 
+def process_identity(pid: int) -> dict[str, Any] | None:
+    """Use process birth time and executable to distinguish a reused PID."""
+    import psutil
+
+    try:
+        process = psutil.Process(pid)
+        return {"created": process.create_time(), "executable": process.exe(),
+                "runner_script": any(Path(arg).name == "run_settrade_daily.py" for arg in process.cmdline())}
+    except psutil.NoSuchProcess:
+        return None
+    except (psutil.AccessDenied, OSError):
+        return {"unknown": True}
+
+
+def lock_state(value: dict[str, Any]) -> str:
+    """Fail closed on inaccessible/foreign owners, never call them active."""
+    host = str(value.get("host") or "").casefold()
+    if host and host != socket.gethostname().casefold():
+        return "ERROR"
+    try:
+        pid = int(value.get("pid", 0))
+        if pid <= 0 or not _pid_alive(pid):
+            return "STALE_LOCK"
+        identity = process_identity(pid)
+        if identity is None:
+            return "STALE_LOCK"
+        if identity.get("unknown"):
+            return "UNVERIFIABLE"
+        expected = value.get("process_identity")
+        if expected:
+            if expected.get("unknown"):
+                return "UNVERIFIABLE"
+            return "ACTIVE" if (expected.get("created") == identity.get("created")
+                                and expected.get("executable") == identity.get("executable")) else "STALE_LOCK"
+        # Legacy locks have no birth token. A live unrelated process is not a runner.
+        if not identity.get("runner_script"):
+            return "STALE_LOCK"
+        created = value.get("created_at")
+        if created and identity["created"] > datetime.fromisoformat(created).timestamp() + 1:
+            return "STALE_LOCK"
+        return "ACTIVE"
+    except (ValueError, TypeError, OverflowError):
+        return "ERROR"
+
+
+def runner_status(lock_path: Path, scheduler: dict[str, Any] | None = None) -> str:
+    try:
+        value = json.loads(lock_path.read_text(encoding="utf-8"))
+        return lock_state(value) if isinstance(value, dict) else "ERROR"
+    except FileNotFoundError:
+        return "SCHEDULED_WAITING" if scheduler and scheduler.get("installed") and scheduler.get("enabled") else "NOT_RUNNING"
+    except OSError:
+        return "UNVERIFIABLE"
+    except ValueError:
+        return "ERROR"
+
+
 class SingleInstanceLock:
     """Atomic lock file with PID validation and stale-lock recovery."""
 
@@ -94,20 +151,21 @@ class SingleInstanceLock:
     def acquire(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         for _ in range(2):
-            payload = {"pid": os.getpid(), "host": socket.gethostname(), "token": self.token, "created_at": datetime.now(timezone.utc).isoformat()}
+            payload = {"pid": os.getpid(), "host": socket.gethostname(), "token": self.token,
+                       "process_identity": process_identity(os.getpid()),
+                       "created_at": datetime.now(timezone.utc).isoformat()}
             try:
                 descriptor = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
             except FileExistsError:
                 try:
                     existing = json.loads(self.path.read_text(encoding="utf-8"))
-                    owner_host = str(existing.get("host") or "").casefold()
-                    active = owner_host != socket.gethostname().casefold() if owner_host else _pid_alive(int(existing.get("pid", 0)))
-                    if owner_host == socket.gethostname().casefold():
-                        active = _pid_alive(int(existing.get("pid", 0)))
+                    state = lock_state(existing)
                 except (OSError, ValueError, TypeError, json.JSONDecodeError):
-                    active = False
-                if active:
+                    state = "ERROR"
+                if state == "ACTIVE":
                     raise AlreadyRunningError("ALREADY_RUNNING")
+                if state in {"ERROR", "UNVERIFIABLE"}:
+                    raise AlreadyRunningError("LOCK_OWNER_UNVERIFIABLE")
                 try:
                     self.path.unlink()
                 except FileNotFoundError:
@@ -149,8 +207,7 @@ def request_stop(lock_path: Path, stop_path: Path) -> bool:
         pid = int(lock["pid"])
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError):
         return False
-    if not _pid_alive(pid):
-        lock_path.unlink(missing_ok=True)
+    if lock_state(lock) != "ACTIVE":
         return False
     stop_path.parent.mkdir(parents=True, exist_ok=True)
     stop_path.write_text(json.dumps({"pid": pid, "requested_at": datetime.now(timezone.utc).isoformat()}), encoding="utf-8")

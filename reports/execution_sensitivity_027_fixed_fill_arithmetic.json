@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "classification": "NON_OFFICIAL_FIXED_FILL_ARITHMETIC",
+  "generated_at_utc": "2026-10-30T17:10:45.884310+00:00",
+  "python_version": "3.13.0",
+  "v1_preserved": true,
+  "v2": "NOT_NUMERICALLY_MODELED_DAILY_BARS_CANNOT_SUPPORT_AUTHENTIC_0_2_7_FILL_QUANTITIES",
+  "execution_mechanics_evidence": "Existing 0.2.7 fixture matrix: 13 cases, 22 checks; not a fill-rate sample.",
+  "scenarios": {
+    "MeanRev5": {
+      "baseline": {
+        "gross_pnl_after_modeled_slippage": "1126375.174609797251695999992",
+        "fees": "1563521.121804668611884864682",
+        "commission": "1461234.69327539122606062120",
+        "vat": "102286.4285292773858242434840",
+        "modeled_slippage": "6458230.360000000000000",
+        "net_pnl": "-437145.9471948713601888646866",
+        "final_equity": "9562854.05280512863981113531",
+        "filled_orders": 205,
+        "non_fills": 83,
+        "intended_orders": 288,
+        "turnover": "93.072273457031288284116",
+        "maximum_drawdown": "0.3933316362076170694421401656",
+        "average_eod_exposure": 0.26305325034479227,
+        "completed_fifo_roundtrips": 109
+      },
+      "idealized_zero_slippage_fixed_fill_arithmetic": {
+        "net_pnl": "6021084.412805128639811135310",
+        "net_return_on_initial_capital": "0.602108441280512863981113531",
+        "formula": "baseline gross PnL + reported one-tick slippage add-back - unchanged fees",
+        "fills_and_quantities": "held fixed from historical V1; not a re-simulated portfolio"
+      },
+      "stress_1_5x_fees_plus_second_adverse_tick_fixed_fill_arithmetic": {
+        "stressed_fees": "2345281.682707002917827297023",
+        "additional_adverse_tick_cost": "6458230.360000000000000",
+        "net_pnl": "-7677136.868097205666131297031",
+        "net_return_on_initial_capital": "-0.7677136868097205666131297031",
+        "formula": "baseline gross PnL - 1.5x fees - one additional tick cost equal to baseline one-tick slippage",
+        "fills_and_quantities": "held fixed; cash path, fill changes, DD and exposure are not recomputed"
+      },
+      "baseline_path_metrics_only": true
+    },
+    "Round2_H6": {
+      "baseline": {
+        "gross_pnl_after_modeled_slippage": "8153.564577485656822000002600",
+        "fees": "356704.9500063955260982245126",
+        "commission": "333369.11215550983747497618",
+        "vat": "23335.8378508856886232483326",
+        "modeled_slippage": "1316273.600000000000000",
+        "net_pnl": "-348551.38542890986927622451",
+        "final_equity": "9651448.61457109013072377549",
+        "filled_orders": 58,
+        "non_fills": 33,
+        "intended_orders": 91,
+        "turnover": "21.2337014111789705398074",
+        "maximum_drawdown": "0.2741974655315083852408898002",
+        "average_eod_exposure": 0.21936390648191703,
+        "completed_fifo_roundtrips": 23
+      },
+      "idealized_zero_slippage_fixed_fill_arithmetic": {
+        "net_pnl": "967722.2145710901307237754904",
+        "net_return_on_initial_capital": "0.09677222145710901307237754904",
+        "formula": "baseline gross PnL + reported one-tick slippage add-back - unchanged fees",
+        "fills_and_quantities": "held fixed from historical V1; not a re-simulated portfolio"
+      },
+      "stress_1_5x_fees_plus_second_adverse_tick_fixed_fill_arithmetic": {
+        "stressed_fees": "535057.4250095932891473367689",
+        "additional_adverse_tick_cost": "1316273.600000000000000",
+        "net_pnl": "-1843177.460432107632325336766",
+        "net_return_on_initial_capital": "-0.1843177460432107632325336766",
+        "formula": "baseline gross PnL - 1.5x fees - one additional tick cost equal to baseline one-tick slippage",
+        "fills_and_quantities": "held fixed; cash path, fill changes, DD and exposure are not recomputed"
+      },
+      "baseline_path_metrics_only": true
+    }
+  },
+  "source_artifacts": {
+    "artifacts\\research_runs\\20261024T065012Z_candidate_discovery\\candidate_discovery.json": "60f2afd0c99f760bc2174389e7c37d9d629b00189e271c99f70ec910d574cfed",
+    "reports/research_round2_summary.json": "cd81f06fdddffbee02b55546e68d8115fbc384deff816634da936bc40f13acbe",
+    "reports/execution_sensitivity_summary.json": "053b8ccc76f6cf0e8286341fb0e2c2203153f6777e7245b45c12d71e245ed574"
+  },
+  "limits": [
+    "Counterfactual quantities are fixed at historical V1 values; changing slippage/fees would alter the cash path and later trades.",
+    "Baseline drawdown/exposure/turnover/FIFO are shown only for the original path; not recomputed for counterfactuals.",
+    "No daily volume cap, BBO, queue position, or fill probability was inferred."
+  ]
+}

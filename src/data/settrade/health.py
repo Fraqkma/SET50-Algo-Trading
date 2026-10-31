@@ -114,7 +114,7 @@ def _daily_history(project_root: Path) -> dict[str, Any]:
 def _cycles(project_root: Path) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
     runtime = project_root / "reports" / "runtime"
     summaries: list[dict[str, Any]] = []
-    for path in runtime.glob("settrade_daily_*.json") if runtime.exists() else []:
+    for path in ([*runtime.glob("settrade_daily_*.json"), *runtime.glob("runs/*.json")] if runtime.exists() else []):
         try:
             value = json.loads(path.read_text(encoding="utf-8"))
             if isinstance(value, dict):
@@ -212,13 +212,12 @@ def collect_health(project_root: Path, data_root: Path, *, configured: bool = Tr
         lock_value = json.loads(lock_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         lock_value = None
-    lock_status = "NOT_PRESENT"
-    if isinstance(lock_value, dict):
-        from .automation import _pid_alive
-        try:
-            lock_status = "ACTIVE" if _pid_alive(int(lock_value.get("pid", 0))) else "STALE"
-        except (TypeError, ValueError):
-            lock_status = "STALE"
+    from .automation import runner_status
+    try:
+        scheduler = json.loads((project_root / "reports/settrade_scheduler_status.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        scheduler = {}
+    lock_status = runner_status(lock_path, scheduler)
     return {
         "active_repo_path": str(project_root),
         "active_data_root": str(data_root),

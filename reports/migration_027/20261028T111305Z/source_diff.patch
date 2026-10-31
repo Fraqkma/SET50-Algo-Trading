@@ -1,0 +1,1067 @@
+--- 0.2.6/docs/CHANGELOG.md
++++ 0.2.7/docs/CHANGELOG.md
+@@ -2,6 +2,64 @@
+ 
+ เวอร์ชันของ `tradeSim` ดูได้จากชื่อไฟล์ zip ที่โหลด (`tradeSim<version>.zip`) โหลดตัวใหม่แล้วแตกทับในโฟลเดอร์ repo ของทีม
+ แบบเดียวกับครั้งแรก
++
++## 0.2.7
++
++### คำสั่งเป็นแบบ IOC ตามกติกาการแข่ง (มีผลกับผลลัพธ์)
++กติกาการแข่งกำหนดว่าคำสั่งต้องเป็น **Limit Order หรือ Market-to-Limit Order ที่มี validity แบบ IOC เท่านั้น**
++เวอร์ชัน 0.2.6 ให้ limit order ค้างในบุ๊คได้ทั้งวัน ซึ่งไม่ตรงกับกติกา 0.2.7 แก้ให้ตรง:
++
++- **ทุกคำสั่งจับคู่ครั้งเดียวกับตลาด ณ ตอนนั้น** ได้เท่าที่ตลาดมี ส่วนที่เหลือ**ยกเลิกทันที** ไม่มีคำสั่งค้างในบุ๊คอีกแล้ว
++  - คำสั่งของหุ้นแท่งปัจจุบัน (`bar["ShareCode"]`) จับคู่กับ tick ปัจจุบัน
++  - คำสั่ง limit ของหุ้นตัวอื่น จับคู่กับ tick ถัดไปของหุ้นนั้นครั้งเดียว
++  - ไม่ได้ก็ต้องสั่งใหม่เอง tick ต่อ ๆ ไปจะไม่ทำให้คำสั่งเดิมได้หุ้น
++- **ราคาที่ได้เป็นไปตามกติกา slippage (1 ช่วงราคา) ทั้ง limit และ market:**
++  ซื้อได้ที่ **ราคาล่าสุด + 1 ช่วงราคา** ขายได้ที่ **ราคาล่าสุด − 1 ช่วงราคา** ไม่ว่า tick จะเป็นฝั่งไหน
++  - limit ซื้อได้หุ้นเมื่อราคานั้น ≤ ราคาที่ตั้ง และจ่ายราคานั้น (ไม่ใช่ราคาที่ตั้ง) · limit ขายได้เมื่อ ≥ ราคาที่ตั้ง
++  - ตัวอย่าง ราคาล่าสุด 62.75 (ช่วงราคา 0.25): ตั้งซื้อ 63.00 ขึ้นไป → ได้ที่ 63.00 · ตั้งซื้อ 62.75 → ไม่ได้ ถูกยกเลิก
++  - ตั้ง limit ที่ `bar["Close"]` **ไม่ได้หุ้นแล้ว** ต้องตั้งซื้ออย่างน้อย Close + 1 ช่วงราคา หรือขายไม่เกิน Close − 1 ช่วงราคา
++  - กติกา "ตลาดต้องซื้อขายเลยราคา / อยู่ท้ายคิว" ของ 0.2.6 ไม่มีแล้ว
++- **ได้ไม่เกินปริมาณของ tick** (ปัดลงเป็นหลัก 100) หักส่วนที่คำสั่งก่อนหน้าของทีมใน tick เดียวกันใช้ไปแล้ว
++  - **market order ก็ถูกจำกัดแบบนี้ด้วย** (เดิมได้ครบเสมอ) เช่น สั่งซื้อ market 1,000 หุ้นบน tick ที่มี 350 หุ้น ได้ 300 ที่เหลือยกเลิก
++- **tick ช่วงประมูล (`OPEN1_E`, `OPEN2_E`, `ATC`) ไม่ได้หุ้นทั้ง limit และ market**
++  - กลยุทธ์ที่สั่ง market order ตอนปิดตลาด (ATC) **จะไม่ได้หุ้นแล้ว** · error log จะมีข้อความ `... is an auction print (ATC), not continuous trading.`
++- `get_open_orders()` / `cancel_order()` / `cancel_all_orders()` ยังเรียกได้ (โค้ดเดิมไม่พัง) แต่แทบจะว่างเสมอ
++- transaction log: คำสั่งหนึ่งมี**ไม่เกิน 1 แถว** · `Placed` = `Timestamp` เสมอ
++- **คำสั่งที่ใหญ่กว่าเพดานปริมาณของวันไม่ถูกปฏิเสธแล้ว** ได้เท่าที่เพดานเหลือ (ปัดลงเป็นหลัก 100) และไม่เกินปริมาณของ tick
++  - เช่น ตอนเช้าสั่งซื้อ 100,000 หุ้น ตลาดเพิ่งซื้อขายฝั่งขายไป 50,000 → ได้ไม่เกิน 50,000 (เดิมถูกปฏิเสธทั้งคำสั่ง)
++  - ถูกปฏิเสธเฉพาะเมื่อเพดานเหลือไม่ถึง 100 หุ้น · การเช็คเงินยังเช็คกับจำนวนที่สั่งทั้งหมดเหมือนบัญชีจริง
++- **ขายตอนราคาล่าสุดอยู่ตรงขอบช่วงราคา ได้ราคาต่ำลง 1 ช่วงราคาของช่วงล่าง** (เดิมต่ำลง 2 ช่วงราคา)
++  - เช่น ราคาล่าสุด 100.00 ขายได้ 99.75 (เดิม 99.50) · 25.00 ได้ 24.90 (เดิม 24.75) · ฝั่งซื้อไม่เปลี่ยน (100.00 ซื้อได้ 100.50)
++
++### ราคา limit ต้องลงช่วงราคา (ปิดช่องโหว่)
++- ราคาที่ตั้งต้อง > 0 และเป็น**จำนวนเท่าของช่วงราคา**ที่ระดับราคานั้น ไม่งั้นคำสั่งถูกปฏิเสธ เช่น
++  `Price 42.01 is not a valid price for PTT: the tick size at this price is 0.25 baht, so the price must be a multiple of 0.25 (nearest valid prices: 42.00 or 42.25).`
++- **ทำไม:** 0.2.6 ไม่ตรวจราคาเลย ตั้งซื้อที่ bid + 0.01 (เช่น PTT 42.01 ตอนช่วงราคาคือ 0.25) ได้หุ้นทุกครั้งที่ตลาดซื้อขายที่ bid
++  กลยุทธ์ทดสอบที่ใช้ช่องโหว่นี้ได้ +35.5% โดย drawdown 0% ซึ่งตลาดจริงทำไม่ได้ เพราะระบบของตลาดไม่รับราคาแบบนี้
++
++### ตารางช่วงราคาเปลี่ยนวันที่ 16 พ.ย. 2026 (ตามประกาศ SET)
++ระบบใช้ตารางของวันที่กำลังจำลอง ทั้งตอนคิด slippage และตอนตรวจราคา limit
++
++| ราคาหุ้น (บาท) | ช่วงราคา ก่อน 16 พ.ย. | ช่วงราคา ตั้งแต่ 16 พ.ย. |
++|---|---|---|
++| < 2 | 0.01 | 0.01 |
++| 2 – < 5 | 0.02 | 0.02 |
++| 5 – < 10 | 0.05 | **0.02** |
++| 10 – < 25 | 0.10 | **0.05** |
++| 25 – < 50 | 0.25 | **0.10** |
++| 50 – < 100 | 0.25 | 0.25 |
++| 100 – < 200 | 0.50 | 0.50 |
++| 200 – < 400 | 1.00 | 1.00 |
++| ≥ 400 | 2.00 | 2.00 |
++
++เช่น PTT ที่ 42 บาท: ถึง 13 พ.ย. ช่วงราคา 0.25 (ตั้ง 42.10 ไม่ได้) · ตั้งแต่ 16 พ.ย. ช่วงราคา 0.10 (ตั้ง 42.10 ได้)
++กลยุทธ์ที่คำนวณราคา limit เอง ควรปัดให้ลงช่วงราคาของวันนั้น
++
++**ควรทำ:** ทุกทีมควรรันทดสอบกลยุทธ์ใหม่ โดยเฉพาะทีมที่
++- ใช้ `create_order_to_limit` (ราคาที่ได้และโอกาสได้หุ้นเปลี่ยน · ราคาต้องลงช่วงราคา)
++- สั่ง market order จำนวนมากในครั้งเดียว (ได้ไม่เกินปริมาณของ tick)
++- สั่งตอนประมูลเปิด/ปิด (ไม่ได้หุ้นแล้ว)
++- พึ่ง `get_open_orders()` ว่าคำสั่งยังรออยู่
+ 
+ ## 0.2.6
+ 
+--- 0.2.6/docs/api_reference.md
++++ 0.2.7/docs/api_reference.md
+@@ -27,7 +27,8 @@
+     * When an order buys stocks from the market, if the trader's portfolio doesn't have enough cash balance, the order will be rejected.
+     * When an order sells stock from the market, if the portfolio of trade doesn't have enough volume of stock in its portfolio, the order will be rejected.
+   * Matching the order with the market streaming situation:
+-    * A limit order that doesn't fill right away rests in the order book and is tried again on every later tick of its stock, until it fills, you cancel it, or the trading day ends — see [Create order to limit](#create-order-to-limit) and [Managing resting orders](#managing-resting-orders).
++    * Every order is **IOC (immediate-or-cancel)**: it is matched once, against the market at that moment, for at most the volume the market has there; whatever doesn't fill is cancelled at once. Nothing waits in an order book — see [Create order to limit](#create-order-to-limit).
++    * A limit price must be a multiple of the **tick size** (ช่วงราคา) at that price, which changes on 16 Nov 2026 — see [Tick size](#tick-size).
+ - **Automated CI validation**: every push to your team repo is automatically checked (syntax, structure, forbidden imports/calls, team-name match, and a real dry-run against sample tick data) before it is trusted for the daily official run. See [Automated Submission Checks (CI)](#automated-submission-checks-ci).
+ 
+ **Where the "real" result comes from:** the numbers that count are produced by the organizers' daily run against the day's real tick data on their own machine (VPS), from whatever version of your strategy last passed CI. Anything you run on your own computer (this notebook included) is for practice/debugging only.
+@@ -164,7 +165,7 @@
+ **Example\_strategy.py: A Sample Strategy**
+ The following class is a simple example of a custom strategy that buys and sells selected stocks based on basic rules:
+ 
+-| from strategy.Strategies\_template import Strategy\_templateclass Example\_strategy(Strategy\_template):    def \_\_init\_\_(self, handler):        super().\_\_init\_\_("example", "Example\_strategy", handler, timeframe="1min")        self.buy\_counts \= {s: 0 for s in \["ADVANC", "AOT", "AWC", "BANPU", "BBL"\]}        self.sell\_counts \= {s: 0 for s in \["ADVANC", "AOT", "AWC", "BANPU", "BBL"\]}    def on\_data(self, bar):        symbol \= bar\['ShareCode'\]        price \= bar\['Close'\]        if symbol in self.buy\_counts or symbol in self.sell\_counts:            if not self.handler.check\_port\_has\_stock(symbol, 100):                self.handler.create\_order\_to\_limit(100, price, "Buy", symbol)            else:                stocks \= self.handler.get\_stock\_by\_symbol(symbol)                if stocks:                    buy\_price \= stocks\[0\].get\_buy\_price()                    if price \< buy\_price:                        self.handler.create\_order\_to\_limit(100, price, "Sell", symbol) |
++| from strategy.Strategies\_template import Strategy\_templateclass Example\_strategy(Strategy\_template):    def \_\_init\_\_(self, handler):        super().\_\_init\_\_("example", "Example\_strategy", handler, timeframe="1min")        self.buy\_counts \= {s: 0 for s in \["ADVANC", "AOT", "AWC", "BANPU", "BBL"\]}        self.sell\_counts \= {s: 0 for s in \["ADVANC", "AOT", "AWC", "BANPU", "BBL"\]}    def on\_data(self, bar):        symbol \= bar\['ShareCode'\]        price \= bar\['Close'\]        if symbol in self.buy\_counts or symbol in self.sell\_counts:            if not self.handler.check\_port\_has\_stock(symbol, 100):                self.handler.create\_order\_at\_market(100, "Buy", symbol)            else:                stocks \= self.handler.get\_stock\_by\_symbol(symbol)                if stocks:                    buy\_price \= stocks\[0\].get\_buy\_price()                    if price \< buy\_price:                        self.handler.create\_order\_at\_market(100, "Sell", symbol) |
+ | :---- |
+ 
+ ## **To ensure your strategy is loaded correctly, the following naming rules must be strictly followed**
+@@ -247,44 +248,41 @@
+ 
+ &nbsp;
+ 
+-### **Create order to limit** Place an order at a price you choose. It fills only at your price or a better one — never worse. If someone in the market is already trading at your price it fills on the current tick; otherwise it waits in the order book until someone trades at your price. Use it when the price matters more than filling right away.
++### **Create order to limit** Fill now, but only at your price or a better one — never worse. The order is matched once, on the current tick, and whatever doesn't fill is cancelled at once (IOC). Use it to cap what you pay (Buy) or the least you accept (Sell).
+ 
+ | create\_order\_to\_limit(volume, price, side, symbol) |
+ | :---- |
+ 
+ Example usage:
+ 
+-| self.handler.create\_order\_to\_limit(100, 35.67, "Buy", "AOT") self.handler.create\_order\_to\_limit(100, 39.89, "Sell", "PTT") |
++| self.handler.create\_order\_to\_limit(100, 35.75, "Buy", "AOT") self.handler.create\_order\_to\_limit(100, 39.75, "Sell", "PTT") |
+ | :---- |
+ 
+ <a id="create-order-to-limit"></a>
+ 
+-**How a limit order is matched.** Every tick says which side started the trade (the `Flag` column of the tick data). `Buy` means a buyer took a seller's offer, so someone was **offering** at that price. `Sell` means a seller hit a buyer's bid, so that price was the **bid**, and the cheapest offer is about one price step higher. "One price step" is 0.25 around 60 baht and 1.00 around 250.
++**How a limit order is matched.** The engine takes the other side's best price to be the last price one **tick size** away (the slippage rule, 1 tick): the offer is `last price + 1 tick`, the bid is `last price − 1 tick`, whatever side the tick was. A tick is 0.25 around 60 baht and 1.00 around 250 — see [Tick size](#tick-size).
+ 
+ | | Buy limit | Sell limit |
+ |---|---|---|
+-| **When placed** — fills at once if | the offer is at or below your price (`Buy` tick: offer = last price · `Sell` tick: offer = last price + one step) | the bid is at or above your price (`Sell` tick: bid = last price · `Buy` tick: bid = last price − one step) |
+-| You pay / receive | the offer — your price or better | the bid — your price or better |
+-| **Otherwise it rests**, and fills once | the market trades **below** your price | the market trades **above** your price |
+-| You pay / receive | your price | your price |
+-| **How many shares** (both cases) | at most the volume of the tick that fills it, in whole lots of 100 | same |
++| Fills if | `last price + 1 tick` is **at or below** your price | `last price − 1 tick` is **at or above** your price |
++| You pay / receive | `last price + 1 tick` — your price or better | `last price − 1 tick` — your price or better |
++| How many shares | at most the tick's volume, in whole lots of 100 | same |
++| What doesn't fill | cancelled at once | cancelled at once |
+ 
+ Fees (commission 0.157% + VAT 7% of it) come on top of every fill.
+ 
+-Example, last price 62.75 for a Buy: on a `Buy` tick a limit at 62.75 fills at once at 62.75; on a `Sell` tick the same order waits; a limit at 63.50 fills at once on either tick, at 62.75 or 63.00 respectively — never at 63.50.
+-
+-**Why a resting order waits for a trade *through* its price.** Other people's orders were queued at your price before yours. The ticks show trades, not how long that queue was, so a trade exactly at your price may have gone to them. A trade beyond your price means the queue at your price was used up — yours included. Example: a Buy resting at 2.94 does not fill while the market trades at 2.94, however much trades there; the first trade at 2.92 fills it, at 2.94.
+-
+-- **Partial fills.** Each fill is at most the volume of the tick that filled it, rounded down to whole lots of 100 (a tick of fewer than 100 shares fills nothing). The rest of the order keeps resting; [`get_open_orders()`](#managing-resting-orders) shows how much is still waiting. When several of your orders fill on one tick, they share its volume in the order you placed them.
+-- **Auction ticks** (`OPEN1_E`, `OPEN2_E`, `ATC`) have no side and never fill a limit order.
+-- **A resting order lasts for the trading day.** Each day starts with an empty order book; whatever is still waiting at the close is gone — a whole order, or the rest of one that filled in part. Place it again the next day if you still want it.
+-- **Orders fill in the order you placed them.** When the price arrives, the engine checks your cash (Buy) or holdings (Sell) again. If they are no longer enough — for example you already spent the cash, or two Sell orders wait on the same 100 shares — that order is cancelled.
+-- **Every call places a new order.** A strategy that calls `create_order_to_limit` on every tick while a condition holds piles up resting orders, and they can all fill later. Check [`get_open_orders()`](#managing-resting-orders) first, or cancel what you no longer want.
+-- A limit at `bar["Close"]` is **not** guaranteed to fill — on a `Sell` tick it waits, and then needs a trade through its price. When the strategy has to get in or out now, use a market order.
+-- **The day's volume cap.** An order is refused if it asks for more than its stock has traded on the other side so far today, less what your team has already bought (for a Buy) or sold (for a Sell) in that stock today.
+-- "created successfully" means the order passed validation (cash, holdings, volume) and is in the order book, not that it filled. Check with [`check_port_has_stock()`](#check_port_has_stocksymbol-volume) or [`get_all_stocks_info()`](#get_all_stocks_info).
+-
+-### **Create order at the market** Fill right away, whatever side the tick was: a Buy pays the latest price plus one price step, a Sell receives the latest price minus one step (plus fees either way). The step stands in for crossing the spread to the other side's best price. Only for the stock of the current bar. Use it when filling now matters more than the price.
++Example, last price 62.75 (tick 0.25): a Buy limit at 63.00 or higher fills at 63.00; a Buy limit at 62.75 does not fill and is cancelled. A Sell limit at 62.50 or lower fills at 62.50; a Sell limit at 62.75 is cancelled.
++
++- **Only once.** An order for the bar's own stock (`bar["ShareCode"]`) is matched on the current tick. An order for another stock is matched on that stock's next tick. Either way it is then gone, filled or not. A later tick never fills it, so if you still want the trade, place it again.
++- **At most the tick's volume.** A fill is at most the volume of that tick, rounded down to whole lots of 100 (a tick of fewer than 100 shares fills nothing), less what your earlier orders on the same tick already took — market orders included. The rest of the order is cancelled.
++- **The price must be a multiple of the tick size** at that price, in the table of that trading day — e.g. 58.25 is fine at 0.25 steps, 58.10 is rejected. See [Tick size](#tick-size).
++- **Auction ticks** (`OPEN1_E`, `OPEN2_E`, `ATC` — any tick whose `Flag` is not `Buy`/`Sell`) fill nothing.
++- **Cash and holdings are checked again when it fills.** If two Sell orders on one tick both want the same 100 shares, the second is skipped.
++- A limit at `bar["Close"]` does **not** fill: a Buy needs at least `Close + 1 tick`, a Sell at most `Close − 1 tick`.
++- **The day's volume cap.** An order can fill at most what its stock has traded on the other side so far today, less what your team has already bought (for a Buy) or sold (for a Sell) in that stock today, in whole lots of 100. An order bigger than that is still accepted and fills at most what is left (e.g. Buy 100,000 when 50,000 is left → at most 50,000, and no more than the tick's volume); it is refused only when less than 100 shares are left.
++- "created successfully" means the order passed validation (price, cash, holdings, volume), not that it filled. Check with [`check_port_has_stock()`](#check_port_has_stocksymbol-volume) or [`get_all_stocks_info()`](#get_all_stocks_info).
++
++### **Create order at the market** Market-to-Limit IOC: fill now at the other side's best price, whatever side the tick was — a Buy pays the latest price plus one tick, a Sell receives the latest price minus one tick (plus fees either way). The tick stands in for crossing the spread. Like a limit order it gets at most the tick's volume and the rest is cancelled. Only for the stock of the current bar. Use it when filling now matters more than the price.
+ 
+ | create\_order\_at\_market(volume, side, symbol) |
+ | :---- |
+@@ -298,6 +296,9 @@
+ 
+ On success it returns `Market order for AOT (Vol: 1000, Price: 62.5, Side: Buy) submitted successfully.` — like a broker's confirmation, this means the order was **accepted**, not that it filled. Check what you actually hold with [`check_port_has_stock()`](#check_port_has_stocksymbol-volume) or [`get_all_stocks_info()`](#get_all_stocks_info).
+ 
++- **At most the tick's volume.** A market Buy for 1,000 on a tick of 350 shares gets 300; the other 700 are cancelled.
++- **Not on auction ticks.** On a tick whose `Flag` is not `Buy`/`Sell` (`OPEN1_E`, `OPEN2_E`, `ATC`) a market order fills nothing — so a market order at the close (ATC) gets no shares. The error log says `Market order ... could not be filled: tick <time> is an auction print (<Flag>), not continuous trading.`
++
+ ### **Return value from Create order** Both create\_order\_to\_limit() and create\_order\_at\_market() return a string message that indicates whether the order was successfully placed or rejected. This allows your strategy to confirm the outcome of the order and handle errors appropriately. Example of a valid order:
+ 
+ | order\_result \= self.handler.create\_order\_to\_limit(100, 58, "Buy", "AOT")print(order\_result) |
+@@ -308,7 +309,7 @@
+ | Order 20260909-ORD00012 for AOT (Vol: 100, Price: 58.0, Side: Buy) created successfully. |
+ | :---- |
+ 
+-The order number at the start (`20260909-ORD00012`) is what [`cancel_order()`](#managing-resting-orders) takes.
++The order number at the start (`20260909-ORD00012`) is the `Order Number` in the [transaction log](#reading-the-transaction-log).
+ 
+ ### If the order is invalid, such as due to insufficient holdings or an incorrect volume, it will not be registered. Instead, an error message will be returned with the reason. Example of invalid order:
+ 
+@@ -325,41 +326,49 @@
+ | Reason string | When |
+ | :---- | :---- |
+ | Volume must be a multiple of 100. | volume isn't a multiple of 100 |
++| Limit price must be greater than 0 (got \<price\>). | limit price is 0 or negative |
++| Price \<price\> is not a valid price for \<symbol\>: the tick size at this price is \<tick\> baht, so the price must be a multiple of \<tick\> (nearest valid prices: \<lower\> or \<upper\>). | limit price isn't a multiple of the [tick size](#tick-size), e.g. 42.01 where the tick is 0.25 |
+ | Invalid side '\<side\>'. Must be 'Buy' or 'Sell'. | side isn't Buy/Sell |
+ | Symbol '\<symbol\>' is not one of the tradable SET50 stocks ... | symbol not in the SET50 list |
+ | '\<symbol\>' is a market index, not a tradable stock ... | tried to order an index (SET, SET50, ...) instead of a stock |
+ | Insufficient cash balance to cover transaction costs. | Buy order, not enough cash (commission/VAT included) |
+ | Cannot sell \<symbol\> as it is not in the portfolio or insufficient volume. | Sell order, not enough held volume |
+-| Order's buy volume exceeds the cumulative sell volume from the daily ticks. | Buy order larger than the market's own matched sell volume so far that tick |
+-| Order's sell volume exceeds the cumulative buy volume from the daily ticks. | Sell order larger than the market's own matched buy volume so far that tick |
++| Order's buy volume exceeds the cumulative sell volume from the daily ticks. | Buy order when less than 100 shares are left of the day's volume cap (the market's matched sell volume so far today, less what your team bought) |
++| Order's sell volume exceeds the cumulative buy volume from the daily ticks. | Sell order when less than 100 shares are left of the day's volume cap (the market's matched buy volume so far today, less what your team sold) |
+ 
+ <a id="managing-resting-orders"></a>
+ 
+-### **Managing resting orders**
+-
+-Limit orders that haven't filled yet wait in the order book. These three methods let your strategy see and cancel them. They cover the whole team's order book, so pass `bar["ShareCode"]` when a strategy should only touch its own stock's orders.
++### **get\_open\_orders / cancel\_order / cancel\_all\_orders**
++
++Since 0.2.7 orders are IOC, so nothing rests in an order book any more. These three methods are kept so strategies written for 0.2.6 keep running. The only order they can ever see is a limit order you placed for **another** stock (not `bar["ShareCode"]`) that hasn't reached that stock's next tick yet.
+ 
+ | Method | Returns |
+ | :---- | :---- |
+-| `get_open_orders(symbol=None)` | list of dicts, oldest first — one per resting order: `Order Number`, `Type`, `Symbol`, `Side`, `Volume` (shares still waiting — less than you asked for once part of it has filled), `Price` (your limit), `Timestamp` (when placed), `owner`. With `symbol`, only that stock's orders. |
+-| `cancel_order(order_number)` | `True` if the order was resting and is now removed; `False` if it already filled, was already cancelled, or never rested. |
++| `get_open_orders(symbol=None)` | list of dicts, oldest first: `Order Number`, `Type`, `Symbol`, `Side`, `Volume`, `Price` (your limit), `Timestamp` (when placed), `owner`. With `symbol`, only that stock's orders. Almost always `[]`. |
++| `cancel_order(order_number)` | `True` if the order was still waiting and is now removed; otherwise `False`. |
+ | `cancel_all_orders(symbol=None)` | how many orders were removed — all of them, or only `symbol`'s. |
+ 
+-Example: wait for a dip with one resting Buy per stock, and withdraw it once the signal is gone.
+-
+-```python
+-def on_data(self, bar):
+-    symbol = bar["ShareCode"]
+-    waiting = self.handler.get_open_orders(symbol)
+-
+-    if not self.wants_to_buy(symbol):
+-        if waiting:
+-            self.handler.cancel_all_orders(symbol)   # signal gone: stop waiting
+-        return
+-
+-    if not waiting and not self.handler.check_port_has_stock(symbol, 100):
+-        self.handler.create_order_to_limit(100, self.dip_price[symbol], "Buy", symbol)
+-```
++<a id="tick-size"></a>
++
++### **Tick size (ช่วงราคา)**
++
++The tick size is the smallest price step at a price level. It is the slippage of every fill (1 tick), and a limit price must be a whole multiple of it. SET changes the table on **16 Nov 2026**; the engine uses the table of the trading day being simulated (data: `tradeSim/tick_size.json`).
++
++| Price (baht) | Tick before 16 Nov 2026 | Tick from 16 Nov 2026 |
++| :---- | :---- | :---- |
++| below 2 | 0.01 | 0.01 |
++| 2 – below 5 | 0.02 | 0.02 |
++| 5 – below 10 | 0.05 | 0.02 |
++| 10 – below 25 | 0.10 | 0.05 |
++| 25 – below 50 | 0.25 | 0.10 |
++| 50 – below 100 | 0.25 | 0.25 |
++| 100 – below 200 | 0.50 | 0.50 |
++| 200 – below 400 | 1.00 | 1.00 |
++| 400 and up | 2.00 | 2.00 |
++
++Example: PTT at 42 has a tick of 0.25 until 13 Nov (42.10 is rejected) and 0.10 from 16 Nov (42.10 is fine).
++
++A sell when the last price sits exactly on a band edge steps one tick of the **lower** band, since the next price under it is in that band: last 100.00 → a Sell fills at 99.75 (tick 0.25), not 99.50; a Buy at 100.00 fills at 100.50 (tick 0.50).
+ 
+ <a id="reading-the-transaction-log"></a>
+ 
+@@ -378,11 +387,11 @@
+ | `Placed` | when the order was placed |
+ | `Timestamp` | when it filled |
+ 
+-A market Buy shows `Price` one step above `Order Price`; a limit Buy shows `Price` at or below `Order Price`, and `Placed` earlier than `Timestamp` if it had to wait.
+-
+-**Partial fills.** A limit order can fill in pieces (each fill is at most the volume of the tick that filled it), so one `Order Number` can appear on several rows — one per fill, each with its own `Volume`, `Market Price` and `Timestamp`. Add up `Volume` across an order's rows to see how much of it filled.
+-
+-**What never filled.** The log records fills only. Whatever is still resting at the close — a whole order, or the rest of one that filled in part — is cancelled with the day's order book and leaves no row. Example: a Buy for 68,000 with rows of 20,000 and 10,000 filled 30,000; the other 38,000 lapsed at the close. Place it again the next day if you still want it.
++A Buy (market or limit) shows `Price` = `Market Price` + 1 tick, a Sell `Market Price` − 1 tick. A limit Buy's `Price` is at or below its `Order Price`.
++
++**Partial fills.** An order fills at most once, so one `Order Number` has at most one row. Its `Volume` can be less than you asked for — the tick's volume ran out — and the rest was cancelled at once.
++
++**What never filled.** The log records fills only. An order that didn't fill, or the part of one that didn't, leaves no row. Example: a Buy for 68,000 on a tick of 30,000 shares has one row of 30,000; the other 38,000 were cancelled right then. Check what you hold with [`get_all_stocks_info()`](#get_all_stocks_info).
+ 
+ **How fills become Round-Trips.** All fills of one Buy order make **one lot** (one average cost), and the lot is **one Round-Trip** once it has been sold down to zero (FIFO, oldest lot first) — however many Sell orders that took. Examples:
+ 
+--- 0.2.6/docs/competitor_guide.md
++++ 0.2.7/docs/competitor_guide.md
+@@ -93,11 +93,11 @@
+ 
+ | Method | Parameter | หมายเหตุ |
+ |---|---|---|
+-| `create_order_to_limit` | `(volume, price, side, symbol)` | ได้**ราคาที่ตั้งหรือดีกว่า**เท่านั้น · ใช้ฝั่งของ tick ตัดสิน: tick ฝั่ง Buy = มีคนตั้งขายที่ราคานั้น · ฝั่ง Sell = ราคานั้นคือฝั่งเสนอซื้อ (คนตั้งขายถูกสุด ≈ +1 ช่วงราคา) · ถ้ายังไม่มีคนขายถึงราคา คำสั่ง**ค้างใน order book** จนจบวัน แล้วได้ราคาที่ตั้งเมื่อตลาดซื้อขาย**ทะลุ**ราคาที่ตั้ง (แค่แตะไม่ได้ ถือว่าอยู่ท้ายคิว) · ได้ไม่เกินปริมาณของ tick นั้น ที่เหลือค้างต่อ · ตั้งที่ `bar["Close"]` ไม่รับประกันว่าได้หุ้น · tick ช่วงประมูลไม่จับคู่ limit · เรียกทุก tick = คำสั่งค้างพอกพูน ให้เช็ค `get_open_orders()` ก่อน · ข้อความที่คืนมามีเลขคำสั่ง (ใช้กับ `cancel_order`) · "successfully" ≠ ได้หุ้น — รายละเอียดที่ [A guide to create a buy/sell order](api_reference.md#a-guide-to-create-a-buysell-order) |
+-| `create_order_at_market` | `(volume, side, symbol)` | ไม่ต้องใส่ราคา **ได้ทันทีเสมอ**ไม่สนฝั่งของ tick · ซื้อจ่ายราคาล่าสุด + 1 ช่วงราคา ขายได้ราคาล่าสุด − 1 ช่วงราคา (แทนการข้าม spread) · สั่งได้เฉพาะหุ้นของแท่งที่กำลังประมวลผล (`bar["ShareCode"]`) · ใช้เมื่อต้องเข้า/ออกทันที เช่น ตัดขาดทุน · ได้ข้อความ "submitted successfully" = ระบบรับคำสั่งแล้ว ไม่ใช่ได้หุ้น — ดูราคาที่ได้จริงใน [transaction log](api_reference.md#reading-the-transaction-log) |
+-| `get_open_orders` | `(symbol=None)` | คำสั่ง limit ที่ยังค้างอยู่ เป็น list ของ dict (เลขคำสั่ง หุ้น ฝั่ง จำนวน ราคา เวลา) เรียงจากเก่าไปใหม่ · ครอบทั้ง order book ของทีม ใส่ `bar["ShareCode"]` ถ้าจะดูเฉพาะหุ้นตัวเอง — รายละเอียดที่ [Managing resting orders](api_reference.md#managing-resting-orders) |
+-| `cancel_order` | `(order_number)` | ยกเลิกคำสั่งที่ค้างอยู่ 1 ตัว คืน `True` ถ้ายกเลิกได้ · `False` ถ้าได้หุ้นไปแล้ว ถูกยกเลิกไปแล้ว หรือไม่เคยค้าง |
+-| `cancel_all_orders` | `(symbol=None)` | ยกเลิกคำสั่งที่ค้างทั้งหมด หรือเฉพาะหุ้น `symbol` คืนจำนวนที่ยกเลิก |
++| `create_order_to_limit` | `(volume, price, side, symbol)` | คำสั่งแบบ **IOC**: จับคู่**ครั้งเดียว**กับ tick ปัจจุบัน ส่วนที่ไม่ได้**ยกเลิกทันที** ไม่ค้างใน order book · ราคาที่ได้ = ซื้อ: ราคาล่าสุด **+ 1 ช่วงราคา** · ขาย: ราคาล่าสุด **− 1 ช่วงราคา** (กติกา slippage) · ได้หุ้นเมื่อราคานั้น**ไม่แย่กว่า**ราคาที่ตั้ง (ซื้อ: ≤ ราคาที่ตั้ง · ขาย: ≥ ราคาที่ตั้ง) · ตั้งที่ `bar["Close"]` จึง**ไม่ได้หุ้น** · ราคาที่ตั้งต้องเป็น**จำนวนเท่าของช่วงราคา**ที่ระดับราคานั้น ไม่งั้นถูกปฏิเสธ (ตารางช่วงราคาเปลี่ยน 16 พ.ย. 2026 ดู [Tick size](api_reference.md#tick-size)) · ได้ไม่เกินปริมาณของ tick นั้น (ปัดลงเป็นหลัก 100) หักที่คำสั่งก่อนหน้าใน tick เดียวกันใช้ไปแล้ว · สั่งเกินเพดานปริมาณของวัน = ได้เท่าที่เหลือ ไม่ถูกปฏิเสธ (ปฏิเสธเมื่อเหลือไม่ถึง 100 หุ้น) · tick ประมูล (`OPEN1_E` `OPEN2_E` `ATC`) ไม่ได้หุ้น · สั่งหุ้นตัวอื่นที่ไม่ใช่ `bar["ShareCode"]` = จับคู่กับ tick ถัดไปของหุ้นนั้นครั้งเดียว · "successfully" ≠ ได้หุ้น — รายละเอียดที่ [A guide to create a buy/sell order](api_reference.md#a-guide-to-create-a-buysell-order) |
++| `create_order_at_market` | `(volume, side, symbol)` | Market-to-Limit แบบ **IOC** ไม่ต้องใส่ราคา · ซื้อจ่ายราคาล่าสุด + 1 ช่วงราคา ขายได้ราคาล่าสุด − 1 ช่วงราคา (แทนการข้าม spread) ไม่สนฝั่งของ tick · **ได้ไม่เกินปริมาณของ tick นั้น** ที่เหลือยกเลิก (เช่น สั่ง 1,000 บน tick 350 หุ้น ได้ 300) · สั่งเกินเพดานปริมาณของวัน = ได้เท่าที่เหลือ · **tick ประมูล (`OPEN1_E` `OPEN2_E` `ATC`) ไม่ได้หุ้น** — สั่งตอน ATC ไม่ได้ของ · สั่งได้เฉพาะหุ้นของแท่งที่กำลังประมวลผล (`bar["ShareCode"]`) · ได้ข้อความ "submitted successfully" = ระบบรับคำสั่งแล้ว ไม่ใช่ได้หุ้น — ดูราคาที่ได้จริงใน [transaction log](api_reference.md#reading-the-transaction-log) |
++| `get_open_orders` | `(symbol=None)` | เก็บไว้ให้โค้ดของ 0.2.6 ไม่พัง · ตั้งแต่ 0.2.7 คำสั่งไม่ค้างแล้ว จึงเห็นเฉพาะคำสั่ง limit ของ**หุ้นตัวอื่น**ที่ยังไม่ถึง tick ถัดไปของหุ้นนั้น · เกือบทุกครั้งคืน `[]` |
++| `cancel_order` | `(order_number)` | ยกเลิกคำสั่งที่ยังไม่ถูกจับคู่ 1 ตัว (ดู `get_open_orders`) คืน `True` ถ้ายกเลิกได้ ไม่งั้น `False` |
++| `cancel_all_orders` | `(symbol=None)` | ยกเลิกคำสั่งที่ยังไม่ถูกจับคู่ทั้งหมด หรือเฉพาะหุ้น `symbol` คืนจำนวนที่ยกเลิก |
+ | `check_port_has_stock` | `(symbol, volume)` | เช็คจากปริมาณที่ถืออยู่จริงตอนนี้เท่านั้น — รายละเอียดที่ [Check if portfolio has stock](api_reference.md#check_port_has_stocksymbol-volume) |
+ | `get_stock_by_symbol` | `(symbol)` | คืนเป็น **list** ของทุกล็อตที่ถืออยู่ (FIFO) ไม่ใช่ object เดียว — รายละเอียดที่ [Get information from the stocks in the portfolio by symbol](api_reference.md#get_stock_by_symbolsymbol) |
+ | `get_all_stocks_info` | `()` | สรุปรวมทุกล็อตของ symbol เดียวกันเป็น 1 แถวต่อ symbol — รายละเอียดที่ [Get information from the stocks in the portfolio](api_reference.md#get_all_stocks_info) |
+--- 0.2.6/docs/get_historical_data.md
++++ 0.2.7/docs/get_historical_data.md
+@@ -60,6 +60,7 @@
+ | `marketInfo/daily_history/` | `<SYMBOL>.csv` ตัวละ 1 ไฟล์ | `Date,Open,High,Low,Close,Volume` |
+ | `marketInfo/intraday_history/<interval>/` | `<SYMBOL>.csv` ตัวละ 1 ไฟล์ ต่อ interval (`1m` `3m` `5m` `10m` `15m` `30m` `60m` `120m` `240m`) | `Timestamp,Open,High,Low,Close,Volume` |
+ | `marketInfo/symbolSET50/` | `Symbol_SET50.csv` — รายชื่อหุ้นที่เทรดได้ (ตัวเดียวกับที่มากับ `tradeSim<version>.zip` จะเปลี่ยนเมื่อผู้จัดปรับรายชื่อ) | `Symbol,Market,Sector,Security Type` |
++| `marketInfo/benchmark/` | `SET50.csv` — ค่าปิดรายวันของดัชนี SET50 ที่ใช้คำนวณ `Benchmark Return` และ `Benchmark Max DD` (ใน `tradeSim<version>.zip` มีแค่วันซ้อม ถ้าซ้อมวันใหม่กว่านั้นโดยไม่มีไฟล์นี้ ค่าทั้งสองจะเป็น 0) | `Date,Close` |
+ 
+ **วิธีใช้**
+ 
+@@ -67,7 +68,7 @@
+    - ⚠️ "Extract All" ของ Windows จะเติมชื่อโฟลเดอร์ `tradeSim_history` ท้าย path ให้ — **ลบออกก่อนกด Extract**
+      ไม่งั้นไฟล์จะไปอยู่ใน `tradeSim_history/marketInfo/...` แทนที่จะทับของเดิม
+    - ถูกถามว่าจะแทนที่ไฟล์เดิมไหม → ตอบ **แทนที่ทั้งหมด**
+-2. เสร็จแล้ว ไม่ต้องทำอะไรต่อ — ถูกทับเฉพาะ 3 โฟลเดอร์ในตาราง · `strategy/` ของทีม, `tradeSim/`, ไฟล์ tick วันซ้อม
++2. เสร็จแล้ว ไม่ต้องทำอะไรต่อ — ถูกทับเฉพาะ 4 โฟลเดอร์ในตาราง · `strategy/` ของทีม, `tradeSim/`, ไฟล์ tick วันซ้อม
+    ไม่ถูกแตะ · **ไม่ต้อง commit** (`.gitignore` กัน `marketInfo/` และ `*.zip` ไว้แล้ว)
+ 
+ **ควรรู้ก่อนใช้**
+--- 0.2.6/tradeSim/CommissionService.py
++++ 0.2.7/tradeSim/CommissionService.py
+@@ -1,24 +1,141 @@
+ import bisect
++import json
++import math
++import os
++from datetime import date, datetime
++
++
++TICK_SIZE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tick_size.json")
++
++
++class TickSizeError(Exception):
++    pass
++
++
++def _as_date(trade_date):
++    """A datetime.date from a date, datetime / pd.Timestamp, or 'YYYY-MM-DD...'
++    string. None means today -- for tools that price without a trading day."""
++    if trade_date is None:
++        return date.today()
++    if isinstance(trade_date, datetime):
++        return trade_date.date()
++    if isinstance(trade_date, date):
++        return trade_date
++    return date.fromisoformat(str(trade_date)[:10])
+ 
+ 
+ class commissionService:
+ 
+     comm = 0.00157
+     vat = 0.07
+-    slippages = [0.01, 0.02, 0.05, 0.10, 0.25, 0.50, 1.00, 2.00]
+-    price_range = [    2,    5,    10,   25,   100,  200,  400]
++
++    # Tick sizes live only in tick_size.json. It is read once per run, on the
++    # first lookup; after that every lookup is a dict hit and one bisect.
++    tick_size_file = TICK_SIZE_FILE
++    _tick_tables = None    # [(effective_from, bounds, ticks)], oldest first
++    _tick_by_date = {}     # trading date -> (bounds, ticks) of the table in force
+ 
+     @classmethod
+-    def _get_slippage(cls, price: float) -> float:
+-        index = bisect.bisect(cls.price_range, price)
+-        return cls.slippages[index]
++    def _reset_tick_cache(cls, path=None):
++        """Forget the loaded tables; the next lookup reads `path` (default:
++        tradeSim/tick_size.json). For tests."""
++        cls.tick_size_file = path or TICK_SIZE_FILE
++        cls._tick_tables = None
++        cls._tick_by_date = {}
+ 
+     @classmethod
+-    def market_fill_price(cls, last_price, side):
+-        """What a market order pays (Buy) or receives (Sell): the last price
+-        one price step against you, standing in for the other side's best quote."""
+-        step = cls._get_slippage(last_price)
+-        return last_price + step if side == "Buy" else last_price - step
++    def _load_tick_tables(cls):
++        path = cls.tick_size_file
++
++        def tick_file_error(reason):
++            return TickSizeError(f"[ERROR] Tick size file '{path}': {reason}")
++
++        try:
++            with open(path, "r", encoding="utf-8") as f:
++                raw = json.load(f)
++        except FileNotFoundError:
++            raise tick_file_error("not found -- the engine has no tick sizes without it")
++        except json.JSONDecodeError as e:
++            raise tick_file_error(f"not valid JSON ({e})")
++
++        tables = []
++        for t in raw.get("tables") or []:
++            try:
++                start = date.fromisoformat(t["effective_from"])
++                steps = t["steps"]
++            except (KeyError, TypeError, ValueError):
++                raise tick_file_error("every table needs an 'effective_from' (YYYY-MM-DD) and 'steps'")
++            if not steps or steps[-1].get("below") is not None:
++                raise tick_file_error(f"table from {start}: the last step must have \"below\": null")
++            bounds = [s.get("below") for s in steps[:-1]]
++            ticks = [s.get("tick") for s in steps]
++            if any(not isinstance(b, (int, float)) for b in bounds) or bounds != sorted(set(bounds)):
++                raise tick_file_error(f"table from {start}: 'below' values must be numbers in ascending order")
++            if any(not isinstance(k, (int, float)) or k <= 0 for k in ticks):
++                raise tick_file_error(f"table from {start}: every 'tick' must be a number > 0")
++            tables.append((start, bounds, ticks))
++
++        if not tables:
++            raise tick_file_error("no tables")
++        starts = [t[0] for t in tables]
++        if starts != sorted(set(starts)):
++            raise tick_file_error("tables must be in ascending 'effective_from' order")
++        cls._tick_tables = tables
++
++    @classmethod
++    def _table_for(cls, trade_date):
++        day = _as_date(trade_date)
++        found = cls._tick_by_date.get(day)
++        if found is None:
++            if cls._tick_tables is None:
++                cls._load_tick_tables()
++            i = bisect.bisect_right([t[0] for t in cls._tick_tables], day) - 1
++            if i < 0:
++                raise TickSizeError(
++                    f"[ERROR] Tick size file '{cls.tick_size_file}' has no table in force on {day}"
++                )
++            found = cls._tick_by_date[day] = cls._tick_tables[i][1:]
++        return found
++
++    @classmethod
++    def _get_slippage(cls, price: float, trade_date=None) -> float:
++        """The tick size (one price step) at `price` on `trade_date`."""
++        bounds, ticks = cls._table_for(trade_date)
++        return ticks[bisect.bisect(bounds, price)]
++
++    @classmethod
++    def _tick_below(cls, price, trade_date=None):
++        """The tick size between `price` and the next valid price under it.
++        Same as _get_slippage except exactly on a band edge, where the price
++        below is in the lower band: 100.00 -> 0.25 (to 99.75), not 0.50."""
++        bounds, ticks = cls._table_for(trade_date)
++        return ticks[bisect.bisect_left(bounds, price)]
++
++    @classmethod
++    def is_valid_tick_price(cls, price, trade_date=None):
++        """Whether `price` is a whole number of ticks at its own price level.
++        The 1e-6 (of a tick) tolerance absorbs float noise like
++        2.24 + 0.02 = 2.2600000000000002."""
++        steps = price / cls._get_slippage(price, trade_date)
++        return abs(steps - round(steps)) <= 1e-6
++
++    @classmethod
++    def nearest_tick_prices(cls, price, trade_date=None):
++        """The valid prices just below and above an off-tick `price`."""
++        tick = cls._get_slippage(price, trade_date)
++        lower = math.floor(price / tick) * tick
++        return round(lower, 2), round(lower + tick, 2)
++
++    @classmethod
++    def market_fill_price(cls, last_price, side, trade_date=None):
++        """What an order fills at: the last price one tick against you
++        (Buy pays more, Sell gets less), standing in for the other side's
++        best quote. Rounded to satang so it compares cleanly with a limit."""
++        if side == "Buy":
++            fill = last_price + cls._get_slippage(last_price, trade_date)
++        else:
++            fill = last_price - cls._tick_below(last_price, trade_date)
++        return round(fill, 2)
+ 
+     @classmethod
+     def cal_unit_cost(cls, volume, match_price, side):
+@@ -33,28 +150,28 @@
+             return (amount - comm_amount - vat) / volume
+ 
+     @classmethod
+-    def verify_transaction(cls, volume, price, cashBalance, slippage=True):
++    def verify_transaction(cls, volume, price, cashBalance, slippage=True, trade_date=None):
+         """Whether cashBalance covers buying `volume` at `price`, fees included.
+         slippage=True prices it like a market order (one step up); a limit
+         order passes False, since it never pays more than its own price."""
+         if slippage:
+-            total = cls.cal_All_Volume_commissionAndVat(volume, price)
++            total = cls.cal_All_Volume_commissionAndVat(volume, price, trade_date)
+         else:
+             total = cls.cal_unit_cost(volume, price, "Buy") * volume
+         return cashBalance >= total
+ 
+     @classmethod
+-    def cal_All_Volume_commissionAndVat(cls, volume, price):
+-        match_price = price + cls._get_slippage(price)
++    def cal_All_Volume_commissionAndVat(cls, volume, price, trade_date=None):
++        match_price = cls.market_fill_price(price, "Buy", trade_date)
+         amount = match_price * volume
+         comm_amount = amount * cls.comm
+         vat = comm_amount * cls.vat
+         return amount + comm_amount + vat
+ 
+     @classmethod
+-    def cal_commissionAndVat(cls, volume, price, side):
++    def cal_commissionAndVat(cls, volume, price, side, trade_date=None):
+         """Per-share cost of a market order at last price `price`: one step of
+         slippage, then commission and VAT."""
+         if side not in ("Buy", "Sell"):
+             return None
+-        return cls.cal_unit_cost(volume, cls.market_fill_price(price, side), side)
++        return cls.cal_unit_cost(volume, cls.market_fill_price(price, side, trade_date), side)
+--- 0.2.6/tradeSim/Execution.py
++++ 0.2.7/tradeSim/Execution.py
+@@ -15,12 +15,17 @@
+         self,
+         team_name,
+         orders_book=None,
++        result_dir=None,
+     ):
+         self.Orders_Book = orders_book if orders_book is not None else []
+-        self.tranLog = TransactionLog.Transaction(team_name)
++        self.tranLog = TransactionLog.Transaction(team_name, folder=result_dir)
+         # symbol -> {"Buy": shares bought today, "Sell": shares sold today};
+         # tradeSim takes these off the day's volume cap.
+         self.filled_volume = {}
++        # Shares of the current tick the team's orders already took; reset
++        # by start_tick() on every tick (tradeSim.record_tick).
++        self._tick_taken = 0
++        self._tick_key = None
+ 
+     def addOrderToOrders_Book(self, new_order, row):
+         if new_order is None:
+@@ -32,30 +37,42 @@
+             self.Orders_Book.append(new_order)
+             return f"Order {new_order.get_order_number()} added to book ({new_order.get_symbol()})."
+ 
++    def start_tick(self):
++        """A new tick has arrived: none of its volume is taken yet."""
++        self._tick_taken = 0
++        self._tick_key = None
++
++    def _tick_lots_left(self, row):
++        """Shares of this tick still free for the team's orders, in whole
++        lots of 100: its volume less what earlier orders on it took. A row
++        other than the one counted so far starts from zero too, for callers
++        that place orders without tradeSim.record_tick()."""
++        key = (row["ShareCode"], row["TradeDateTime"], row["LastPrice"], row["Volume"], row.get("Flag"))
++        if key != self._tick_key:
++            self._tick_key = key
++            self._tick_taken = 0
++        return int(row["Volume"]) // 100 * 100 - self._tick_taken
++
+     def isMatch(self, row):
+-        """Try the resting limit orders for this tick's stock against it.
+-
+-        Orders for other stocks are left alone -- they wait for their own
+-        stock's ticks. Orders are tried in the order they were placed. One
+-        that this tick fills (see _limit_fill_price) gets at most what the
+-        tick traded, in whole lots of 100, shared with the orders placed
+-        before it; the rest stays in the book. An order is cancelled if the
+-        cash or shares a fill needs are no longer there. The book lives for
+-        one day: every run builds a new tradeSim, so whatever is still
+-        resting at the close -- a whole order, or the rest of one that filled
+-        in part -- is gone the next day.
++        """Try the limit orders for this tick's stock against it -- once.
++
++        Every order is IOC. It is tried on the first tick of its own stock
++        after it is placed (the very tick it was placed on, when it is for
++        the bar's own stock) and then leaves the book whatever happened: it
++        filled, filled in part, or did not fill. Orders for other stocks are
++        left alone until their own stock's next tick. Orders are tried in
++        the order they were placed and share the tick's volume.
+         """
+-        available = int(row["Volume"]) // 100 * 100
+         for order in list(self.Orders_Book):  # copy: orders leave the book inside the loop
+             if order.get_symbol() != row["ShareCode"]:
+                 continue
+             if row["TradeDateTime"] < pd.to_datetime(order.get_placed_timestamp(), unit="s"):
+                 continue
++            self.removeOrder(order)
+             fill = self._limit_fill_price(row, order)
+-            order.mark_seen()
+             if fill is None:
+                 continue
+-            qty = min(order.get_remaining_volume(), available)
++            qty = min(order.get_remaining_volume(), self._tick_lots_left(row))
+             if qty <= 0:
+                 continue
+             is_valid, _ = self.validate_order(
+@@ -63,66 +80,59 @@
+                 order.get_ownerPortfolio(), fill, slippage=False,
+             )
+             if not is_valid:
+-                self.removeOrder(order)
+                 continue
+             order.mark_filled(row, fill, qty)
+             self._process_fill(order)
+-            available -= qty
+-            if order.get_remaining_volume() == 0:
+-                self.removeOrder(order)
+ 
+     @staticmethod
+     def _limit_fill_price(row, order):
+         """The price a limit order gets on this tick, or None if it doesn't fill.
+ 
+-        The tick's Flag says which side started the trade. "Buy" means a
+-        buyer took a seller's offer, so someone was offering at that price;
+-        "Sell" means a seller hit a buyer's bid, so that price was the bid
+-        and the cheapest offer is about one price step higher. Auction
+-        prints (OPEN1_E, OPEN2_E, ATC) have no side and fill no limit order.
+-
+-        On the first tick of its own stock after it is placed, an order
+-        trades against the quote: a Buy fills if the offer is at or below
+-        its price and pays the offer -- its own price or better. After that
+-        it rests in the book and fills at its own price once the market
+-        trades through it -- below it for a Buy, above it for a Sell. A
+-        trade exactly at its price doesn't: the ticks don't show how long the
+-        queue at that price was, so the order is taken to be at the back of
+-        it, and only a trade beyond the price proves the queue was used up.
++        The other side's best quote is taken to be the last price one tick
++        away (the slippage rule): a Buy fills if that is at or below its
++        limit and pays it, a Sell fills if it is at or above its limit.
++        Auction prints (OPEN1_E, OPEN2_E, ATC) -- any tick whose Flag is not
++        Buy or Sell -- have no quote and fill nothing.
+         """
+-        flag = row.get("Flag")
+-        if flag not in ("Buy", "Sell"):
++        if row.get("Flag") not in ("Buy", "Sell"):
+             return None
+-        last, limit = row["LastPrice"], order.get_price()
+-        step = CommissionService.commissionService._get_slippage(last)
++        fill = CommissionService.commissionService.market_fill_price(
++            row["LastPrice"], order.get_side(), row["TradeDateTime"]
++        )
+         if order.get_side() == "Buy":
+-            if order.is_new():
+-                offer = last if flag == "Buy" else last + step
+-                return offer if offer <= limit else None
+-            return limit if last < limit else None
+-        if order.is_new():
+-            bid = last if flag == "Sell" else last - step
+-            return bid if bid >= limit else None
+-        return limit if last > limit else None
++            return fill if fill <= order.get_price() + 1e-9 else None
++        return fill if fill >= order.get_price() - 1e-9 else None
+ 
+     def isMatchMarketOrder(self, row, market_order):
+-        """A market order fills at once at the last price one step against
+-        it, whatever side the tick was -- unless the cash or shares aren't there."""
++        """A market (Market-to-Limit IOC) order fills at once at the last
++        price one tick against it, for at most what is left of this tick's
++        volume; the rest is cancelled. Nothing fills on an auction print, or
++        if the cash or shares aren't there."""
+         if market_order is None:
+             return
++        number = market_order.get_order_number()
+         if row["ShareCode"] != market_order.get_symbol():
+-            return f"Market order {market_order.get_order_number()} is not for this tick's stock."
++            return f"Market order {number} is not for this tick's stock."
++        if row.get("Flag") not in ("Buy", "Sell"):
++            return (f"Market order {number} could not be filled: tick {row['TradeDateTime']} is an "
++                    f"auction print ({row.get('Flag')}), not continuous trading.")
++        qty = min(market_order.get_remaining_volume(), self._tick_lots_left(row))
++        if qty <= 0:
++            return f"Market order {number} could not be filled: no volume left on this tick."
+         is_valid, _ = self.validate_order(
+-            market_order.get_volume(), market_order.get_side(), market_order.get_symbol(),
++            qty, market_order.get_side(), market_order.get_symbol(),
+             market_order.get_ownerPortfolio(), row["LastPrice"], slippage=True,
++            trade_date=row["TradeDateTime"],
+         )
+         if not is_valid:
+-            return f"Market order {market_order.get_order_number()} could not be filled."
+-        fill = CommissionService.commissionService.market_fill_price(row["LastPrice"], market_order.get_side())
+-        market_order.mark_filled(row, fill)
++            return f"Market order {number} could not be filled."
++        fill = CommissionService.commissionService.market_fill_price(
++            row["LastPrice"], market_order.get_side(), row["TradeDateTime"]
++        )
++        market_order.mark_filled(row, fill, qty)
+         self._process_fill(market_order)
+ 
+-    def validate_order(self, volume, side, symbol, ownerPortfolio, price, slippage=True):
++    def validate_order(self, volume, side, symbol, ownerPortfolio, price, slippage=True, trade_date=None):
+         cashBalance = ownerPortfolio.get_cash_balance()
+         
+         if (volume % 100.0) != 0 and volume > 0:
+@@ -133,7 +143,8 @@
+         
+         if (
+             CommissionService.commissionService.verify_transaction(
+-                volume=volume, price=price, cashBalance=cashBalance, slippage=slippage
++                volume=volume, price=price, cashBalance=cashBalance, slippage=slippage,
++                trade_date=trade_date,
+             )
+             == False
+             and side == "Buy"
+@@ -154,6 +165,7 @@
+             self._process_sell_order(order)
+         filled = self.filled_volume.setdefault(order.get_symbol(), {"Buy": 0, "Sell": 0})
+         filled[order.get_side()] += order.get_last_fill_volume()
++        self._tick_taken += order.get_last_fill_volume()
+         self.tranLog.create_transaction_log(order)
+ 
+     def _unit_value(self, order):
+--- 0.2.6/tradeSim/Order.py
++++ 0.2.7/tradeSim/Order.py
+@@ -67,9 +67,11 @@
+         cum_buy_volume,
+         timestamp=None,
+         order_type="Limit",  # 'Limit' or 'Market'
++        trade_date=None,  # the tick's trading day: picks the tick size table
+     ):
+         order.load_set50_symbols()
+         self.order_type = order_type
++        self.trade_date = trade_date
+         is_valid, reason = self.validate_order(
+             volume, side, symbol, ownerPortfolio, price, cum_sell_volume, cum_buy_volume
+         )
+@@ -93,11 +95,11 @@
+         self.placed_timestamp = self.timestamp
+         self.fill_price = None
+         self.fill_market_price = None
+-        self._new = True  # not yet tried against a tick of its own stock
+-        # A limit order can fill in pieces, each at most the volume of the
+-        # tick that filled it. These follow the pieces; `volume` stays what
+-        # was asked for.
+-        self.remaining_volume = volume
++        # An order is IOC: it fills at most the volume of the one tick it is
++        # tried on, and the rest is cancelled. These follow that fill;
++        # `volume` stays what was asked for; what can still fill starts at
++        # what the day's volume cap leaves of it.
++        self.remaining_volume = self.fillable_volume
+         self.last_fill_volume = 0
+         self.fill_count = 0
+ 
+@@ -127,10 +129,23 @@
+                 f"(see marketInfo/symbolSET50/Symbol_SET50.csv for the full list)."
+             )
+         
++        if self.order_type == "Limit":
++            if price <= 0:
++                return False, f"Limit price must be greater than 0 (got {price})."
++            cs = CommissionService.commissionService
++            if not cs.is_valid_tick_price(price, self.trade_date):
++                tick = cs._get_slippage(price, self.trade_date)
++                lower, upper = cs.nearest_tick_prices(price, self.trade_date)
++                return False, (
++                    f"Price {price} is not a valid price for {symbol.upper()}: the tick size at this "
++                    f"price is {tick:.2f} baht, so the price must be a multiple of {tick:.2f} "
++                    f"(nearest valid prices: {lower:.2f} or {upper:.2f})."
++                )
++
+         if (
+             CommissionService.commissionService.verify_transaction(
+                 volume=volume, price=price, cashBalance=cashBalance,
+-                slippage=(self.order_type == "Market"),
++                slippage=(self.order_type == "Market"), trade_date=self.trade_date,
+             )
+             == False
+             and side == "Buy"
+@@ -143,12 +158,17 @@
+                 f"Cannot sell {symbol} as it is not in the portfolio or insufficient volume.",
+             )
+             
+-        if side == "Buy" and volume > cum_sell_volume:
++        # The day's volume cap: an order bigger than what is left of it is
++        # not refused (IOC gets what the market has) but can fill at most
++        # that, in whole lots; only an order with no lot left at all is.
++        day_left = cum_sell_volume if side == "Buy" else cum_buy_volume
++        self.fillable_volume = min(volume, int(day_left) // 100 * 100)
++        if side == "Buy" and self.fillable_volume <= 0:
+             return False, "Order's buy volume exceeds the cumulative sell volume from the daily ticks."
+-        
+-        if side == "Sell" and volume > cum_buy_volume:
++
++        if side == "Sell" and self.fillable_volume <= 0:
+             return False, "Order's sell volume exceeds the cumulative buy volume from the daily ticks."
+-        
++
+         return True, ""
+         
+         
+@@ -192,13 +212,6 @@
+ 
+     def get_fill_market_price(self):
+         return self.fill_market_price
+-
+-    def is_new(self):
+-        """True until the order has been tried against a tick of its own stock."""
+-        return self._new
+-
+-    def mark_seen(self):
+-        self._new = False
+ 
+     def mark_filled(self, mkt_data, fill_price, volume=None):
+         """Record a fill of `volume` shares (default: all that is left): the
+@@ -209,7 +222,6 @@
+         self.fill_price = fill_price
+         self.fill_market_price = mkt_data["LastPrice"]
+         self.timestamp = tick_timestamp(mkt_data)
+-        self._new = False
+         self.last_fill_volume = volume
+         self.remaining_volume -= volume
+         self.fill_count += 1
+--- 0.2.6/tradeSim/PortSummarize.py
++++ 0.2.7/tradeSim/PortSummarize.py
+@@ -5,10 +5,10 @@
+ class summarize:
+ 
+     @staticmethod
+-    def create_transaction_summarize(team_name):
+-        base_dir = os.path.abspath(
+-            os.path.join(os.path.dirname(__file__), "..", "result", team_name)
+-        )
++    def create_transaction_summarize(team_name, base_dir=None):
++        if base_dir is None:
++            base_dir = os.path.join(os.path.dirname(__file__), "..", "result", team_name)
++        base_dir = os.path.abspath(base_dir)
+         os.makedirs(base_dir, exist_ok=True)
+ 
+         input_csv = f"{team_name}_transaction_log.csv"
+--- 0.2.6/tradeSim/Portfolio.py
++++ 0.2.7/tradeSim/Portfolio.py
+@@ -27,8 +27,14 @@
+         buy_order_count=0,
+         sell_order_count=0,
+         daily_snapshots=None,
++        result_dir=None,
+     ):
+         self.owner = owner
++        # The folder this portfolio's files live in. result/<owner>/ unless
++        # the caller says otherwise -- the competition run keeps each team
++        # under result/<university>/<team>/, since two universities may
++        # each have a team with the same name.
++        self.result_dir = result_dir if result_dir is not None else os.path.join("result", owner)
+         self.stocksList = stocksList if stocksList is not None else []
+         self.amountByCost = amountByCost
+         self.unrealized = unrealized
+@@ -559,7 +565,7 @@
+     def save_to_file(self, owner):
+ 
+         filename = owner + "_" + "portfolio.json"
+-        folder_path = os.path.join("result", self.owner)
++        folder_path = self.result_dir
+         os.makedirs(folder_path, exist_ok=True)
+ 
+         filename = os.path.join(folder_path, filename)
+@@ -583,7 +589,7 @@
+ 
+     def save_summary_csv(self, daily_ticks_timestamp, benchmark_return=None, benchmark_max_dd=None):
+         # Define folder and filename
+-        folder_path = os.path.join("result", self.owner)
++        folder_path = self.result_dir
+         os.makedirs(folder_path, exist_ok=True)
+         summary_file = os.path.join(folder_path, f"{self.owner}_portfolio_summary.csv")
+         self.benchmark_return = benchmark_return
+@@ -666,9 +672,11 @@
+         
+ 
+     @classmethod
+-    def load_from_file(cls, owner):
+-
+-        file_path = os.path.join("result", owner, owner + "_" + "portfolio.json")
++    def load_from_file(cls, owner, result_dir=None):
++
++        if result_dir is None:
++            result_dir = os.path.join("result", owner)
++        file_path = os.path.join(result_dir, owner + "_" + "portfolio.json")
+ 
+         if not os.path.exists(file_path):
+             raise FileNotFoundError(
+@@ -692,4 +700,5 @@
+             prevousDay_maxDD=data.get("prevousDay_maxDD", None),
+             max_nav=data.get("max_nav"),
+             min_nav=data.get("min_nav"),
++            result_dir=result_dir,
+         )--- 0.2.6/tradeSim/Strategy_runner.py
++++ 0.2.7/tradeSim/Strategy_runner.py
+@@ -22,22 +22,23 @@
+ 
+     def get_open_orders(self, symbol=None):
+         """
+-        Limit orders still resting in the order book -- all stocks, or only
+-        `symbol`'s -- as a list of dicts (Order Number, Symbol, Side,
+-        Volume, Price, Timestamp), oldest first.
++        Limit orders not yet tried -- all stocks, or only `symbol`'s -- as a
++        list of dicts (Order Number, Symbol, Side, Volume, Price, Timestamp),
++        oldest first. Orders are IOC, so only one for another stock that
++        hasn't reached that stock's next tick can be here.
+         """
+         return self.tradeSim.get_open_orders(symbol)
+ 
+     def cancel_order(self, order_number):
+         """
+-        Remove one resting limit order by its order number. True if it was
+-        removed; False if it already filled, was cancelled, or never rested.
++        Remove one limit order not yet tried by its order number. True if it
++        was removed; False otherwise.
+         """
+         return self.tradeSim.cancel_order(order_number)
+ 
+     def cancel_all_orders(self, symbol=None):
+         """
+-        Remove every resting limit order, or every one for `symbol`.
++        Remove every limit order not yet tried, or every one for `symbol`.
+         Returns how many were removed.
+         """
+         return self.tradeSim.cancel_all_orders(symbol)
+--- 0.2.6/tradeSim/TradeSim.py
++++ 0.2.7/tradeSim/TradeSim.py
+@@ -14,14 +14,27 @@
+ 
+ logged_errors = set()
+ 
++
++def team_result_dir(team_name, university=None, folder="result"):
++    """Where one team's files go: <folder>/<university>/<team_name>/ when the
++    university is known, else <folder>/<team_name>/."""
++    if university:
++        return os.path.join(folder, university, team_name)
++    return os.path.join(folder, team_name)
++
+ class tradeSim:
+-    def __init__(self, team_name, load_existing=True, folder="result", current_date=None):
+-        self.error_logger = ErrorLogger(team_name)
++    def __init__(self, team_name, load_existing=True, folder="result", current_date=None, university=None):
+         """
+         Initialize the trade simulation environment for a simulation.
+         ----------
+         Parameter
+         team_name: Name of the team.
++        university: The team's university, if known. Its files then go in
++            <folder>/<university>/<team_name>/ rather than
++            <folder>/<team_name>/, so two universities can each have a
++            team of the same name. main.py passes it for a competition run
++            (strategy.<university>.<team>.<version>.<module>); a team's own
++            local run has none.
+         current_date: The date being simulated (e.g. from --date), used to
+             bound get_historical_data() so it can never see this run's own
+             day or any later day. None (the default) means "unknown" --
+@@ -29,27 +42,30 @@
+             guessing, e.g. during CI dry-run.
+         """
+         # create directory if it does not exist
+-        team_folder = os.path.join(folder, team_name)
+-        os.makedirs(team_folder, exist_ok=True)
++        self.team_dir = team_result_dir(team_name, university, folder)
++        os.makedirs(self.team_dir, exist_ok=True)
++        self.error_logger = ErrorLogger(team_name, folder=self.team_dir)
+ 
+         portfolio_file_name = f"{team_name}_portfolio.json"
+-        file_path = os.path.join(folder,team_name, portfolio_file_name)
++        file_path = os.path.join(self.team_dir, portfolio_file_name)
+ 
+         if load_existing and os.path.exists(file_path):
+-            self.portfolio = Portfolio.portfolio.load_from_file(team_name)
++            self.portfolio = Portfolio.portfolio.load_from_file(team_name, result_dir=self.team_dir)
+             print(f"[INFO] Loaded existing portfolio from '{file_path}'")
+         else:
+-            self.portfolio = Portfolio.portfolio(team_name)
++            self.portfolio = Portfolio.portfolio(team_name, result_dir=self.team_dir)
+             print(f"[INFO] Created new portfolio for '{team_name}'")
+             self.portfolio.save_to_file(team_name)
+-        self.execution = Execution.execution(team_name)
++        self.execution = Execution.execution(team_name, result_dir=self.team_dir)
+         # symbol -> {"Buy": volume of today's Buy-flag ticks, "Sell": of Sell-flag ticks}
+         self._day_volume = {}
+         self.current_date = pd.to_datetime(current_date).date() if current_date is not None else None
+         self._historical_data_reader = HistoricalData.historical_data()
+ 
+     def record_tick(self, row):
+-        """Add a tick's volume to its stock's running total for its side."""
++        """Add a tick's volume to its stock's running total for its side,
++        and start the tick: orders placed on it share its volume."""
++        self.execution.start_tick()
+         if row["Flag"] in ("Buy", "Sell"):
+             totals = self._day_volume.setdefault(row["ShareCode"], {"Buy": 0, "Sell": 0})
+             totals[row["Flag"]] += row["Volume"]
+@@ -74,7 +90,8 @@
+                     symbol=symbol,
+                     cum_sell_volume=cum_sell_volume,
+                     cum_buy_volume=cum_buy_volume,
+-                    timestamp=Order.tick_timestamp(mkt_data)
++                    timestamp=Order.tick_timestamp(mkt_data),
++                    trade_date=mkt_data["TradeDateTime"],
+                 )
+                 self.execution.addOrderToOrders_Book(limit_order, mkt_data)
+ 
+@@ -88,8 +105,8 @@
+                 self.error_logger.log_error(e)
+                 return e
+ 
+-            # The order number is what cancel_order() takes. "created" means
+-            # the order passed validation and is in the book, not that it filled.
++            # "created" means the order passed validation, not that it filled:
++            # as an IOC order it is tried on its stock's tick and then gone.
+             return "Order {number} for {symbol} (Vol: {volume}, Price: {price}, Side: {side}) created successfully.".format(
+                 number=limit_order.get_order_number(),
+                 symbol=symbol,
+@@ -126,8 +143,13 @@
+                     cum_buy_volume=cum_buy_volume,
+                     timestamp=Order.tick_timestamp(mkt_data),
+                     order_type="Market",
++                    trade_date=mkt_data["TradeDateTime"],
+                 )
+-                self.execution.isMatchMarketOrder(mkt_data,new_order)
++                # IOC: what doesn't fill now is cancelled. Say why in the
++                # error log, since the reply below only means "accepted".
++                not_filled = self.execution.isMatchMarketOrder(mkt_data, new_order)
++                if not_filled:
++                    self.error_logger.log_error(not_filled)
+ 
+             except ValueError as e:
+                 self.error_logger.log_error(e)
+@@ -179,7 +201,7 @@
+         """
+         Create a transaction summary for the team.
+         """
+-        self.execution.PortSummarize.create_transaction_summarize(team_name)
++        self.execution.PortSummarize.create_transaction_summarize(team_name, base_dir=self.team_dir)
+ 
+     def isOrderbooksEmpty(self):
+         """
+@@ -189,25 +211,27 @@
+ 
+     def get_open_orders(self, symbol=None):
+         """
+-        Limit orders still resting in the order book -- all stocks, or only
+-        `symbol`'s -- as a list of dicts (Order Number, Symbol, Side,
+-        Volume, Price, Timestamp), oldest first.
++        Limit orders not yet tried -- all stocks, or only `symbol`'s -- as a
++        list of dicts (Order Number, Symbol, Side, Volume, Price, Timestamp),
++        oldest first. Orders are IOC, so this only ever holds an order for
++        another stock that hasn't reached that stock's next tick yet. Kept so
++        0.2.6 strategies keep working.
+         """
+         with lock:
+             return self.execution.getOpenOrders(symbol)
+ 
+     def cancel_order(self, order_number):
+         """
+-        Remove one resting limit order. True if it was in the book and is
+-        now gone; False if it already filled, was cancelled, or never rested.
++        Remove one limit order not yet tried (see get_open_orders). True if
++        it was waiting and is now gone; False otherwise.
+         """
+         with lock:
+             return self.execution.cancelOrder(order_number)
+ 
+     def cancel_all_orders(self, symbol=None):
+         """
+-        Remove every resting limit order, or every one for `symbol`.
+-        Returns how many were removed.
++        Remove every limit order not yet tried (see get_open_orders), or
++        every one for `symbol`. Returns how many were removed.
+         """
+         with lock:
+             return self.execution.cancelAllOrders(symbol)
+@@ -249,11 +273,12 @@
+ 
+ 
+ class ErrorLogger:
+-    def __init__(self, team_name, filename_suffix="error_log.txt"):
++    def __init__(self, team_name, filename_suffix="error_log.txt", folder=None):
+         self.error_log = []
+         self.team_name = team_name
+ 
+-        folder = os.path.join("result", team_name)
++        if folder is None:
++            folder = os.path.join("result", team_name)
+         os.makedirs(folder, exist_ok=True)
+         self.txt_file = os.path.join(folder, f"{team_name}_{filename_suffix}")
+ 
+--- 0.2.6/tradeSim/TransactionLog.py
++++ 0.2.7/tradeSim/TransactionLog.py
+@@ -13,11 +13,12 @@
+ 
+ 
+ class Transaction:
+-    def __init__(self, team_name, filename_suffix="transaction_log.csv"):
++    def __init__(self, team_name, filename_suffix="transaction_log.csv", folder=None):
+         self.transaction_log = []
+         self.team_name = team_name
+ 
+-        folder = os.path.join("result", team_name)
++        if folder is None:
++            folder = os.path.join("result", team_name)
+         os.makedirs(folder, exist_ok=True)
+         self.csv_file = os.path.join(folder, f"{team_name}_{filename_suffix}")
+ 

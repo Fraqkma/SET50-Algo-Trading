@@ -1,0 +1,192 @@
+{
+  "generated_at": "2026-10-28T11:29:40.071155+00:00",
+  "status": "READY_WITH_WARNINGS",
+  "runtime_validated": true,
+  "organizer_designated_version": "0.2.7",
+  "preferred_version": "0.2.7",
+  "archive_sha256": "d8c24fa7cba524a0e522269c24fe647a3078448a089d90d843e264d197fb738e",
+  "archive": {
+    "filename": "tradeSim0.2.7.zip",
+    "sha256": "d8c24fa7cba524a0e522269c24fe647a3078448a089d90d843e264d197fb738e",
+    "size_bytes": 16261896,
+    "version": "0.2.7",
+    "version_evidence": "archive filename",
+    "integrity": "PASS",
+    "corrupt_member": null,
+    "member_count": 536,
+    "required_missing": [],
+    "has_practice_ticks": true,
+    "practice_tick_file_count": 16,
+    "strategy_templates_and_examples": [
+      "strategy/Strategies_template.py",
+      "strategy/Example_strategy.py",
+      "strategy/Example_historical_strategy.py"
+    ],
+    "notebook": "TradingSimulation.ipynb",
+    "requirements": "requirements.txt",
+    "source_files": [
+      "tradeSim/BarAggregator.py",
+      "tradeSim/Benchmark.py",
+      "tradeSim/CommissionService.py",
+      "tradeSim/Execution.py",
+      "tradeSim/HistoricalData.py",
+      "tradeSim/Order.py",
+      "tradeSim/PortSummarize.py",
+      "tradeSim/Portfolio.py",
+      "tradeSim/Stock.py",
+      "tradeSim/StrategyHandler.py",
+      "tradeSim/Strategy_runner.py",
+      "tradeSim/TradeSim.py",
+      "tradeSim/TransactionLog.py",
+      "tradeSim/__init__.py"
+    ]
+  },
+  "runtime_source_sha256": "6f10d190c1cbd8d1afa007360dbe89c9004502fdf75d289b41e923f47283f3bf",
+  "runtime_check": {
+    "status": "READY",
+    "repository_root": "D:\\GitHub\\SET50-Algo-Trading",
+    "archive": {
+      "filename": "tradeSim0.2.7.zip",
+      "sha256": "d8c24fa7cba524a0e522269c24fe647a3078448a089d90d843e264d197fb738e",
+      "size_bytes": 16261896,
+      "version": "0.2.7",
+      "version_evidence": "archive filename",
+      "integrity": "PASS",
+      "corrupt_member": null,
+      "member_count": 536,
+      "required_missing": [],
+      "has_practice_ticks": true,
+      "practice_tick_file_count": 16,
+      "strategy_templates_and_examples": [
+        "strategy/Strategies_template.py",
+        "strategy/Example_strategy.py",
+        "strategy/Example_historical_strategy.py"
+      ],
+      "notebook": "TradingSimulation.ipynb",
+      "requirements": "requirements.txt",
+      "source_files": [
+        "tradeSim/BarAggregator.py",
+        "tradeSim/Benchmark.py",
+        "tradeSim/CommissionService.py",
+        "tradeSim/Execution.py",
+        "tradeSim/HistoricalData.py",
+        "tradeSim/Order.py",
+        "tradeSim/PortSummarize.py",
+        "tradeSim/Portfolio.py",
+        "tradeSim/Stock.py",
+        "tradeSim/StrategyHandler.py",
+        "tradeSim/Strategy_runner.py",
+        "tradeSim/TradeSim.py",
+        "tradeSim/TransactionLog.py",
+        "tradeSim/__init__.py"
+      ]
+    },
+    "preferred_competition_version": "0.2.6",
+    "organizer_designated_version": "0.2.7",
+    "validated_runtime_version": "0.2.7",
+    "adapter_status": "SUPPORTED_WITH_WARNINGS",
+    "extracted_runtime": "D:\\GitHub\\SET50-Algo-Trading\\tools\\kgi_tradesim\\0.2.7",
+    "runtime_files_missing": [],
+    "python": {
+      "status": "AVAILABLE",
+      "path": "D:\\GitHub\\SET50-Algo-Trading\\.venv-kgi313\\Scripts\\python.exe",
+      "version": "3.13.0"
+    },
+    "dependencies": {
+      "status": "PASS",
+      "details": {
+        "missing": []
+      }
+    },
+    "tradesim_import": "PASS",
+    "notebook_imports": "PASS",
+    "practice_data": {
+      "present": true,
+      "tick_csv_count": 16
+    },
+    "strategy_templates": [
+      "strategy\\Example_historical_strategy.py",
+      "strategy\\Example_strategy.py",
+      "strategy\\Strategies_template.py"
+    ]
+  },
+  "requirements_changes": [],
+  "pip_check": "PASS",
+  "all_pinned_versions_match": true,
+  "dependency_installations": [],
+  "fixture_report": "artifacts\\tradesim_027_validation\\20261028-r3\\0.2.7\\matrix.json",
+  "fixture_checks": {
+    "limit_tick_cap": true,
+    "no_second_match": true,
+    "close_does_not_fill": true,
+    "valid_price_fills": true,
+    "invalid_price_rejects": true,
+    "market_buy_cap": true,
+    "market_sell_cap": true,
+    "sell_price": true,
+    "market_sell_price": true,
+    "daily_cap_clips": true,
+    "auctions_excluded": true,
+    "sell_band_edge": true,
+    "pre_switch": true,
+    "post_switch": true,
+    "board_lot_floor": true,
+    "all_books_empty": true,
+    "cross_day_holdings": true,
+    "fee_only_actual_fill": true,
+    "shared_tick_cap": true,
+    "fifo_actual_lots": true,
+    "fifo_partial_sells": true,
+    "cross_symbol_deferred_once": true
+  },
+  "official_smokes": [
+    {
+      "run_id": "20261028T111901Z_3ebae32f",
+      "status": "success",
+      "strategy": "official_tradesim_smoke_strategy",
+      "tradesim_version": "0.2.7",
+      "python_version": "3.13.0",
+      "data_source": "TRADESIM_OFFICIAL_TICKS",
+      "dates": [
+        "2026-10-21"
+      ],
+      "orders": 0,
+      "fills": 0,
+      "ending_nav": 10000000.0,
+      "error_count": 0,
+      "error_examples": [],
+      "run_directory": "D:\\GitHub\\SET50-Algo-Trading\\artifacts\\official_tradesim_runs\\20261028T111901Z_3ebae32f",
+      "warning": "Run output is simulator evidence only; it is not a competition performance claim."
+    },
+    {
+      "run_id": "20261028T111901Z_9c2fadb5",
+      "status": "success",
+      "strategy": "official_tradesim_smoke_strategy",
+      "tradesim_version": "0.2.7",
+      "python_version": "3.13.0",
+      "data_source": "TRADESIM_OFFICIAL_TICKS",
+      "dates": [
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "orders": 0,
+      "fills": 0,
+      "ending_nav": 10000000.0,
+      "error_count": 0,
+      "error_examples": [],
+      "run_directory": "D:\\GitHub\\SET50-Algo-Trading\\artifacts\\official_tradesim_runs\\20261028T111901Z_9c2fadb5",
+      "warning": "Run output is simulator evidence only; it is not a competition performance claim."
+    }
+  ],
+  "preserved_versions": {
+    "0.2.5": "tools/kgi_tradesim (legacy extraction)",
+    "0.2.6": "tools/kgi_tradesim/0.2.6; root ZIP absent at baseline"
+  },
+  "warnings": [
+    "Cross-symbol limits wait for their own-symbol tick. Placed differs from Timestamp in the observed delayed fill, contradicting the changelog's always-equal statement.",
+    "Daily bars cannot reproduce exact-event tick volume. Research V1 remains an approximation.",
+    "Qualification/award formulas still require the authoritative performance criteria."
+  ],
+  "real_orders_placed": 0
+}

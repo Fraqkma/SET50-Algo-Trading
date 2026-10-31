@@ -11,7 +11,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-from .runtime import inspect_archive, runtime_root
+from .runtime import inspect_archive, runtime_root, preferred_version, SUPPORTED_VERSIONS
 
 VERSION_RE = re.compile(r"(?<!\d)(\d+\.\d+\.\d+)(?!\d)")
 ADAPTER_VERSION = "1"
@@ -27,8 +27,8 @@ def _sha256(path: Path) -> str:
 
 def _tree_sha256(path: Path) -> str:
     digest = hashlib.sha256()
-    for item in sorted(p for p in path.rglob("*") if p.is_file()
-                       and p.relative_to(path).parts[0] not in {"0.2.5", "0.2.6"}):
+    for item in sorted(p for p in path.rglob("*") if p.is_file() and "__pycache__" not in p.parts
+                       and p.relative_to(path).parts[0] not in {"0.2.5", "0.2.6", "0.2.7", "__pycache__", "result"}):
         digest.update(item.relative_to(path).as_posix().encode("utf-8"))
         digest.update(item.read_bytes())
     return digest.hexdigest()
@@ -74,29 +74,27 @@ def discover_archives(root: Path) -> list[dict[str, Any]]:
 
 def runtime_descriptor(root: Path) -> dict[str, Any]:
     """Describe the selected local official runtime without assuming a ZIP remains."""
-    archives = discover_archives(root)
-    selected = next((item for item in archives if item.get("version") == "0.2.6"), None)
-    selected = selected or next((item for item in archives if item.get("version") == "0.2.5"), None)
-    extracted = runtime_root(root, selected.get("version") if selected else None)
-    archive = inspect_archive(Path(selected["path"])) if selected else None
-    if archive is None:
-        raise FileNotFoundError("No identifiable local TradeSim archive is available")
+    version = preferred_version(root)
+    extracted = runtime_root(root, version)
+    selected = next((item for item in discover_archives(root) if item.get("version") == version), None)
     return {
-        "archive_path": str(root / archive["filename"]), "archive_sha256": archive["sha256"],
-        "detected_version": archive["version"], "version_evidence": archive["version_evidence"],
+        "archive_path": selected["path"] if selected else None,
+        "archive_sha256": selected["sha256"] if selected else None,
+        "detected_version": version, "version_evidence": "validated selection / preserved extraction",
         "extracted_root": str(extracted), "python_requirement": "==3.13.0",
-        "requirements_file": "requirements.txt", "notebook": archive["notebook"],
+        "requirements_file": "requirements.txt", "notebook": "TradingSimulation.ipynb",
         "strategy_template": "strategy/Strategies_template.py",
         "strategy_example": "strategy/Example_strategy.py",
         "practice_data_root": "marketInfo/ticks", "adapter_version": ADAPTER_VERSION,
-        "archive_integrity": archive["integrity"],
+        "archive_integrity": selected["integrity"] if selected else "ARCHIVE_ABSENT",
     }
 
 
-def compatibility_status(version: str | None, *, known_versions: set[str] = frozenset({"0.2.5", "0.2.6"})) -> str:
+
+def compatibility_status(version: str | None, *, known_versions: set[str] = frozenset(SUPPORTED_VERSIONS)) -> str:
     if version is None:
         return "BLOCKED"
-    if version == "0.2.6" and version in known_versions:
+    if version in {"0.2.6", "0.2.7"} and version in known_versions:
         return "SUPPORTED_WITH_WARNINGS"
     if version in known_versions:
         return "SUPPORTED"
@@ -106,11 +104,11 @@ def compatibility_status(version: str | None, *, known_versions: set[str] = froz
 def _archive_contents(path: Path) -> tuple[dict[str, str], dict[str, bytes]]:
     if path.is_dir():
         contents = {p.relative_to(path).as_posix(): p.read_bytes()
-                    for p in path.rglob("*") if p.is_file()
-                    and p.relative_to(path).parts[0] not in {"0.2.5", "0.2.6"}}
+                    for p in path.rglob("*") if p.is_file() and "__pycache__" not in p.parts
+                    and p.relative_to(path).parts[0] not in {"0.2.5", "0.2.6", "0.2.7", "__pycache__", "result"}}
     else:
         with zipfile.ZipFile(path) as archive:
-            raw_names = [name for name in archive.namelist() if not name.endswith("/")]
+            raw_names = [name for name in archive.namelist() if not name.endswith("/") and "__pycache__" not in name]
             roots = {PurePosixPath(name).parts[0] for name in raw_names if PurePosixPath(name).parts}
             wrapper = next(iter(roots)) if len(roots) == 1 and all("/" in name for name in raw_names) else None
             contents = {}
@@ -220,7 +218,7 @@ def build_comparison_report(root: Path) -> dict[str, Any]:
     known = next((row for row in archives if row.get("version") == "0.2.5"), None)
     future = next((row for row in archives if row.get("version") == "0.2.6"
                    and row.get("integrity") == "PASS"), None)
-    unknown = [row for row in archives if row.get("version") not in {"0.2.5", "0.2.6"}]
+    unknown = [row for row in archives if row.get("version") not in {"0.2.5", "0.2.6", "0.2.7", "__pycache__", "result"}]
     baseline_dir = root / "tools" / "kgi_tradesim"
     if not known and (baseline_dir / "tradeSim" / "TradeSim.py").is_file():
         known = {"path": str(baseline_dir), "filename": "tools/kgi_tradesim (legacy 0.2.5 extraction)",
@@ -228,7 +226,7 @@ def build_comparison_report(root: Path) -> dict[str, Any]:
                  "sha256": None, "source_tree_sha256": _tree_sha256(baseline_dir),
                  "size_bytes": None, "integrity": "SOURCE_TREE_AVAILABLE",
                  "member_count": sum(p.is_file() for p in baseline_dir.rglob("*")
-                                      if p.relative_to(baseline_dir).parts[0] not in {"0.2.5", "0.2.6"})}
+                                      if p.relative_to(baseline_dir).parts[0] not in {"0.2.5", "0.2.6", "0.2.7", "__pycache__", "result"})}
     # Keep reports useful: archive member inventories can be hundreds of entries.
     known = {k: v for k, v in known.items() if k != "members"} if known else None
     future = {k: v for k, v in future.items() if k != "members"} if future else None
@@ -273,6 +271,20 @@ def build_comparison_report(root: Path) -> dict[str, Any]:
         ],
         "official_submission_repository_accessed": False,
     }
+    latest = next((row for row in archives if row.get("version") == "0.2.7"), None)
+    old = root / "tools/kgi_tradesim/0.2.6"
+    if latest and old.is_dir():
+        comparison["comparison_026_to_027"] = _compare_archives(old, Path(latest["path"]))
+        comparison["comparison_026_to_027"]["baseline_evidence"] = "preserved extraction; root 0.2.6 ZIP absent at task baseline"
+    prior_path = root / "reports/tradesim_version_comparison.json"
+    if prior_path.is_file():
+        prior = json.loads(prior_path.read_text(encoding="utf-8"))
+        comparison["historical_025_to_026"] = prior.get("historical_025_to_026") or {
+            key: prior.get(key) for key in ("baseline", "future", "archive_diff", "changelog_behavior_summary")}
+    comparison["organizer_designated_competition_version"] = "0.2.7"
+    comparison["active_preferred_version"] = preferred_version(root)
+    comparison["runtime_validation"] = "See reports/tradesim_027_readiness.json; historical version evidence retained"
+    comparison["preserved_extractions"] = {v: str(runtime_root(root, v)) for v in SUPPORTED_VERSIONS if runtime_root(root, v).is_dir()}
     return comparison
 
 

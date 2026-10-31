@@ -124,3 +124,8 @@ The read-only inventory command is `scripts/inspect_official_tradesim_data.py`.
 ## Current official daily data and runtime update (2026-10-22)
 
 The earlier 0.2.5 baseline and runtime-blocked notes are historical. The designated 0.2.6 runtime now passes its exact Python 3.13.0 readiness check. The organizer's `Daily_Ticks.zip` has been extracted source-separately, inventoried, and integrated into the TradeSim runner behind explicit `--data-source official` selection. See the latest hash, coverage, source comparisons, and operational smoke evidence in [TradeSim 0.2.6 readiness](TRADESIM_026_READINESS.md) and [the integration guide](OFFICIAL_TRADESIM_INTEGRATION.md). Practice remains the default and is not overwritten.
+
+
+## TradeSim 0.2.7 migration update (2026-10-28)
+
+TradeSim 0.2.7 is the validated preferred competition simulator; 0.2.6 is deprecated for scoring and retained for historical reproduction. See [0.2.7 readiness](TRADESIM_027_READINESS.md) and `reports/tradesim_027_execution_semantics.json`. Runtime evidence covers IOC matching, volume caps, cancellations, fees, auctions, valid ticks, tick-table transition, FIFO and one-/multi-day smoke runs.

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-30T19:05:45.609259+00:00",
+  "oct30": {
+    "task_last_result": 1,
+    "runner_status": "FAILED_AFTER_RETRY_LIMIT",
+    "startup": "READY",
+    "runtime_seconds": 8466.48,
+    "rotation_generations": 21,
+    "one_minute_rows_written": 5314,
+    "bbo_events_written": 9689,
+    "orders_placed": 0,
+    "cause": "Local health subprocess exceeded its 60-second timeout on three checks; collector cycles themselves exited 0 before health checks. No evidence the runner was deadlocked; it continued to collect and checkpoint while health checks timed out.",
+    "fix_status": "Default bounded health timeout raised to 180 seconds (minimum 90, maximum 300); nonzero errors and runner exit behavior preserved; focused tests required."
+  },
+  "oct29": "PARTIAL_COLLECTION; later daily recovery 50/50 does not prove original scheduled invocation.",
+  "logged_out_runtime": "UNATTENDED_CONFIGURED_NOT_RUNTIME_VALIDATED; Password logon metadata and interactive_only=false were directly rechecked in Task Scheduler; no proof of run in logged-out session.",
+  "task_metadata_recheck": {
+    "enabled": true,
+    "state": "Ready",
+    "logon_type": "Password",
+    "interactive_only": false,
+    "evidence": "Read-only Get-ScheduledTask query during Phase 5 audit; no task settings changed."
+  },
+  "nov2": {
+    "status": "NOV2_NOT_YET_OBSERVABLE",
+    "scheduled_local": "2026-11-02 09:45 Asia/Bangkok",
+    "command": ".\\.venv\\Scripts\\python.exe scripts\\check_settrade_collector_readonly.py --target-date 2026-11-02"
+  },
+  "source_hashes": {
+    "AGENTS.md": "1c35bfe88c95dca28d0f7d8f83ce6c8dfe606f875339c12c74e7da6acca4a4a0",
+    "TASK_PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH.md": "c7913720896e940d0e1700dbe1dc8906ed64e0c06df4e158980c797ce9a15b60",
+    "KGI_ALGO26_Performance_TH.pdf": "e2a7d549dfffd9691e077a09ba3e51d94a3da11da3da9433ba717039721d79f1",
+    "reports/phase4_pit_universe_eligibility.json": "577b3f18d8ee04936c7c2bcd127bcd90564169e2494f85b5aec179bad5f2a973",
+    "reports/phase3_run_reconciliation.json": "4e998f85d48a7736b2693aeca8f1855c3a768fabcd34a30bd84ed23011498b0f",
+    "reports/research_phase3_summary.json": "676993c09c229fe809afdd39ba6f398988798c588166f935150dce354dc968aa",
+    "reports/research_holding_horizon_curve.json": "ef3a410448d77a1d21eddbf903b088af9e683d79a0a09727cf46525b46a0d318",
+    "reports/phase4_nonpromotional_baselines.json": "9aa8c2f1009f2052408872fb7fbd09e82c76864302714f23c9617814827cc493",
+    "reports/competition_benchmark_risk_envelope.json": "f807d5c262a53aa36356b770aea3274e4a0148fff1c1836c57ef450577f9d068",
+    "reports/competition_calendar_verified.json": "c3111571dba84651d2d2e0977a05ca6f6df1acd8dc29c7773130dfbdc9dfb127",
+    "reports/tradesim_027_readiness.json": "3bf9ea05638383190a33c25b1c65b1dcc1e8323fb069bddec95fba36efb66816",
+    "reports/tradesim_027_execution_semantics.json": "96b8ae3f7eeaff820683c34dfd858219b7c691636b5b11f29c269a80c121807c",
+    "reports/settrade_scheduler_status.json": "926952323e4dc4a9b1ab00bbf7045838b88a8bd071479b64129a7fbb9af5c25f",
+    "reports/runtime/settrade_daily_2026-10-30.json": "d2981e86a80e42616fdc9c96f44dfb323b35fe47625f6082e23614bdd706c67b",
+    "logs/settrade/daily-2026-10-30.log": "855b54d0b6c0843247164403274025cd23f1160bb3e678b331236ac0e81b7d84",
+    "config/phase4_research_direction_lock.json": "40d357e7b2ad28f54b90b102704eeaa58df3d8dccf711471da442fd198da40bd",
+    "config/phase5_preregistration.json": "9c76a9753b1f98218d6fb4a6fbf2f8a5bbbd7472a59e9415da47fcf96ead84fb",
+    "scripts/phase5_tick_mechanics_strategy.py": "e96839db63293b1d70b0b59a47db1721cf0e10cd4f08e5168807798f06b044dc",
+    "data/official/tradesim/ticks/ticks/2026-10-21.csv": "21aa6aa24d8081962d62bc9aa79f96e18406259ad4dd9ec3dc0d403ed04fce9a",
+    "tests/test_phase5_evidence.py": "c3e2d6d2996e2c9aabde1cf16f8d55ae987744671cc9748d90945b550340e60e",
+    "tests/test_settrade_daily_health_timeout.py": "78ffd05477a9e2f42bc94df7fea08c3f414f374141ef923eb39e3e81461f5f5b",
+    "ui/app.py": "bce35f57d18e617d0ad8fb130ea42c5b51d403b4f3344f9cd2999ebc6ea575ff",
+    "scripts/build_phase5_evidence.py": "375a235e293e8c1331cefe9edee571d6b597c5696ea1967ab4380a52ac9e3f15"
+  },
+  "run_provenance": {
+    "git_head": "0eb89f3272e1ab17cb4f9fa1a76316ebebb0b76a",
+    "branch": "main",
+    "dirty_worktree_status_sha256_at_report_build": "ec859282c468bd1cfabf6cd6a98a8ead523c884e30ec12aee4d12205f34b9837",
+    "observed_pre_edit_porcelain_entry_count": 201,
+    "pre_edit_status_fingerprint": "NOT_CAPTURED_BEFORE_EDITS",
+    "python_version": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]"
+  }
+}

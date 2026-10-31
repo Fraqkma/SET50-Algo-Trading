@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-24T07:05:02.483533+00:00",
+  "checked_at": "2026-10-30T15:27:10.565913+00:00",
   "environment": "production",
   "orders_placed": 0,
   "account_private_state": "REQUIRES_ACCOUNT_NUMBER",
@@ -54,7 +54,7 @@
   },
   "disk": {
     "state": "OK",
-    "free_bytes": 982092046336
+    "free_bytes": 980868268032
   },
   "authentication": "SUCCESS",
   "market_data_initialization": "SUCCESS",
@@ -109,10 +109,10 @@
       "volume"
     ],
     "rows": 5,
-    "first_timestamp": 1792661160,
-    "last_timestamp": 1792661700,
-    "latest_timestamp_bangkok": "2026-10-22T16:35:00+07:00",
-    "freshness": "STALE"
+    "first_timestamp": 1793352360,
+    "last_timestamp": 1793353020,
+    "latest_timestamp_bangkok": "2026-10-30T16:37:00+07:00",
+    "freshness": "FRESH"
   },
   "historical_candle": {
     "status": "EMPTY_RESPONSE",
@@ -134,8 +134,7 @@
   "account_reads": "REQUIRES_ACCOUNT_NUMBER",
   "warnings": [
     "private account APIs not probed: account number is not configured",
-    "sampled historical 1m candle request returned no rows",
-    "latest 1m response is stale; current-session candle availability is unverified"
+    "sampled historical 1m candle request returned no rows"
   ],
   "status": "READY_WITH_WARNINGS"
 }

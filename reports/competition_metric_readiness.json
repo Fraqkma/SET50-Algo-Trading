@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-10-30T15:34:28.435434+00:00",
+  "evidence_classification": "NO_OFFICIAL_CONTINUOUS_COMPETITION_SCORE",
+  "authoritative_source": "KGI_ALGO26_Performance_TH (1).pdf",
+  "source_status": "PRESENT_BUT_TEXT_EXTRACTION_NOT_VALIDATED_IN_THIS_RUN",
+  "competition_period": {
+    "start": "2026-12-16",
+    "end": "2027-01-15",
+    "timezone": "Asia/Bangkok",
+    "calendar_status": "CONFIRMED_FROM_OFFICIAL_SET_HOLIDAY_PAGES_AS_OF_2026-10-30",
+    "expected_trading_days": 21,
+    "benchmark_window": [
+      "2026-12-16",
+      "2027-01-15"
+    ],
+    "metric_window": [
+      "2026-12-16",
+      "2027-01-15"
+    ],
+    "exposure_denominator": "confirmed SET trading dates inside the inclusive competition period",
+    "round_trip_boundary_policy": "UNKNOWN_PENDING_ORGANIZER"
+  },
+  "official_scored_run": null,
+  "scoring_blocker": "Current TradeSim bridge resets portfolio per date; continuous portfolio scoring path not validated.",
+  "metrics": {
+    "benchmark_return": null,
+    "benchmark_max_drawdown": null,
+    "portfolio_total_return": null,
+    "portfolio_max_drawdown": null,
+    "excess_return": null,
+    "calmar_ratio": null,
+    "fifo_round_trips": null,
+    "average_portfolio_exposure": null,
+    "win_rate": null,
+    "expected_payoff": null
+  },
+  "common_criteria": {
+    "drawdown_vs_benchmark": {
+      "status": "UNKNOWN",
+      "threshold": "Portfolio Max DD < 1.5 x Benchmark Max DD"
+    },
+    "minimum_roundtrips": {
+      "status": "UNKNOWN",
+      "threshold": ">= 5 completed FIFO Round-Trips"
+    },
+    "average_exposure": {
+      "status": "UNKNOWN",
+      "threshold": ">= 50%"
+    },
+    "expected_payoff": {
+      "status": "UNKNOWN",
+      "threshold": "> 0"
+    }
+  },
+  "awards": {
+    "best_alpha": {
+      "eligibility": "UNKNOWN",
+      "requirements": [
+        "Portfolio Total Return >= 0",
+        "Excess Return >= 0"
+      ],
+      "ranking": [
+        "Excess Return descending",
+        "Calmar Ratio descending",
+        "Portfolio Total Return descending"
+      ]
+    },
+    "best_risk_control": {
+      "eligibility": "UNKNOWN",
+      "ranking": [
+        "Calmar Ratio descending",
+        "Excess Return descending",
+        "Maximum Drawdown ascending"
+      ]
+    },
+    "most_active_trader": {
+      "eligibility": "UNKNOWN",
+      "ranking": [
+        "Round-Trips descending"
+      ]
+    },
+    "precision_trader": {
+      "eligibility": "UNKNOWN",
+      "ranking": [
+        "Win Rate descending"
+      ]
+    }
+  },
+  "source_evidence": "Competition dates are user-confirmed. Common Criteria and award definitions are preserved from existing project/task evidence; named PDF is present but its text was not validated during this run.",
+  "no_team_rank_fabricated": true,
+  "real_orders_placed": 0
+}

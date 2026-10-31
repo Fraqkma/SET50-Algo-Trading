@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "classification": "NON-PROMOTIONAL_DIAGNOSTIC_ONLY",
+  "panel_id": "phase3_18",
+  "source": "approved_market_data_manifest.csv; raw Yahoo-adjusted close field where present",
+  "source_hashes": {
+    "manifest": "a0c319302447f27c5b2aac55329e97fb812bf9f6bbc05f57f98aa04f3c6a07fb"
+  },
+  "dates": {
+    "first_available": "2023-01-03",
+    "last_available": "2026-09-04",
+    "date_count": 898,
+    "official_approved_to_cap": "2026-09-04"
+  },
+  "symbols": [
+    "BDMS",
+    "BGRIM",
+    "CENTEL",
+    "COM7",
+    "GLOBAL",
+    "GULF",
+    "HMPRO",
+    "IVL",
+    "KKP",
+    "KTB",
+    "LH",
+    "MTC",
+    "OSP",
+    "PTTGC",
+    "RATCH",
+    "SCGP",
+    "TIDLOR",
+    "TOP"
+  ],
+  "cash_only": {
+    "net_return": 0.0,
+    "eod_exposure": 0.0,
+    "roundtrips": 0,
+    "common_criteria": "fails exposure, roundtrips, and expected-payoff evidence by construction"
+  },
+  "equal_weight_buy_hold_scenarios": {
+    "3": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.005055165406185669,
+      "net_return_median_after_two_side_fees": -0.008395173263444189,
+      "net_return_q10_q90": [
+        -0.08587119441405833,
+        0.08789253936461172
+      ],
+      "max_drawdown_median": 0.05381925981975906,
+      "excess_vs_official_tradesim_history_price_series_median": -0.0049230343843598146,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.00869029258610595,
+      "win_rate_median_excluding_zero_pnl_lots": 0.3333333333333333,
+      "profitable_roundtrips_median_per_window": 1,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.45933014354066987,
+        "median_portfolio_mdd": 0.06026260546886929,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 3,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    },
+    "5": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.006400760596760202,
+      "net_return_median_after_two_side_fees": -0.009736251320653255,
+      "net_return_q10_q90": [
+        -0.09074436340297676,
+        0.0893735644921656
+      ],
+      "max_drawdown_median": 0.0496850892617271,
+      "excess_vs_official_tradesim_history_price_series_median": -0.004942777627178652,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.009936388317937417,
+      "win_rate_median_excluding_zero_pnl_lots": 0.4,
+      "profitable_roundtrips_median_per_window": 2,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.4960127591706539,
+        "median_portfolio_mdd": 0.054258331735641256,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 5,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    },
+    "8": {
+      "window_count": 877,
+      "eligible_entry_windows": 877,
+      "censored_for_missing_endpoint_prices": 0,
+      "metric_scope": "overlapping 21-session retrospective entry-date random baskets; holdings selected only from PIT members on entry date; not OOS",
+      "random_basket_seed": 20261031,
+      "gross_return_median": -0.007118049468094911,
+      "net_return_median_after_two_side_fees": -0.010451132269073127,
+      "net_return_q10_q90": [
+        -0.0812034962974193,
+        0.08397393911107542
+      ],
+      "max_drawdown_median": 0.047950730442374315,
+      "excess_vs_official_tradesim_history_price_series_median": -0.0055936133032798985,
+      "expected_payoff_median_return_per_completed_lot_after_two_side_fees": -0.010984365910259211,
+      "win_rate_median_excluding_zero_pnl_lots": 0.375,
+      "profitable_roundtrips_median_per_window": 3,
+      "benchmark_drawdown_comparison": {
+        "matched_windows": 627,
+        "strict_1_5x_scenario_pass_fraction": 0.5422647527910686,
+        "median_portfolio_mdd": 0.052368152490877014,
+        "median_benchmark_mdd": 0.03282645707488861
+      },
+      "eod_exposure_scenario": 1.0,
+      "hypothetical_fifo_roundtrips_if_all_fills_occur": 8,
+      "execution_model": "daily adjusted-close mark-to-market; proportional stated commission+VAT charged at entry and exit; no slippage/fill claims; hypothetical roundtrips assume terminal liquidation and are not fill evidence"
+    }
+  },
+  "21_session_mechanics": {
+    "average_eod_exposure_requirement": 0.5,
+    "five_fifo_roundtrips": "order-count is mechanically schedulable in 21 sessions with 1-5 session lots if five actual buy/sell pairs fill; OHLC data cannot establish such fills or positive payoff",
+    "known_completed_roundtrips_in_baseline": 0
+  },
+  "benchmark_reference": {
+    "file": "data/official/tradesim/history/benchmark/SET50.csv",
+    "sha256": "cb302826aba0762dd111108c348f1fcab612a9971c4a1af71f62c79f35572267",
+    "observations": 747,
+    "first_date": "2023-09-21",
+    "last_date": "2026-10-21",
+    "quality": "unique date-only rows with positive closes; no intraday timestamp, source-revision metadata or scoring-feed identity embedded in this CSV",
+    "type": "TradeSim-history SET50 daily index series; evidence supports use as a regime/benchmark research proxy only, exact organizer-scored feed/revision policy unconfirmed"
+  },
+  "limitations": [
+    "Overlapping windows are not independent observations.",
+    "This is a retrospective feasibility baseline, not a signal study or promotion candidate.",
+    "Random baskets use only membership known for the entry date; outcome windows with missing future prices are censored and counted.",
+    "No authentic tick/IOC execution, liquidity constraint, or slippage calibration is represented.",
+    "The exact organizer scoring benchmark remains unconfirmed."
+  ]
+}

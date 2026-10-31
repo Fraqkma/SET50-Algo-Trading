@@ -7,9 +7,15 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--official-root',required=True); ap.add_argument('--run-id',required=True)
     ap.add_argument('--strategy',required=True); ap.add_argument('--dates',nargs='+',required=True)
+    ap.add_argument('--version', default='0.2.6')
     ap.add_argument('--output-dir',required=True); a=ap.parse_args()
     root=Path(a.official_root).resolve(); out=Path(a.output_dir).resolve(); sys.path.insert(0,str(root))
     from tradeSim import TradeSim, StrategyHandler
+    observer = None
+    if a.version == '0.2.7':
+        from tradeSim import Order, CommissionService
+        from observation import OrderObserver
+        observer = OrderObserver(Order.order, CommissionService.commissionService)
     strategy_path=Path(a.strategy).resolve(); spec=importlib.util.spec_from_file_location(strategy_path.stem,strategy_path)
     if spec is None or spec.loader is None: raise RuntimeError(f"Cannot load candidate strategy: {strategy_path}")
     module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
@@ -23,6 +29,8 @@ def main():
         if actual != [day]: raise ValueError(f"Requested date {day}, but {path.name} contains {actual}")
         ticks={s:g.to_dict('records') for s,g in df.groupby('ShareCode')}
         sim=TradeSim.tradeSim(a.run_id,current_date=df['TradeDateTime'].dt.date.iloc[0])
+        if observer is not None:
+            observer.attach(sim.execution)
         runner=sim.get_strategy_runner(); handlers={s:StrategyHandler.StrategyHandler(cls,runner,strategy_path.parent) for s in ticks}
         for i in range(max(map(len,ticks.values()))):
             for symbol,rows in ticks.items():
@@ -33,7 +41,7 @@ def main():
         # TradeSim creates a fresh in-memory order book for each day. Capture
         # the residual before explicitly clearing it so the bridge can report
         # EOD cancellation without carrying orders into the next session.
-        for order in list(sim.execution.Orders_Book):
+        for order in ([] if observer is not None else list(sim.execution.Orders_Book)):
             requested = int(order.get_volume())
             remaining = int(order.get_remaining_volume())
             filled = requested - remaining
@@ -59,7 +67,9 @@ def main():
     error_file=folder/f'{a.run_id}_error_log.txt'
     errors=[line.strip() for line in error_file.read_text(encoding='utf-8',errors='replace').splitlines() if '[ERROR]' in line] if error_file.exists() else []
     raw={'start_cash':start_cash,'daily':summary.tail(len(a.dates)).to_dict('records'),
-         'transactions':transactions,'orders':all_orders,'positions':portfolio.get('stocksList',portfolio.get('positions')),
+         'transactions':transactions,'orders':observer.snapshot() if observer else all_orders,
+         'rejected_orders':observer.rejections if observer else [],
+         'positions':portfolio.get('stocksList',portfolio.get('positions')),
          'round_trips':portfolio.get('round_trips',[]),'daily_snapshots':portfolio.get('daily_snapshots',[]),
          'portfolio_state':portfolio,'errors':errors,'warnings':[]}
     (out/'official_result.json').write_text(json.dumps(raw,indent=2,default=str),encoding='utf-8')

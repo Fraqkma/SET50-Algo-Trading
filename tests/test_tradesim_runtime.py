@@ -10,10 +10,10 @@ from src.competition.tradesim_bridge.runtime import (
 )
 
 
-def test_local_archive_is_intact_official_026():
+def test_local_archive_is_intact_official_027():
     info = inspect_archive()
-    assert info["filename"] == "tradeSim0.2.6.zip"
-    assert info["version"] == "0.2.6"
+    assert info["filename"] == "tradeSim0.2.7.zip"
+    assert info["version"] == "0.2.7"
     assert info["integrity"] == "PASS"
     assert info["required_missing"] == []
     assert info["has_practice_ticks"]

@@ -59,7 +59,7 @@ STOP_PATH = ROOT / ".settrade-runtime" / "daily.stop"
 LOG_DIR = ROOT / "logs" / "settrade"
 SUMMARY_DIR = ROOT / "reports" / "runtime"
 LOGGER = logging.getLogger("settrade_daily")
-DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS = 60
+DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS = 180
 
 
 def _health_check_timeout_seconds() -> int:
@@ -69,7 +69,7 @@ def _health_check_timeout_seconds() -> int:
         value = int(raw) if raw else DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS
     except ValueError:
         value = DEFAULT_HEALTH_CHECK_TIMEOUT_SECONDS
-    return max(45, min(value, 300))
+    return max(90, min(value, 300))
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -332,6 +332,8 @@ def run(args: argparse.Namespace) -> int:
             summary["shutdown_status"] = "CLEAN_EXIT"
         if summary["shutdown_status"] == "STOP_REQUESTED":
             set_state(CollectorState.STOPPED, "STOP_REQUESTED")
+        run_stamp = start.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        atomic_json_write(SUMMARY_DIR / "runs" / f"{run_stamp}_{os.getpid()}.json", summary)
         atomic_json_write(SUMMARY_DIR / f"settrade_daily_{summary['date']}.json", summary)
         try:
             _health()

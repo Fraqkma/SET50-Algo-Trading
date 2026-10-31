@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T13:53:25.952245+07:00",
+  "generated_at": "2026-10-28T18:24:02.851685+07:00",
   "dark_theme": "Streamlit base dark theme with shared slate surfaces, readable status colors, and Plotly dark template.",
   "tradingview_reference": "docs/TRADINGVIEW_UX_RESEARCH.md; anonymous public chart inspected with Playwright after the REA CDP endpoint proved unreachable.",
   "working_tools": [

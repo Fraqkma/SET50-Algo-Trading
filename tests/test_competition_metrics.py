@@ -1,6 +1,6 @@
 from src.competition.metrics import (FifoLotLedger, award_readiness,
                                      competition_metrics, fifo_metrics_from_fills,
-                                     qualification_report)
+                                     qualification_report, rank_award_candidates)
 import pytest
 
 
@@ -91,6 +91,9 @@ def test_qualification_reports_pass_fail_and_unknown():
                                   "expected_payoff": .01})
     assert all(x["status"] == "PASS" for x in passed.values())
     assert all(x["explanation"] for x in passed.values())
+    assert passed["drawdown_vs_benchmark"]["margin"] == pytest.approx(5.0)
+    assert passed["minimum_roundtrips"]["margin"] == 0
+    assert passed["average_exposure"]["margin"] == pytest.approx(0)
     failed = qualification_report({"portfolio_max_drawdown": 16, "benchmark_max_drawdown": 10,
                                    "round_trips": 4, "average_portfolio_exposure": .49,
                                    "expected_payoff": 0})
@@ -98,6 +101,7 @@ def test_qualification_reports_pass_fail_and_unknown():
     unknown = qualification_report({})
     assert all(x["status"] == "UNKNOWN" for x in unknown.values())
     assert all("unavailable" in x["explanation"] for x in unknown.values())
+    assert all(x["source_evidence"] == "TASK_SPECIFICATION_PDF_NOT_VERIFIED" for x in unknown.values())
 
 
 def test_award_readiness_is_descriptive_and_keeps_unknowns():
@@ -105,7 +109,23 @@ def test_award_readiness_is_descriptive_and_keeps_unknowns():
                             "round_trips": 3, "win_rate": .5})
     assert view["best_alpha"]["criteria"]["portfolio_total_return_nonnegative"] == "UNKNOWN"
     assert view["best_alpha"]["criteria"]["excess_return_nonnegative"] == "PASS"
+    assert view["best_alpha"]["award_eligible"] == "UNKNOWN"
     assert view["most_active_trader_roundtrips"] == 3
+
+
+def test_award_rankings_apply_eligibility_and_documented_tiebreaks():
+    ranked = rank_award_candidates({
+        "alpha_a": {"portfolio_total_return": 2, "excess_return": 1, "calmar_ratio": 2,
+                    "portfolio_max_drawdown": 4, "round_trips": 8, "win_rate": 60},
+        "alpha_b": {"portfolio_total_return": 3, "excess_return": 1, "calmar_ratio": 3,
+                    "portfolio_max_drawdown": 3, "round_trips": 9, "win_rate": 70},
+        "ineligible": {"portfolio_total_return": -1, "excess_return": 3, "calmar_ratio": 9,
+                       "portfolio_max_drawdown": 2, "round_trips": 2, "win_rate": 20},
+    })
+    assert [row["candidate"] for row in ranked["best_alpha"]] == ["alpha_b", "alpha_a"]
+    assert [row["candidate"] for row in ranked["best_risk_control"]] == ["ineligible", "alpha_b", "alpha_a"]
+    assert ranked["most_active_trader"][0]["candidate"] == "alpha_b"
+    assert ranked["precision_trader"][0]["candidate"] == "alpha_b"
 
 
 def test_zero_trade_metrics_are_zero_but_missing_trade_data_stays_unknown():

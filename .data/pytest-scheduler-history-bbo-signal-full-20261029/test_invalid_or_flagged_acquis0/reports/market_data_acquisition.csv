@@ -1,0 +1,8 @@
+SET Symbol,Source,Status,Output File,Validation Issues
+AAA,Yahoo Finance via yfinance,SUCCESS,data/raw/market_data/explicit_aaa.csv,
+INTUCH,Yahoo Finance via yfinance,NO_DATA,,
+GULF,Yahoo Finance via yfinance,PARTIAL,data/raw/market_data/explicit_gulf.csv,missing historical coverage
+BANPU,Yahoo Finance via yfinance,PARTIAL,data/raw/market_data/explicit_banpu.csv,High below Open/Close
+FLAG,Yahoo Finance via yfinance,PARTIAL,data/raw/market_data/explicit_flag.csv,invalid OHLC
+NOMAP,Yahoo Finance via yfinance,NO_DATA,,
+MISSING,Yahoo Finance via yfinance,SUCCESS,data/raw/market_data/not_present.csv,

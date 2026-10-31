@@ -1,13 +1,37 @@
 {
-    "checked_at":  "2026-10-16T13:57:22.5739698Z",
-    "installed":  false,
+    "checked_at":  "2026-10-30T15:30:59.5670279Z",
+    "installed":  true,
     "task_name":  "SET50 Settrade Daily Collector",
-    "enabled":  false,
-    "state":  "NOT_INSTALLED",
-    "next_run":  null,
-    "last_run":  null,
-    "last_result":  null,
+    "enabled":  true,
+    "state":  "Ready",
+    "principal_user":  "server",
+    "next_run":  "2026-11-02T09:45:00.0000000",
+    "last_run":  "2026-10-30T09:45:00.0000000",
+    "last_result":  1,
+    "missed_runs":  0,
+    "logon_type":  "Password",
+    "interactive_only":  false,
+    "logged_out_capable":  true,
+    "run_level":  "Limited",
+    "triggers":  [
+                     {
+                         "type":  3,
+                         "start_boundary":  "2026-10-17T09:45:00+07:00",
+                         "days_of_week":  62,
+                         "enabled":  true
+                     }
+                 ],
+    "settings":  {
+                     "start_when_available":  true,
+                     "wake_to_run":  true,
+                     "multiple_instances":  "IgnoreNew",
+                     "execution_time_limit":  "P1D"
+                 },
     "actions":  [
-
+                    {
+                        "execute":  "C:\\WINDOWS\\system32\\cmd.exe",
+                        "arguments":  "/d /c \"D:\\GitHub\\SET50-Algo-Trading\\scripts\\start_settrade_daily.bat\"",
+                        "working_directory":  "D:\\GitHub\\SET50-Algo-Trading"
+                    }
                 ]
 }

@@ -284,3 +284,8 @@ For a new organizer package, place it at the root as `Daily_Ticks.zip`, then run
 ```
 
 Ingestion is idempotent and refuses to overwrite conflicting extracted files. Refresh inventories and comparisons only from organizer-provided archives; review changed hashes and coverage before replay.
+
+
+## TradeSim 0.2.7 migration update (2026-10-28)
+
+TradeSim 0.2.7 is the validated preferred competition simulator; 0.2.6 is deprecated for scoring and retained for historical reproduction. See [0.2.7 readiness](TRADESIM_027_READINESS.md) and `reports/tradesim_027_execution_semantics.json`. Runtime evidence covers IOC matching, volume caps, cancellations, fees, auctions, valid ticks, tick-table transition, FIFO and one-/multi-day smoke runs.

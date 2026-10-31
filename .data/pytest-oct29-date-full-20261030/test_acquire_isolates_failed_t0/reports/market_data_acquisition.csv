@@ -1,0 +1,3 @@
+SET Symbol,Yahoo Ticker,Source,Requested Start,Requested End,Actual First Date,Actual Last Date,Rows,Status,Error,Validation Issues,Downloaded At,Output File
+AAA,AAA.BK,Yahoo Finance via yfinance,2024-01-01,2026-09-05,,,0,FAILED,download failed after 1 attempts: temporary network failure,,2026-10-30T15:30:28.520800+00:00,data\raw\market_data\AAA_BK.csv
+BBB,BBB.BK,Yahoo Finance via yfinance,2024-01-01,2026-09-05,2024-01-02,2024-01-02,1,SUCCESS,,,2026-10-30T15:30:28.521287+00:00,data\raw\market_data\BBB_BK.csv

@@ -6,7 +6,7 @@ if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 from src.competition.tradesim_bridge.core import BridgeError, compare_results, discover_official_repo, inspect_official, list_dates, run
 from src.competition.official_data import list_history_dates, list_tick_dates
 from src.competition.tradesim_bridge.runtime import (inspect_archive, inventory_ticks,
-    notebook_flow, discover_python3130, runtime_diagnostic, RuntimeErrorDetail)
+    notebook_flow, discover_python3130, runtime_diagnostic, RuntimeErrorDetail, runtime_root, SUPPORTED_VERSIONS)
 
 
 def _run_summary(result):
@@ -23,6 +23,7 @@ def _run_summary(result):
 
 def main():
     p=argparse.ArgumentParser(description='Invoke the official KGI TradeSim in its own Python environment.')
+    p.add_argument('--version', choices=SUPPORTED_VERSIONS, help='Explicit historical or current simulator version.')
     p.add_argument('--official-repo', help='Compatibility alias; only tools/kgi_tradesim is accepted.')
     p.add_argument('--check',action='store_true'); p.add_argument('--list-dates',action='store_true', help='List the selected source dates (practice by default).')
     p.add_argument('--list-official-data',action='store_true',help='Show cached official archive identity and coverage manifests.')
@@ -51,10 +52,10 @@ def main():
             official=json.loads(Path(a.compare[1]).read_text(encoding='utf-8'))
             print(json.dumps(compare_results(research,official),indent=2,default=str)); return 0
         if a.check:
-            report=runtime_diagnostic(ROOT)
+            report=runtime_diagnostic(ROOT, a.version)
             print(json.dumps(report, indent=2))
             return 0 if report['status'] in {'READY', 'READY_WITH_WARNINGS'} else 2
-        repo=discover_official_repo(a.official_repo)
+        repo=discover_official_repo(a.official_repo or runtime_root(ROOT, a.version))
         if a.list_official_data:
             report_path=ROOT/'reports'/'tradesim_official_daily_ticks_package.json'
             if not report_path.is_file():
@@ -83,7 +84,7 @@ def main():
         if a.list_dates:
             if a.data_source == 'official':
                 print(json.dumps({'source':'TRADESIM_OFFICIAL_TICKS','dates':list_tick_dates()},indent=2)); return 0
-            print(json.dumps(inventory_ticks(),indent=2)); return 0
+            print(json.dumps(inventory_ticks(ROOT, a.version),indent=2)); return 0
         if a.data_source == 'official':
             inventory=[{'dates':[day]} for day in list_tick_dates()]
         else:

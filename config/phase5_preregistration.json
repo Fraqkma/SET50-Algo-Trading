@@ -1,0 +1,14 @@
+{
+  "experiment_id": "PHASE5_PIT_UNLOCK_EXECUTION_AND_RESEARCH_20261031",
+  "frozen_at_utc": "2026-10-30T18:55:00+00:00",
+  "status": "NEW_ALPHA_SCREEN_DEFERRED_DATA_GATE",
+  "hypotheses": [],
+  "holdout_policy": "No eligible block will be screened unless newly approved PIT history and a truly untouched outcome block are evidenced. All existing outcomes remain previously seen diagnostics.",
+  "primary_objective": "balanced risk-adjusted net returns; Best Alpha primary, Best Risk Control secondary",
+  "preferred_holding_sessions": [1, 2, 3, 4, 5],
+  "longer_horizons_if_justified": [7, 10, 15],
+  "transaction_costs": {"commission_per_side": 0.00157, "vat_on_commission": 0.07, "tick_stress": "one valid adverse tick per side; not a fill model"},
+  "multiple_testing": "No screen run. Any future family must be frozen before outcomes and corrected familywise.",
+  "seeds": {"screen": null, "reason": "no eligible screen"},
+  "data_budget_thb": 0
+}
